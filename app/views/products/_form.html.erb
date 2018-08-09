@@ -7,7 +7,7 @@
   <%= f.number_field :price %>
 
   <%= f.label :unit, "Unité de vente" %>
-  <%= f.text_field :unit %>
+  <%= f.select :unit, collection: ['Kilo','100 grammes', 'Pièce']  %>
 
   <%= f.label :active, "Dispo cette semaine" %>
   <%= f.check_box :active %>
