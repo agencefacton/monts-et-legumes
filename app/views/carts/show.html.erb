@@ -1,6 +1,0 @@
-<% @product_orders.each do |product_order| %>
-<%= product_order.product.name %>
-<p>Prix : </p><%= product_order.product.price * product_order.quantity %>
-<%= link_to "Delete", product_order_path(product_order), :data => {:confirm => "You sure?", :method => "delete"} %>
-<% end %>
-<%= link_to "Produits", products_path %>

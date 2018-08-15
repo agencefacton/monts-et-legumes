@@ -6,7 +6,7 @@
 <% @products.each do |product| %>
   <li>
     <%= product.name.capitalize %>
-    <%= product.price.to_f / 100 %> €
+    <%= product.price %> €
     <%= product.unit %>
     <%= form_for @product_order do |f| %>
       <%= f.hidden_field :product_id, value: product.id %>
@@ -18,5 +18,5 @@
     <%= link_to "Supprimer", product_path(product), method: :delete, data: { confirm: "Tu es sûr.e ?" } %>
   </li>
 <% end %>
-<%= link_to "Voir le panier", cart_path %>
+<%= link_to "Voir le panier", order_path %>
 </ul>
