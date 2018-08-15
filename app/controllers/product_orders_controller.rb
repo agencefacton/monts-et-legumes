@@ -21,7 +21,7 @@ before_action :set_product_order, only: [:edit, :update, :destroy]
     @item = @order.product_orders.find(params[:id])
     @item.destroy
     @order.save
-    redirect_to order_path
+    redirect_to order_path(@order)
   end
 
 
@@ -33,7 +33,7 @@ before_action :set_product_order, only: [:edit, :update, :destroy]
     @item = @order.product_orders.find(params[:id])
     @item.update(product_order_params)
     @order.save
-    redirect_to order_path
+    redirect_to order_path(@order)
   end
 
   private
