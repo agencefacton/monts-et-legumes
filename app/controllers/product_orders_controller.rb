@@ -1,5 +1,5 @@
 class ProductOrdersController < ApplicationController
-before_action :set_product_order, only: [:show, :edit, :update, :destroy]
+before_action :set_product_order, only: [:edit, :update, :destroy]
 
   def new
     @product_order = ProductOrder.new
@@ -32,6 +32,7 @@ before_action :set_product_order, only: [:show, :edit, :update, :destroy]
     @order = current_order
     @item = @order.product_orders.find(params[:id])
     @item.update(product_order_params)
+    @order.save
     redirect_to order_path
   end
 

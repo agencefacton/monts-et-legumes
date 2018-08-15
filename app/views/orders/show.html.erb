@@ -3,10 +3,15 @@
 <% @product_orders.each do |product_order| %>
 
   <%= product_order.product.name %>
-Prix :<%= product_order.product.price %>
-  <%= link_to "Delete", product_order_path(product_order), :data => {:method => "delete"} %>
-  <%= link_to "Editer", edit_product_order_path(product_order) %>
+Prix au <%= product_order.product.unit %>:<%= product_order.product.price %>
+Quantité : <%= product_order.quantity %>
+Prix total : <%= product_order.quantity.to_f * product_order.product.price.to_f %>
+  <%= link_to "Supprimer cet article", product_order_path(product_order), :data => {:method => "delete"} %>
+  <%= link_to "Modifier la quantité", edit_product_order_path(product_order) %>
   <br/>
 <% end %>
+
+<h4>Prix total cette semaine : <%= number_to_currency current_order.invoiced %></h4>
+
 
 <p><%= link_to "Retour aux produits", products_path %></p>
