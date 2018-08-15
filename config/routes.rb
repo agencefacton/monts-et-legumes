@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :products
   resources :product_orders
   resource :order, only: [:show]
+  resources :orders
 end

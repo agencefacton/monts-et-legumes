@@ -4,6 +4,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
     @products = Product.all
     @product_order = current_order.product_orders.new
+    @order = current_order
   end
 
   def show

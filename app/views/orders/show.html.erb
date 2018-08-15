@@ -1,4 +1,5 @@
 <h1>Votre panier</h1>
+<h2>Semaine <%= current_order.date %></h2>
 
 <% @product_orders.each do |product_order| %>
 
@@ -12,6 +13,7 @@ Prix total : <%= product_order.quantity.to_f * product_order.product.price.to_f 
 <% end %>
 
 <h4>Prix total cette semaine : <%= number_to_currency current_order.invoiced %></h4>
+
 
 
 <p><%= link_to "Retour aux produits", products_path %></p>
