@@ -4,7 +4,7 @@
 
 <ul>
 <% @products.each do |product| %>
-  <% if product.active == true %>
+  <% if product.active? %>
   <li>
     <%= product.name.capitalize %>
     <%= product.price %> €
@@ -20,5 +20,7 @@
     <% end %>
   </li>
 <% end %>
-<%= link_to "Voir le panier", order_path(@order) %>
+<% if @order.product_orders.count > 0 %>
+  <%= link_to "Voir le panier", order_path(@order) %>
+<% end %>
 </ul>
