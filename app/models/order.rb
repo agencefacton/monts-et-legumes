@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :product_orders
+  belongs_to :user
   before_create :set_status
   before_save :update_total
   before_save :update_date
