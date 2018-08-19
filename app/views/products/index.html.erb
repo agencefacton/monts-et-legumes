@@ -1,16 +1,26 @@
-<h1> Products </h1>
+<h1> Disponibles cette semaine </h1>
 
 <%= link_to "Ajouter un produit", new_product_path %>
 
 <ul>
 <% @products.each do |product| %>
+  <% if product.active? %>
   <li>
     <%= product.name.capitalize %>
-    <%= product.price.to_f / 100 %> €
+    <%= product.price %> €
     <%= product.unit %>
+    <%= form_for @product_order do |f| %>
+      <%= f.hidden_field :product_id, value: product.id %>
+      <%= f.number_field :quantity %>
+      <%= f.submit "Ajouter au panier" %>
+      <% end %>
     <%= link_to "Détails", product_path(product) %>
     <%= link_to "Editer", edit_product_path(product) %>
-    <%= link_to "Supprimer", product_path(product), method: :delete, data: { confirm: "Tu es sûr.e ?" } %>
+    <%= link_to "Supprimer", product_path(product), method: :delete, data: { confirm: "Sûr.e ?" } %>
+    <% end %>
   </li>
+<% end %>
+<% if @order.product_orders.count > 0 %>
+  <%= link_to "Voir le panier", order_path(@order) %>
 <% end %>
 </ul>

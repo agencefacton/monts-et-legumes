@@ -2,7 +2,9 @@ class ProductsController < ApplicationController
 before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = policy_scope(Product)
+    @products = Product.all
+    @product_order = current_order.product_orders.new
+    @order = current_order
   end
 
   def show
@@ -10,12 +12,13 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def new
     @product = Product.new
-    authorize @product
+    # authorize @product
   end
 
   def create
-    @product = current_user.products.build(product_params)
-    authorize @product
+    @product = Product.new(product_params)
+    @product.save
+    # authorize @product
     redirect_to products_path
   end
 
@@ -40,7 +43,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def set_product
     @product = Product.find(params[:id])
-    authorize @product
+    # authorize @product
   end
 
 end
