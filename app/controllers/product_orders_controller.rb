@@ -1,5 +1,5 @@
 class ProductOrdersController < ApplicationController
-before_action :set_product_order, only: [:edit, :update, :destroy]
+  before_action :set_product_order, only: [:edit, :update, :destroy]
 
   def new
     @product_order = ProductOrder.new
@@ -9,7 +9,17 @@ before_action :set_product_order, only: [:edit, :update, :destroy]
   def create
     # @product_order = current_user.product_orders.build(product_order_params)
     @order = current_order
-    @item = @order.product_orders.new(product_order_params)
+    @present = false
+    @order.product_orders.each do |product_order|
+      if product_order.product.id == product_order_params[:product_id].to_i
+        product_order.quantity += product_order_params[:quantity].to_i
+        product_order.save
+        @present = true
+      end
+    end
+    if @present == false
+      @item = @order.product_orders.new(product_order_params)
+    end
     @order.save
     session[:order_id] = @order.id
     redirect_to products_path
