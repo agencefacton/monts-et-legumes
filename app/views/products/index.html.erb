@@ -43,12 +43,8 @@
       <%= f.hidden_field :status, value: 1 %>
       <%= f.submit 'Valider la commande' %>
     <% end %>
-  <% else %>
-    <%= form_for(@order) do |f| %>
-      <%= f.hidden_field :status, value: 0 %>
-      <%= f.submit 'Annuler la commande' %>
-    <% end %>
   <% end %>
+
   <p><%= link_to "Retour aux produits", products_path %></p>
 <% else %>
   <p>Pas encore de produits, <%= link_to "Passez une commande", products_path %></p>

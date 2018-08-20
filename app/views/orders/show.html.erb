@@ -13,12 +13,7 @@
 
 <h4>Prix total cette semaine : <%= number_to_currency @order.invoiced %></h4>
 
-<% if current_order.status != 1 %>
-  <%= form_for(@order) do |f| %>
-    <%= f.hidden_field :status, value: 1 %>
-    <%= f.submit 'Valider la commande' %>
-  <% end %>
-<% else %>
+<% if current_order.status == 1 %>
   <%= form_for(@order) do |f| %>
     <%= f.hidden_field :status, value: 0 %>
     <%= f.submit 'Annuler la commande' %>
