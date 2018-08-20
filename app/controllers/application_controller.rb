@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   # end
 
+
   private
 
   def skip_pundit?
@@ -31,5 +32,7 @@ class ApplicationController < ActionController::Base
       Order.new(user: current_user)
     end
   end
+
+
 
 end
