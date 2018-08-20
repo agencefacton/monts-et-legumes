@@ -31,7 +31,7 @@ class ProductOrdersController < ApplicationController
     @item = @order.product_orders.find(params[:id])
     @item.destroy
     @order.save
-    redirect_to order_path(@order)
+    redirect_to products_path
   end
 
 
@@ -43,7 +43,7 @@ class ProductOrdersController < ApplicationController
     @item = @order.product_orders.find(params[:id])
     @item.update(product_order_params)
     @order.save
-    redirect_to order_path(@order)
+    redirect_to products_path
   end
 
   private

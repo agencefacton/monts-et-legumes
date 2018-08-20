@@ -20,7 +20,40 @@
     <% end %>
   </li>
 <% end %>
+</ul>
+
+<h2> Mon panier </h2>
+
+<% if @order.product_orders.any? %>
+  <% @order.product_orders.each do |product_order| %>
+    <li><%= product_order.product.name %>
+    Prix au <%= product_order.product.unit %>:<%= product_order.product.price %>
+    Quantité : <%= product_order.quantity %>
+    Prix total : <%= product_order.quantity.to_f * product_order.product.price.to_f %>
+    <% if @order == current_order %>
+      <%= link_to "Supprimer cet article", product_order_path(product_order), :data => {:method => "delete"} %>
+      <%= link_to "Modifier la quantité", edit_product_order_path(product_order) %>
+    <% end %></li>
+  <% end %>
+
+  <h4>Prix total cette semaine : <%= number_to_currency @order.invoiced %></h4>
+
+  <% if current_order.status != 1 %>
+    <%= form_for(@order) do |f| %>
+      <%= f.hidden_field :status, value: 1 %>
+      <%= f.submit 'Valider la commande' %>
+    <% end %>
+  <% else %>
+    <%= form_for(@order) do |f| %>
+      <%= f.hidden_field :status, value: 0 %>
+      <%= f.submit 'Annuler la commande' %>
+    <% end %>
+  <% end %>
+  <p><%= link_to "Retour aux produits", products_path %></p>
+<% else %>
+  <p>Pas encore de produits, <%= link_to "Passez une commande", products_path %></p>
+<% end %>
+
 <% if @order.product_orders.count > 0 %>
   <%= link_to "Voir le panier", order_path(@order) %>
 <% end %>
-</ul>
