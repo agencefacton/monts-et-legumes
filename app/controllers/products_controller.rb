@@ -6,6 +6,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     @product_order = current_order.product_orders.new
     @product_orders = current_order.product_orders
     @order = current_order
+    @incart = false
   end
 
   def show
