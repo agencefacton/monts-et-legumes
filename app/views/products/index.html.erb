@@ -9,35 +9,31 @@
 
     <li>
 
-    <%= product.name.capitalize %>
-    <%= product.price %> €
-    <%= product.unit %>
-
-    <% @order.product_orders.each do |product_order| %>
-      <% if product_order.product.id.to_i == product.id.to_i %>
-        <% @incart = true %>
+      <%= product.name.capitalize %>
+      <%= product.price %> €
+      <%= product.unit %>
+      
+      <% if @order.contains?(product) %>
+        <% product_order = @order.product_orders.find_by(product_id: product.id) %>
         Quantité : <%= product_order.quantity %>
         Prix total : <%= product_order.quantity.to_f * product_order.product.price.to_f %>
         <%= form_for product_order do |f| %>
           <%= f.number_field :quantity, label: "Modifier la quantité" %>
           <%= f.submit "Modifier la quantité" %>
-            <%= link_to "Supprimer cet article", product_order_path(product_order), :data => {:method => "delete"} %>
+          <%= link_to "Supprimer cet article", product_order_path(product_order), :data => {:method => "delete"} %>
+        <% end %>
+      <% else %>
+        <%= form_for @product_order do |f| %>
+          <%= f.hidden_field :product_id, value: product.id %>
+          <%= f.number_field :quantity %>
+          <%= f.submit "Ajouter au panier" %>
         <% end %>
       <% end %>
-    <% end %>
-
-    <% if @incart == false %>
-      <%= form_for @product_order do |f| %>
-        <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity %>
-        <%= f.submit "Ajouter au panier" %>
-      <% end %>
-    <% end %>
 
       <%= link_to "Détails", product_path(product) %>
       <%= link_to "Editer", edit_product_path(product) %>
       <%= link_to "Supprimer", product_path(product), method: :delete, data: { confirm: "Sûr.e ?" } %>
-    
+      
     </li>
     <% @incart = false %>
 
@@ -48,11 +44,11 @@
 
 <h4>Prix total cette semaine : <%= number_to_currency @order.invoiced %></h4>
 
-  <% if current_order.status != 1 %>
-    <%= form_for(@order) do |f| %>
-      <%= f.hidden_field :status, value: 1 %>
-      <%= f.submit 'Valider la commande' %>
-    <% end %>
-    <% elsif current_order.status == 1 && current_order.product_orders.count > 0 %>
-    <p>Votre commande est déjà prise en compte. <%= link_to "Voir le panier", order_path(@order) %>
+<% if current_order.status != 1 %>
+  <%= form_for(@order) do |f| %>
+    <%= f.hidden_field :status, value: 1 %>
+    <%= f.submit 'Valider la commande' %>
   <% end %>
+  <% elsif current_order.status == 1 && current_order.product_orders.count > 0 %>
+  <p>Votre commande est déjà prise en compte. <%= link_to "Voir le panier", order_path(@order) %>
+<% end %>

@@ -1,12 +1,11 @@
 class OrdersController < ApplicationController
-before_action :set_order, only: [:show, :edit, :update]
+before_action :set_order, only: [:show, :edit, :update, :reset_status]
 
   def index
     @orders = Order.all
   end
 
   def show
-    # @product_orders = current_order.product_orders
   end
 
   def new
@@ -30,6 +29,13 @@ before_action :set_order, only: [:show, :edit, :update]
       redirect_to products_path
     end
   end
+
+  def reset_status
+    @order.status = 0
+    @order.save
+    redirect_to products_path
+  end
+
 
   def destroy
   end

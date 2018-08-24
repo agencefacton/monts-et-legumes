@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :product_orders
+  has_many :products, through: :product_orders
   belongs_to :user
   before_create :set_status
   before_save :update_total
@@ -17,6 +18,9 @@ class Order < ApplicationRecord
     self.status = 1
   end
 
+  def contains?(product)
+    products.include?(product)
+  end
 
 private
 
