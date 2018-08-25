@@ -22,6 +22,10 @@ class Order < ApplicationRecord
     products.include?(product)
   end
 
+  def current_week
+    Time.now.strftime("%U").to_i
+  end
+
 private
 
   def update_total
@@ -29,6 +33,6 @@ private
   end
 
   def update_date
-    self.date = Time.now.strftime("%U").to_i
+    self.date = current_week
   end
 end

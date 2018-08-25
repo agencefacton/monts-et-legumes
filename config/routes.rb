@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   # get 'orders/:id/reset_status', to: 'orders#reset_status', :as => "reset_status"
   root to: "pages#home"
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
       get :reset_status
     end
   end
-  resources :user
+  resources :users
 
   # do
   #   resources :reviews, only: [ :new, :create ]

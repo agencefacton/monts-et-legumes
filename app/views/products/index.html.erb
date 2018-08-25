@@ -42,7 +42,7 @@
 </ul>
 
 
-<h4>Prix total cette semaine : <%= number_to_currency @order.calculate_total %></h4>
+<h4>Prix total cette semaine : <%= number_to_currency @order.invoiced %></h4>
 
 <% if current_order.status != 1 %>
   <%= form_for(@order) do |f| %>

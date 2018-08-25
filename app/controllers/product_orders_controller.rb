@@ -26,8 +26,10 @@ class ProductOrdersController < ApplicationController
   def update
     if product_order_params[:quantity].to_i == 0
       @product_order.destroy
+      @order.save
     else
       @product_order.update(product_order_params)
+      @order.save
     end
     redirect_to products_path
   end

@@ -11,7 +11,7 @@
   </li>
 <% end %>
 
-<h4>Prix total cette semaine : <%= number_to_currency @order.invoiced %></h4>
+<h4>Prix total du panier : <%= number_to_currency @order.invoiced %></h4>
 
 <% if current_order.status == 1 %>
   <%= form_for(@order) do |f| %>
@@ -21,4 +21,5 @@
 <% end %>
 
 <p><%= link_to "Vous avez oublié un produit ? Modifiez votre commande", reset_status_order_path(@order) %></p>
+<p><%= link_to "Voir mon profil", user_path(@user) %></p>
 <p><%= link_to "Historique de mes commandes", orders_path %></p>

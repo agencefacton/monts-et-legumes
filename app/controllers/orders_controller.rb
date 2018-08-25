@@ -6,6 +6,7 @@ before_action :set_order, only: [:show, :edit, :update, :reset_status]
   end
 
   def show
+    @user = User.find(@order.user_id)
   end
 
   def new
@@ -18,7 +19,7 @@ before_action :set_order, only: [:show, :edit, :update, :reset_status]
   end
 
   def update
-    if order_params[:status].to_i == 1
+    if order_params[:status].to_i == 1 
       @order.update(order_params)
       @order.save
       redirect_to order_path
