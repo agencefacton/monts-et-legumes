@@ -7,7 +7,7 @@
   <li><%= product_order.product.name %>
   Prix au <%= product_order.product.unit %>:<%= product_order.product.price %>
   Quantité : <%= product_order.quantity %>
-  Prix total : <%= product_order.quantity.to_f * product_order.product.price.to_f %>
+  Prix total : <%= product_order.item_price %>
   </li>
 <% end %>
 
@@ -20,5 +20,5 @@
   <% end %>
 <% end %>
 
-<p><%= link_to "Vous avez oublié un produit ? Modifiez votre commande", reset_status_path(@order) %></p>
+<p><%= link_to "Vous avez oublié un produit ? Modifiez votre commande", reset_status_order_path(@order) %></p>
 <p><%= link_to "Historique de mes commandes", orders_path %></p>

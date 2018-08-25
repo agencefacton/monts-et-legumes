@@ -16,7 +16,7 @@
       <% if @order.contains?(product) %>
         <% product_order = @order.product_orders.find_by(product_id: product.id) %>
         Quantité : <%= product_order.quantity %>
-        Prix total : <%= product_order.quantity.to_f * product_order.product.price.to_f %>
+        Prix total : <%= product_order.item_price %>
         <%= form_for product_order do |f| %>
           <%= f.number_field :quantity, label: "Modifier la quantité" %>
           <%= f.submit "Modifier la quantité" %>
@@ -42,13 +42,11 @@
 </ul>
 
 
-<h4>Prix total cette semaine : <%= number_to_currency @order.invoiced %></h4>
+<h4>Prix total cette semaine : <%= number_to_currency @order.calculate_total %></h4>
 
 <% if current_order.status != 1 %>
   <%= form_for(@order) do |f| %>
     <%= f.hidden_field :status, value: 1 %>
     <%= f.submit 'Valider la commande' %>
   <% end %>
-  <% elsif current_order.status == 1 && current_order.product_orders.count > 0 %>
-  <p>Votre commande est déjà prise en compte. <%= link_to "Voir le panier", order_path(@order) %>
-<% end %>
+<% end  %>
