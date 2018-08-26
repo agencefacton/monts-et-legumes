@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   # get 'orders/:id/reset_status', to: 'orders#reset_status', :as => "reset_status"
   root to: "pages#home"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -11,10 +11,6 @@ Rails.application.routes.draw do
       get :reset_status
     end
   end
-  resources :users
-
-  # do
-  #   resources :reviews, only: [ :new, :create ]
-  # end
+  resources :users, only: [:index, :show, :new, :create]
 
 end
