@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     helper_method :current_order
-    helper_method :current_week
   # before_action :authenticate_user!
   # include Pundit
   # before_action :configure_permitted_parameters, if: :devise_controller?
