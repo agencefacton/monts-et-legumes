@@ -7,13 +7,13 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     @product_orders = current_order.product_orders
     @order = current_order
     @incart = false
+    @product = Product.new
   end
 
   def show
   end
 
   def new
-    @product = Product.new
     # authorize @product
   end
 
