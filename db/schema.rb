@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2018_09_01_160210) do
   enable_extension "plpgsql"
 
   create_table "orders", force: :cascade do |t|
-    t.date "date"
-    t.decimal "invoiced"
+    t.integer "week_number"
+    t.decimal "total_price"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2018_09_01_160210) do
   end
 
   create_table "product_orders", force: :cascade do |t|
-    t.decimal "quantity"
+    t.integer "quantity"
     t.bigint "product_id"
     t.bigint "order_id"
     t.datetime "created_at", null: false
