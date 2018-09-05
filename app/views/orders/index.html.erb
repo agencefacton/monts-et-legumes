@@ -1,8 +1,8 @@
 <h1>Mes commandes</h1>
 
 <% @orders.each do |order| %>
-<li>Semaine <%= order.date %>
-Montant <%= order.invoiced %> €
+<li>Semaine <%= order.week_number %>
+Montant <%= order.total_price %> €
 <%= link_to "Voir le détail", order_path(order) %>
 </li>
 <% end %>
