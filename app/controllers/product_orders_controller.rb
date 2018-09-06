@@ -4,7 +4,6 @@ class ProductOrdersController < ApplicationController
 
   def new
     @product_order = ProductOrder.new
-    authorize @product_order
   end
 
   def create

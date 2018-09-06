@@ -18,13 +18,11 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
   end
 
   def new
-    # authorize @product
   end
 
   def create
     @product = Product.new(product_params)
     @product.save
-    # authorize @product
     redirect_to products_path
   end
 
