@@ -1,46 +1,57 @@
-<h1> Disponibles cette semaine </h1>
+<% if current_user.admin? %>
+  <h2>Ajouter un produit</h2>
+  <%= render 'form', product: @product %>
+<% end %>
 
-<h2>Ajouter un produit</h2>
-<%= render 'form', product: @product %>
+<h1> Disponibles cette semaine </h1>
 
 <ul>
 
 <% @products.each do |product| %>
-  <% if product.active? %>
 
-    <li>
-      <% if product.photo.present? %>
-        <%= cl_image_tag product.photo, height: 100, width: 100, crop: :fill %>
+  <li>
+    <% if product.photo.present? %>
+      <%= cl_image_tag product.photo, height: 100, width: 100, crop: :fill %>
+    <% end %>
+    <% if product.active == false %>
+      Inactive
+    <% end %>
+    <%= product.name.capitalize %>
+    <%= product.description %>
+    <%= product.price %> €
+    <%= product.unit %>
+
+    <% if @order.contains?(product) %>
+      <% product_order = @order.product_orders.find_by(product_id: product.id) %>
+      Quantité : <%= product_order.quantity %>
+      Prix total : <%= product_order.item_price %>
+      <%= form_for product_order do |f| %>
+        <%= f.number_field :quantity, label: "Modifier la quantité" %>
+        <%= f.submit "Modifier la quantité" %>
+        <%= link_to "Supprimer cet article", product_order_path(product_order), :data => {:method => "delete"} %>
       <% end %>
-      <%= product.name.capitalize %>
-      <%= product.price %> €
-      <%= product.unit %>
-
-      <% if @order.contains?(product) %>
-        <% product_order = @order.product_orders.find_by(product_id: product.id) %>
-        Quantité : <%= product_order.quantity %>
-        Prix total : <%= product_order.item_price %>
-        <%= form_for product_order do |f| %>
-          <%= f.number_field :quantity, label: "Modifier la quantité" %>
-          <%= f.submit "Modifier la quantité" %>
-          <%= link_to "Supprimer cet article", product_order_path(product_order), :data => {:method => "delete"} %>
-        <% end %>
-      <% else %>
-        <%= form_for @product_order do |f| %>
-          <%= f.hidden_field :product_id, value: product.id %>
-          <%= f.number_field :quantity %>
-          <%= f.submit "Ajouter au panier" %>
-        <% end %>
+    <% else %>
+      <%= form_for @product_order do |f| %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.number_field :quantity %>
+        <%= f.submit "Ajouter au panier" %>
       <% end %>
+    <% end %>
 
-      <%= link_to "Détails", product_path(product) %>
+    <%= link_to "Détails", product_path(product) %>
+    <% if current_user.admin? %>
       <%= link_to "Editer", edit_product_path(product) %>
       <%= link_to "Supprimer", product_path(product), method: :delete, data: { confirm: "Sûr.e ?" } %>
+      <% if product.active? %>
+        <%= link_to "Desactiver", change_active_product_path(product) %>
+      <% else %>
+        <%= link_to "Activer", change_active_product_path(product) %>
+      <% end %>
+    <% end %>
 
-    </li>
-    <% @incart = false %>
+  </li>
+  <% @incart = false %>
 
-  <% end %>
 <% end %>
 </ul>
 

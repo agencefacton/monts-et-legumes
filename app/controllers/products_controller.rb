@@ -1,8 +1,12 @@
 class ProductsController < ApplicationController
-before_action :set_product, only: [:show, :edit, :update, :destroy]
+before_action :set_product, only: [:show, :edit, :update, :destroy, :change_active]
 
   def index
-    @products = Product.all
+    if current_user.admin?
+      @products = Product.all
+    else
+      @products = Product.where(active: true)
+    end
     @product_order = current_order.product_orders.new
     @product_orders = current_order.product_orders
     @order = current_order
@@ -21,6 +25,12 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     @product = Product.new(product_params)
     @product.save
     # authorize @product
+    redirect_to products_path
+  end
+
+  def change_active
+    @product.active = !@product.active
+    @product.save
     redirect_to products_path
   end
 
