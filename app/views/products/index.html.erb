@@ -9,7 +9,9 @@
   <% if product.active? %>
 
     <li>
-
+      <% if product.photo.present? %>
+        <%= cl_image_tag product.photo, height: 100, width: 100, crop: :fill %>
+      <% end %>
       <%= product.name.capitalize %>
       <%= product.price %> €
       <%= product.unit %>
