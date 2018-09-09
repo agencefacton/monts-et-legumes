@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, path_prefix: 'my'
+  resources :users
+
   # , :controllers => { registrations: 'registrations' }
   # get 'orders/:id/reset_status', to: 'orders#reset_status', :as => "reset_status"
   root to: "pages#home"
@@ -16,6 +18,5 @@ Rails.application.routes.draw do
       get :reset_status
     end
   end
-  resources :users, only: [:index, :show, :new, :create]
 
 end

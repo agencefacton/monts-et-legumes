@@ -22,8 +22,11 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
 
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect_to products_path
+    if @product.save
+      redirect_to products_path
+    else
+      render :new
+    end
   end
 
   def change_active

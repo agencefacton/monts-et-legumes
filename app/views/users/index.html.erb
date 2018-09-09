@@ -8,6 +8,8 @@
     <td>Nom</td>
     <td>Prénom</td>
     <td>Téléphone</td>
+    <td>Mayères</td>
+    <td>Ardoise</td>
     <td>Accéder aux commandes</td>
     <td>Editer des infos</td>
   </tr>
@@ -17,8 +19,10 @@
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
       <td><%= user.phone_number %></td>
+      <td><%= user.mayeres %></td>
+      <td><%= user.tab %></td>
       <td><%= link_to "#{user.orders.count} commandes", orders_path %></td>
-      <td><%= link_to "Editer le profil", edit_user_registration_path %></td>
+      <td><%= link_to "Editer le profil", edit_user_registration_path(user) %></td>
     </tr>
   <% end %>
 </table>

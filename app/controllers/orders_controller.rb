@@ -3,6 +3,7 @@ before_action :set_order, only: [:show, :edit, :update, :reset_status]
 
   def index
     @orders = Order.all
+    @myorders = Order.where(user: current_user)
   end
 
   def show

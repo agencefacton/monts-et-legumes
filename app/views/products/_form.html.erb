@@ -6,6 +6,9 @@
   <%= f.label :description, "Description" %>
   <%= f.text_field :description %>
 
+  <%= f.label :unit, "Catégorie" %>
+  <%= f.select :unit, collection: ['Légumes','Viande', 'Produit transformé']  %>
+
   <%= f.label :price, "Prix de vente" %>
   <%= f.number_field :price, step: :any %>
 

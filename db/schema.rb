@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(version: 2018_09_05_153905) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
-    t.boolean "mayeres"
-    t.decimal "tab"
-    t.boolean "admin"
+    t.boolean "mayeres", default: false
+    t.decimal "tab", default: 0
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
