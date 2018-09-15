@@ -11,7 +11,6 @@ class ProductOrdersController < ApplicationController
       @order.product_orders.new(product_order_params)
       @order.save
     end
-
     session[:order_id] = @order.id
     redirect_to products_path
   end

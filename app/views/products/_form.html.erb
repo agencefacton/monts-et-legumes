@@ -1,27 +1,12 @@
-<%= form_for(@product) do |f| %>
+<%= simple_form_for(@product) do |f| %>
 
-  <%= f.label :name, "Nom du produit" %>
-  <%= f.text_field :name %>
-
-  <%= f.label :description, "Description" %>
-  <%= f.text_field :description %>
-
-  <%= f.label :unit, "Catégorie" %>
-  <%= f.select :unit, collection: ['Légumes','Viande', 'Produit transformé']  %>
-
-  <%= f.label :price, "Prix de vente" %>
-  <%= f.number_field :price, step: :any %>
-
-  <%= f.label :unit, "Unité de vente" %>
-  <%= f.select :unit, collection: ['Kilo','100 grammes', 'Pièce']  %>
-
-  <%= f.label :active, "Dispo cette semaine" %>
-  <%= f.check_box :active %>
-
-  <%= f.label :photo %>
-  <%= f.file_field :photo %>
-  <%= f.hidden_field :photo_cache %>
-
-  <%= f.submit %>
+  <%= f.input :name, label: "Nom du produit", placeholder: "Aubergines" %>
+  <%= f.input :description, label: "Description", placeholder: "Pas obligatoire - le champ n'apparaîtra pas" %>
+  <%= f.input :category, label: "Catégorie", collection: ['Légumes','Viande', 'Produit transformé'] %>
+  <%= f.input :price, label: "Prix de vente", placeholder: "3.30 - Prix au KILO ou à l'UNITE (pas aux 100G)" %>
+  <%= f.input :unit, label: "Unité de vente", collection: ['Kilo','100 grammes', 'Pièce'] %>
+  <%= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.input :photo, label: "Photo", hidden_field: :photo_cache %>
+  <%= f.button :submit %>
 
 <% end %>
