@@ -16,6 +16,7 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'coffee-script'
 gem 'figaro'
+gem 'simple_form'
 
 group :development, :test do
   gem 'pry-rails'
