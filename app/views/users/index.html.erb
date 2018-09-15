@@ -21,8 +21,9 @@
       <td><%= user.phone_number %></td>
       <td><%= user.mayeres %></td>
       <td><%= user.tab %></td>
-      <td><%= link_to "#{user.orders.count} commandes", orders_path %></td>
-      <td><%= link_to "Editer le profil", edit_user_registration_path(user) %></td>
+      <td><%= link_to "#{user.orders.count} commandes", orders_user_path(user) %></td>
+      <td><%= link_to "Editer le profil", edit_user_path(user) %></td>
+      <td><%= link_to "Supprimer cet utilisateur", user_path(user), :data => {:method => "delete"} %></td>
     </tr>
   <% end %>
 </table>

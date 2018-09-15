@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :users, path_prefix: 'my'
-  resources :users
+  resources :users do
+    member do
+      get :orderindex, as: "orders"
+    end
+  end
+
+  # get 'users/:id/orders', to 'orders#'
 
   # , :controllers => { registrations: 'registrations' }
   # get 'orders/:id/reset_status', to: 'orders#reset_status', :as => "reset_status"

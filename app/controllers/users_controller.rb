@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :orderindex]
 
   def show
   end
 
   def index
     @users = User.all
+  end
+
+  def orderindex
+    @orders = Order.where(user: @user)
   end
 
   def new
@@ -25,9 +29,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user.update(user_params)
+    redirect_to users_path
   end
 
   def destroy
+    @user.destroy
+    redirect_to users_path
   end
 
   private
