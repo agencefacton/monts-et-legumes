@@ -3,7 +3,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
 
   def index
     if current_user.admin?
-      @products = Product.all
+      @products = Product.order(active: :desc)
     else
       @products = Product.where(active: true)
     end

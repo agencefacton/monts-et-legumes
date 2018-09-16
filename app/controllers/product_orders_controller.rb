@@ -2,6 +2,14 @@ class ProductOrdersController < ApplicationController
   before_action :set_product_order, only: [:update, :destroy]
   before_action :set_order, only: [:create, :destroy, :update]
 
+  def index
+    @product_orders = ProductOrder.all
+    @products = Product.first(Product.count)
+    @users = User.order(:first_name).all
+    @test = ProductOrder.group(:product_id).count
+    @test2 = ProductOrder.joins(:products)
+  end
+
   def new
     @product_order = ProductOrder.new
   end

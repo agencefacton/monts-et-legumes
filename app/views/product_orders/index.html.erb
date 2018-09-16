@@ -1,1 +1,20 @@
 <h1>Commandes</h1>
+
+<table>
+  <th>
+    <% @products.each do |product| %>
+      <td><%= product.id %> - <%= product.name %></td>
+    <% end %>
+  </th>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %> <%= user.last_name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>test</h2>
+<%= @test %>
+<%= @test2 %>
+
+
