@@ -40,4 +40,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_week
+    Time.now.strftime("%U").to_i
+  end
+
 end

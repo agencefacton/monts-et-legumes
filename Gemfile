@@ -19,6 +19,9 @@ gem 'figaro'
 gem 'simple_form'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
+gem 'rubyzip', '= 1.0.0'
+gem 'axlsx', '= 2.0.1'
+gem 'axlsx_rails'
 
 group :development, :test do
   gem 'pry-rails'

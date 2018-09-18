@@ -1,0 +1,9 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "A récolter") do |sheet|
+  sheet.add_row %w(Légume Quantité)
+
+  @quantities.each do |product_order|
+    sheet.add_row [product_order.first[1], product_order[1]]
+  end
+end

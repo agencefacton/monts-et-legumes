@@ -4,9 +4,13 @@ class ProductOrdersController < ApplicationController
 
   def index
     @product_orders = ProductOrder.all
+    @customers = Order.where("total_price > ?", 0).where(week_number: current_week).count
     @products = Product.first(Product.count)
-    @users = User.order(:first_name).all
     @quantities = ProductOrder.joins(:product, :order).group(:week_number, :name).sum(:quantity)
+      respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   def new
