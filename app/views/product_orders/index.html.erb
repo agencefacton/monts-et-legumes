@@ -1,20 +1,8 @@
-<h1>Commandes</h1>
+<h1>Récolte par légume - Semaine <%= @quantities.first[0][0] %></h1>
 
-<table>
-  <th>
-    <% @products.each do |product| %>
-      <td><%= product.id %> - <%= product.name %></td>
-    <% end %>
-  </th>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.first_name %> <%= user.last_name %></td>
-    </tr>
+<ul>
+  <% @quantities.each do |veg, quantity| %>
+    <li><%= veg[1] %> - <%= quantity %> </li>
   <% end %>
-</table>
-
-<h2>test</h2>
-<%= @test %>
-<%= @test2 %>
-
+</ul>
 

@@ -6,10 +6,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @orders = @users.orders
   end
 
   def orderindex
-    @orders = Order.where(user: @user)
+    @orders = Order.where(user: @user).where("total_price > ?", 0)
   end
 
   def new

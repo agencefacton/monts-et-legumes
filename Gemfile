@@ -17,6 +17,8 @@ gem 'carrierwave', '~> 1.2'
 gem 'coffee-script'
 gem 'figaro'
 gem 'simple_form'
+gem 'materialize-sass', '~> 1.0.0'
+gem 'material_icons'
 
 group :development, :test do
   gem 'pry-rails'

@@ -6,8 +6,7 @@ class ProductOrdersController < ApplicationController
     @product_orders = ProductOrder.all
     @products = Product.first(Product.count)
     @users = User.order(:first_name).all
-    @test = ProductOrder.group(:product_id).count
-    @test2 = ProductOrder.joins(:products)
+    @quantities = ProductOrder.joins(:product, :order).group(:week_number, :name).sum(:quantity)
   end
 
   def new
