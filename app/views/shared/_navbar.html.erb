@@ -12,8 +12,9 @@
       <!-- Links when logged in -->
       <% if current_user.admin? %>
       <%= link_to "Clients", users_path %>
-      <%= link_to "Commandes cette semaine", product_orders_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Commandes cette semaine", product_orders_path %>
       <% end %>
+      <%= link_to "Ventes", sales_path %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -31,7 +32,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
     <% end %>
   </div>
 

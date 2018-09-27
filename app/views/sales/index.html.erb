@@ -1,0 +1,13 @@
+<h1>Ventes</h1>
+
+<%= link_to "Ajouter une vente", new_sale_path %>
+
+<% @sales.each do |sale| %>
+<%= sale.product.name %>
+<%= sale.quantity %>
+<%= link_to "Editer", edit_sale_path(sale) %>
+<% end %>
+
+<% @products.each do |product| %>
+<%= product.name %>
+<% end %>

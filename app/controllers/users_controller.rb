@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def orderindex
-    @orders = Order.where(user: @user).where("total_price > ?", 0)
+    @orders = Order.where(user: @user)
   end
 
   def new

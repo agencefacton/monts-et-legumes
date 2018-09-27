@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  week_number: 1
+  quantity: 1
+  item_price: 9.99
+  product: one
+  mayeres: false
+
+two:
+  week_number: 1
+  quantity: 1
+  item_price: 9.99
+  product: two
+  mayeres: false

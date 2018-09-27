@@ -24,5 +24,6 @@ Rails.application.routes.draw do
       get :reset_status
     end
   end
+  resources :sales
 
 end

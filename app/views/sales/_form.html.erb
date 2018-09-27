@@ -1,0 +1,8 @@
+<%= simple_form_for(@sale) do |f| %>
+
+  <%= f.input :product_id, label: "Produit", collection: @products %>
+  <%= f.input :quantity, label: "Quantité" %>
+  <%= f.input :mayeres, label: "Mayères" %>
+  <%= f.button :submit %>
+
+<% end %>
