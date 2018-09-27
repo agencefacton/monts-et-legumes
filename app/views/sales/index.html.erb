@@ -2,11 +2,16 @@
 
 <%= link_to "Ajouter une vente", new_sale_path %>
 
-<% @sales.each do |sale| %>
-<%= sale.product.name %>
-<%= sale.quantity %>
-<%= link_to "Editer", edit_sale_path(sale) %>
-<% end %>
+<ul>
+
+  <% @sales.each do |sale| %>
+    <li>
+      <%= sale.product.name %>
+      <%= sale.quantity %>
+      <%= link_to "Editer", edit_sale_path(sale) %>
+    </li>
+  <% end %>
+</ul>
 
 <% @products.each do |product| %>
 <%= product.name %>

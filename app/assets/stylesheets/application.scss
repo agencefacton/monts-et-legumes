@@ -1,9 +1,8 @@
 @import "components/*";
+@import "pages/*";
 
-@import "orders";
-@import "pages";
-@import "product_orders";
-@import "products";
-@import "registrations";
-@import "users";
-// @import "materialize";
+
+@import "materialize";
+@import "fonts";
+@import "colors";
+@import "materialize_custom";
