@@ -23,6 +23,7 @@ gem 'rubyzip', '= 1.0.0'
 gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
 gem 'jquery-rails'
+gem 'bootstrap', '~> 4.1.3'
 
 
 group :development, :test do
