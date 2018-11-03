@@ -3,6 +3,7 @@
   <%= f.input :product_id, label: "Produit", collection: @products %>
   <%= f.input :quantity, label: "Quantité" %>
   <%= f.input :mayeres, label: "Mayères" %>
+  <%= f.input :week_number, label: "Numéro semaine", value: @current_week %>
   <%= f.button :submit %>
 
 <% end %>

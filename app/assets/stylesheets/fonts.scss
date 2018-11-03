@@ -9,19 +9,19 @@ $headers-font: "Hind", "sans-serif";
 
 body {
   margin: 0;
+  font-family: "Open Sans";
+  color: #777;
 }
 
 h1, h2, h3, h4 {
   font-family: "Hind";
-  text-align: center;
   color: #555;
+  font-weight: 800;
+  font-size: 1.2em;
+  margin-bottom: 2em;
 }
 
-h1 {
-  font-size: 2.5em;
-  font-weight: 500;
+a {
+  color: $green;
 }
 
-body {
-  font-family: "Open Sans";
-}

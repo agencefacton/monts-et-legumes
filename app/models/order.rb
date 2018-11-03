@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   has_many :product_orders
-  has_many :products, through: :product_orders
+  has_many :products, through: :product_orders, dependent: :destroy
   belongs_to :user
   before_create :set_status
   before_save :update_total

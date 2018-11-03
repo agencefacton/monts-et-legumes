@@ -1,44 +1,46 @@
-<% if current_user.admin? %>
-  <h2>Ajouter un produit</h2>
-  <%= render 'form', product: @product %>
-<% end %>
+<div class="container">
 
-<h1> Disponibles cette semaine </h1>
+  <% if current_user.admin? %>
+    <div id="add_product">
+      <h1>Ajouter un produit</h1>
+      <%= render 'form', product: @product %>
+    </div>
+  <% end %>
 
-<ul>
+  <div id="products_list">
 
-<% @products.each do |product| %>
+    <h1> Disponibles cette semaine </h1>
 
-  <li>
-    <% if product.photo.present? %>
-      <%= cl_image_tag product.photo, height: 100, width: 100, crop: :fill %>
-    <% end %>
-    <% if product.active == false %>
-      Inactive
-    <% end %>
-    <%= product.name.capitalize %>
-    <%= product.description %>
-    <%= product.price %> €
-    <%= product.unit %>
 
-    <% if @order.contains?(product) %>
-      <% product_order = @order.product_orders.find_by(product_id: product.id) %>
-      Quantité : <%= product_order.quantity %>
-      Prix total : <%= product_order.item_price %>
-      <%= form_for product_order do |f| %>
-        <%= f.number_field :quantity, label: "Modifier la quantité" %>
-        <%= f.submit "Modifier la quantité" %>
-        <%= link_to "Supprimer cet article", product_order_path(product_order), :data => {:method => "delete"} %>
-      <% end %>
-    <% else %>
-      <%= form_for @product_order do |f| %>
-        <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity %>
-        <%= f.submit "Ajouter au panier" %>
-      <% end %>
-    <% end %>
+    <% @products.each do |product| %>
 
-    <%= link_to "Détails", product_path(product) %>
+    <div class="product_line">
+      <div class="product_avatar">
+        <% if product.photo.present? %>
+          <%= cl_image_tag product.photo, class: "avatar_bordered" %>
+        <% end %>
+      </div>
+      <div class="product_details">
+        <span class="product_title"> <%= product.name.capitalize %> - <%= product.price %> € /<%= product.unit %></span>
+      </div>
+      <div class="product_quantity">
+        <% if @order.contains?(product) %>
+          <% product_order = @order.product_orders.find_by(product_id: product.id) %>
+          <%= form_for product_order do |f| %>
+            <%= f.number_field :quantity, label: "Modifier la quantité" %>
+            <%= f.submit "Modifier la quantité", class: "btn btn-outline-primary" %>
+            <%= link_to "Supprimer", product_order_path(product_order), :data => {:method => "delete"} %>
+          <% end %>
+        <% else %>
+          <%= form_for @product_order do |f| %>
+            <%= f.hidden_field :product_id, value: product.id %>
+            <%= f.number_field :quantity %>
+            <%= f.submit "Ajouter", class: "btn btn-outline-primary" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
     <% if current_user.admin? %>
       <%= link_to "Editer", edit_product_path(product) %>
       <%= link_to "Supprimer", product_path(product), method: :delete, data: { confirm: "Sûr.e ?" } %>
@@ -49,33 +51,37 @@
       <% end %>
     <% end %>
 
-  </li>
-  <% @incart = false %>
+      <% @incart = false %>
 
-<% end %>
-</ul>
+    <% end %>
+  </div>
 
-<% if @product_orders.count > 0 %>
-  <h2>Dans mon panier</h2>
-  <ul>
-  <% @product_orders.each do |product_order| %>
-    <li>
-      <%= product_order.product.name %>
-      Quantité : <%= product_order.quantity %>
-      Prix : <%= product_order.item_price %>
-    </li>
-  <% end %>
-  </ul>
-  <h4>Prix total cette semaine : <%= number_to_currency @order.total_price %></h4>
-<% end %>
 
-<% if current_order.status != 1 %>
-  <%= form_for(@order) do |f| %>
-    <%= f.hidden_field :status, value: 1 %>
-    <%= f.submit 'Valider la commande' %>
-  <% end %>
-<% else %>
-  <p>Votre commande a déjà été validée</p>
-  <%= link_to "Accéder au récap de la commande", order_path(@order) %>
-  <%= link_to "Modifier cette commande", reset_status_order_path(@order) %>
-<% end  %>
+
+  <% if @product_orders.count > 0 %>
+    <div id="cart">
+      <h2>Dans mon panier</h2>
+      <ul>
+      <% @product_orders.each do |product_order| %>
+        <li>
+          <%= product_order.product.name %>
+          Quantité : <%= product_order.quantity %>
+          Prix : <%= product_order.item_price %>
+        </li>
+      <% end %>
+      </ul>
+      <h4>Prix total cette semaine : <%= number_to_currency @order.total_price %></h4>
+    <% end %>
+
+    <% if current_order.status != 1 %>
+      <%= form_for(@order) do |f| %>
+        <%= f.hidden_field :status, value: 1 %>
+        <%= f.submit 'Valider la commande' %>
+      <% end %>
+    <% else %>
+      <p>Votre commande a déjà été validée</p>
+      <%= link_to "Accéder au récap de la commande", order_path(@order) %>
+      <%= link_to "Modifier cette commande", reset_status_order_path(@order) %>
+    <% end  %>
+  </div>
+</div>

@@ -1,6 +1,9 @@
+<div class="container">
 <h1>Ventes</h1>
 
 <%= link_to "Ajouter une vente", new_sale_path %>
+
+
 
 <ul>
 
@@ -8,11 +11,24 @@
     <li>
       <%= sale.product.name %>
       <%= sale.quantity %>
+      <%= sale.week_number %>
       <%= link_to "Editer", edit_sale_path(sale) %>
     </li>
   <% end %>
 </ul>
 
-<% @products.each do |product| %>
-<%= product.name %>
-<% end %>
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <%= product.name %>
+      <%= form_for @sale do |f| %>
+          <%= f.hidden_field :product_id, value: product.id %>
+          <%= f.number_field :quantity %>
+          <%= f.hidden_field :week_number, value: @week_number %>
+          <%= f.submit "Ajouter vente" %>
+          <% end %>
+      <% end %>
+    </li>
+</ul>
+
+</div>

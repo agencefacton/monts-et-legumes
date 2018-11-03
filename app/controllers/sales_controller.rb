@@ -4,6 +4,8 @@ class SalesController < ApplicationController
   def index
     @sales = Sale.all
     @products = Product.all
+    @sale = Sale.new
+    @current_week = current_week
   end
 
   def new

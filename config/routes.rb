@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'customer_orders/index'
   devise_for :users, path_prefix: 'my'
   resources :users do
     member do
@@ -25,5 +26,6 @@ Rails.application.routes.draw do
     end
   end
   resources :sales
+  resources :customer_orders, only: [:index]
 
 end
