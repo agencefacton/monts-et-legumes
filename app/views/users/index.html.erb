@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1>Clients</h1>
 
 <p><%= link_to "Ajouter un client", new_user_path %></p>
@@ -19,11 +21,13 @@
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
       <td><%= user.phone_number %></td>
-      <td><%= user.mayeres %></td>
+      <td><% if user.mayeres? %>Oui <% end %> </td>
       <td><%= user.tab %></td>
       <td><%= link_to "#{user.orders.count} commandes ", orders_user_path(user) %></td>
       <td><%= link_to "Editer le profil", edit_user_path(user) %></td>
-      <td><%= link_to "Supprimer cet utilisateur", user_path(user), :data => {:method => "delete"} %></td>
+      <td><%= link_to "Supprimer", user_path(user), :data => {:method => "delete"} %></td>
     </tr>
   <% end %>
 </table>
+
+</div>

@@ -1,16 +1,27 @@
 #intro {
-  text-align: center;
-  min-height: calc(100vh - 70px);
-  background-image: url("plantation.jpg");
+  min-height: 100vh;
+  background-image: linear-gradient(-225deg, rgba(0,120,100,0.6) 0%, rgba(0,35,30,0.6) 50%), url("plantation.jpg");
   background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-#intro h1 {
-  margin: 0;
+#introtxt {
+  text-align: center;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+  h2 {
+    color: white;
+    font-size: 2em;
+    font-weight: lighter;
+  }
 }
+
 
 
 #people {

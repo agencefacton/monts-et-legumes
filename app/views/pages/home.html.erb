@@ -1,36 +1,39 @@
 <div id="intro">
+  <%= render 'shared/navbar_transparent' %>
   <div id="introtxt">
     <h1>Bienvenue chez Margaux et Clément</h1>
-    <h4>On élève des légumes et on cultive un enfant</h4>
-    <%= button_to "Passer une commande", products_path, :method => :get, class: 'button-cmd' %>
+    <h2>On élève des légumes et on cultive un enfant</h2>
+    <%= button_to "Passer une commande", products_path, :method => :get, class: 'btn btn-primary big' %>
   </div>
 </div>
 
-
-<div id="people">
-  <h1>Notre ferme</h1>
-    <div id="peoplepres">
-    <div id="peopletxt">
-      <p>Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. </p>
+<div class="container">
+  <div id="people">
+    <h1>Notre ferme</h1>
+      <div id="peoplepres">
+      <div id="peopletxt">
+        <p>Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. </p>
+      </div>
+      <div id="peoplepict">
+        <%= image_tag("clement_margaux.jpg")%>
+      </div>
     </div>
-    <div id="peoplepict">
-      <%= image_tag("clement_margaux.jpg")%>
+
+  </div>
+
+  <div id="where">
+    <h1>Où trouver nos produits</h1>
+    <div id="whereplaces">
+      <div class="place-to-find">
+        <p>Au marché</p>
+      </div>
+      <div class="place-to-find">
+        <p>A la ferme</p>
+      </div>
+      <div class="place-to-find">
+        <p>A la coop</p>
+      </div>
     </div>
   </div>
 
-</div>
-
-<div id="where">
-  <h1>Où trouver nos produits</h1>
-  <div id="whereplaces">
-    <div class="place-to-find">
-      <p>Au marché</p>
-    </div>
-    <div class="place-to-find">
-      <p>A la ferme</p>
-    </div>
-    <div class="place-to-find">
-      <p>A la coop</p>
-    </div>
-  </div>
 </div>
