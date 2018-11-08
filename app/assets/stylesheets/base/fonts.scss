@@ -1,7 +1,7 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
 // Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Hind:500,600|Open+Sans:400,700");
+@import url("https://fonts.googleapis.com/css?family=Hind:300,500,600,700|Open+Sans:400,700|Pacifico|Courgette");
 
 // Define fonts for body and headers
 $body-font: "Open Sans", "sans-serif";
@@ -9,16 +9,17 @@ $headers-font: "Hind", "sans-serif";
 
 body {
   margin: 0;
-  font-family: "Open Sans";
   color: #777;
+  font-family: $body-font;
+  background: $white;
 }
 
 h1, h2, h3, h4 {
-  font-family: "Hind";
   color: #555;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.2em;
   margin-bottom: 2em;
+  font-family: $headers-font;
 }
 
 a, a:hover {

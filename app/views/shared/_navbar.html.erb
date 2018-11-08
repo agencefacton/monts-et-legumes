@@ -15,6 +15,9 @@
         <%= link_to "A récolter", product_orders_path %>
         <%= link_to "Commandes", customer_orders_path %>
         <%= link_to "Ventes", sales_path %>
+      <% else %>
+        <%= link_to "Mes commandes", orders_path %>
+        <%= link_to "Mon profil", user_path(current_user) %>
       <% end %>
       <%= link_to destroy_user_session_path, method: :delete do %>
       <%= t(".sign_out", default: "Déconnexion") %>

@@ -1,12 +1,16 @@
 class SalesController < ApplicationController
-  before_action :set_sale, only: [:show, :edit, :update, :destroy]
+  before_action :set_sale, only: [:edit, :update, :destroy]
 
   def index
-    @sales = Sale.all
-    @products = Product.all
-    @sale = Sale.new
-    @current_week = current_week
+    @sales = Order.group(:week_number).count
   end
+
+  def show
+    @sale = Sale.new
+    @products = Product.joins(product_orders: :order).where('orders.week_number = ?', params[:week_number]).where('orders.status = ?', 1).uniq
+    @sales = Sale.where(week_number: params[:week_number])
+  end
+
 
   def new
     @sale = Sale.new
@@ -16,9 +20,9 @@ class SalesController < ApplicationController
   def create
     @sale = Sale.new(sale_params)
     if @sale.save
-      redirect_to sales_path
+      redirect_to sales_path(params[:week_number])
     else
-      render :new
+      render :show
     end
   end
 

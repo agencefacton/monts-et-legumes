@@ -1,10 +1,12 @@
 <div class="container">
-  <h1>Commandes de la semaine</h1>
-  <% @orders.each do |order| %>
-    <%= order.week_number %> :
-    <% order.product_orders.each do |item| %>
-    <%= item.product.name %> - <%= item.quantity %>
-    <% end %>
-  <% end %>
+  <h1>Récap des commandes</h1>
+    <ul>
+      <% @orders.each do |order| %>
+      <li>
+        <p>Semaine <%= order[0] %> - <%= order[1] %> commandes - <%= link_to "Détail", customer_order_path(order[0]) %></p>
+      </li>
+      <% end %>
+    </ul>
+
 </div>
 

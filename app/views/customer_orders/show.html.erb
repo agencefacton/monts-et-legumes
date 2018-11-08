@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Commandes semaine <%= @week %></h1>
+
+  <ul>
+    <% @orders.each do |order| %>
+      <li><%= order.user.first_name %>   <%= order.user.last_name %></li>
+      <ul>
+        <% order.product_orders.each do |item| %>
+          <li><%= item.product.name %> - <%= item.quantity %> <%= item.product.unit %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </ul>
+
+</div>

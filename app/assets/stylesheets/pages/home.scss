@@ -1,46 +1,126 @@
 #intro {
-  min-height: 100vh;
-  background-image: linear-gradient(-225deg, rgba(0,120,100,0.6) 0%, rgba(0,35,30,0.6) 50%), url("plantation.jpg");
+  background-image: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8) ),url("carottes.jpg");
   background-size: cover;
+  background-position: 50% 0;
 }
 
 #introtxt {
   text-align: center;
-  min-height: calc(100vh - 100px);
+  min-height: calc(90vh - 100px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   h1 {
+    font-family: 'Pacifico', cursive;
     color: white;
-    font-size: 2em;
-    margin-bottom: 1em;
+    font-size: 3.5em;
+    margin-bottom: 0.5em;
+    text-shadow:
+     2px   0  0   $graydark,
+    -2px   0  0   $graydark,
+     0    2px 0   $graydark,
+     0   -2px 0   $graydark,
+     1px  1px 0   $graydark,
+    -1px -1px 0   $graydark,
+     1px -1px 0   $graydark,
+    -1px  1px 0   $graydark,
+     1px  1px 5px $graydark;
   }
   h2 {
-    color: white;
-    font-size: 2em;
-    font-weight: lighter;
+    position: relative;
+    color: $white;
+    font-size: 4em;
+    font-weight: 300;
+    margin-bottom: 1em;
+
+  }
+  h2:after {
+  content : "";
+  position: absolute;
+  left    : 40%;
+  bottom  : -20px;
+  height  : 1px;
+  width   : 20%;  /* or 100px */
+  border-bottom:1px solid $white;
+}
+}
+
+#introcards {
+  width: 100%;
+  padding: 0 8%;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: -70px;
+}
+
+.introcard {
+  height: 225px;
+  width: 30%;
+  display: flex;
+  border-radius: 5px;
+  background: $white;
+  overflow: hidden;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.introcardtxt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  width: 60%;
+  font-size: 1.2em;
+  h1 {
+    margin-bottom: 0;
+  }
+  p {
+    font-weight: 300;
   }
 }
 
+.introcardpic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  position: relative;
+  img {
+    position: absolute;
+    right: -90px;
+    max-width: 160%;
+  }
 
+}
 
 #people {
   min-height: 100vh;
-}
-
-#peoplepres {
+  padding: 150px;
+  background: $graylight;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #peopletxt {
-  width: 55%;
-  margin: auto;
+  width: 50%;
+  margin: 0 20px;
+  h1 {
+    font-family: "Courgette";
+    color: $green;
+    font-size: 2.5em;
+  }
+  h2 {
+    margin-bottom: 0.2em;
+    font-size: 1.2em;
+  }
+  p {
+    font-size: 1.2em;
+  }
 }
 
-#peoplepict {
-  width: 35%;
+#peoplepic {
+  width: 50%;
   margin: auto;
 }
 

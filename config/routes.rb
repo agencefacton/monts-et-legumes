@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'customer_orders/index'
   devise_for :users, path_prefix: 'my'
   resources :users do
     member do
@@ -19,13 +18,14 @@ Rails.application.routes.draw do
       get :change_active
     end
   end
-  resources :product_orders
+  resources :product_orders, except: [:index, :show]
+  resources :product_orders, only: [:index, :show], param: :week_number
   resources :orders do
     member do
       get :reset_status
     end
   end
-  resources :sales
-  resources :customer_orders, only: [:index]
+  resources :sales, param: :week_number
+  resources :customer_orders, only: [:index, :show], param: :week_number
 
 end

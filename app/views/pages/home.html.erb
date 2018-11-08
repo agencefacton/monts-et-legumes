@@ -1,39 +1,65 @@
+<%= render 'shared/navbar' %>
 <div id="intro">
-  <%= render 'shared/navbar_transparent' %>
   <div id="introtxt">
-    <h1>Bienvenue chez Margaux et Clément</h1>
-    <h2>On élève des légumes et on cultive un enfant</h2>
-    <%= button_to "Passer une commande", products_path, :method => :get, class: 'btn btn-primary big' %>
+    <h1>Monts & Légumes</h1>
+    <h2>Légumes bio en permaculture</h2>
+    <%= button_to "Je commande mon panier", products_path, :method => :get, class: 'btn btn-primary btn-homepage' %>
+  </div>
+  <div id="introcards">
+    <div class="introcard">
+      <div class="introcardtxt">
+        <h1>Légumes bio</h1>
+        <p>Récoltés chaque semaine pour vous</p>
+      </div>
+      <div class="introcardpic veggie">
+        <%= image_tag ( "hp-vegetables.png" ) %>
+      </div>
+    </div>
+    <div class="introcard">
+      <div class="introcardtxt">
+        <h1>Bocaux</h1>
+        <p>Préparés dans nos ateliers</p>
+      </div>
+      <div class="introcardpic transfo">
+        <%= image_tag ( "hp-transfo.png" ) %>
+      </div>
+    </div>
+    <div class="introcard">
+      <div class="introcardtxt">
+        <h1>Viande</h1>
+        <p>Locale et préparée par nos collègues</p>
+      </div>
+      <div class="introcardpic meat">
+        <%= image_tag ( "hp-meat.png" ) %>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="container">
-  <div id="people">
-    <h1>Notre ferme</h1>
-      <div id="peoplepres">
-      <div id="peopletxt">
-        <p>Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. </p>
-      </div>
-      <div id="peoplepict">
-        <%= image_tag("clement_margaux.jpg")%>
-      </div>
-    </div>
 
+
+<div id="people">
+  <div id="peopletxt">
+    <h1>Bienvenue !</h1>
+    <h2>Nous sommes Margaux et Clément</h2>
+    <p>Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
   </div>
-
-  <div id="where">
-    <h1>Où trouver nos produits</h1>
-    <div id="whereplaces">
-      <div class="place-to-find">
-        <p>Au marché</p>
-      </div>
-      <div class="place-to-find">
-        <p>A la ferme</p>
-      </div>
-      <div class="place-to-find">
-        <p>A la coop</p>
-      </div>
-    </div>
+  <div id="peoplepic">
+    <%= image_tag("clement_margaux.jpg")%>
   </div>
-
 </div>
+
+<div id="where">
+  <div id="whereplaces">
+    <div class="place-to-find">
+      <p>Au marché</p>
+    </div>
+    <div class="place-to-find">
+      <p>A la ferme</p>
+    </div>
+    <div class="place-to-find">
+      <p>A la coop</p>
+    </div>
+  </div>
+</div>
+

@@ -3,14 +3,17 @@ class ProductOrdersController < ApplicationController
   before_action :set_order, only: [:create, :destroy, :update]
 
   def index
-    @product_orders = ProductOrder.all
-    @customers = Order.where("total_price > ?", 0).where(week_number: current_week).count
-    @products = Product.first(Product.count)
+    @orders = Order.where("status = ?", 1).group(:week_number).count
     @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).group(:week_number, :name).sum(:quantity)
       respond_to do |format|
       format.html
       format.xlsx
     end
+  end
+
+  def show
+    @week = params[:week_number]
+    @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number]).group(:name).sum(:quantity)
   end
 
   def new

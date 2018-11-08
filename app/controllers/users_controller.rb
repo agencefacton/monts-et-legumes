@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def orderindex
-    @orders = Order.where(user: @user)
+    @orders = Order.where(user: @user, status: 1)
   end
 
   def new
@@ -53,3 +53,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 end
+

@@ -1,24 +1,26 @@
 .btn-primary {
-  background-color: transparent;
+  background-color: $green;
   border-color: $green;
   font-family: Hind;
   border-radius: 50px;
-  color: $green;
+  color: $white;
   padding: 8px 20px;
 }
 
-.btn-primary.big {
-  padding: 15px 25px;
-  font-size: 1.2em;
-  border-color: white;
-}
-
 .btn-primary:hover {
-  background-color: $green;
   border-color: $green;
+  background-color: $green;
   font-weight: bolder;
   transition: 0.3s ease;
 }
+
+.btn-primary.btn-homepage {
+  padding: 18px 32px;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 2em;
+}
+
 
 
 .btn-outline-primary {

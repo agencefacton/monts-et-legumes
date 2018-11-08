@@ -1,23 +1,15 @@
 <div class="container">
 
-<h1>Récolte par légume - Semaine <%= @quantities.first[0][0] %></h1>
+<h1>Récolte par légume</h1>
 
-<h2><%= @customers %> clients</h2>
-
-<ul>
-  <% @quantities.each do |veg, quantity| %>
-    <li><%= veg[1] %> - <%= quantity %> </li>
-  <% end %>
-</ul>
+    <ul>
+      <% @orders.each do |order| %>
+      <li>
+        <p>Semaine <%= order[0] %> - <%= link_to "Détail", product_order_path(order[0]) %></p>
+      </li>
+      <% end %>
+    </ul>
 
 <%= link_to "Exporter", product_orders_path(format: "xlsx") %>
-
-<%= @quantities %>
-
-<ul>
-  <% @quantities.each do |veg, quantity| %>
-    <li><%= veg[1] %> - <%= quantity %></li>
-  <% end %>
-</ul>
 
 </div>
