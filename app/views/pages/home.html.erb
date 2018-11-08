@@ -37,29 +37,98 @@
 </div>
 
 
+<div class="graybackground">
 
-<div id="people">
-  <div id="peopletxt">
+  <div id="graytitle">
     <h1>Bienvenue !</h1>
-    <h2>Nous sommes Margaux et Clément</h2>
-    <p>Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+    <p>Nous sommes Margaux et Clément. Depuis 2017, nous produisons des légumes bio dans une ferme à Haute Rivoire. Blablabla</p>
   </div>
-  <div id="peoplepic">
-    <%= image_tag("clement_margaux.jpg")%>
+
+<button class="button-next">next</button>
+    <button class="button-prev">prev</button>
+  <div id="people">
+
+    <div class="slide active">
+      <div class="peopletxt">
+        <h1>Notre ferme</h1>
+        <p>Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+      </div>
+
+      <div class="peoplepic">
+        <%= image_tag("clement_margaux.jpg")%>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="peopletxt">
+        <h1>Notre ferme 2</h1>
+        <p>Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+      </div>
+
+      <div class="peoplepic">
+        <%= image_tag("clement_margaux.jpg")%>
+      </div>
+    </div>
   </div>
+
+  <div id="where">
+    <div class="place-to-find">
+      <div class="place-to-find-icon">
+        <%= image_tag("vegetables.png")%>
+      </div>
+      <h1>AU MARCHE</h1>
+      <p>Tous les vendredi de 6h à 13h au marché de Saint-Genis-Laval</p>
+      <button class="btn btn-primary">En savoir plus</button>
+    </div>
+    <div class="place-to-find">
+      <div class="place-to-find-icon">
+        <%= image_tag("landscape.png")%>
+      </div>
+      <h1>A LA FERME</h1>
+      <p>Commandez votre panier en ligne du lundi au mercredi et venez le récupérer à la ferme</p>
+      <button class="btn btn-primary">En savoir plus</button>
+    </div>
+    <div class="place-to-find">
+      <div class="place-to-find-icon">
+        <%= image_tag("shop.png")%>
+      </div>
+      <h1>A LA COOP</h1>
+      <p>Nous vendons nos produits, ainsi que ceux d'autres producteurs, à la coop. Venez !</p>
+      <button class="btn btn-primary">En savoir plus</button>
+    </div>
+  </div>
+
+
 </div>
 
-<div id="where">
-  <div id="whereplaces">
-    <div class="place-to-find">
-      <p>Au marché</p>
+<div class="homepage-bottom">
+
+  <h1>En direct des Mayères</h1>
+
+  <div class="homepage-photos">
+
+
+    <div class="hpleft">
+      <div class="hppic hplefttop">
+      </div>
+      <div class="hpleftbottom">
+        <div class="hppic hpleftbottomleft">
+        </div>
+        <div class="hppic hpleftbottomright">
+        </div>
+      </div>
     </div>
-    <div class="place-to-find">
-      <p>A la ferme</p>
-    </div>
-    <div class="place-to-find">
-      <p>A la coop</p>
+
+    <div class="hpright">
+      <div class="hprighttop">
+        <div class="hppic hprighttopleft">
+        </div>
+        <div class="hppic hprighttopright">
+        </div>
+      </div>
+      <div class="hppic hprightbottom">
+      </div>
+
     </div>
   </div>
 </div>
-

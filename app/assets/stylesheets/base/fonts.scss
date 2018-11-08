@@ -12,6 +12,7 @@ body {
   color: #777;
   font-family: $body-font;
   background: $white;
+  font-size: 1em;
 }
 
 h1, h2, h3, h4 {
@@ -24,4 +25,11 @@ h1, h2, h3, h4 {
 
 a, a:hover {
   color: $green;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  background-size: cover;
+  background-position: 50% 0;
 }

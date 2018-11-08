@@ -1,7 +1,7 @@
 #intro {
   background-image: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8) ),url("carottes.jpg");
   background-size: cover;
-  background-position: 50% 0;
+  background-position: 50% 50%;
 }
 
 #introtxt {
@@ -61,7 +61,7 @@
   border-radius: 5px;
   background: $white;
   overflow: hidden;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 8px 16px 0 hsla(0, 0%, 0%, 0.1);
 }
 
 .introcardtxt {
@@ -90,57 +90,178 @@
     right: -90px;
     max-width: 160%;
   }
-
 }
 
-#people {
-  min-height: 100vh;
-  padding: 150px;
+.graybackground {
   background: $graylight;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 250px 5% 20px 5%;
+  h1, h2, p {
+    font-size: 1.2em;
+  }
 }
 
-#peopletxt {
-  width: 50%;
-  margin: 0 20px;
+#graytitle {
+  text-align: center;
+  width: 60%;
+  margin: auto;
   h1 {
     font-family: "Courgette";
     color: $green;
     font-size: 2.5em;
-  }
-  h2 {
-    margin-bottom: 0.2em;
-    font-size: 1.2em;
+    margin-bottom: 0.5em;
   }
   p {
-    font-size: 1.2em;
+    margin-bottom: 2em;
   }
 }
 
-#peoplepic {
-  width: 50%;
-  margin: auto;
+#people {
+  border-radius: 5px;
+  display: flex;
+  background: $white;
+  height: 50vh;
+  box-shadow: 0 15px 35px rgba(126,87,88,.1), 0 5px 15px rgba(0,0,0,.07);
 }
 
-img {
-  max-width: 100%;
-  max-height: 100%;
+.slide {
+  display: none;
 }
 
-#where {
-  min-height: 100vh;
-}
-
-#whereplaces {
+.slide.active {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.place-to-find {
-  width: 30%;
-  margin: auto;
-  text-align: center;
+.peopletxt {
+  width: 50%;
+  margin: 30px;
+  h1 {
+    padding: 15px 0;
+    border-bottom: 2px solid #32B796;
+    margin-right: 170px;
+  }
 }
+
+.peopletxt.active {
+
+}
+
+.peopletxt.inactive {
+  display: none;
+}
+
+.peoplepic {
+  width: 50%;
+  max-height:50vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.peoplepic.inactive {
+  display: none;
+}
+
+#where {
+  margin: 150px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.place-to-find {
+  margin: auto;
+  padding: 15px;
+  background: $white;
+  height: 400px;
+  width: 350px;
+  text-align: center;
+  position: relative;
+  background: $white;
+  border: 2px solid;
+  box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.08);
+  border-color: $grayborder $grayborder $green $grayborder;
+  border-bottom: 10px solid $green;
+  h1 {
+    margin: 2.5em 0 0.5em 0;
+    font-size: 2em;
+    font-size: 2em;
+  }
+  p {
+    margin-bottom: 2em;
+  }
+}
+
+.place-to-find-icon {
+  width: 130px;
+  height: 130px;
+  padding: 30px;
+  border-radius: 50%;
+  position: absolute;
+  background: $white;
+  border: 2px solid $green;
+  top: -68px;
+  left: 110px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.homepage-bottom {
+  padding: 30px 0;
+  h1 {
+    margin: 0 200px 50px 30px;
+    padding: 15px 0;
+    border-bottom: 2px solid $green;
+  }
+}
+
+.homepage-photos {
+  display: flex;
+}
+
+
+.hpleft, .hpright {
+  width: 50%;
+}
+
+.hpleftbottom, .hprighttop {
+  display: flex;
+  width: 100%;
+}
+
+.hppic {
+  height: 200px;
+  margin: 8px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.hplefttop {
+  background-image: url('cagette.jpg');
+}
+
+.hprightbottom {
+  background-image: url('cagette.jpg');
+}
+
+.hpleftbottomleft {
+  width: 50%;
+  background-image: url('pousse.jpg');
+}
+
+.hpleftbottomright {
+  width: 50%;
+  background-image: url('coccinelle.jpg');
+}
+
+.hprighttopleft {
+  width: 50%;
+  background-image: url('clement_margaux.jpg');
+}
+
+.hprighttopright {
+  width: 50%;
+  background-image: url('pousse.jpg');
+}
+
