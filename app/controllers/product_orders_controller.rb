@@ -16,11 +16,8 @@ class ProductOrdersController < ApplicationController
     @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number]).group(:name).sum(:quantity)
   end
 
-  def new
-    @product_order = ProductOrder.new
-  end
-
   def create
+    save_order unless @order.persisted?
     if product_order_params[:quantity].to_i > 0
       @order.product_orders.create(product_order_params)
       @order.save
@@ -58,5 +55,9 @@ class ProductOrdersController < ApplicationController
 
   def set_order
     @order = current_order
+  end
+
+  def save_order
+    @order.save
   end
 end

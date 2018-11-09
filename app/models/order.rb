@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   before_save :update_date
 
   def calculate_total
-    self.product_orders.collect { |item| item.item_price.to_f }.sum
+    self.product_orders.sum(:item_price).to_f
   end
 
   def set_status
