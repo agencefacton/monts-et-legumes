@@ -44,4 +44,8 @@ class ApplicationController < ActionController::Base
     Time.now.strftime("%U").to_i
   end
 
+  def current_year
+    Date.today.year
+  end
+
 end

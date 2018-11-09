@@ -22,6 +22,13 @@
   margin-top: 2em;
 }
 
+.button-prev, .button-next {
+  color: $green;
+  font-size: 2em;
+  cursor: pointer;
+  z-index: 1;
+}
+
 
 
 .btn-outline-primary {

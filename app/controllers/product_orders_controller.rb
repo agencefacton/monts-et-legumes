@@ -22,7 +22,7 @@ class ProductOrdersController < ApplicationController
 
   def create
     if product_order_params[:quantity].to_i > 0
-      @order.product_orders.new(product_order_params)
+      @order.product_orders.create(product_order_params)
       @order.save
     end
     session[:order_id] = @order.id

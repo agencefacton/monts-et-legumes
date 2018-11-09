@@ -1,0 +1,40 @@
+<% @products.each do |product| %>
+
+<div class="product_line">
+  <div class="product_avatar">
+    <% if product.photo.present? %>
+      <%= cl_image_tag product.photo, class: "avatar_bordered" %>
+    <% end %>
+  </div>
+    <span class="product_title"> <%= product.name.capitalize %> - <%= product.price %> € /<%= product.unit %></span>
+  <div class="product_quantity">
+    <% if @order.contains?(product) %>
+      <% product_order = @order.product_orders.find_by(product_id: product.id) %>
+      <%= form_for product_order do |f| %>
+        <%= f.number_field :quantity, label: "Modifier" %>
+        <%= f.submit "Modifier", class: "btn btn-outline-primary" %>
+        <%= link_to "Supprimer", product_order_path(product_order), :data => {:method => "delete"} %>
+      <% end %>
+    <% else %>
+      <%= form_for @product_order do |f| %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.number_field :quantity %>
+        <%= f.submit "Ajouter", class: "btn btn-outline-primary" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<% if current_user.admin? %>
+  <%= link_to "Editer", edit_product_path(product) %>
+  <%= link_to "Supprimer", product_path(product), method: :delete, data: { confirm: "Sûr.e ?" } %>
+  <% if product.active? %>
+    <%= link_to "Desactiver", change_active_product_path(product) %>
+  <% else %>
+    <%= link_to "Activer", change_active_product_path(product) %>
+  <% end %>
+<% end %>
+
+  <% @incart = false %>
+
+<% end %>

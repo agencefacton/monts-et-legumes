@@ -1,0 +1,24 @@
+<% if @product_orders.count > 0 %>
+  <h2>Dans mon panier</h2>
+  <ul>
+  <% @product_orders.each do |product_order| %>
+    <li>
+      <%= product_order.product.name %>
+      Quantité : <%= product_order.quantity %>
+      Prix : <%= product_order.item_price %>
+    </li>
+  <% end %>
+  </ul>
+  <h4>Prix total cette semaine : <%= @order.total_price %></h4>
+<% end %>
+
+<% if current_order.status != 1 %>
+  <%= form_for(@order) do |f| %>
+    <%= f.hidden_field :status, value: 1 %>
+    <%= f.submit 'Valider la commande' %>
+  <% end %>
+<% else %>
+  <p>Votre commande a déjà été validée</p>
+  <%= link_to "Accéder au récap de la commande", order_path(@order) %>
+  <%= link_to "Modifier cette commande", reset_status_order_path(@order) %>
+<% end  %>
