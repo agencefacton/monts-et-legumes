@@ -9,6 +9,7 @@ class ProductOrdersController < ApplicationController
       format.html
       format.xlsx
     end
+    @products = Product.joins(product_orders: :order).where('orders.week_number = ?', params[:week_number]).where('orders.status = ?', 1).uniq
   end
 
   def show
