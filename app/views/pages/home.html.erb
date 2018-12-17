@@ -1,35 +1,35 @@
 <%= render 'shared/navbar' %>
 <div id="intro">
   <div id="introtxt">
-    <h1>Monts & Légumes</h1>
-    <h2>On fait des légumes bio</h2>
+    <span class="introname">Monts & Légumes</span>
+    <span class="introbaseline">On fait des légumes bio</span>
     <%= button_to "Je commande mon panier", products_path, :method => :get, class: 'btn btn-primary btn-homepage' %>
   </div>
   <div id="introcards">
-    <div class="introcard">
+    <div class="whitecard introcard">
       <div class="introcardtxt">
-        <h1>Légumes bio</h1>
+        <h3>Légumes bio</h3>
         <p>Récoltés chaque semaine pour vous</p>
       </div>
-      <div class="introcardpic veggie">
+      <div class="introcardpic">
         <%= image_tag ( "hp-vegetables.png" ) %>
       </div>
     </div>
-    <div class="introcard">
+    <div class="whitecard introcard">
       <div class="introcardtxt">
-        <h1>Bocaux</h1>
+        <h3>Bocaux bio</h3>
         <p>Préparés dans nos ateliers</p>
       </div>
-      <div class="introcardpic transfo">
+      <div class="introcardpic">
         <%= image_tag ( "hp-transfo.png" ) %>
       </div>
     </div>
-    <div class="introcard">
+    <div class="whitecard introcard">
       <div class="introcardtxt">
-        <h1>Viande</h1>
+        <h3>Viande</h3>
         <p>Locale et préparée par nos collègues</p>
       </div>
-      <div class="introcardpic meat">
+      <div class="introcardpic">
         <%= image_tag ( "hp-meat.png" ) %>
       </div>
     </div>
@@ -40,19 +40,24 @@
 <div class="graybackground">
 
   <div id="graytitle">
-    <h1>Bienvenue !</h1>
+    <span class="introwelcome">Bienvenue !</span>
     <p>Nous sommes Margaux et Clément. Depuis 2017, nous produisons des légumes bio dans une ferme à Haute Rivoire. Blablabla</p>
   </div>
 
-    <span class="button-prev"><i class="fas fa-arrow-left"></i></span>
-    <span class="button-next"><i class="fas fa-arrow-right"></i></span>
 
-  <div id="people">
+  <div class="whitecard" id="people">
 
-    <div class="slide active">
+    <div id="peoplebtn">
+      <span class="button1 btnactive"><i class="fas fa-carrot"></i>jjj</span>
+      <span class="button2"><i class="fas fa-carrot"></i></span>
+      <span class="button3"><i class="fas fa-carrot"></i></span>
+      <span class="button4"><i class="fas fa-carrot"></i></span>
+    </div>
+
+    <div class="slide1 slide active">
       <div class="peopletxt">
         <h1>Notre ferme</h1>
-        <p>Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+        <p>Découvrez notre ferme. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
       </div>
 
       <div class="peoplepic">
@@ -60,16 +65,40 @@
       </div>
     </div>
 
-    <div class="slide">
+    <div class="slide2 slide">
       <div class="peopletxt">
-        <h1>Notre ferme 2</h1>
-        <p>Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+        <h1>Notre démarche</h1>
+        <p>Et voilà notre démarche. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
       </div>
 
       <div class="peoplepic">
-        <%= image_tag("clement_margaux.jpg")%>
+        <%= image_tag("plantation.jpg")%>
       </div>
     </div>
+
+    <div class="slide3 slide">
+      <div class="peopletxt">
+        <h1>Nos carottes</h1>
+        <p>Elles sont belles nos carottes. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+      </div>
+
+      <div class="peoplepic">
+        <%= image_tag("carottes.jpg")%>
+      </div>
+    </div>
+
+    <div class="slide4 slide">
+      <div class="peopletxt">
+        <h1>Et voilà une coccinelle</h1>
+        <p>Elles est belle la coccinelle. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+      </div>
+
+      <div class="peoplepic">
+        <%= image_tag("coccinelle.jpg")%>
+      </div>
+    </div>
+
+
   </div>
 
   <div id="where">
@@ -77,7 +106,7 @@
       <div class="place-to-find-icon">
         <%= image_tag("vegetables.png")%>
       </div>
-      <h1>AU MARCHE</h1>
+      <h2>AU MARCHE</h2>
       <p>Tous les vendredi de 6h à 13h au marché de Saint-Genis-Laval</p>
       <button class="btn btn-primary">En savoir plus</button>
     </div>
@@ -85,7 +114,7 @@
       <div class="place-to-find-icon">
         <%= image_tag("landscape.png")%>
       </div>
-      <h1>A LA FERME</h1>
+      <h2>A LA FERME</h2>
       <p>Commandez votre panier en ligne du lundi au mercredi et venez le récupérer à la ferme</p>
       <button class="btn btn-primary">En savoir plus</button>
     </div>
@@ -93,8 +122,8 @@
       <div class="place-to-find-icon">
         <%= image_tag("shop.png")%>
       </div>
-      <h1>A LA COOP</h1>
-      <p>Nous vendons nos produits, ainsi que ceux d'autres producteurs, à la coop. Venez !</p>
+      <h2>A ALTERECO</h2>
+      <p>Nous vendons nos produits, ainsi que ceux d'autres producteurs, à Altereco. Venez !</p>
       <button class="btn btn-primary">En savoir plus</button>
     </div>
   </div>
@@ -111,6 +140,9 @@
 
     <div class="hpleft">
       <div class="hppic hplefttop">
+        <div class="overlay">
+          <span>Hello !</span>
+        </div>
       </div>
       <div class="hpleftbottom">
         <div class="hppic hpleftbottomleft">

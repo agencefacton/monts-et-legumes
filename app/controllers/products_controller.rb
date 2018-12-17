@@ -30,6 +30,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
 
   def create
     @product = Product.new(product_params)
+    @product.step = [@product.step].to_yaml
     if @product.save
       redirect_to products_path
     else
@@ -59,7 +60,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :unit, :category, :description, :active, :photo)
+    params.require(:product).permit(:name, :price, :unit, :category, :description, :active, :photo, :step)
   end
 
   def set_product

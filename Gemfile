@@ -24,6 +24,7 @@ gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
+gem 'font-awesome-sass'
 
 
 group :development, :test do

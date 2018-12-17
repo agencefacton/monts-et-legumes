@@ -10,6 +10,11 @@
   a {
     padding: 0 15px;
   }
+  position: fixed;
+  display: flex;
+  width: 100%;
+  margin: 0;
+  z-index: 1000;
 }
 
 /* Logo */
