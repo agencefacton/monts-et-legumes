@@ -45,10 +45,9 @@
   margin-bottom: 0.5em;
 }
 
-
 #introtxt {
   text-align: center;
-  min-height: calc(90vh - 100px);
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -112,6 +111,13 @@
   position: absolute;
   bottom: 0;
   display: flex;
+  justify-content: space-around;
+  padding: 2em;
+  width: 50%;
+}
+
+.button1, .button2, .button3, .button4 {
+  cursor: pointer;
 }
 
 .btnactive {
@@ -166,15 +172,15 @@
 }
 
 .place-to-find-icon {
-  width: 30%;
-  height: 30%;
-  padding: 30px;
+  width: 90px;
+  height: 90px;
+  padding: 15px;
   border-radius: 50%;
   position: absolute;
   background: $white;
   border: 2px solid $green;
-  top: -68px;
-  left: 33%;
+  top: -20px;
+  left: 40%;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -195,6 +201,14 @@
   width: 50%;
 }
 
+.contoverflow {
+  overflow: hidden;
+}
+
+.hpoverflowtxt {
+  text-align: center;
+}
+
 .hpleftbottom, .hprighttop {
   display: flex;
   width: 100%;
@@ -211,6 +225,11 @@
   background-image: url('cagette.jpg');
   margin-left: 0;
   position: relative;
+}
+
+.hplefttop:hover {
+  transform: scale(1.1);
+  transition: all 1s ease-out;
 }
 
 .hprightbottom {
@@ -250,7 +269,6 @@
   left: 0;
   background-color: rgba(52, 73, 94, 0.75);
 }
-
 
 .hppic:hover .overlay:before {
   display: block;
