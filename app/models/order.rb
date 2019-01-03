@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   has_many :products, through: :product_orders, dependent: :destroy
   belongs_to :user
   before_create :set_status
-  before_save :update_total
+  after_touch :update_total
   before_save :update_date
 
   def calculate_total
@@ -26,6 +26,7 @@ class Order < ApplicationRecord
 
   def update_total
     self.total_price = calculate_total
+    save
   end
 
   def update_date

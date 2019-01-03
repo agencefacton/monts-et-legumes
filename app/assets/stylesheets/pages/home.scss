@@ -228,8 +228,9 @@
 }
 
 .hplefttop:hover {
-  transform: scale(1.1);
-  transition: all 1s ease-out;
+  transform: scale(1.05);
+  transition: all 0.5s ease-out;
+  background-color: rgba(52, 73, 94, 0.75);
 }
 
 .hprightbottom {
@@ -259,17 +260,19 @@
   margin-right: 0;
 }
 
-.overlay::before {
+.overlay {
   content: "";
   display: none;
+  margin: 8px;
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   background-color: rgba(52, 73, 94, 0.75);
+  z-index: 10;
 }
 
-.hppic:hover .overlay:before {
+.hppic:hover .overlay:hover {
   display: block;
 }

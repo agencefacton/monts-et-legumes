@@ -3,7 +3,7 @@
 <% @veg.each do |product| %>
 
 <div class="product_line">
-  <div class="product_avatar">
+  <div>
     <% if product.photo.present? %>
       <%= cl_image_tag product.photo, class: "avatar_bordered" %>
     <% end %>
