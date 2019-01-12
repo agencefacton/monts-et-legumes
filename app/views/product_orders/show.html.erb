@@ -2,7 +2,12 @@
   <h1>A récolter - Semaine <%= @week %></h1>
   <ul>
     <% @quantities.each do |quantity| %>
-    <li><%= quantity[0] %> - <%= quantity[1] %> </li>
+    <li><%= quantity %> </li>
   <% end %>
   </ul>
+
+<%= @quantities3 %>
+
+  <%= link_to "Exporter", product_orders_path(format: "xlsx") %>
+
 </div>

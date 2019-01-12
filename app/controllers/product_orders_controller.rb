@@ -9,12 +9,13 @@ class ProductOrdersController < ApplicationController
       format.html
       format.xlsx
     end
-    @products = Product.joins(product_orders: :order).where('orders.week_number = ?', params[:week_number]).where('orders.status = ?', 1).uniq
   end
 
   def show
     @week = params[:week_number]
     @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number]).group(:name).sum(:quantity)
+    @quantities2 = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number])
+    @quantities3 = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number]).group(:name)
   end
 
   def create

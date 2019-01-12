@@ -3,7 +3,14 @@
   <div id="introtxt">
     <span class="introname">Monts & Légumes</span>
     <span class="introbaseline">On fait des légumes bio</span>
-    <%= button_to "Je commande mon panier", products_path, :method => :get, class: 'btn btn-primary btn-homepage' %>
+    <% if user_signed_in? %>
+      <%= button_to "Je commande mon panier", products_path, :method => :get, class: 'btn btn-primary btn-homepage' %>
+    <% else %>
+    <div>
+      <%= link_to t(".sign_in", default: "Je commande mon panier"), new_user_session_path, data: { toggle: 'modal', target: '#logInModal'}, class: 'btn btn-primary btn-homepage' %>
+    </div>
+    <% end %>
+
   </div>
   <div id="introcards">
     <div class="whitecard introcard">

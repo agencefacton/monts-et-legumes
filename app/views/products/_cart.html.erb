@@ -1,5 +1,5 @@
 <% if @product_orders.count > 0 %>
-  <h2>Dans mon panier</h2>
+  <h1>Mon panier</h1>
   <ul>
   <% @product_orders.each do |product_order| %>
     <li>
@@ -9,7 +9,7 @@
     </li>
   <% end %>
   </ul>
-  <h4>Prix total cette semaine : <%= @order.total_price %> €</h4>
+  <h4>Prix total du panier : <%= @order.total_price %> €</h4>
 
   <% if current_order.status != 1 %>
     <%= form_for(@order) do |f| %>
