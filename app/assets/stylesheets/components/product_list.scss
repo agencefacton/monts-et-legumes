@@ -26,3 +26,15 @@
     text-align: end;
   }
 }
+
+#product_action_admin {
+  display: flex;
+}
+
+#activate_product a, a:hover {
+  color: red;
+}
+
+#deactivate_product a, a:hover {
+  color: $green;
+}

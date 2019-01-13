@@ -6,14 +6,14 @@
 
 <table>
   <tr>
-    <td>Email</td>
-    <td>Nom</td>
-    <td>Prénom</td>
-    <td>Téléphone</td>
-    <td>Mayères</td>
-    <td>Ardoise</td>
-    <td>Accéder aux commandes</td>
-    <td>Editer des infos</td>
+    <th>Email</th>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Téléphone</th>
+    <th>Mayères</th>
+    <th>Ardoise</th>
+    <th>Commandes</th>
+    <th>Editer des infos</th>
   </tr>
   <% @users.each do |user| %>
     <tr>
@@ -24,8 +24,7 @@
       <td><% if user.mayeres? %>Oui <% end %> </td>
       <td><%= user.tab %></td>
       <td><%= link_to "#{user.orders.count} commandes ", orders_user_path(user) %></td>
-      <td><%= link_to "Editer le profil", edit_user_path(user) %></td>
-      <td><%= link_to "Supprimer", user_path(user), :data => {:method => "delete"} %></td>
+      <td><%= link_to "Editer |", edit_user_path(user) %><%= link_to " Supprimer", user_path(user), :data => {:method => "delete"} %></td>
     </tr>
   <% end %>
 </table>

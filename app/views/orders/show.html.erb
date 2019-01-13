@@ -18,7 +18,7 @@
   <% if current_order.status == 1 %>
     <%= form_for(@order) do |f| %>
       <%= f.hidden_field :status, value: 0 %>
-      <%= f.submit 'Annuler la commande' %>
+      <%= f.submit 'Annuler la commande', class: "btn btn-secondary" %>
     <% end %>
   <% end %>
 

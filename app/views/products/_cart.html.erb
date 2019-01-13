@@ -1,14 +1,21 @@
-<% if @product_orders.count > 0 %>
-  <h1>Mon panier</h1>
-  <ul>
-  <% @product_orders.each do |product_order| %>
-    <li>
-      <%= product_order.product.name %> :
-      <%= product_order.quantity %> <%= product_order.product.unit %>
-      - <%= product_order.item_price %> €
-    </li>
-  <% end %>
-  </ul>
+<h1>Votre panier</h1>
+<div id="cart">
+  <% if @product_orders.count == 0 %>
+    <div id="no_item_expl">
+      <p>Votre panier est vide</p>
+    </div>
+  <% else %>
+    <ul>
+    <% @product_orders.each do |product_order| %>
+      <li>
+        <%= product_order.product.name %> :
+        <%= product_order.quantity %> <%= product_order.product.unit %>
+        - <%= product_order.item_price %> €
+      </li>
+    <% end %>
+    </ul>
+  </div>
+
   <h4>Prix total du panier : <%= @order.total_price %> €</h4>
 
   <% if current_order.status != 1 %>

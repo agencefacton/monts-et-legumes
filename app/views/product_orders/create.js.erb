@@ -1,0 +1,15 @@
+alert('coucou');
+
+// function refreshForm(innerHTML) {
+//   const newReviewForm = document.getElementById('new_review');
+//   newReviewForm.innerHTML = innerHTML;
+// }
+
+function addToCart(newProduct) {
+  const items = document.getElementById('cart');
+  items.insertAdjacentHTML('beforeend', newProduct);
+}
+
+// addToCart('hey');
+addToCart('<%= product_order.product.name %> ');
+

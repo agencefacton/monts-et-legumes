@@ -1,12 +1,14 @@
-<h2>Modifier un client</h2>
+<div class="container">
+  <h2>Modifier un client</h2>
 
-<%= simple_form_for(@user) do |f| %>
-  <%= f.input :first_name, label: 'Prénom', error: 'Username is mandatory, please specify one' %>
-  <%= f.input :last_name, label: 'Nom de famille' %>
-  <%= f.input :phone_number, placeholder: '0123456789' %>
-  <%= f.input :email, placeholder: 'utilisateur@nomdedomaine.com' %>
-  <%= f.input :mayeres, as: :boolean, checked_value: true, unchecked_value: false %>
-  <%= f.input :tab %>
-  <%= f.input :admin, as: :boolean, checked_value: true, unchecked_value: false %>
-  <%= f.button :submit, label: 'Valider les changements' %>
-<% end %>
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.input :first_name, label: 'Prénom', error: 'Username is mandatory, please specify one' %>
+    <%= f.input :last_name, label: 'Nom de famille' %>
+    <%= f.input :phone_number, placeholder: '0123456789' %>
+    <%= f.input :email, placeholder: 'utilisateur@nomdedomaine.com' %>
+    <%= f.input :mayeres, as: :boolean, checked_value: true, unchecked_value: false %>
+    <%= f.input :tab %>
+    <%= f.input :admin, as: :boolean, checked_value: true, unchecked_value: false %>
+    <%= f.button :submit, label: 'Valider les changements' %>
+  <% end %>
+</div>
