@@ -2,18 +2,8 @@
   <% if @order.user == current_user %>
     <h1>Votre panier a été validé</h1>
   <% end %>
-  <h1>Récapitulatif de commande</h1>
-  <h2>Semaine <%= @order.week_number %></h2>
 
-  <% @order.product_orders.each do |product_order| %>
-    <li><%= product_order.product.name %>
-    Prix au <%= product_order.product.unit %>:<%= product_order.product.price %>
-    Quantité : <%= product_order.quantity %>
-    Prix total : <%= product_order.item_price %>
-    </li>
-  <% end %>
-
-  <h4>Prix total du panier : <%= @order.total_price %>€</h4>
+<%= render "products/cart" %>
 
   <% if current_order.status == 1 %>
     <%= form_for(@order) do |f| %>
@@ -26,3 +16,4 @@
   <p><%= link_to "Voir mon profil", user_path(@user) %></p>
   <p><%= link_to "Historique de mes commandes", orders_path %></p>
 </div>
+

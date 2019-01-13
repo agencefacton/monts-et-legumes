@@ -21,10 +21,14 @@ class ProductOrdersController < ApplicationController
   def create
     save_order unless @order.persisted?
     if product_order_params[:quantity].to_i > 0
-      @order.product_orders.create(product_order_params)
+      @product_order = @order.product_orders.create(product_order_params)
     end
     session[:order_id] = @order.id
-    redirect_to products_path
+    if @product_order.save
+      redirect_to products_path
+    else
+      render 'products/index'
+    end
   end
 
   def destroy

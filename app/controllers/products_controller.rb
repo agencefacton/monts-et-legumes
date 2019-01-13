@@ -6,14 +6,8 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
       redirect_to new_user_session_path
     elsif current_user.admin?
       @products = Product.order(active: :desc, category: :asc)
-      @veg = Product.order(active: :desc, category: :asc).where("category = ?", "Légumes")
-      @meat = Product.order(active: :desc, category: :asc).where("category = ?", "Viande")
-      @transfo = Product.order(active: :desc, category: :asc).where("category = ?", "Produit transformé")
     else
       @products = Product.where(active: true)
-      @veg = Product.where(active: true).where("category = ?", "Légumes")
-      @meat = Product.where(active: true).where("category = ?", "Viande")
-      @transfo = Product.where(active: true).where("category = ?", "Produit transformé")
     end
     @product_order = current_order.product_orders.new
     @product_orders = current_order.product_orders

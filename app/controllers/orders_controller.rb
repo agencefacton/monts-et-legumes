@@ -8,6 +8,7 @@ before_action :set_order, only: [:show, :edit, :update, :reset_status]
 
   def show
     @user = User.find(@order.user_id)
+    @product_orders = @order.product_orders
   end
 
   def new
