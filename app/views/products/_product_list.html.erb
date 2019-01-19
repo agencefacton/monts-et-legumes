@@ -1,6 +1,10 @@
-<h2>Légumes bio</h2>
+<h1>Sélectionnez vos produits</h1>
 
 <% @products.each do |product| %>
+
+<% @cat = product.category %>
+
+<h3><%= product.category %></h3>
 
 <div class="product_line">
   <div>
@@ -8,14 +12,18 @@
       <%= cl_image_tag product.photo, class: "avatar_bordered" %>
     <% end %>
   </div>
-  <span class="product_title"> <%= product.name.capitalize %></span> <br>
-  <span class="product_price"><%= product.price %> € /<%= product.unit %></span>
+  <div class="product_info">
+    <span class="product_title"> <%= product.name.capitalize %></span> <br>
+    <span class="product_price"><%= product.price %> € /<%= product.unit %></span><br>
+    <span class="product_description"><%= product.description %></span>
+  </div>
   <div class="product_quantity">
     <% if @order.contains?(product) %>
       <% product_order = @order.product_orders.find_by(product_id: product.id) %>
       <%= simple_form_for product_order do |f| %>
         <%= f.number_field :quantity, label: "Modifier" %>
-        <%= f.submit "Modifier", class: "btn btn-outline-primary" %>
+        <%= product.unit %>
+        <%= f.submit "Modifier", class: "btn btn-outline-primary btn-product-list" %>
         <%= link_to "Supprimer", product_order_path(product_order), :data => {:method => "delete"} %>
       <% end %>
     <% else %>
@@ -30,7 +38,7 @@
   <% if product.active? %>
     <%= link_to "Desactiver", change_active_product_path(product) %>
   <% else %>
-    <%= link_to "Activer", change_active_product_path(product) %>
+    <span class="activate_product"> <%= link_to "Activer", change_active_product_path(product) %></span>
   <% end %>
 <% end %>
 

@@ -24,7 +24,6 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
 
   def create
     @product = Product.new(product_params)
-    @product.step = [@product.step].to_yaml
     if @product.save
       redirect_to products_path
     else

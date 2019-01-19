@@ -24,17 +24,29 @@
     width: 3em !important;
     height: 100% !important;
     text-align: end;
+    background-color: $whitecard;
+    color: #777;
   }
+}
+
+.product_info {
+  max-width: 300px;
+  line-height: 15px;
+}
+
+.product_title {
+  font-size: 1.4em;
+  line-height: 35px;
+}
+
+.product_price, .product_description {
+  font-size: 0.8em;
 }
 
 #product_action_admin {
   display: flex;
 }
 
-#activate_product a, a:hover {
-  color: red;
-}
-
-#deactivate_product a, a:hover {
-  color: $green;
+.activate_product a {
+  color: $red;
 }
