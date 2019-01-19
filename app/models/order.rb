@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   belongs_to :user
   before_create :set_status
   after_touch :update_total
-  before_save :update_date
+  before_save :update_week
 
   def calculate_total
     self.product_orders.sum(:item_price).to_f
@@ -29,7 +29,10 @@ class Order < ApplicationRecord
     save
   end
 
-  def update_date
+  def update_week
     self.week_number = Time.now.strftime("%U").to_i
   end
+
+  def update_year
+    self.year_number = Date.current.year
 end
