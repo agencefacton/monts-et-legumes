@@ -1,10 +1,14 @@
-<h1>Mes commandes</h1>
+<div class="container">
 
-<% @myorders.each do |order| %>
-<li>Semaine <%= order.week_number %>
-Montant <%= order.total_price %> €
-<%= link_to "Voir le détail", order_path(order) %>
-</li>
-<% end %>
+  <h1>Mes commandes</h1>
 
-<%= link_to "Retour à ma commande", order_path(current_order) %>
+  <% @myorders.each do |order| %>
+    <li>Semaine <%= order.week_number %>
+    Montant <%= order.total_price %> €
+    <%= link_to "Voir le détail", order_path(order) %>
+    </li>
+  <% end %>
+
+  <%= link_to "Retour à ma commande", order_path(current_order) %>
+
+</div>

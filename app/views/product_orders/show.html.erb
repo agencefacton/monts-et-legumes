@@ -1,12 +1,11 @@
 <div class="container">
-  <h1>A récolter - Semaine <%= @week %></h1>
+  <h1>Année <%= @year %></h1>
+  <%= @weeks %>
   <ul>
-    <% @quantities.each do |quantity| %>
-    <li><%= quantity %> </li>
+    <% @weeks.each do |week| %>
+    <li>Semaine <%= week.week_number %>, <%= link_to "Semaine", product_order_week_number_path(:week_number) %> </li>
   <% end %>
   </ul>
-
-<%= @quantities3 %>
 
   <%= link_to "Exporter", product_orders_path(format: "xlsx") %>
 

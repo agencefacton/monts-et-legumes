@@ -12,10 +12,8 @@ class ProductOrdersController < ApplicationController
   end
 
   def show
-    @week = params[:week_number]
-    @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number]).group(:name).sum(:quantity)
-    @quantities2 = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number])
-    @quantities3 = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number]).group(:name)
+    @year = params[:current_year].to_i
+    @weeks = Order.where(current_year: params[:current_year].to_i)
   end
 
   def create
@@ -43,6 +41,13 @@ class ProductOrdersController < ApplicationController
       @product_order.update(product_order_params)
     end
     redirect_to products_path
+  end
+
+  def week_number
+    @week = params[:week_number]
+    @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number]).group(:name).sum(:quantity)
+    @quantities2 = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number])
+    @quantities3 = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number]).group(:name)
   end
 
   private

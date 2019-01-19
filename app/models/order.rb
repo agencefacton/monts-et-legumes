@@ -5,6 +5,7 @@ class Order < ApplicationRecord
   before_create :set_status
   after_touch :update_total
   before_save :update_week
+  before_save :update_year
 
   def calculate_total
     self.product_orders.sum(:item_price).to_f
@@ -34,5 +35,6 @@ class Order < ApplicationRecord
   end
 
   def update_year
-    self.year_number = Date.current.year
+    self.current_year = Date.current.year
+  end
 end

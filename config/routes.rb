@@ -19,13 +19,14 @@ Rails.application.routes.draw do
     end
   end
   resources :product_orders, except: [:index, :show]
-  resources :product_orders, only: [:index, :show], param: :week_number
+  resources :product_orders, only: [:index, :show], param: :current_year do
+    get :week_number
+  end
   resources :orders do
     member do
       get :reset_status
     end
   end
-  resources :sales, param: :week_number
   resources :customer_orders, only: [:index, :show], param: :week_number
 
 end
