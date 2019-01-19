@@ -68,6 +68,14 @@
   display: flex;
   overflow: hidden;
   border-radius: 0;
+  position: relative;
+  bottom: 0;
+}
+
+.introcard:hover {
+  position: relative;
+  bottom: 10px;
+  transition: all 0.1s ease-out;
 }
 
 .introcardtxt {
@@ -123,6 +131,8 @@
 
 .btnactive {
   color: $green;
+  border-bottom: 1px solid;
+  font-weight: bold;
 }
 
 .slide {
@@ -208,67 +218,69 @@
 
 .contoverflow {
   overflow: hidden;
+  margin: 8px;
+  width: 100%;
+  height: 200px;
+}
+
+.contoverflow-except-left {
+  margin-left: 0;
+}
+
+.contoverflow-except-right {
+  margin-right: 0;
 }
 
 .hpoverflowtxt {
   text-align: center;
 }
 
-.hpleftbottom, .hprighttop {
+.hpleftbottom, .hprighttop, .hplefttop, .hpleftbottom {
   display: flex;
   width: 100%;
 }
 
 .hppic {
   height: 200px;
-  margin: 8px;
   background-size: cover;
   background-position: 50% 50%;
 }
 
-.hplefttop {
+.hplefttoptop {
   background-image: url('cagette.jpg');
-  margin-left: 0;
   position: relative;
 }
 
-.hplefttop:hover {
-  transform: scale(1.05);
-  transition: all 0.5s ease-out;
-  background-color: rgba(52, 73, 94, 0.75);
-}
-
-.hprightbottom {
+.hprightbottombottom {
   background-image: url('cagette.jpg');
   margin-right: 0;
 }
 
 .hpleftbottomleft {
-  width: 50%;
   background-image: url('pousse.jpg');
-  margin-left: 0;
 }
 
 .hpleftbottomright {
-  width: 50%;
   background-image: url('coccinelle.jpg');
 }
 
 .hprighttopleft {
-  width: 50%;
   background-image: url('clement_margaux.jpg');
 }
 
 .hprighttopright {
-  width: 50%;
   background-image: url('pousse.jpg');
-  margin-right: 0;
+}
+
+.hplefttoptop:hover, .hpleftbottomleft:hover, .hpleftbottomright:hover, .hprighttopleft:hover, .hprighttopright:hover, .hprightbottombottom:hover {
+  transform: scale(1.05);
+  transition: all 0.5s ease-out;
+  background-color: rgba(52, 73, 94, 0.75);
 }
 
 .overlay {
   content: "";
   display: none;
-  margin: 8px;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -278,6 +290,16 @@
   z-index: 10;
 }
 
-.hppic:hover .overlay:hover {
-  display: block;
+.overlaytxt {
+  color: $white;
+  text-align: center;
+  font-size: 2em;
+  border-bottom: 1px solid $white;
+}
+
+.hppic:hover .overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-out;
 }

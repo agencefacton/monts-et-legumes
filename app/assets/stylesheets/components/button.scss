@@ -10,9 +10,8 @@
 .btn-primary:hover {
   border-color: $green;
   background-color: $green;
-  font-weight: bolder;
-  box-shadow: 0 1px 1px 1px hsla(0, 50%, 100%, 0.5);
   transition: 0.3s ease;
+  padding: 10px 20px;
 }
 
 .btn-primary.btn-homepage {
@@ -20,6 +19,11 @@
   font-size: 1.3em;
   font-weight: 600;
   margin-top: 2em;
+}
+
+.btn-primary.btn-homepage:hover {
+  padding: 18px 36px;
+  transition: 0.3s ease;
 }
 
 .button-prev, .button-next {
@@ -38,4 +42,7 @@
   padding: 8px 20px;
 }
 
+.btn a, .btn a:hover {
+  color: $white;
+}
 
