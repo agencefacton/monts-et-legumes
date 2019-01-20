@@ -1,20 +1,14 @@
 <div class="container">
 
-<h1>Récolte par légume</h1>
+  <h1>Récolte par légume</h1>
 
-    <ul>
-      <% @orders.each do |order| %>
-      <li>
-        <p>Semaine <%= order[0] %> - <%= link_to "Détail", product_order_path(order[0]) %></p>
-      </li>
-      <% end %>
-    </ul>
+  <ul>
+    <% @years.each do |year| %>
+    <li>
+      <p><%= year %> <%= year[0] %><%= link_to "Détail", date_path(2019) %> </p>
+    </li>
+    <% end %>
+  </ul>
 
-<%= link_to "Exporter", product_orders_path(format: "xlsx") %>
-
-<%= @orders %>
-<br>
-<br>
-<%= @quantities %>
-
+  <%= link_to "Exporter", product_orders_path(format: "xlsx") %>
 </div>

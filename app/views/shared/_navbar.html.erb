@@ -12,7 +12,7 @@
       <!-- Links when logged in -->
       <% if current_user.admin? %>
         <%= link_to "Clients", users_path %>
-        <%= link_to "A récolter", product_orders_path %>
+        <%= link_to "A récolter", date_index_path %>
         <%= link_to "Commandes", customer_orders_path %>
       <% else %>
         <%= link_to "Mes commandes", orders_path %>

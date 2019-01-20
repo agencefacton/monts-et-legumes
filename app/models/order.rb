@@ -35,6 +35,6 @@ class Order < ApplicationRecord
   end
 
   def update_year
-    self.current_year = Date.current.year
+    self.year_number = Date.current.year.to_i
   end
 end
