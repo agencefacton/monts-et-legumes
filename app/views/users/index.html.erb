@@ -21,9 +21,9 @@
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
       <td><%= user.phone_number %></td>
-      <td><% if user.mayeres? %>Oui <% end %> </td>
-      <td><%= user.tab %></td>
-      <td><%= link_to "#{user.orders.count} commandes ", orders_user_path(user) %></td>
+      <td><% if user.mayeres? %><i class="fab fa-medium-m"></i> <% end %> </td>
+      <td><%= link_to "#{user.tab}€", tab_user_path(user) %></td>
+      <td><%= link_to pluralize(user.orders.count,"commande"), orders_user_path(user) %></td>
       <td><%= link_to "Editer |", edit_user_path(user) %><%= link_to " Supprimer", user_path(user), :data => {:method => "delete"} %></td>
     </tr>
   <% end %>
