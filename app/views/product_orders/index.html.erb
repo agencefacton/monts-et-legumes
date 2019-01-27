@@ -1,11 +1,11 @@
 <div class="container">
 
-  <h1>Récolte par légume</h1>
+  <h1>Récolte par légume - Global</h1>
 
   <ul>
     <% @years.each do |year| %>
     <li>
-      <p><%= year %> <%= year[0] %><%= link_to "Détail", date_path(2019) %> </p>
+      <p><%= year[0] %> : <%= pluralize(year[1], "commande") %> - <%= link_to "Détail", date_path(year) %> </p>
     </li>
     <% end %>
   </ul>

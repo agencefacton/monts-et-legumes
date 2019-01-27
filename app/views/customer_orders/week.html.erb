@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Commandes par client - Semaine <%= @week %>,  <%= @year %> </h1>
+
+  <%= link_to "Retour", customer_orders_year_path(@year) %>
+
+  <ul>
+    <% @orders.each do |order| %>
+      <li>
+        <% if order.user.mayeres == true %>
+          <i class="fab fa-medium-m"></i>
+        <% end %>
+        <%= order.user.first_name %>   <%= order.user.last_name %> : <%= order.total_price %>€</li>
+      <ul>
+        <% order.product_orders.each do |item| %>
+          <li><%= item.product.name %> - <%= pluralize(item.quantity, item.product.unit) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </ul>
+
+</div>

@@ -1,7 +1,10 @@
 <div class="container">
-  <h1>A récolter</h1>
+  <h1>Récolte par légume : Semaine <%= @week %></h1>
+  <ul>
+
   <% @quantities.each do |quantity| %>
-<%= quantity %>
+    <li><%= quantity[0].category %> : <%= quantity[0].name %> - <%= quantity[1] %> <%= quantity[0].unit %></li>
   <% end %>
 
+  </ul>
 </div>

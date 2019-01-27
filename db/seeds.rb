@@ -19,11 +19,20 @@
 # )
 
 Order.create(
+  year_number: 2018,
   week_number: 12,
   total_price: 20,
   user_id: 1,
   status: 1
 )
+
+Order.create(
+  year_number: 2019,
+  week_number: 3,
+  total_price: 21.5,
+  user_id: 4,
+  status: 1
+  )
 
 # Product.create(
 #   name: "Carottes",

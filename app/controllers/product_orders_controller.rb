@@ -9,19 +9,19 @@ class ProductOrdersController < ApplicationController
       format.html
       format.xlsx
     end
-    @years = Order.group(:year_number).count
+    @years = Order.where(status: 1).group(:year_number).count
   end
 
   def show
     @year = params[:year_number].to_i
-    @weeks = Order.where(year_number: 2019)
+    @week = params[:week_number].to_i
+    @weeks = Order.where(status: 1, year_number: 2019).group(:week_number).count
   end
 
   def week
+    @year = params[:year_number].to_i
     @week = params[:week_number].to_i
-    @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).where("year_number = 2019").where("week_number = 3").group(:product).sum(:quantity)
-    @quantities2 = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number])
-    @quantities3 = ProductOrder.joins(:product, :order).where("status = ?", 1).where("week_number = ?", params[:week_number]).group(:name)
+    @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).where("year_number = #{@year}").where("week_number = #{@week}").group(:product).sum(:quantity)
   end
 
   def create

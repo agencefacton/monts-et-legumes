@@ -2,8 +2,8 @@ class OrdersController < ApplicationController
 before_action :set_order, only: [:show, :edit, :update, :reset_status]
 
   def index
-    @orders = Order.all
-    @myorders = Order.where(user: current_user)
+    @orders = Order.where(status: 1)
+    @myorders = Order.where(user: current_user, status: 1)
   end
 
   def show

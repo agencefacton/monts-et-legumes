@@ -1,12 +1,16 @@
 <div class="container">
-  <h1>Récap des commandes</h1>
-    <ul>
-      <% @orders.each do |order| %>
-      <li>
-        <p>Semaine <%= order[0] %> - <%= order[1] %> commandes - <%= link_to "Détail", customer_order_path(order[0]) %></p>
-      </li>
-      <% end %>
-    </ul>
+
+
+  <h1>Commande par client - Général</h1>
+
+  <ul>
+    <% @years.each do |year| %>
+    <li>
+      <p><%= year[0] %> - <%= pluralize(year[1], "commande") %><%= link_to "Détail par semaine", customer_orders_year_path(2019) %></p>
+    </li>
+    <% end %>
+  </ul>
 
 </div>
+
 

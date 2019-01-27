@@ -16,6 +16,19 @@
 
     <div class="card_form">
       <%= render 'cart' %>
+      <% if current_order.product_orders.count != 0 %>
+        <% if current_order.status != 1 %>
+          <div class="flex">
+            <%= form_for(@order) do |f| %>
+              <%= f.hidden_field :status, value: 1 %>
+              <%= f.submit 'Valider la commande', class: "btn btn-primary btn-centered" %>
+            <% end %>
+          </div>
+        <% else %>
+          <p>Cette commande a déjà été validée</p>
+          <%= link_to "Modifier la commande", reset_status_order_path(@order) %>
+        <% end  %>
+      <% end %>
     </div>
 
   </div>

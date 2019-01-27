@@ -5,21 +5,14 @@
       <p>Votre panier est vide</p>
     </div>
   <% else %>
-    <% @product_orders.each do |product_order| %>
-      <%= render 'product_orders/show', product_order: product_order %>
-    <% end %>
-  </div>
+    <table>
+      <% @product_orders.each do |product_order| %>
+        <tr><%= render 'product_orders/show', product_order: product_order, order: @order %></tr>
+      <% end %>
+    </table>
+    <h4>Prix total du panier : <%= @order.total_price %> €</h4>
+  <% end %>
+</div>
 
-  <h4>Prix total du panier : <%= @order.total_price %> €</h4>
 
-  <% if current_order.status != 1 %>
-    <%= form_for(@order) do |f| %>
-      <%= f.hidden_field :status, value: 1 %>
-      <%= f.submit 'Valider la commande', class: "btn btn-primary" %>
-    <% end %>
-  <% else %>
-    <p>Votre commande a déjà été validée</p>
-    <%= link_to "Accéder au récap de la commande", order_path(@order) %>
-    <%= link_to "Modifier cette commande", reset_status_order_path(@order) %>
-  <% end  %>
-<% end %>
+

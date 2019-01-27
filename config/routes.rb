@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get :reset_status
     end
   end
-  resources :customer_orders, only: [:index, :show], param: :week_number
+  resources :customer_orders, only: [:index, :show], param: :year_number, as: "customer_orders_year"
+  get "/customer_orders/:year_number/:week_number", to: "customer_orders#week", as: "customer_orders_week"
 
 end

@@ -1,4 +1,6 @@
-<p><%= product_order.product.name %> :
-<%= product_order.quantity %> <%= product_order.product.unit %>
-- <%= product_order.item_price %> €
-</p>
+<td><%= product_order.product.name %></td>
+<td><%= pluralize(product_order.quantity, product_order.product.unit) %></td>
+<td><%= product_order.item_price %> € </td>
+<% if order.status == 0 %>
+  <td><%= link_to "Supprimer", product_order_path(product_order), :data => {:method => "delete"} %></td>
+<% end %>
