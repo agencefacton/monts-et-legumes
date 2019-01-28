@@ -1,8 +1,7 @@
 .avatar_bordered {
   width: 2.5em;
   height: 2.5em;
-  margin: 1em;
-  border: white 1px solid;
+  margin: 0 1em;
 }
 
 .product_avatar {
@@ -16,7 +15,7 @@
 
 .product_line {
   display: flex;
-  align-items: center;
+  align-items: start;
   margin-top: 1.5em;
   input[type="number" i] {
     border: none !important;
@@ -30,13 +29,23 @@
 }
 
 .product_info {
-  max-width: 300px;
+  width: 350px;
   line-height: 15px;
 }
 
-.product_title {
+.product-title {
   font-size: 1.4em;
   line-height: 35px;
+  color: $grayheaders;
+}
+
+.product-price {
+  font-size: 1em;
+  margin-left: 0.8em;
+}
+
+.product-unit {
+  width: 50px;
 }
 
 #product_action_admin {

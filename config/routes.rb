@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :orderindex, as: "orders"
-      get :tab, as: "tab"
+      resources :transactions, except: :show, as: "transactions"
     end
   end
 

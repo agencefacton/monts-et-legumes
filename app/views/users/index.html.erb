@@ -6,23 +6,21 @@
 
 <table>
   <tr>
-    <th>Email</th>
-    <th>Nom</th>
     <th>Prénom</th>
-    <th>Téléphone</th>
-    <th>Mayères</th>
+    <th>Nom</th>
+    <th>Email</th>
+    <th>Tél</th>
     <th>Ardoise</th>
     <th>Commandes</th>
-    <th>Editer des infos</th>
+    <th></th>
   </tr>
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.email %></td>
-      <td><%= user.first_name %></td>
+      <td><% if user.mayeres? %><i class="fab fa-medium-m"></i> <% end %> <%= user.first_name %></td>
       <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
       <td><%= user.phone_number %></td>
-      <td><% if user.mayeres? %><i class="fab fa-medium-m"></i> <% end %> </td>
-      <td><%= link_to "#{user.tab}€", tab_user_path(user) %></td>
+      <td><%= link_to "#{user.tab}€", transactions_path(user) %></td>
       <td><%= link_to pluralize(user.orders.count,"commande"), orders_user_path(user) %></td>
       <td><%= link_to "Editer |", edit_user_path(user) %><%= link_to " Supprimer", user_path(user), :data => {:method => "delete"} %></td>
     </tr>

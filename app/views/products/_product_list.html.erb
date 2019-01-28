@@ -4,17 +4,18 @@
 
 <% @cat = product.category %>
 
-<h3><%= product.category %></h3>
 
 <div class="product_line">
   <div>
     <% if product.photo.present? %>
       <%= cl_image_tag product.photo, class: "avatar_bordered" %>
+      <% else %>
+      <div class="avatar_bordered"></div>
     <% end %>
   </div>
   <div class="product_info">
-    <span class="product_title"> <%= product.name.capitalize %></span> <br>
-    <span class="text-small"><%= product.price %> € /<%= product.unit %></span><br>
+    <span class="product-title"> <%= product.name.capitalize %></span>
+    <span class="product-price"><%= product.price %> € /<%= product.unit %></span><br>
     <span class="text-small"><%= product.description %></span>
   </div>
   <div class="product_quantity">
@@ -22,7 +23,10 @@
       <% product_order = @order.product_orders.find_by(product_id: product.id) %>
       <%= simple_form_for product_order do |f| %>
         <%= f.number_field :quantity, label: "Modifier" %>
-        <%= product.unit %>
+        <span class="product-unit"> <%= product.unit %></span>
+              <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
+              <i class="fas fa-plus-circle"></i>
+              <% end %>
         <%= f.submit "Modifier", class: "btn btn-outline-primary btn-product-list" %>
         <%= link_to "Supprimer", product_order_path(product_order), :data => {:method => "delete"} %>
       <% end %>
@@ -31,6 +35,9 @@
     <% end %>
   </div>
 </div>
+
+              <i class="fas fa-carrot"></i>
+
 
 <% if current_user.admin? %>
   <%= link_to "Editer", edit_product_path(product) %>

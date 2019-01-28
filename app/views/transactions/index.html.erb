@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Ardoise de <%= @user.first_name %> <%= @user.last_name %></h1>
+
+  <%= simple_form_for(@transaction) do |f| %>
+    <span class="no-margin">Ajouter :</span>
+    <%= f.hidden_field :add, value: true %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.input :amount, label: false, placeholder: "€" %>
+    <%= f.submit "Valider", class: "btn btn-outline-primary btn-product-list" %>
+  <% end %>
+
+</div>

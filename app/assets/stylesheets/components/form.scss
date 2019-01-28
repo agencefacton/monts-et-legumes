@@ -9,3 +9,16 @@ abbr[title], abbr[data-original-title] {
 .product_line input[type="number" i] {
   margin: 0 10px;
 }
+
+#new_transaction {
+  display: inline-flex;
+  align-items: center;
+}
+
+.form-group.decimal.optional.transaction_amount {
+  margin-bottom: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
