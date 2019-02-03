@@ -12,16 +12,17 @@
 
     <div class="product_info">
       <span class="product-title"> <%= product.name.capitalize %></span>
-      <span class="product-price"><%= product.price %> € /<%= product.unit %></span><br>
+      <span class="product-price"><%= product.price %> € / <%= product.unit %></span><br>
       <span class="text-small"><%= product.description %></span>
     </div>
 
     <div class="product_quantity">
       <% if @order.contains?(product) %>
         <% product_order = @order.product_orders.find_by(product_id: product.id) %>
-        <%= simple_form_for product_order do |f| %>
-          <%= f.number_field :quantity, label: "Modifier" %>
-          <div class="product-unit text-small"> <%= product.unit %></div>
+
+        <%= simple_form_for(product_order) do |f| %>
+          <%= f.number_field :quantity %>
+          <div class="product-unit text-small"><%= product.unit %>(s)</div>
           <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
             <i class="fas fa-check-circle"></i>
           <% end %>
@@ -44,7 +45,4 @@
       <span class="activate_product"> <%= link_to "Activer", change_active_product_path(product) %></span>
     <% end %>
   <% end %>
-
-    <% @incart = false %>
-
 <% end %>
