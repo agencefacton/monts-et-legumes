@@ -1,7 +1,7 @@
 <div class="container">
-  <h1>Commandes par client - Année <%= @year %></h1>
 
-  <%= link_to "Retour", customer_orders_year_index_path %>
+  <h1>Commandes par client - Année <%= @year %></h1>
+  <p><%= link_to "Retour", customer_orders_year_index_path %></p>
 
   <h4>CA cumulé depuis début <%= @year %> :</h4>
   <ul>
@@ -16,4 +16,3 @@
     <% end %>
 
 </div>
-

@@ -4,8 +4,8 @@ class Order < ApplicationRecord
   belongs_to :user
   before_create :set_status
   after_touch :update_total
-  before_save :update_week
-  before_save :update_year
+  before_create :update_week
+  before_create :update_year
 
   def calculate_total
     self.product_orders.sum(:item_price).to_f

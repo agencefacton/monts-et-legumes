@@ -4,15 +4,12 @@ class ProductOrdersController < ApplicationController
   before_action :set_products, only: [:create, :update]
 
   def index
-    @orders = Order.where("status = ?", 1).group(:week_number).count
-    @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).group(:week_number, :name).sum(:quantity)
     @years = Order.where(status: 1).group(:year_number).count
   end
 
   def show
     @year = params[:year_number].to_i
-    @week = params[:week_number].to_i
-    @weeks = Order.where(status: 1, year_number: 2019).group(:week_number).count
+    @weeks = Order.where(status: 1, year_number: @year).group(:week_number).count
   end
 
   def week
