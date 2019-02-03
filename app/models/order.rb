@@ -19,6 +19,10 @@ class Order < ApplicationRecord
     self.status = 1
   end
 
+  def pending?
+    status != 1
+  end
+
   def contains?(product)
     products.include?(product)
   end

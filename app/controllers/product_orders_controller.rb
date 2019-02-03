@@ -1,6 +1,7 @@
 class ProductOrdersController < ApplicationController
   before_action :set_product_order, only: [:update, :destroy]
   before_action :set_order, only: [:create, :destroy, :update]
+  before_action :set_products, only: [:create, :update]
 
   def index
     @orders = Order.where("status = ?", 1).group(:week_number).count
@@ -26,11 +27,8 @@ class ProductOrdersController < ApplicationController
       @product_order = @order.product_orders.create(product_order_params)
     end
     session[:order_id] = @order.id
-    if @product_order.save
-      redirect_to products_path
-    else
-      render 'products/index'
-    end
+    @product_order.save
+    @product_orders = current_order.product_orders
   end
 
   def destroy
@@ -44,15 +42,21 @@ class ProductOrdersController < ApplicationController
     else
       @product_order.update(product_order_params)
     end
-    redirect_to products_path
+    @product_orders = current_order.product_orders
   end
-
-
 
   private
 
   def product_order_params
     params.require(:product_order).permit(:quantity, :product_id)
+  end
+
+  def set_products
+    if current_user.admin?
+      @products = Product.order(active: :desc, category: :asc)
+    else
+      @products = Product.where(active: true)
+    end
   end
 
   def set_product_order

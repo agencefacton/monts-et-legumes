@@ -1,18 +1,33 @@
 <h1>Votre panier</h1>
+
 <div id="cart">
-  <% if @product_orders.count == 0 %>
+  <% if @product_orders.blank? %>
     <div id="no_item_expl">
       <p>Votre panier est vide</p>
     </div>
   <% else %>
     <table>
       <% @product_orders.each do |product_order| %>
-        <tr><%= render 'product_orders/show', product_order: product_order, order: @order %></tr>
+        <tr>
+          <%= render 'product_orders/show', product_order: product_order, order: @order %>
+        </tr>
       <% end %>
     </table>
-    <h4>Prix total du panier : <%= @order.total_price %> €</h4>
+
+    <h4>Prix total du panier : <%= @order.reload.total_price %> €</h4>
   <% end %>
 </div>
 
-
-
+<% if current_order.product_orders.present? %>
+  <% if current_order.pending? %>
+    <div class="flex">
+      <%= simple_form_for(@order) do |f| %>
+        <%= f.hidden_field :status, value: 1 %>
+        <%= f.submit 'Valider la commande', class: "btn btn-primary btn-centered" %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Cette commande a déjà été validée</p>
+    <%= link_to "Modifier la commande", reset_status_order_path(@order) %>
+  <% end  %>
+<% end %>
