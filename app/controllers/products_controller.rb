@@ -5,7 +5,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
     if current_user == nil
       redirect_to new_user_session_path
     elsif current_user.admin?
-      @products = Product.order(active: :desc, category: :asc)
+      @products = Product.order(active: :desc)
     else
       @products = Product.where(active: true)
     end

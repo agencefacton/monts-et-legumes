@@ -1,6 +1,7 @@
 User.destroy_all
 Order.destroy_all
 Product.destroy_all
+Category.destroy_all
 
 tiph = User.create!(
   email: 'tiphanietourniaire@hotmail.com',
@@ -20,25 +21,28 @@ client = User.create!(
   admin: false
 )
 
+vegetables = Category.create!(name: 'Légumes')
+meets = Category.create!(name: 'Viande')
+
 Product.create!(
   name: "Carottes",
   price: 2,
   unit: "kilo",
-  category: "Légumes"
+  category: vegetables
 )
 
 Product.create!(
   name: "Aubergines",
   price: 4.5,
   unit: "kilo",
-  category: "Légumes"
+  category: vegetables
 )
 
 Product.create!(
   name: "Choux",
   price: 2.5,
   unit: "pièce",
-  category: "Légumes"
+  category: vegetables
 )
 
 Order.create(
