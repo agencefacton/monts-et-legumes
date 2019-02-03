@@ -5,9 +5,9 @@
   <%= f.input :last_name, label: 'Nom de famille' %>
   <%= f.input :phone_number, placeholder: '0123456789' %>
   <%= f.input :email, placeholder: 'utilisateur@nomdedomaine.com' %>
-  <%= f.input :mayeres, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.input :mayeres %>
   <%= f.input :tab %>
-  <%= f.input :admin, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.input :admin %>
   <%= f.input :password %>
   <%= f.button :submit, label: 'Créer nouveau client' %>
 <% end %>
