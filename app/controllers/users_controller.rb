@@ -13,15 +13,6 @@ class UsersController < ApplicationController
     @orders = Order.where(user: @user, status: 1)
   end
 
-  def new_order
-    @order = Order.new(user: @user, status: 0)
-  end
-
-  def create_order
-    @order = Order.new(order_params)
-  end
-
-
   def new
     @user = User.new
   end
@@ -40,6 +31,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+    binding.pry
     if @user.save
       redirect_to users_path
     else
