@@ -6,7 +6,7 @@
   <ul>
     <% @years.each do |year| %>
     <li>
-      <p><%= year[0] %> - <%= pluralize(year[1], "commande") %><%= link_to "Détail par semaine", customer_orders_year_path(2019) %></p>
+      <p><%= year[0] %> : <%= pluralize(year[1], "commande") %> - <%= link_to "Détail", customer_orders_year_path(year[0]) %></p>
     </li>
     <% end %>
   </ul>
