@@ -5,7 +5,7 @@
 
   <h4>Montant actuel : <%= @user.tab %>€</h4>
 
-  <%= simple_form_for(@transaction) do |f| %>
+  <%= simple_form_for([@user, @transaction]) do |f| %>
     Ajouter :
     <%= f.hidden_field :add, value: true %>
     <%= f.hidden_field :user_id, value: @user.id %>
@@ -13,7 +13,7 @@
     <%= f.submit "Valider", class: "btn btn-primary" %>
   <% end %>
 
-  <%= simple_form_for(@transaction) do |f| %>
+  <%= simple_form_for([@user, @transaction]) do |f| %>
     Soustraire :
     <%= f.hidden_field :add, value: false %>
     <%= f.hidden_field :user_id, value: @user.id %>
@@ -39,7 +39,7 @@
         <td><%= transaction.created_at.strftime("%d-%m-%Y") %></td>
         <% if transaction.add == true %> <td>Ajout</td> <% else %> <td>Retrait</td><% end %>
         <td><%= transaction.amount %> €</td>
-        <td><%= link_to "Supprimer", transaction_path(transaction), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette transaction ?" } %></td>
+        <td><%= link_to "Supprimer", user_transaction_path(@user, transaction), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette transaction ?" } %></td>
       </tr>
     <% end %>
   <% end %>

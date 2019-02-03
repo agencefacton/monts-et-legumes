@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :orderindex, :user_order]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :orderindex, :new_order]
 
   def show
   end
@@ -13,16 +13,18 @@ class UsersController < ApplicationController
     @orders = Order.where(user: @user, status: 1)
   end
 
-  def user_order
-    @order = Order.new(user: @user)
+  def new_order
+    @order = Order.new(user: @user, status: 0)
+  end
+
+  def create_order
+    @order = Order.new(order_params)
   end
 
 
   def new
     @user = User.new
   end
-
-
 
   def create
     @user = User.new(user_params)
@@ -54,6 +56,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :phone_number, :mayeres, :admin, :tab, :password)
+  end
+
+  def order_params
+    params.require(:order).permit(:status)
   end
 
   def set_user
