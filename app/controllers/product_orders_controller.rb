@@ -5,10 +5,6 @@ class ProductOrdersController < ApplicationController
   def index
     @orders = Order.where("status = ?", 1).group(:week_number).count
     @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).group(:week_number, :name).sum(:quantity)
-      respond_to do |format|
-      format.html
-      format.xlsx
-    end
     @years = Order.where(status: 1).group(:year_number).count
   end
 
