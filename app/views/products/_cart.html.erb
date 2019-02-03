@@ -18,8 +18,8 @@
   <% end %>
 </div>
 
-<% if current_order.product_orders.present? %>
-  <% if current_order.pending? %>
+<% if @order.product_orders.present? %>
+  <% if @order.pending? %>
     <div class="flex">
       <%= simple_form_for(@order) do |f| %>
         <%= f.hidden_field :status, value: 1 %>
