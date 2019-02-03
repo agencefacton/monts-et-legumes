@@ -2,6 +2,11 @@
 
   <h1>Mes commandes</h1>
 
+  <% if @myorders.count == 0 %>
+    <p>Vous n'avez pas encore passé de commande</p>
+    <%= link_to "Retour", :back %>
+  <% end %>
+
   <% @myorders.each do |order| %>
     <li>Semaine <%= order.week_number %>
     Montant <%= order.total_price %> €
@@ -9,6 +14,8 @@
     </li>
   <% end %>
 
-  <%= link_to "Retour à ma commande", order_path(current_order) %>
+  <% if current_order == true %>
+    <%= link_to "Retour à ma commande", order_path(current_order) %>
+  <% end %>
 
 </div>

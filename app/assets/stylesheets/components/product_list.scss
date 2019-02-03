@@ -36,16 +36,18 @@
 .product-title {
   font-size: 1.4em;
   line-height: 35px;
-  color: $grayheaders;
+  color: $graydark;
 }
 
 .product-price {
-  font-size: 1em;
-  margin-left: 0.8em;
+  font-size: 0.8em;
+  margin-left: 0.5em;
+  color: $graydark;
 }
 
 .product-unit {
   width: 50px;
+  display: inline-block
 }
 
 #product_action_admin {

@@ -42,7 +42,11 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
 
   def update
     @product.update(product_params)
-    redirect_to products_path
+    if @product.save
+      redirect_to products_path
+    else
+      render :edit
+    end
   end
 
   def destroy

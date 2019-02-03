@@ -23,12 +23,13 @@
       <% product_order = @order.product_orders.find_by(product_id: product.id) %>
       <%= simple_form_for product_order do |f| %>
         <%= f.number_field :quantity, label: "Modifier" %>
-        <span class="product-unit"> <%= product.unit %></span>
-              <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
-              <i class="fas fa-plus-circle"></i>
-              <% end %>
-        <%= f.submit "Modifier", class: "btn btn-outline-primary btn-product-list" %>
-        <%= link_to "Supprimer", product_order_path(product_order), :data => {:method => "delete"} %>
+        <div class="product-unit text-small"> <%= product.unit %></div>
+        <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
+          <i class="fas fa-check-circle"></i>
+        <% end %>
+        <%= link_to product_order_path(product_order), method: :delete do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
       <% end %>
     <% else %>
       <%= render 'product_orders/form', order: @order, product: product %>
@@ -36,12 +37,9 @@
   </div>
 </div>
 
-              <i class="fas fa-carrot"></i>
-
-
 <% if current_user.admin? %>
   <%= link_to "Editer", edit_product_path(product) %>
-  <%= link_to "Supprimer", product_path(product), method: :delete, data: { confirm: "Sûr.e ?" } %>
+  <%= link_to "Supprimer", product_path(product), method: :delete, data: { confirm: "Attention, vous allez perdre toutes les commandes associées ! Voulez-vous vraiment supprimer cet utilisateur ?" } %>
   <% if product.active? %>
     <%= link_to "Desactiver", change_active_product_path(product) %>
   <% else %>

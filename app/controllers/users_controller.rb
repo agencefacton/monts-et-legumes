@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :orderindex, :tab]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :orderindex, :user_order]
 
   def show
   end
@@ -13,12 +13,16 @@ class UsersController < ApplicationController
     @orders = Order.where(user: @user, status: 1)
   end
 
+  def user_order
+    @order = Order.new(user: @user)
+  end
+
+
   def new
     @user = User.new
   end
 
-  def tab
-  end
+
 
   def create
     @user = User.new(user_params)

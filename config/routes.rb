@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, path_prefix: 'my'
   resources :users do
     member do
+      get :user_order, to: "users#create_order", as: "new_order"
+      post :user_order, to: "users#create_order", as: "create_order"
       get :orderindex, as: "orders"
       resources :transactions, except: :show, as: "transactions"
     end

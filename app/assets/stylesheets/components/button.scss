@@ -30,7 +30,7 @@
   z-index: 1;
 }
 
-.btn-outline-primary {
+.btn-outline-primary, .btn-outline-primary:hover {
   background-color: transparent;
   border-color: $green;
   font-family: Hind;
@@ -39,8 +39,9 @@
   padding: 8px 20px;
 }
 
-.btn-product-list {
+.btn-product-list, .btn.product-list:hover {
   margin: 0 10px;
+  border-color: transparent !important;
 }
 
 .btn a, .btn a:hover {

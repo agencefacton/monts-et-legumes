@@ -1,12 +1,47 @@
 <div class="container">
   <h1>Ardoise de <%= @user.first_name %> <%= @user.last_name %></h1>
 
+  <p><%= link_to "Retour", users_path %></p>
+
+  <h4>Montant actuel : <%= @user.tab %>€</h4>
+
   <%= simple_form_for(@transaction) do |f| %>
-    <span class="no-margin">Ajouter :</span>
+    Ajouter :
     <%= f.hidden_field :add, value: true %>
     <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.input :amount, label: false, placeholder: "€" %>
-    <%= f.submit "Valider", class: "btn btn-outline-primary btn-product-list" %>
+    <%= f.submit "Valider", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= simple_form_for(@transaction) do |f| %>
+    Soustraire :
+    <%= f.hidden_field :add, value: false %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.input :amount, label: false, placeholder: "€" %>
+    <%= f.submit "Valider", class: "btn btn-primary" %>
+  <% end %>
+
+  <h4>Historique des transactions</h4>
+
+
+  <% if @transactions.count == 0 %>
+    <p>Pas encore de transaction pour  <%= @user.first_name %> <%= @user.last_name %></p>
+  <% else %>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Transaction</th>
+        <th>Montant</th>
+        <th></th>
+      </tr>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.created_at.strftime("%d-%m-%Y") %></td>
+        <% if transaction.add == true %> <td>Ajout</td> <% else %> <td>Retrait</td><% end %>
+        <td><%= transaction.amount %> €</td>
+        <td><%= link_to "Supprimer", transaction_path(transaction), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette transaction ?" } %></td>
+      </tr>
+    <% end %>
   <% end %>
 
 </div>
