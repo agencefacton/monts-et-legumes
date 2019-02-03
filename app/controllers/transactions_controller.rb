@@ -16,7 +16,7 @@ class TransactionsController < ApplicationController
         @user.tab -= @transaction.amount
         @user.save
       end
-      redirect_to transactions_path(@user)
+      redirect_to user_transactions_path(@user)
     else
       render :index
     end
@@ -28,8 +28,15 @@ class TransactionsController < ApplicationController
   end
 
   def destroy
+    if @transaction.add == true
+      @user.tab -= @transaction.amount
+      @user.save
+    else
+      @user.tabl += @transaction.amount
+      @user.save
+    end
     @transaction.destroy
-    redirect_to transaction_path(@user)
+    redirect_to user_transactions_path(@user)
   end
 
   private
@@ -43,6 +50,6 @@ class TransactionsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 end

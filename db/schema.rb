@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_01_27_204707) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status"
-    t.boolean "editable", default: false
+    t.boolean "editable"
     t.integer "year_number"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

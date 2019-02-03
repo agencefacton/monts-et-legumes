@@ -20,7 +20,7 @@
       <td><%= user.last_name %></td>
       <td><%= user.email %></td>
       <td><%= user.phone_number %></td>
-      <td><%= link_to "#{user.tab}€", transactions_path(user) %></td>
+      <td><%= link_to "#{user.tab}€", user_transactions_path(user) %></td>
       <td><%= link_to pluralize(user.orders.count,"commande"), orders_user_path(user) %></td>
       <td><%= link_to "Editer |", edit_user_path(user) %><%= link_to " Supprimer", user_path(user), :data => {:method => "delete"} %></td>
     </tr>
