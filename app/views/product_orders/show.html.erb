@@ -1,12 +1,12 @@
 <div class="container">
+
   <h1>Récolte par légume - Année <%= @year %></h1>
   <p><%= link_to "Retour", product_orders_path %></p>
+
   <ul>
     <% @weeks.each do |week, number| %>
-    <li>Semaine <%= week %> - <%= link_to "#{number} commandes", week_path(@year, week) %></li>
+    <li>Semaine <%= week %> - <%= link_to "#{pluralize(number, 'commande')}", week_path(@year, week) %></li>
     <% end %>
   </ul>
-
-  <%= link_to "Exporter", product_orders_path(format: "xlsx") %>
 
 </div>

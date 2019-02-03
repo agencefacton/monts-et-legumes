@@ -1,6 +1,7 @@
 <div class="container">
 
-  <h1>Récolte par légume - Global</h1>
+  <h1>Récolte par légume - Général</h1>
+  <p><%= link_to "Retour", :back %></p>
 
   <ul>
     <% @years.each do |year| %>
@@ -10,5 +11,4 @@
     <% end %>
   </ul>
 
-  <%= link_to "Exporter", product_orders_path(format: "xlsx") %>
 </div>
