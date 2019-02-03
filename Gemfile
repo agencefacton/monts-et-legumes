@@ -8,7 +8,6 @@ gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'pundit'
@@ -22,7 +21,6 @@ gem 'material_icons'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
 gem 'font-awesome-sass'
-
 
 group :development, :test do
   gem 'pry-rails'
