@@ -1,5 +1,6 @@
 User.destroy_all
 Order.destroy_all
+ProductOrder.destroy_all
 Product.destroy_all
 Category.destroy_all
 
