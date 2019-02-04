@@ -3,11 +3,16 @@
   <h1>Commandes par client - Année <%= @year %></h1>
   <p><%= link_to "Retour", customer_orders_year_index_path %></p>
 
-  <h4>CA cumulé depuis début <%= @year %> :</h4>
+  <h4>CA cumulé depuis début <%= @year %> : <%= @cayear %> € </h4>
+
   <ul>
-    <li>Catégorie 1 : XX €</li>
-    <li>Catégorie 2 : XX €</li>
-    <li>etc.</li>
+
+    <% @category.each do |category| %>
+
+    <li><%= category.name %> : </li>
+
+    <% end %>
+
   </ul>
 
 
