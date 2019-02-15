@@ -22,15 +22,15 @@
 // });
 
 document.addEventListener('DOMContentLoaded', function() {
-  const button1 = document.querySelector('.button1');
-  const button2 = document.querySelector('.button2');
-  const button3 = document.querySelector('.button3');
-  const button4 = document.querySelector('.button4');
+  var button1 = document.querySelector('.button1');
+  var button2 = document.querySelector('.button2');
+  var button3 = document.querySelector('.button3');
+  var button4 = document.querySelector('.button4');
 
   button1.addEventListener('click', function() {
-    const current = document.querySelector('.active');
-    const btnactive = document.querySelector('.btnactive')
-    const slide = document.querySelector('.slide1');
+    var current = document.querySelector('.active');
+    var btnactive = document.querySelector('.btnactive')
+    var slide = document.querySelector('.slide1');
     if (slide) {
       current.classList.remove('active');
       btnactive.classList.remove('btnactive')
@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   button2.addEventListener('click', function() {
-    const current = document.querySelector('.active');
-    const slide = document.querySelector('.slide2');
-    const btnactive = document.querySelector('.btnactive')
+    var current = document.querySelector('.active');
+    var slide = document.querySelector('.slide2');
+    var btnactive = document.querySelector('.btnactive')
     if (slide) {
       current.classList.remove('active');
       btnactive.classList.remove('btnactive')
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   button3.addEventListener('click', function() {
-    const current = document.querySelector('.active');
-    const slide = document.querySelector('.slide3');
-    const btnactive = document.querySelector('.btnactive')
+    var current = document.querySelector('.active');
+    var slide = document.querySelector('.slide3');
+    var btnactive = document.querySelector('.btnactive')
     if (slide) {
       current.classList.remove('active');
       btnactive.classList.remove('btnactive')
@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
     button4.addEventListener('click', function() {
-    const current = document.querySelector('.active');
-    const slide = document.querySelector('.slide4');
-    const btnactive = document.querySelector('.btnactive')
+    var current = document.querySelector('.active');
+    var slide = document.querySelector('.slide4');
+    var btnactive = document.querySelector('.btnactive')
     if (slide) {
       current.classList.remove('active');
       btnactive.classList.remove('btnactive')
