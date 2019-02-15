@@ -1,5 +1,5 @@
 #intro {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6) ),url("carottes.jpg");
+  background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6) ), image-url("carottes.jpg");
   background-position: 25% 50%;
 }
 
@@ -241,29 +241,29 @@
 }
 
 .hplefttoptop {
-  background-image: url('cagette.jpg');
+  background-image: image-url('cagette.jpg');
   position: relative;
 }
 
 .hprightbottombottom {
-  background-image: url('cagette.jpg');
+  background-image: image-url('cagette.jpg');
   margin-right: 0;
 }
 
 .hpleftbottomleft {
-  background-image: url('pousse.jpg');
+  background-image: image-url('pousse.jpg');
 }
 
 .hpleftbottomright {
-  background-image: url('coccinelle.jpg');
+  background-image: image-url('coccinelle.jpg');
 }
 
 .hprighttopleft {
-  background-image: url('clement_margaux.jpg');
+  background-image: image-url('clement_margaux.jpg');
 }
 
 .hprighttopright {
-  background-image: url('pousse.jpg');
+  background-image: image-url('pousse.jpg');
 }
 
 .hplefttoptop:hover, .hpleftbottomleft:hover, .hpleftbottomright:hover, .hprighttopleft:hover, .hprighttopright:hover, .hprightbottombottom:hover {
