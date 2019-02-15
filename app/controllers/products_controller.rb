@@ -27,7 +27,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
     if @product.save
       redirect_to products_path
     else
-      render :new
+      render :index
     end
   end
 
@@ -57,7 +57,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :unit, :category, :description, :active, :photo)
+    params.require(:product).permit(:name, :price, :unit, :category_id, :description, :active, :photo)
   end
 
   def set_product
