@@ -15,6 +15,7 @@ class ProductOrdersController < ApplicationController
   def week
     @year = params[:year_number].to_i
     @week = params[:week_number].to_i
+    @categories = Category.all
     @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).where("year_number = #{@year}").where("week_number = #{@week}").group(:product).sum(:quantity)
   end
 
