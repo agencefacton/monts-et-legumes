@@ -9,11 +9,8 @@
 
     <% @category.each do |category| %>
 
-      <%= @cayearcategory %>
-
-
-
-    <li><%= category.name %> : </li>
+      <li><%= category.name %> : </li>
+      <%= category.year_sales_for(@year) %>
 
     <% end %>
 

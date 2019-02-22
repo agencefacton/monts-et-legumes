@@ -20,6 +20,7 @@ class ProductOrdersController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     save_order unless @order.persisted?
     if product_order_params[:quantity].to_i > 0
       @product_order = @order.product_orders.create(product_order_params)
@@ -35,6 +36,7 @@ class ProductOrdersController < ApplicationController
   end
 
   def update
+    @categories = Category.all
     if product_order_params[:quantity].to_i == 0
       @product_order.destroy
     else

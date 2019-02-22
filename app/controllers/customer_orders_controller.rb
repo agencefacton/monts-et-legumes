@@ -17,7 +17,7 @@ class CustomerOrdersController < ApplicationController
     @week = params[:week_number]
     @orders = Order.where(status: 1, year_number: @year, week_number: @week).joins(:user)
     @caweek = Order.all
-    @caweekcategory = Order.all?
+    @caweekcategory = Order.all
     @caweekproduct = Order.all
   end
 end

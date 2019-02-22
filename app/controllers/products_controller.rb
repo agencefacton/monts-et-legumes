@@ -14,6 +14,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
     @order = current_order
     @incart = false
     @product = Product.new
+    @categories = Category.all
   end
 
   def show
