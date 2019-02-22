@@ -3,6 +3,16 @@
   <h1>Commandes par client - <%= @year %>, semaine <%= @week %> </h1>
   <%= link_to "Retour", customer_orders_year_path(@year) %>
 
+  <h4>CA cumulé cette semaine : <%= @caweek %> € </h4>
+
+  <ul>
+
+    <% @category.each do |category| %>
+      <li><%= category.name %> : <%= category.week_sales_for(@year, @week) %> €</li>
+    <% end %>
+
+  </ul>
+
   <ul>
     <% @orders.each do |order| %>
       <li>

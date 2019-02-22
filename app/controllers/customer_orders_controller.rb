@@ -5,19 +5,17 @@ class CustomerOrdersController < ApplicationController
   end
 
   def show
-    @weeks = Order.where(status: 1, year_number: params[:year_number]).group(:week_number).count
     @year = params[:year_number]
+    @weeks = Order.where(status: 1, year_number: @year).group(:week_number).count
     @category = Category.all
-    @cayear = Order.where(status: 1, year_number: params[:year_number]).sum(:total_price)
-    @cayearcategory = ProductOrder.joins(:order, :product).where(status: 1, year_number: params[:year_number])
+    @cayear = Order.where(status: 1, year_number: @year).sum(:total_price)
     end
 
   def week
     @year = params[:year_number]
     @week = params[:week_number]
+    @category = Category.all
     @orders = Order.where(status: 1, year_number: @year, week_number: @week).joins(:user)
-    @caweek = Order.all
-    @caweekcategory = Order.all
-    @caweekproduct = Order.all
+    @caweek = Order.where(status: 1, year_number: @year, week_number: @week).sum(:total_price)
   end
 end
