@@ -141,7 +141,13 @@
     <h2>À la ferme</h2>
     <p>Commandez votre panier en ligne du lundi au mercredi et venez le récupérer à la ferme à Haute-Rivoire le vendredi de 17h à 19h</p>
     </div>
-    <%= button_to "Je commande mon panier", products_path, :method => :get, class: 'btn btn-primary' %>
+    <% if user_signed_in? %>
+      <%= button_to "Commander", products_path, :method => :get, class: 'btn btn-primary' %>
+    <% else %>
+    <div>
+      <%= link_to t(".sign_in", default: "Commander"), new_user_session_path, data: { toggle: 'modal', target: '#logInModal'}, class: 'btn btn-primary' %>
+    </div>
+    <% end %>
   </div>
   <div class="place-to-find">
     <div class="place-to-find-icon">
