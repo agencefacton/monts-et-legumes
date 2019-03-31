@@ -97,6 +97,9 @@
   text-align: center;
   width: 60%;
   margin: 3em auto 0 auto;
+  p {
+    text-align: left;
+  }
 }
 
 #people {
@@ -116,7 +119,7 @@
   width: 50%;
 }
 
-.button1, .button2, .button3, .button4 {
+.button1, .button2, .button3, .button4, .button5 {
   cursor: pointer;
 }
 
