@@ -244,29 +244,32 @@
 }
 
 .hplefttoptop {
-  background-image: image-url('cagette.jpg');
+  background-image: image-url('courgettes-en-goutte-a-goutte.jpg');
   position: relative;
+  background-position: 50% 66%;
 }
 
 .hprightbottombottom {
-  background-image: image-url('cagette.jpg');
+  background-image: image-url('plantation-des-tomates.jpg');
   margin-right: 0;
+  background-position: 50% 75%;
 }
 
 .hpleftbottomleft {
-  background-image: image-url('pousse.jpg');
+  background-image: image-url('recolte-des-oignons-bottes.jpg');
 }
 
 .hpleftbottomright {
-  background-image: image-url('coccinelle.jpg');
+  background-image: image-url('les-pois-gourmands-sortent.jpg');
 }
 
 .hprighttopleft {
-  background-image: image-url('clement_margaux.jpg');
+  background-image: image-url('desherbage-des-poireaux.jpg');
+  background-position: 50% 100%;
 }
 
 .hprighttopright {
-  background-image: image-url('pousse.jpg');
+  background-image: image-url('syrphe-auxilliaires-de-culture.jpg');
 }
 
 .hplefttoptop:hover, .hpleftbottomleft:hover, .hpleftbottomright:hover, .hprighttopleft:hover, .hprighttopright:hover, .hprightbottombottom:hover {

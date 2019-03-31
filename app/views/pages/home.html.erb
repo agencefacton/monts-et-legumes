@@ -102,7 +102,7 @@
       </div>
 
       <div class="peoplepic">
-        <%= image_tag("coccinelle.jpg")%>
+        <%= image_tag("hp-slide4.jpg")%>
       </div>
     </div>
 
@@ -141,7 +141,7 @@
     <h2>À la ferme</h2>
     <p>Commandez votre panier en ligne du lundi au mercredi et venez le récupérer à la ferme à Haute-Rivoire le vendredi de 17h à 19h</p>
     </div>
-    <button class="btn btn-primary"><%= link_to 'Commander', products_path %></button>
+    <%= button_to "Je commande mon panier", products_path, :method => :get, class: 'btn btn-primary' %>
   </div>
   <div class="place-to-find">
     <div class="place-to-find-icon">
@@ -167,7 +167,7 @@
         <div class="contoverflow contoverflow-except-left">
           <div class="hppic hplefttoptop">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Courgettes en goutte-à-goutte</span>
             </div>
           </div>
         </div>
@@ -176,14 +176,14 @@
         <div class="contoverflow contoverflow-except-left">
           <div class="hppic hpleftbottomleft">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Récolte des oignons bottes</span>
             </div>
           </div>
         </div>
         <div class="contoverflow contoverflow-left-bottom-right">
           <div class="hppic hpleftbottomright">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Les pois gourmands sortent</span>
             </div>
           </div>
         </div>
@@ -195,14 +195,14 @@
         <div class="contoverflow">
           <div class="hppic hprighttopleft">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Désherbage de poireaux</span>
             </div>
           </div>
         </div>
         <div class="contoverflow contoverflow-except-right">
           <div class="hppic hprighttopright">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Syrphe auxiliaire de culture</span>
             </div>
           </div>
         </div>
@@ -211,7 +211,7 @@
         <div class="contoverflow contoverflow-except-right">
           <div class="hppic hprightbottombottom">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Plantation de tomates</span>
             </div>
           </div>
         </div>
