@@ -131,7 +131,7 @@
       <h2>Au marché</h2>
       <p>Les vendredis matins de 7h30 à 12h au marché de St-Genis-Laval</p>
     </div>
-    <button class="btn btn-primary">Voir la carte</button>
+    <%= link_to t(".sign_in", default: "Voir la carte"), '', data: { toggle: 'modal', target: '#mapModal'}, class: 'btn btn-primary' %>
   </div>
   <div class="place-to-find">
     <div class="place-to-find-icon">
@@ -145,7 +145,7 @@
       <%= button_to "Commander", products_path, :method => :get, class: 'btn btn-primary' %>
     <% else %>
     <div>
-      <%= link_to t(".sign_in", default: "Commander"), new_user_session_path, data: { toggle: 'modal', target: '#logInModal'}, class: 'btn btn-primary' %>
+      <%= link_to t(".sign_in", default: "Commander"), '', data: { toggle: 'modal', target: '#logInModal'}, class: 'btn btn-primary' %>
     </div>
     <% end %>
   </div>
@@ -157,7 +157,7 @@
       <h2>À Alterconso</h2>
       <p>Paniers sur le Grand Lyon de produits agricoles locaux et solidaires</p>
     </div>
-    <button class="btn btn-primary"><a href="https://www.alter-conso.org/paysans/">En savoir plus</a></button>
+    <button class="btn btn-primary"><a href="https://www.alter-conso.org/paysans/" target="_blank">En savoir plus</a></button>
   </div>
 </div>
 

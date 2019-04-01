@@ -31,7 +31,8 @@
   font-weight: bold;
   color: #32B796;
   font-size: 2.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
+  display: block;
 }
 
 #introtxt {
@@ -95,7 +96,7 @@
 
 #graytitle {
   text-align: center;
-  width: 60%;
+  width: 75%;
   margin: 3em auto 0 auto;
   p {
     text-align: left;
@@ -293,7 +294,7 @@
 .overlaytxt {
   color: $white;
   text-align: center;
-  font-size: 2em;
+  font-size: 1.5em;
   border-bottom: 1px solid $white;
 }
 
