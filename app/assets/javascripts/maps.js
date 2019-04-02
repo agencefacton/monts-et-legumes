@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     new mapboxgl.Marker().setLngLat(center).addTo(map);
     map.addControl(new mapboxgl.NavigationControl());
-window.map = map;
-    // $('#mapModal').on('show.bs.modal', function(e) {
-    //   map.resize();
-    // });
+
+    $('#mapModal').on('shown.bs.modal', function(e) {
+      map.resize();
+    });
   }
 });
