@@ -1,7 +1,13 @@
 .modal-body {
+  padding: 1em 2em;
 }
 
 .modal-header {
   background: $green;
   color: $white;
+  padding: 1em 2em;
+}
+
+.modal-content {
+  border: none;
 }

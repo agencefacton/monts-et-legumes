@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get :change_active
     end
   end
+  resources :posts, only: [:edit, :update]
   resources :product_orders, except: [:index, :show]
   resources :product_orders, only: [:index, :show], param: :year_number, as: "date"
   get "/product_orders/:year_number/:week_number", to: "product_orders#week", as: "week"
