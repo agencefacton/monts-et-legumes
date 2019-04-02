@@ -1,20 +1,9 @@
 class ApplicationController < ActionController::Base
-    protect_from_forgery with: :exception
-    helper_method :current_order
-    before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery with: :exception
+  helper_method :current_order
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-    before_action :authenticate_user!
-    # include Pundit
-
-    # after_action :verify_authorized, except: :index, unless: :devise_controller?
-    # after_action :verify_policy_scoped, only: :index, unless: :devise_controller?
-
-  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
-  # def user_not_authorized
-  #   flash[:alert] = "Connectez-vous pour continuer"
-  #   redirect_to(root_path)
-  # end
+  before_action :authenticate_user!
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
@@ -29,10 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
-  end
 
   def current_order
     current_user.orders.find_or_create_by(week_number: current_week)
