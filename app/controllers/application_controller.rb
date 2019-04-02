@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     helper_method :current_order
     before_action :configure_permitted_parameters, if: :devise_controller?
 
-    # before_action :authenticate_user!
+    before_action :authenticate_user!
     # include Pundit
 
     # after_action :verify_authorized, except: :index, unless: :devise_controller?
