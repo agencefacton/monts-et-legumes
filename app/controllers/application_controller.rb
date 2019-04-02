@@ -35,23 +35,18 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    if session[:order_id]
-      Order.find(session[:order_id])
-    else
-      Order.new(user: current_user, status: 0)
-    end
+    current_user.orders.find_or_create_by(week_number: current_week)
   end
 
   def current_day
-    Time.now.strftime("%A")
+    DateTime.current.strftime("%A")
   end
 
   def current_week
-    Time.now.strftime("%U").to_i
+    DateTime.current.strftime("%U")
   end
 
   def current_year
-    Date.today.year
+    DateTime.current.strftime("%U")
   end
-
 end
