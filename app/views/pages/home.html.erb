@@ -1,7 +1,7 @@
 <div id="intro">
   <div id="introtxt">
     <span class="introname">Monts & Légumes</span>
-    <span class="introbaseline">On fait des légumes bio</span>
+    <span class="introbaseline">Légumes biologiques locaux et de saison</span>
     <% if user_signed_in? %>
       <%= button_to "Je commande mon panier", products_path, :method => :get, class: 'btn btn-primary btn-homepage' %>
     <% else %>
@@ -14,8 +14,8 @@
   <div id="introcards">
     <div class="whitecard introcard">
       <div class="introcardtxt">
-        <h3>Légumes bio</h3>
-        <p>Récoltés chaque semaine pour vous</p>
+        <h3>Légumes biologiques et bocaux</h3>
+        <p>Récoltés pour vous chaque semaine dans nos champs</p>
       </div>
       <div class="introcardpic">
         <%= image_tag ( "hp-vegetables.png" ) %>
@@ -23,20 +23,20 @@
     </div>
     <div class="whitecard introcard">
       <div class="introcardtxt">
-        <h3>Bocaux bio</h3>
-        <p>Préparés dans nos ateliers</p>
+        <h3>Viande bovine biologique et bocaux</h3>
+        <p>Vaches Aubrac élevées avec soin par nos voisins éleveurs</p>
       </div>
       <div class="introcardpic">
-        <%= image_tag ( "hp-transfo.png" ) %>
+        <%= image_tag ( "hp-meat.png" ) %>
       </div>
     </div>
     <div class="whitecard introcard">
       <div class="introcardtxt">
-        <h3>Viande</h3>
-        <p>Locale et préparée par nos collègues</p>
+        <h3>Fromages et autres produits</h3>
+        <p>Fromages de vache et de chèvre en conversion AB, miel et œufs, produits par des collègues fermiers</p>
       </div>
       <div class="introcardpic">
-        <%= image_tag ( "hp-meat.png" ) %>
+        <%= image_tag ( "hp-dairy.png" ) %>
       </div>
     </div>
   </div>
@@ -46,63 +46,78 @@
 <div class="graybackground">
 
   <div id="graytitle">
-    <span class="introwelcome">Bienvenue !</span>
-    <p>Nous sommes Margaux et Clément. Depuis 2017, nous produisons des légumes bio dans une ferme à Haute Rivoire. Blablabla</p>
+    <span class="introwelcome">Bienvenue au GAEC Monts et Légumes !</span>
+    <p>Nous sommes Margaux et Clément. Installés en maraîchage en agriculture biologique dans les monts du lyonnais depuis 2017, nous vendons la totalité de nos légumes en vente directe. Nous produisons toute l'année des légumes de saison avec le souci de limiter au maximum notre impact sur notre environnement.</p>
+    <p>Sur ce site, vous pouvez commander nos légumes. Nous vous proposons aussi plusieurs autres produits issus de fermes voisines. La réception des commandes se fait le vendredi soir à la ferme, sur la commune de Haute-Rivoire.</p>
   </div>
 
 
   <div class="whitecard" id="people">
 
     <div id="peoplebtn">
-      <span class="button1 btnactive">Slide 1</span>
-      <span class="button2">Slide 2</span>
-      <span class="button3">Slide 3</span>
-      <span class="button4">Slide 4</span>
+      <span class="button1 btnactive">Notre ferme</span>
+      <span class="button2">Nos pratiques</span>
+      <span class="button3">Biodiversité</span>
+      <span class="button4">Notre environnement</span>
+      <span class="button5">Les commandes</span>
     </div>
 
     <div class="slide1 slide active">
       <div class="peopletxt">
         <h1>Notre ferme</h1>
-        <p>Découvrez notre ferme. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+        <p>Sur un peu plus de 2ha de terres, qui nous ont été cédées par un couple d'éleveurs, nous cultivons des légumes diversifiés en AB. Nous produisons toute l'année des légumes qui suivent les saisons, notamment grâce à nos serres qui nous permettent de cultiver en hiver et au début du printemps. </p>
       </div>
 
       <div class="peoplepic">
-        <%= image_tag("clement_margaux.jpg")%>
+        <%= image_tag("hp-slide1.jpg")%>
       </div>
     </div>
 
     <div class="slide2 slide">
       <div class="peopletxt">
-        <h1>Notre démarche</h1>
-        <p>Et voilà notre démarche. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+        <h1>Nos pratiques</h1>
+        <p>Dans un souci agronomique et pour le respect de la vie du sol, nous travaillons en non-labour (planches permanentes). Nous avons équipé notre tracteur avec des outils auto-construits ou adaptés à nos besoins. Hormis le travail du sol, la plupart des tâches que nous effectuons se font à la main. </p>
       </div>
 
       <div class="peoplepic">
-        <%= image_tag("plantation.jpg")%>
+        <%= image_tag("hp-slide2.jpg")%>
       </div>
     </div>
 
     <div class="slide3 slide">
       <div class="peopletxt">
-        <h1>Nos carottes</h1>
-        <p>Elles sont belles nos carottes. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+        <h1>Nos pratiques</h1>
+        <p>La biodiversité est une alliée essentielle dans notre travail. Nous préservons des zones où les auxiliaires peuvent se développer : larve de coccinelle contre puceron / punaise macrolophus contre l'aleurode, etc. Lorsque cela ne suffit pas, nous mettons en place des méthodes de lutte sans traitements de synthèse (filets, bactéries, etc.)</p>
       </div>
 
       <div class="peoplepic">
-        <%= image_tag("carottes.jpg")%>
+        <%= image_tag("hp-slide3.jpg")%>
       </div>
     </div>
 
     <div class="slide4 slide">
       <div class="peopletxt">
-        <h1>Et voilà une coccinelle</h1>
-        <p>Elles est belle la coccinelle. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet. Lorem ipsum dolor sin amet.</p>
+        <h1>Notre environnement social</h1>
+        <p>Notre vécu nous pousse à entretenir des liens sociaux forts : entraide avec les éleveurs situés sur le même lieu que nous, proximité avec les consommateurs via la vente directe et implication dans les associations de développement locales.</p>
       </div>
 
       <div class="peoplepic">
-        <%= image_tag("coccinelle.jpg")%>
+        <%= image_tag("hp-slide4.jpg")%>
       </div>
     </div>
+
+    <div class="slide5 slide">
+      <div class="peopletxt">
+        <h1>Comment marchent les commandes ?</h1>
+        <p>Les commandes ont lieu chaque semaine. Vous avez jusqu'au mercredi minuit pour enregistrer votre commande sur le site. Nous récoltons et préparons vos légumes le jeudi. Les autres producteurs nous amènent leurs produits avant le vendredi soir et vous passez récupérer votre commande à la ferme, au lieu dit Les Mayères à Haute-Rivoire. La distribution se fait de 17h à 19h.</p>
+        <p>Pour pouvoir passer votre commande sur le site internet, vous devez d'abord vous identifiez. Pour cela, vous devez créer un compte à l'aide de votre email et d'un mot de passe.</p>
+      </div>
+
+      <div class="peoplepic">
+        <%= image_tag("hp-slide5.jpg")%>
+      </div>
+    </div>
+
   </div>
 
 </div>
@@ -113,30 +128,36 @@
       <%= image_tag("vegetables.png")%>
     </div>
     <div class="place-to-find-top">
-      <h2>AU MARCHE</h2>
-      <p>Tous les vendredi de 6h à 13h au marché de Saint-Genis-Laval</p>
+      <h2>Au marché</h2>
+      <p>Les vendredis matins de 7h30 à 12h au marché de St-Genis-Laval</p>
     </div>
-    <button class="btn btn-primary">En savoir plus</button>
+    <%= link_to t(".sign_in", default: "Voir la carte"), '', data: { toggle: 'modal', target: '#mapModal'}, class: 'btn btn-primary' %>
   </div>
   <div class="place-to-find">
     <div class="place-to-find-icon">
       <%= image_tag("landscape.png")%>
     </div>
     <div class="place-to-find-top">
-    <h2>A LA FERME</h2>
-    <p>Commandez votre panier en ligne du lundi au mercredi et venez le récupérer à la ferme</p>
+    <h2>À la ferme</h2>
+    <p>Commandez votre panier en ligne du lundi au mercredi et venez le récupérer à la ferme à Haute-Rivoire le vendredi de 17h à 19h</p>
     </div>
-    <button class="btn btn-primary">En savoir plus</button>
+    <% if user_signed_in? %>
+      <%= button_to "Commander", products_path, :method => :get, class: 'btn btn-primary' %>
+    <% else %>
+    <div>
+      <%= link_to t(".sign_in", default: "Commander"), '', data: { toggle: 'modal', target: '#logInModal'}, class: 'btn btn-primary' %>
+    </div>
+    <% end %>
   </div>
   <div class="place-to-find">
     <div class="place-to-find-icon">
       <%= image_tag("shop.png")%>
     </div>
     <div class="place-to-find-top">
-      <h2>A ALTERECO</h2>
-      <p>Nous vendons nos produits, ainsi que ceux d'autres producteurs, à Altereco. Venez !</p>
+      <h2>À Alterconso</h2>
+      <p>Paniers sur le Grand Lyon de produits agricoles locaux et solidaires</p>
     </div>
-    <button class="btn btn-primary"><a href="https://www.alter-conso.org/paysans/">En savoir plus</a></button>
+    <button class="btn btn-primary"><a href="https://www.alter-conso.org/paysans/" target="_blank">En savoir plus</a></button>
   </div>
 </div>
 
@@ -152,7 +173,7 @@
         <div class="contoverflow contoverflow-except-left">
           <div class="hppic hplefttoptop">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Courgettes en goutte-à-goutte</span>
             </div>
           </div>
         </div>
@@ -161,14 +182,14 @@
         <div class="contoverflow contoverflow-except-left">
           <div class="hppic hpleftbottomleft">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Récolte des oignons bottes</span>
             </div>
           </div>
         </div>
         <div class="contoverflow contoverflow-left-bottom-right">
           <div class="hppic hpleftbottomright">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Les pois gourmands sortent</span>
             </div>
           </div>
         </div>
@@ -180,14 +201,14 @@
         <div class="contoverflow">
           <div class="hppic hprighttopleft">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Désherbage de poireaux</span>
             </div>
           </div>
         </div>
         <div class="contoverflow contoverflow-except-right">
           <div class="hppic hprighttopright">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Syrphe auxiliaire de culture</span>
             </div>
           </div>
         </div>
@@ -196,7 +217,7 @@
         <div class="contoverflow contoverflow-except-right">
           <div class="hppic hprightbottombottom">
             <div class="overlay">
-              <span class="overlaytxt">Hello !</span>
+              <span class="overlaytxt">Plantation de tomates</span>
             </div>
           </div>
         </div>

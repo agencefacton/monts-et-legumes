@@ -28,6 +28,7 @@ class ProductOrdersController < ApplicationController
     session[:order_id] = @order.id
     @product_order.save
     @product_orders = current_order.product_orders
+    @post = Post.last
   end
 
   def destroy

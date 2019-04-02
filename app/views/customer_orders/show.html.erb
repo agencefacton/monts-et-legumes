@@ -8,17 +8,12 @@
   <ul>
 
     <% @category.each do |category| %>
-
-      <li><%= category.name %> : </li>
-      <%= category.year_sales_for(@year) %>
-
+      <li><%= category.name %> : <%= category.year_sales_for(@year) %> €</li>
     <% end %>
 
   </ul>
-
-
     <% @weeks.each do |week| %>
-    <p>Semaine <%= week[0] %> : <%= pluralize(week[1], "commande") %>. Montant total : XX € | <%= link_to "Détail", customer_orders_week_path(@year, week[0]) %></p>
+    <p>Semaine <%= week[0] %> : <%= pluralize(week[1], "commande") %>| <%= link_to "Détail", customer_orders_week_path(@year, week[0]) %></p>
     <% end %>
 
 </div>

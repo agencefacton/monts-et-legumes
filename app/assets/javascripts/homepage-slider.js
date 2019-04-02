@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var button2 = document.querySelector('.button2');
   var button3 = document.querySelector('.button3');
   var button4 = document.querySelector('.button4');
+  var button5 = document.querySelector('.button5');
 
   button1.addEventListener('click', function() {
     var current = document.querySelector('.active');
@@ -71,6 +72,18 @@ document.addEventListener('DOMContentLoaded', function() {
       current.classList.remove('active');
       btnactive.classList.remove('btnactive')
       button4.classList.add('btnactive')
+      slide.classList.add('active');
+    }
+  });
+
+    button5.addEventListener('click', function() {
+    var current = document.querySelector('.active');
+    var slide = document.querySelector('.slide5');
+    var btnactive = document.querySelector('.btnactive')
+    if (slide) {
+      current.classList.remove('active');
+      btnactive.classList.remove('btnactive')
+      button5.classList.add('btnactive')
       slide.classList.add('active');
     }
   });

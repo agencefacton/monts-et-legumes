@@ -31,7 +31,8 @@
   font-weight: bold;
   color: #32B796;
   font-size: 2.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
+  display: block;
 }
 
 #introtxt {
@@ -95,8 +96,12 @@
 
 #graytitle {
   text-align: center;
-  width: 60%;
+  width: 75%;
   margin: 3em auto 0 auto;
+  p {
+    text-align: left;
+    font-size: 1.5em;
+  }
 }
 
 #people {
@@ -116,7 +121,7 @@
   width: 50%;
 }
 
-.button1, .button2, .button3, .button4 {
+.button1, .button2, .button3, .button4, .button5 {
   cursor: pointer;
 }
 
@@ -163,7 +168,7 @@
   padding: 30px;
   background: $white;
   height: 400px;
-  width: 400px;
+  width: 350px;
   text-align: center;
   position: relative;
   box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.08);
@@ -185,7 +190,7 @@
   background: $white;
   border: 2px solid $green;
   top: -45px;
-  left: 150px;
+  left: 125px;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -241,29 +246,32 @@
 }
 
 .hplefttoptop {
-  background-image: image-url('cagette.jpg');
+  background-image: image-url('courgettes-en-goutte-a-goutte.jpg');
   position: relative;
+  background-position: 50% 66%;
 }
 
 .hprightbottombottom {
-  background-image: image-url('cagette.jpg');
+  background-image: image-url('plantation-des-tomates.jpg');
   margin-right: 0;
+  background-position: 50% 75%;
 }
 
 .hpleftbottomleft {
-  background-image: image-url('pousse.jpg');
+  background-image: image-url('recolte-des-oignons-bottes.jpg');
 }
 
 .hpleftbottomright {
-  background-image: image-url('coccinelle.jpg');
+  background-image: image-url('les-pois-gourmands-sortent.jpg');
 }
 
 .hprighttopleft {
-  background-image: image-url('clement_margaux.jpg');
+  background-image: image-url('desherbage-des-poireaux.jpg');
+  background-position: 50% 100%;
 }
 
 .hprighttopright {
-  background-image: image-url('pousse.jpg');
+  background-image: image-url('syrphe-auxilliaires-de-culture.jpg');
 }
 
 .hplefttoptop:hover, .hpleftbottomleft:hover, .hpleftbottomright:hover, .hprighttopleft:hover, .hprighttopright:hover, .hprightbottombottom:hover {
@@ -287,7 +295,7 @@
 .overlaytxt {
   color: $white;
   text-align: center;
-  font-size: 2em;
+  font-size: 1.5em;
   border-bottom: 1px solid $white;
 }
 

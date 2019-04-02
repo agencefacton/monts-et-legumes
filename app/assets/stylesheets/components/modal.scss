@@ -1,3 +1,13 @@
 .modal-body {
-  background-image: url('carottes.jpg');
+  padding: 1em 2em;
+}
+
+.modal-header {
+  background: $green;
+  color: $white;
+  padding: 1em 2em;
+}
+
+.modal-content {
+  border: none;
 }

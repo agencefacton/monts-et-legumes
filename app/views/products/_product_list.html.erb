@@ -1,3 +1,12 @@
+<h1>Les nouvelles de la semaine</h1>
+
+<% if @post.content? %>
+<p><%= @post.content %></p>
+<% end %>
+  <% if current_user.admin? %>
+    <%= link_to "Mettre à jour", edit_post_path(@post) %>
+  <% end %>
+
 <h1>Sélectionnez vos produits</h1>
 
 <% @categories.each do |category| %>
@@ -19,24 +28,28 @@
         <span class="text-small"><%= product.description %></span>
       </div>
 
-      <div class="product_quantity">
-        <% if @order.contains?(product) %>
-          <% product_order = @order.product_orders.find_by(product_id: product.id) %>
+      <% if @order.status == 0 %>
 
-          <%= simple_form_for(product_order, remote: true) do |f| %>
-            <%= f.number_field :quantity %>
-            <div class="product-unit text-small"><%= product.unit %>(s)</div>
-            <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
-              <i class="fas fa-check-circle"></i>
+        <div class="product_quantity">
+          <% if @order.contains?(product) %>
+            <% product_order = @order.product_orders.find_by(product_id: product.id) %>
+
+            <%= simple_form_for(product_order, remote: true) do |f| %>
+              <%= f.number_field :quantity %>
+              <div class="product-unit text-small"><%= product.unit %>(s)</div>
+              <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
+                <i class="fas fa-check-circle"></i>
+              <% end %>
+              <%= link_to product_order_path(product_order), method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
             <% end %>
-            <%= link_to product_order_path(product_order), method: :delete do %>
-              <i class="fas fa-trash-alt"></i>
-            <% end %>
+          <% else %>
+            <%= render 'product_orders/form', order: @order, product: product %>
           <% end %>
-        <% else %>
-          <%= render 'product_orders/form', order: @order, product: product %>
-        <% end %>
-      </div>
+        </div>
+
+      <% end %>
     </div>
 
     <% if current_user.admin? %>

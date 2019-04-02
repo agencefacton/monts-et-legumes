@@ -3,18 +3,18 @@
   <h1>Récolte par légume - <%= @year %>, semaine <%= @week %></h1>
   <p><%= link_to "Retour", product_orders_path %></p>
 
-  <ul>
 
   <% @categories.each do |category| %>
 
     <h3><%= category.name %></h3>
 
+    <ul>
       <% @quantities.each do |quantity| %>
         <% if category.name == quantity[0].category.name %>
-        <li><%= quantity[0].name %> - <%= pluralize(quantity[1], quantity[0].unit) %></li>
+          <li><%= quantity[0].name %> - <%= pluralize(quantity[1], quantity[0].unit) %></li>
+        <% end %>
       <% end %>
-      <% end %>
+    </ul>
 
   <% end %>
-  </ul>
 </div>

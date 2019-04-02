@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="card_form">
+    <h1>Modifier le texte</h1>
+    <%= simple_form_for(@post) do |f| %>
+      <%= f.input :content, label: "Contenu", placeholder: "Quoi de beau aujourd'hui ?" %>
+      <%= f.button :submit, "Valider", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
