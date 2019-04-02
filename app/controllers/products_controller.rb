@@ -4,10 +4,8 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
   def index
     if current_user.admin?
       @products = Product.order(active: :desc)
-    # elsif ["Monday", "Tuesday", "Wednesday", "Thursday"].include?(current_day)
-    #   redirect_to root_path
-    elsif current_user == nil
-      redirect_to new_user_session_path
+    elsif ["Monday", "Tuesday", "Wednesday", "Thursday"].include?(current_day)
+      redirect_to root_path
     else
       @products = Product.where(active: true)
     end
