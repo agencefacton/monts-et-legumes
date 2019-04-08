@@ -6,10 +6,21 @@
     </div>
   <% end %>
 
+  <div class="card_form">
+    <h1>Les nouvelles de la semaine</h1>
+    <% if @post.content? %>
+      <p><%= @post.content %></p>
+    <% end %>
+    <% if current_user.admin? %>
+      <%= link_to "Mettre à jour", edit_post_path(@post) %>
+    <% end %>
+  </div>
+
+
   <div id="customer_list_cart">
     <div class="row">
       <div class="col-8">
-        <div class="card_form" id="products-list">
+        <div id="products-list">
           <%= render 'product_list' %>
         </div>
       </div>
