@@ -1,11 +1,12 @@
 <h1>Les nouvelles de la semaine</h1>
 
-<% if @post.content? %>
-<p><%= @post.content %></p>
+<% if @post.present? %>
+  <p><%= @post.content %></p>
 <% end %>
-  <% if current_user.admin? %>
-    <%= link_to "Mettre à jour", edit_post_path(@post) %>
-  <% end %>
+
+<% if current_user.admin? %>
+  <%= link_to "Mettre à jour", edit_post_path(@post) %>
+<% end %>
 
 <h1>Sélectionnez vos produits</h1>
 

@@ -7,10 +7,8 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :change_acti
     else
       @products = Product.where(active: true)
     end
-    @product_order = current_order.product_orders.new
     @product_orders = current_order.product_orders
     @order = current_order
-    @incart = false
     @product = Product.new
     @categories = Category.all
     @post = Post.last
