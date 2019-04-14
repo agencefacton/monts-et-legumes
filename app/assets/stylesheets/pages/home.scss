@@ -1,21 +1,21 @@
 #intro {
   background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6) ), image-url("carottes.jpg");
-  background-position: 25% 50%;
+  background-position: 50% 50%;
 }
 
 .introname {
     font-family: 'Pacifico', cursive;
     color: $white;
     font-weight: bolder;
-    font-size: 2.5em;
+    font-size: 2.8em;
 }
 
 .introbaseline {
   position: relative;
   color: $white;
-  font-size: 4em;
-  font-weight: 500;
-  margin: 0.3em 0 0.8em 0;
+  font-size: 5em;
+  font-weight: 600;
+  line-height: 1.1;
 }
 .introbaseline:after {
   content : "";
@@ -27,12 +27,20 @@
 }
 
 .introwelcome {
-  font-family: "Courgette";
-  font-weight: bold;
+  font-family: 'Pacifico';
   color: #32B796;
   font-size: 2.5em;
-  margin-bottom: 1em;
   display: block;
+}
+
+.introwelcomesubtitle {
+  font-weight: 700;
+  font-size: 1.8em;
+  color: $graydark;
+}
+
+.introwelcomeborder img {
+  width: 60px;
 }
 
 #introtxt {
@@ -84,8 +92,7 @@
   position: relative;
   img {
     position: absolute;
-    right: -90px;
-    max-width: 160%;
+    left: 30px;
   }
 }
 
@@ -252,7 +259,7 @@
 }
 
 .hprightbottombottom {
-  background-image: image-url('plantation-des-tomates.jpg');
+  background-image: image-url('syrphe-auxilliaires-de-culture.jpg');
   margin-right: 0;
   background-position: 50% 75%;
 }
@@ -271,7 +278,7 @@
 }
 
 .hprighttopright {
-  background-image: image-url('syrphe-auxilliaires-de-culture.jpg');
+  background-image: image-url('plantation-des-tomates.jpg');
 }
 
 .hplefttoptop:hover, .hpleftbottomleft:hover, .hpleftbottomright:hover, .hprighttopleft:hover, .hprighttopright:hover, .hprightbottombottom:hover {

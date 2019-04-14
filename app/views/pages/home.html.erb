@@ -1,7 +1,7 @@
 <div id="intro">
   <div id="introtxt">
     <span class="introname">Monts & Légumes</span>
-    <span class="introbaseline">Légumes biologiques locaux et de saison</span>
+    <span class="introbaseline">Légumes biologiques </br> locaux et de saison</span>
     <% if user_signed_in? %>
       <%= button_to "Je commande mon panier", products_path, :method => :get, class: 'btn btn-primary btn-homepage' %>
     <% else %>
@@ -46,7 +46,12 @@
 <div class="graybackground">
 
   <div id="graytitle">
-    <span class="introwelcome">Bienvenue au GAEC Monts et Légumes !</span>
+    <span class="introwelcome">Bienvenue !</span>
+    <span class="introwelcomesubtitle">Découvrez le GAEC Monts et Légumes</span>
+    <div class="introwelcomeborder">
+        <%= image_tag("hp-veggie.png")%>
+    </div>
+
     <p>Nous sommes Margaux et Clément. Installés en maraîchage en agriculture biologique dans les monts du Lyonnais depuis 2017, nous vendons la totalité de nos légumes en vente directe. Nous produisons toute l'année des légumes de saison avec le souci de limiter au maximum notre impact sur notre environnement.</p>
     <p>Sur ce site, vous pouvez commander nos légumes. Nous vous proposons aussi plusieurs autres produits issus de fermes voisines. La réception des commandes se fait le vendredi soir à la ferme, sur la commune de Haute-Rivoire.</p>
   </div>
@@ -65,7 +70,7 @@
     <div class="slide1 slide active">
       <div class="peopletxt">
         <h1>Notre ferme</h1>
-        <p>Sur un peu plus de 2ha de terres, qui nous ont été cédées par un couple d'éleveurs, nous cultivons des légumes diversifiés en AB. Nous produisons toute l'année des légumes qui suivent les saisons, notamment grâce à nos serres qui nous permettent de cultiver en hiver et au début du printemps. </p>
+        <p>Sur un peu plus de 2 hectares de terres, qui nous ont été cédées par un couple d'éleveurs, nous cultivons des légumes diversifiés en Agriculture Biologique. Nous produisons toute l'année des légumes qui suivent les saisons, notamment grâce à nos serres qui nous permettent de cultiver en hiver et au début du printemps. </p>
       </div>
 
       <div class="peoplepic">
@@ -141,13 +146,9 @@
     <h2>À la ferme</h2>
     <p>Commandez votre panier en ligne du lundi au mercredi et venez le récupérer à la ferme à Haute-Rivoire le vendredi de 17h à 19h</p>
     </div>
-    <% if user_signed_in? %>
-      <%= button_to "Commander", products_path, :method => :get, class: 'btn btn-primary' %>
-    <% else %>
     <div>
-      <%= link_to t(".sign_in", default: "Commander"), '', data: { toggle: 'modal', target: '#logInModal'}, class: 'btn btn-primary' %>
+      <%= link_to t(".sign_in", default: "Voir la carte"), '', data: { toggle: 'modal', target: '#mayeresModal'}, class: 'btn btn-primary' %>
     </div>
-    <% end %>
   </div>
   <div class="place-to-find">
     <div class="place-to-find-icon">
@@ -157,7 +158,7 @@
       <h2>À AlterConso</h2>
       <p>Paniers sur le Grand Lyon de produits agricoles locaux et solidaires</p>
     </div>
-    <button class="btn btn-primary"><a href="https://www.alter-conso.org/paysans/" target="_blank">En savoir plus</a></button>
+    <button class="btn btn-primary"><a href="https://www.alter-conso.org" target="_blank">En savoir plus</a></button>
   </div>
 </div>
 
@@ -227,3 +228,4 @@
 </div>
 
 <%= render partial: 'shared/mapmodal' %>
+<%= render partial: 'shared/mayeresModal' %>
