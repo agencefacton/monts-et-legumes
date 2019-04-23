@@ -3,6 +3,23 @@
   <h1>Récolte par légume - Année <%= @year %></h1>
   <p><%= link_to "Retour", product_orders_path %></p>
 
+
+  <h4>Quantitées récoltées depuis début <%= @year %></h4>
+
+  <ul>
+
+    <% @categories.each do |category| %>
+      <li><%= category.name %></li>
+      <ul>
+        <% category.products.each do |product| %>
+        <li><%= product.name %> : <%= pluralize(product.year_crops_for(@year), product.unit) %></li>
+        <% end %>
+      </ul>
+
+    <% end %>
+
+  </ul>
+
   <ul>
     <% @weeks.each do |week, number| %>
     <li>Semaine <%= week %> - <%= link_to "#{pluralize(number, 'commande')}", week_path(@year, week) %></li>

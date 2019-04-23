@@ -10,6 +10,7 @@ class ProductOrdersController < ApplicationController
   def show
     @year = params[:year_number].to_i
     @weeks = Order.where(status: 1, year_number: @year).group(:week_number).count
+    @categories = Category.all
   end
 
   def week
