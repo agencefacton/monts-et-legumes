@@ -3,16 +3,6 @@
   <h1>Récolte par légume - Général</h1>
   <p><%= link_to "Retour", :back %></p>
 
-  <h4>Quantitées récoltées depuis début <%= @year %></h4>
-
-  <ul>
-
-    <% @category.each do |category| %>
-      <li><%= category.name %> : <%= category.year_sales_for(@year) %> €</li>
-    <% end %>
-
-  </ul>
-
   <ul>
     <% @years.each do |year| %>
     <li>

@@ -7,11 +7,19 @@
 
   <ul>
 
-    <% @category.each do |category| %>
+    <% @categories.each do |category| %>
       <li><%= category.name %> : <%= category.week_sales_for(@year, @week) %> €</li>
     <% end %>
 
   </ul>
+
+  <% @categories.each do |category| %>
+    <h4><%= category.name %></h4>
+    <% @orders.each do |order| %>
+      <%= order.user.first_name %> <%= order.user.last_name %> : <%= order.order_per_customer(category, @year, @week) %>
+    <% end %>
+
+  <% end %>
 
   <ul>
     <% @orders.each do |order| %>

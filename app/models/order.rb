@@ -27,6 +27,10 @@ class Order < ApplicationRecord
     products.include?(product)
   end
 
+  def order_per_customer(category, year, week)
+    product_orders.joins(:product, :user).where("product.category_id = ? AND orders.year_number = ? AND orders.week_number = ? AND orders.status = ?", category, year, week, 1)
+  end
+
   private
 
   def update_total
