@@ -16,7 +16,12 @@
   <% @categories.each do |category| %>
     <h4><%= category.name %></h4>
     <% @orders.each do |order| %>
-      <%= order.user.first_name %> <%= order.user.last_name %> : <%= order.order_per_customer(category, @year, @week) %>
+      <% if order.categories.include?(category) %>
+        <%= order.user.first_name %> <%= order.user.last_name %> :
+        <% order.product_orders.with_category(category).each do |product_order| %>
+          <p><%= product_order.product.name %> - <%= product_order.quantity %></p>
+        <% end %>
+      <% end %>
     <% end %>
 
   <% end %>

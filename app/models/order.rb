@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   has_many :product_orders
   has_many :products, through: :product_orders, dependent: :destroy
+  has_many :categories, through: :products
   belongs_to :user
   before_create :set_status
   after_touch :update_total
@@ -25,10 +26,6 @@ class Order < ApplicationRecord
 
   def contains?(product)
     products.include?(product)
-  end
-
-  def order_per_customer(category, year, week)
-    product_orders.joins(:product, :user).where("product.category_id = ? AND orders.year_number = ? AND orders.week_number = ? AND orders.status = ?", category, year, week, 1)
   end
 
   private

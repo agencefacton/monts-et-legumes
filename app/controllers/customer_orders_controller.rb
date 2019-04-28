@@ -9,7 +9,7 @@ class CustomerOrdersController < ApplicationController
     @weeks = Order.where(status: 1, year_number: @year).group(:week_number).count
     @category = Category.all
     @cayear = Order.where(status: 1, year_number: @year).sum(:total_price)
-    end
+  end
 
   def week
     @year = params[:year_number]

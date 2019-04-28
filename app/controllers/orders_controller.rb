@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-before_action :set_order, only: [:show, :edit, :update, :reset_status]
+before_action :set_order, only: [:show, :edit, :update, :reset_status, :edit_order_as_admin]
 
   def index
     @orders = Order.where(status: 1)
@@ -34,9 +34,16 @@ before_action :set_order, only: [:show, :edit, :update, :reset_status]
   end
 
   def reset_status
+    if (@order.user == current_user && @order.week_number == current_week) || current_user.admin?
+      @order.status = 0
+      @order.save
+      redirect_to products_path
+    end
+  end
+
+  def edit_order_as_admin
     @order.status = 0
     @order.save
-    redirect_to products_path
   end
 
 
