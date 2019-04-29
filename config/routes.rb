@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :selling_ranges, except: :show
   devise_for :users, path_prefix: 'my'
   resources :users do
     resources :transactions, except: :show, as: "transactions"

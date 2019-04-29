@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   has_many :products, through: :product_orders, dependent: :destroy
   has_many :categories, through: :products
   belongs_to :user
+  belongs_to :selling_range
   before_create :set_status
   after_touch :update_total
   before_create :update_week
