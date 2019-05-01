@@ -1,1 +1,11 @@
-Hello
+<div class="container">
+  <h1>Plages de vente</h1>
+  <ul>
+    <% @selling_ranges.each do |selling_range| %>
+      <li>Ouverture : <%= selling_range.starts_at %> - Fermeture : <%= selling_range.ends_at %> - <%= link_to "Editer", edit_selling_range_path(selling_range) %> - <%= link_to "Supprimer", selling_range_path(selling_range), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette plage de vente ?" } %></li>
+    <% end %>
+  </ul>
+
+  <p><%= link_to "Créer une nouvelle plage de vente", new_selling_range_path %></p>
+  <p><%= link_to "Retour à la liste de produits", products_path %></p>
+</div>
