@@ -6,6 +6,10 @@ module Admin
       @users = User.all.order(:first_name)
     end
 
+    def show
+      @transaction = Transaction.new
+    end
+
     def new
       @user = User.new
     end

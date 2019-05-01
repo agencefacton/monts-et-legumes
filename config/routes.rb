@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     resources :products, except: :show do
       member { get :toggle_active }
     end
-    resources :users, except: :show
+    resources :users do
+      resources :transactions, only: [:create, :destroy]
+    end
 
     root to: 'selling_ranges#index'
   end

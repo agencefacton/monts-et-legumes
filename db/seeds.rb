@@ -3,6 +3,15 @@ Order.destroy_all
 ProductOrder.destroy_all
 Product.destroy_all
 Category.destroy_all
+SellingRange.destroy_all
+Post.destroy_all
+
+selling_range = SellingRange.create!(
+  starts_at: 3.days.ago,
+  ends_at: 3.days.from_now
+)
+
+Post.create!(content: 'Hello, welcome to the wonderfull farm <3')
 
 tiph = User.create!(
   email: 'tiphanietourniaire@hotmail.com',
@@ -31,6 +40,15 @@ client = User.create!(
   admin: true
 )
 
+kevin = User.create!(
+  email: 'kevin.chavanne@gmail.com',
+  first_name: 'Kévin',
+  last_name: 'Chavanne',
+  phone_number: '0000000000',
+  password: 'azertyuiop',
+  admin: false
+)
+
 vegetables = Category.create!(name: 'Légumes frais')
 cooked = Category.create!(name: 'Légumes transformés')
 meat = Category.create!(name: 'Viande de boeuf')
@@ -38,33 +56,76 @@ eggs = Category.create!(name: 'Oeufs')
 dairy = Category.create!(name: 'Produits laitiers')
 honey = Category.create!(name: 'Miel')
 
-Product.create!(
+carotte = Product.create!(
   name: "Carottes",
   price: 2,
   unit: "kilo",
   category: vegetables
 )
 
-Product.create!(
+aubergine = Product.create!(
   name: "Aubergines",
   price: 4.5,
   unit: "kilo",
   category: vegetables
 )
 
-Product.create!(
+choux = Product.create!(
   name: "Choux",
   price: 2.5,
   unit: "pièce",
   category: vegetables
 )
 
-Product.create!(
-  name: "Choux",
-  price: 2.5,
+boeuf = Product.create!(
+  name: "Boeuf",
+  price: 3.5,
   unit: "pièce",
-  category: vegetables
+  category: meat
 )
 
+order = Order.create!(
+  user: kevin,
+  selling_range: selling_range,
+  status: 1
+)
 
+ProductOrder.create!(
+  quantity: 4,
+  order: order,
+  product: boeuf,
+  item_price: 3.5 * 4
+)
+
+ProductOrder.create!(
+  quantity: 2,
+  order: order,
+  product: choux,
+  item_price: 2 * 2.5
+)
+
+ProductOrder.create!(
+  quantity: 5,
+  order: order,
+  product: carotte,
+  item_price: 5 * 4.5
+)
+
+Transaction.create!(
+  user: kevin,
+  amount: 42,
+  add: true
+)
+
+Transaction.create!(
+  user: kevin,
+  amount: 10,
+  add: true
+)
+
+Transaction.create!(
+  user: kevin,
+  amount: 30,
+  add: false
+)
 

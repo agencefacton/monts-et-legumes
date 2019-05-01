@@ -6,7 +6,6 @@
 
   <table>
     <tr>
-      <th>Prénom</th>
       <th>Nom</th>
       <th>Email</th>
       <th>Tél</th>
@@ -20,13 +19,12 @@
           <% if user.mayeres? %>
             <i class="fab fa-medium-m"></i>
           <% end %>
-          <%= user.first_name %>
+          <%= link_to "#{user.first_name} #{user.last_name}", admin_user_path(user) %>
         </td>
-        <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= user.phone_number %></td>
-        <td><%= link_to "#{user.tab}€", '' %></td>
-        <td><%= link_to pluralize(user.orders.validated.count,"commande"), '' %></td>
+        <td><%= user.tab %> €</td>
+        <td><%= pluralize(user.orders.validated.count, "commande") %></td>
         <td><%= link_to "Editer", edit_admin_user_path(user) %> | <%= link_to " Supprimer", admin_user_path(user), data: { method: "delete" } %> </td>
       </tr>
     <% end %>
