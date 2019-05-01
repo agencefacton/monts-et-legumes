@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path_prefix: 'my'
+  devise_for :users
 
   resources :users do
     resources :transactions, except: :show, as: "transactions"
@@ -27,6 +27,12 @@ Rails.application.routes.draw do
     member do
       get :reset_status
     end
+  end
+
+  namespace :admin do
+    resources :selling_ranges
+
+    root to: 'selling_ranges#index'
   end
 
   root to: "pages#home"
