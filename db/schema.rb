@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_185438) do
+ActiveRecord::Schema.define(version: 2019_05_01_144426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,14 +43,14 @@ ActiveRecord::Schema.define(version: 2019_04_29_185438) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "week_number"
     t.decimal "total_price"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
     t.boolean "editable", default: false
-    t.integer "year_number"
+    t.bigint "selling_range_id"
+    t.index ["selling_range_id"], name: "index_orders_on_selling_range_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 2019_04_29_185438) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "selling_ranges"
   add_foreign_key "orders", "users"
   add_foreign_key "product_orders", "orders"
   add_foreign_key "product_orders", "products"

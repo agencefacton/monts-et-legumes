@@ -18,6 +18,10 @@ before_action :set_order, only: [:show, :edit, :update, :reset_status, :edit_ord
   end
 
   def edit
+    @order.status = 0
+    @user = @order.user
+    @categories = Category.all
+    @product_orders = @order.product_orders
   end
 
   def update

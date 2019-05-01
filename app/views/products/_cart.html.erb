@@ -18,16 +18,3 @@
   <% end %>
 </div>
 
-<% if @order.product_orders.present? %>
-  <% if @order.pending? %>
-    <div class="flex">
-      <%= simple_form_for(@order) do |f| %>
-        <%= f.hidden_field :status, value: 1 %>
-        <%= f.submit 'Valider la commande', class: "btn btn-primary btn-centered" %>
-      <% end %>
-    </div>
-  <% else %>
-    <p>Cette commande a déjà été validée</p>
-    <%= link_to "Modifier la commande", reset_status_order_path(@order) %>
-  <% end  %>
-<% end %>

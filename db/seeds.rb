@@ -31,10 +31,11 @@ client = User.create!(
   admin: true
 )
 
-vegetables = Category.create!(name: 'Légumes')
-meets = Category.create!(name: 'Viande')
-dairy = Category.create!(name: 'Lait / fromage')
+vegetables = Category.create!(name: 'Légumes frais')
+cooked = Category.create!(name: 'Légumes transformés')
+meat = Category.create!(name: 'Viande de boeuf')
 eggs = Category.create!(name: 'Oeufs')
+dairy = Category.create!(name: 'Produits laitiers')
 honey = Category.create!(name: 'Miel')
 
 Product.create!(
@@ -48,6 +49,13 @@ Product.create!(
   name: "Aubergines",
   price: 4.5,
   unit: "kilo",
+  category: vegetables
+)
+
+Product.create!(
+  name: "Choux",
+  price: 2.5,
+  unit: "pièce",
   category: vegetables
 )
 

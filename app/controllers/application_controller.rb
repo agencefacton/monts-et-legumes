@@ -22,7 +22,11 @@ class ApplicationController < ActionController::Base
   private
 
   def current_order
-    @order ||= current_user.orders.find_or_create_by(week_number: current_week)
+    @order ||= current_user.orders.find_or_create_by(selling_range: current_selling_range)
+  end
+
+  def current_selling_range
+    SellingRange.find_by('starts_at <= ? AND ends_at >= ?', DateTime.current, DateTime.current)
   end
 
   def current_day
