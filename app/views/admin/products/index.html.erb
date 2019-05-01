@@ -1,0 +1,13 @@
+<div class="container">
+  <div id="customer_list_cart">
+    <div class="row">
+      <div class="col-8">
+        <div id="products-list">
+          <h1>Liste des produits</h1>
+          <p><%= link_to 'Ajouter un produit', new_admin_product_path  %></p>
+          <%= render 'product_list' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

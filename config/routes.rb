@@ -12,15 +12,10 @@ Rails.application.routes.draw do
   resources :product_orders, except: [:index, :show]
   resources :product_orders, only: [:index, :show], param: :year_number, as: "date"
   resources :customer_orders, only: [:index, :show], param: :year_number, as: "customer_orders_year"
+  resources :products
 
   get "/product_orders/:year_number/:week_number", to: "product_orders#week", as: "week"
   get "/customer_orders/:year_number/:week_number", to: "customer_orders#week", as: "customer_orders_week"
-
-  resources :products do
-    member do
-      get :change_active
-    end
-  end
 
   resources :orders do
     member do
@@ -30,6 +25,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :selling_ranges
+    resources :products, except: :show do
+      member { get :toggle_active }
+    end
 
     root to: 'selling_ranges#index'
   end
