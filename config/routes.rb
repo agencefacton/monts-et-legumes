@@ -26,6 +26,9 @@ Rails.application.routes.draw do
     resources :users do
       resources :transactions, only: [:create, :destroy]
     end
+    resources :harvests, only: [:index, :show], param: :year do
+      member { get '/:week', to: 'harvests#week', as: :week }
+    end
 
     root to: 'selling_ranges#index'
   end
