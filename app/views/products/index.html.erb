@@ -1,28 +1,10 @@
 <div class="container">
-  <% if current_user.admin? %>
-    <div class="card_form">
-      <h1>Ajouter un produit</h1>
-      <%= render 'form', product: @product %>
-    </div>
-  <% end %>
-
   <div class="card_form">
     <h1>Les nouvelles de la semaine</h1>
     <% if @post.content? %>
       <p><%= @post.content %></p>
     <% end %>
-    <% if current_user.admin? %>
-      <%= link_to "Mettre à jour", edit_post_path(@post) %>
-    <% end %>
   </div>
-
-  <% if current_user.admin? %>
-    <div class="card_form">
-      <h1>Programmer une nouvelle vente</h1>
-      <%= link_to "Nouvelle vente", new_selling_range_path %>
-    </div>
-  <% end %>
-
 
   <div id="customer_list_cart">
     <div class="row">
