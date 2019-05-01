@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_order
+  helper_method :current_year
+  helper_method :current_week
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_action :authenticate_user!
@@ -20,7 +22,11 @@ class ApplicationController < ActionController::Base
   private
 
   def current_order
-    @order ||= current_user.orders.find_or_create_by(week_number: current_week)
+    @order ||= current_user.orders.find_or_create_by(selling_range: current_selling_range)
+  end
+
+  def current_selling_range
+    SellingRange.find_by('starts_at <= ? AND ends_at >= ?', DateTime.current, DateTime.current)
   end
 
   def current_day

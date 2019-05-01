@@ -7,11 +7,29 @@
 
   <ul>
 
-    <% @category.each do |category| %>
+    <% @categories.each do |category| %>
       <li><%= category.name %> : <%= category.week_sales_for(@year, @week) %> €</li>
     <% end %>
 
   </ul>
+
+  <% @categories.each do |category| %>
+    <h4><%= category.name %></h4>
+    <% @orders.each do |order| %>
+      <% if order.categories.include?(category) %>
+        <% if order.user.mayeres == true %>
+          <i class="fab fa-medium-m"></i>
+        <% end %>
+        <%= order.user.first_name %> <%= order.user.last_name %> :
+        <ul>
+          <% order.product_orders.with_category(category).each do |product_order| %>
+            <li><%= product_order.product.name %> - <%= pluralize(product_order.quantity, product_order.product.unit) %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+
+  <% end %>
 
   <ul>
     <% @orders.each do |order| %>

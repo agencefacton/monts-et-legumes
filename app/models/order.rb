@@ -1,11 +1,12 @@
 class Order < ApplicationRecord
   has_many :product_orders
   has_many :products, through: :product_orders, dependent: :destroy
+  has_many :categories, through: :products
   belongs_to :user
+  belongs_to :selling_range
   before_create :set_status
   after_touch :update_total
-  before_create :update_week
-  before_create :update_year
+  validates :selling_range, uniqueness: { scope: :user }
 
   def calculate_total
     self.product_orders.sum(:item_price).to_f
@@ -32,13 +33,5 @@ class Order < ApplicationRecord
   def update_total
     self.total_price = calculate_total
     save
-  end
-
-  def update_week
-    self.week_number = Time.now.strftime("%U").to_i
-  end
-
-  def update_year
-    self.year_number = Date.current.year.to_i
   end
 end

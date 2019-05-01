@@ -16,11 +16,19 @@
     <% end %>
   </div>
 
+  <% if current_user.admin? %>
+    <div class="card_form">
+      <h1>Programmer une nouvelle vente</h1>
+      <%= link_to "Nouvelle vente", new_selling_range_path %>
+    </div>
+  <% end %>
+
 
   <div id="customer_list_cart">
     <div class="row">
       <div class="col-8">
         <div id="products-list">
+          <h1>Sélectionnez vos produits</h1>
           <%= render 'product_list' %>
         </div>
       </div>
@@ -28,6 +36,7 @@
       <div class="col-4">
         <div class="card_form" id="order-cart">
           <%= render 'cart' %>
+          <%= render 'cart_validation' %>
         </div>
       </div>
     </div>

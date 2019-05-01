@@ -6,4 +6,9 @@ class Product < ApplicationRecord
   validates :name, :price, :unit, presence: true
 
   mount_uploader :photo, PhotoUploader
+
+  def year_crops_for(year)
+    product_orders.joins(:order).where("orders.year_number = ? AND orders.status = ?", year, 1).sum(:quantity)
+  end
+
 end
