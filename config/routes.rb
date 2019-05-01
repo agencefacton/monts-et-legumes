@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :selling_ranges, except: :show
   resources :posts, only: [:edit, :update]
   resources :product_orders, except: [:index, :show]
   resources :product_orders, only: [:index, :show], param: :year_number, as: "date"
