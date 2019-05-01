@@ -1,0 +1,17 @@
+<div class="container">
+
+  <h1>Commandes de <%= @user.first_name %> <%= @user.last_name %> </h1>
+
+  <% if @orders.count == 0 %>
+    <p><%= @user.first_name %> n'a pas encore passé de commande</p>
+  <% else %>
+    <% @orders.each do |order| %>
+      <li>Semaine <%= order.week_number %>
+      Montant <%= order.total_price %> €
+      <%= link_to "Voir le détail", order_path(order) %>
+      </li>
+    <% end %>
+  <% end %>
+
+  <%= link_to "Retour aux utilisateurs", users_path %>
+</div>

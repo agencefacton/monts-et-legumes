@@ -8,6 +8,10 @@ class Order < ApplicationRecord
   after_touch :update_total
   validates :selling_range, uniqueness: { scope: :user }
 
+  def self.validated
+    where(status: 1)
+  end
+
   def calculate_total
     self.product_orders.sum(:item_price).to_f
   end
