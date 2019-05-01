@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users do
-    resources :transactions, except: :show, as: "transactions"
-    member do
-      get :orderindex, as: "orders"
-    end
-  end
+  resource :profile, only: [:show, :edit, :update]
 
   resources :posts, only: [:edit, :update]
   resources :product_orders, except: [:index, :show]

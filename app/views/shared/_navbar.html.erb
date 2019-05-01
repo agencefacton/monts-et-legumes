@@ -16,7 +16,7 @@
         <%= link_to "Commandes", customer_orders_year_index_path %>
       <% else %>
         <%= link_to "Mes commandes", orders_path %>
-        <%= link_to "Mon profil", user_path(current_user) %>
+        <%= link_to "Mon profil", profile_path %>
       <% end %>
       <%= link_to destroy_user_session_path, method: :delete do %>
       <%= t(".sign_out", default: "Déconnexion") %>
