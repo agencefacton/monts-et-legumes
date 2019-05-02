@@ -1,0 +1,61 @@
+<div class="container">
+
+  <h1>Profil de <%= @user.first_name %> <%= @user.last_name %></h1>
+
+  <p><i class="far fa-envelope"></i> <%= @user.email %><p>
+  <p><i class="fas fa-phone"></i> <%= @user.phone_number %></p>
+
+  <h2>Commandes effectuées</h2>
+  <% if @user.orders.validated.present? %>
+    <ul>
+      <% @user.orders.validated.each do |order| %>
+        <li>
+          Semaine <%= order.selling_range.ends_at.strftime('%W') %>
+          Montant <%= order.total_price %> €
+          <%= link_to "Voir le détail", '' %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Aucune commande pour le moment</p>
+  <% end %>
+
+  <h2>Ardoise : <%= @user.tab %> €</h2>
+
+  <%= simple_form_for([:admin, @user, @transaction]) do |f| %>
+    Ajouter :
+    <%= f.hidden_field :add, value: true %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.input :amount, label: false, placeholder: "€" %>
+    <%= f.submit "Valider", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= simple_form_for([:admin, @user, @transaction]) do |f| %>
+    Soustraire :
+    <%= f.hidden_field :add, value: false %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.input :amount, label: false, placeholder: "€" %>
+    <%= f.submit "Valider", class: "btn btn-primary" %>
+  <% end %>
+
+  <% if @user.transactions.blank? %>
+    <p>Aucune transaction</p>
+  <% else %>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Transaction</th>
+        <th>Montant</th>
+        <th></th>
+      </tr>
+      <% @user.transactions.each do |transaction| %>
+        <tr>
+          <td><%= transaction.created_at.strftime("%d-%m-%Y") %></td>
+          <% if transaction.add == true %> <td>Ajout</td> <% else %> <td>Retrait</td><% end %>
+          <td><%= transaction.amount %> €</td>
+          <td><%= link_to "Supprimer", admin_user_transaction_path(@user, transaction), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette transaction ?" } %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>

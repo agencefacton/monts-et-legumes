@@ -1,0 +1,29 @@
+<div class="container">
+
+  <h1>Récolte par légume - Année <%= @year %></h1>
+  <p><%= link_to "Retour", admin_harvests_path %></p>
+
+  <h4>Quantitées récoltées depuis début <%= @year %></h4>
+
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= category.name %></li>
+      <ul>
+        <% category.products.each do |product| %>
+          <li><%= product.name %> : <%= pluralize(product.year_crops_for(@year), product.unit) %></li>
+        <% end %>
+      </ul>
+
+    <% end %>
+  </ul>
+
+  <ul>
+    <% @orders_by_week.each do |date, order_number| %>
+      <li>
+        Semaine <%= date.strftime('%U') %> -
+        <%= link_to "#{pluralize(order_number, 'commande')}", week_admin_harvest_path(@year, date.strftime('%U')) %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

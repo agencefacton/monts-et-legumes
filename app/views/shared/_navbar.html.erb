@@ -8,19 +8,9 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-
-      <!-- Links when logged in -->
-      <% if current_user.admin? %>
-        <%= link_to "Clients", users_path %>
-        <%= link_to "A récolter", date_index_path %>
-        <%= link_to "Commandes", customer_orders_year_index_path %>
-      <% else %>
-        <%= link_to "Mes commandes", orders_path %>
-        <%= link_to "Mon profil", user_path(current_user) %>
-      <% end %>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-      <%= t(".sign_out", default: "Déconnexion") %>
-       <% end %>
+      <%= link_to "Mes commandes", orders_path %>
+      <%= link_to "Mon profil", profile_path %>
+      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to t(".sign_in", default: "Connexion"), new_user_session_path, data: { toggle: 'modal', target: '#logInModal'} %>
     <% end %>

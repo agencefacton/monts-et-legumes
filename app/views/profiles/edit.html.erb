@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Modifier mon profil</h2>
+
+  <%= simple_form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+      <%= f.input :first_name, autofocus: true, autocomplete: "Prénom", label: "Prénom" %>
+      <%= f.input :last_name, autofocus: true, autocomplete: "Nom", label: "Nom" %>
+      <%= f.input :phone_number, autofocus: true, autocomplete: "Numéro de téléphone", label: "Téléphone" %>
+      <%= f.input :email, autofocus: true, autocomplete: "email", label: "Email" %>
+
+      <%= f.input :password, autocomplete: "off", label: "Nouveau mot de passe" %> <i>(Laissez ce champ vide si vous ne souhaitez pas changer votre mot de passe)</i><br />
+      <em>6 characters minimum</em>
+
+      <%= f.input :password_confirmation , autocomplete: "off", label: "Confirmation du nouveau mot de passe" %>
+      <%= f.input :current_password, label: "Mot de passe actuel", autocomplete: "off" %> <i>(Renseignez votre mot de passe actuel pour pouvoir enregistrer vos modifications)</i><br />
+
+      <%= f.button :submit, class: "btn btn-primary", value: 'Enregistrer les changements' %>
+  <% end %>
+</div>

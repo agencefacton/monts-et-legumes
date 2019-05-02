@@ -1,35 +1,37 @@
 Rails.application.routes.draw do
+  devise_for :users
 
-  resources :selling_ranges, except: :show
-  devise_for :users, path_prefix: 'my'
-  resources :users do
-    resources :transactions, except: :show, as: "transactions"
-    member do
-      get :orderindex, as: "orders"
-    end
-  end
+  resource :profile, only: [:show, :edit, :update]
 
-  # get 'users/:id/orders', to 'orders#'
-
-  # , :controllers => { registrations: 'registrations' }
-  # get 'orders/:id/reset_status', to: 'orders#reset_status', :as => "reset_status"
-  root to: "pages#home"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :products do
-    member do
-      get :change_active
-    end
-  end
   resources :posts, only: [:edit, :update]
   resources :product_orders, except: [:index, :show]
   resources :product_orders, only: [:index, :show], param: :year_number, as: "date"
+  resources :customer_orders, only: [:index, :show], param: :year_number, as: "customer_orders_year"
+  resources :products, only: :index
+
   get "/product_orders/:year_number/:week_number", to: "product_orders#week", as: "week"
+  get "/customer_orders/:year_number/:week_number", to: "customer_orders#week", as: "customer_orders_week"
+
   resources :orders do
     member do
       get :reset_status
     end
   end
-  resources :customer_orders, only: [:index, :show], param: :year_number, as: "customer_orders_year"
-  get "/customer_orders/:year_number/:week_number", to: "customer_orders#week", as: "customer_orders_week"
 
+  namespace :admin do
+    resources :selling_ranges
+    resources :products, except: :show do
+      member { get :toggle_active }
+    end
+    resources :users do
+      resources :transactions, only: [:create, :destroy]
+    end
+    resources :harvests, only: [:index, :show], param: :year do
+      member { get '/:week', to: 'harvests#week', as: :week }
+    end
+
+    root to: 'selling_ranges#index'
+  end
+
+  root to: "pages#home"
 end

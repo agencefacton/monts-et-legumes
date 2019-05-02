@@ -1,4 +1,4 @@
-<%= simple_form_for(@selling_range) do |f| %>
+<%= simple_form_for([:admin, @selling_range]) do |f| %>
   <%= f.input :starts_at, label: "Date de début"%>
   <%= f.input :ends_at, label: "Date de fin" %>
   <%= f.button :submit, "Valider", class: "btn btn-primary" %>

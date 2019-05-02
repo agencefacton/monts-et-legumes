@@ -4,16 +4,17 @@ class Order < ApplicationRecord
   has_many :categories, through: :products
   belongs_to :user
   belongs_to :selling_range
-  before_create :set_status
-  after_touch :update_total
+
   validates :selling_range, uniqueness: { scope: :user }
+
+  after_touch :update_total
+
+  def self.validated
+    where(status: 1)
+  end
 
   def calculate_total
     self.product_orders.sum(:item_price).to_f
-  end
-
-  def set_status
-    self.status = 0
   end
 
   def update_status
