@@ -1,5 +1,5 @@
 module Admin
-  class HarvestsController < ApplicationController
+  class StatisticsController < ApplicationController
     # before_action :set_product_order, only: [:update, :destroy]
     # before_action :set_order, only: [:create, :destroy, :update]
     # before_action :set_products, only: [:create, :update]
@@ -19,10 +19,14 @@ module Admin
     end
 
     def week
-    #   @year = params[:year_number].to_i
-    #   @week = params[:week_number].to_i
-    #   @categories = Category.all
-    #   @quantities = ProductOrder.joins(:product, :order).where("status = ?", 1).where("year_number = #{@year}").where("week_number = #{@week}").group(:product).sum(:quantity)
+      @year = params[:year_number].to_i
+      @week = params[:week_number].to_i
+      @categories = Category.all
+      @quantities = ProductOrder.joins(:product, :order)
+                                .where("status = ?", 1).where("year_number = #{@year}")
+                                .where("week_number = #{@week}")
+                                .group(:product)
+                                .sum(:quantity)
     end
 
     # def create
