@@ -2,7 +2,7 @@
   <h1>Statistiques - Général</h1>
   <p><%= link_to "Retour", :back %></p>
 
-  <h1>Récolte par légumes</h1>
+  <h2>Récolte par légumes</h2>
 
   <ul>
     <% @orders_by_year.each do |date, orders_number| %>
@@ -15,7 +15,14 @@
     <% end %>
   </ul>
 
-  <h1>Chiffre d'affaires</h1>
+  <h2>Chiffre d'affaires</h2>
 
+  <ul>
+
+    <% @categories.each do |category| %>
+      <li><%= category.name %> : <%= category.year_sales_for(@year) %> €</li>
+    <% end %>
+
+  </ul>
 
 </div>

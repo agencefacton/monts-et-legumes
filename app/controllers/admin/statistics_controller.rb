@@ -5,7 +5,11 @@ module Admin
     # before_action :set_products, only: [:create, :update]
 
     def index
-      @orders_by_year = Order.joins(:selling_range).where(status: 1).group("DATE_TRUNC('year', selling_ranges.ends_at)").count
+      @orders_by_year = Order.joins(:selling_range)
+                             .where(status: 1)
+                             .group("DATE_TRUNC('year', selling_ranges.ends_at)")
+                             .count
+      @categories = Category.all
     end
 
     def show

@@ -4,8 +4,8 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
 
-  def year_sales_for(year)
-    product_orders.joins(:order).where("orders.year_number = ? AND orders.status = ?", year, 1).sum(:item_price)
+  def period_sales_for(period)
+    product_orders.joins(:order).where("orders = ? AND orders.status = ?", year, 1).sum(:item_price)
   end
 
   def week_sales_for(year, week)

@@ -1,6 +1,6 @@
 module Admin
   class SellingRangesController < Admin::ApplicationController
-    before_action :set_selling_range, only: [:edit, :update, :destroy]
+    before_action :set_selling_range, only: [:edit, :update, :destroy, :show]
 
     def index
       @selling_ranges = SellingRange.all
@@ -26,6 +26,9 @@ module Admin
     end
 
     def edit
+    end
+
+    def show
     end
 
     def update
