@@ -1,1 +1,35 @@
-show.html.erb
+<div class="container">
+  <h1>Plage de vente - Semaine <%= @selling_range.ends_at.strftime("%U")%></h1>
+
+  <% @categories.each do |category| %>
+  <h2><%= category.name %></h2>
+  <ul>
+    <% category.products.each do |product| %>
+      <% if @selling_range.quantity_of(product) > 0 %>
+        <li><%= product.name %> : <%= pluralize(@selling_range.quantity_of(product), product.unit) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <h1>Commandes par client</h1>
+  <% @categories.each do |category| %>
+    <h2><%= category.name %></h2>
+
+    <% @orders.each do |order| %>
+      <% if order.categories.include?(category) %>
+        <% if order.user.mayeres == true %>
+          <i class="fab fa-medium-m"></i>
+        <% end %>
+        <%= order.user.first_name %> <%= order.user.last_name %> :
+        <ul>
+          <% order.product_orders.with_category(category).each do |product_order| %>
+            <li><%= product_order.product.name %> - <%= pluralize(product_order.quantity, product_order.product.unit) %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+
+    <%  %>
+  <% end %>
+</div>

@@ -29,6 +29,8 @@ module Admin
     end
 
     def show
+      @categories = Category.all
+      @orders = Order.where(selling_range: @selling_range, status: 1)
     end
 
     def update

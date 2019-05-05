@@ -4,16 +4,16 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
 
-  def period_sales_for(period)
+  def selling_range_sales_for(selling_range)
     product_orders.joins(:order).where("orders = ? AND orders.status = ?", year, 1).sum(:item_price)
   end
 
-  def week_sales_for(year, week)
-    product_orders.joins(:order).where("orders.year_number = ? AND orders.week_number = ? AND orders.status = ?", year, week, 1).sum(:item_price)
-  end
-
-  def year_crops_for(year)
-    product_orders.joins(:order).where("orders.year_number = ? AND orders.status = ?", year, 1).sum(:quantity)
+  def selling_range_crops_for(selling_range)
+    product_orders
+      .joins(order: :selling_range)
+      .where("selling_ranges.id = ? AND orders.status = ?", selling_range.id, 1)
+      .sum(:quantity)
   end
 
 end
+
