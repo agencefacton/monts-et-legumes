@@ -8,7 +8,7 @@
   <% end %>
 
   <% @myorders.each do |order| %>
-    <li>Semaine <%= order.week_number %>
+    <li>Commande du <%= order.selling_range.created_at.strftime("%d-%m-%Y") %> -
     Montant <%= order.total_price %> €
     <%= link_to "Voir le détail", order_path(order) %>
     </li>

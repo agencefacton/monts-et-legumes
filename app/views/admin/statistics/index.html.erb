@@ -2,6 +2,15 @@
   <h1>Statistiques - Général</h1>
   <p><%= link_to "Retour", :back %></p>
 
+  <h2>Chiffre d'affaires</h2>
+
+  <ul>
+
+    <% @categories.each do |category| %>
+      <li><%= category.name %> : <%= category.selling_range_sales_for(2019) %>€</li>
+    <% end %>
+
+  </ul>
   <h2>Récolte par légumes</h2>
 
   <ul>
@@ -15,14 +24,5 @@
     <% end %>
   </ul>
 
-  <h2>Chiffre d'affaires</h2>
-
-  <ul>
-
-    <% @categories.each do |category| %>
-      <li><%= category.name %> : <%= category.year_sales_for(@year) %> €</li>
-    <% end %>
-
-  </ul>
 
 </div>

@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
-before_action :set_order, only: [:show, :edit, :update, :reset_status, :edit_order_as_admin]
+before_action :set_order, only: [:show, :edit, :update, :reset_status]
 
   def index
-    @orders = Order.where(status: 1)
     @myorders = Order.where(user: current_user, status: 1)
   end
 
@@ -44,12 +43,6 @@ before_action :set_order, only: [:show, :edit, :update, :reset_status, :edit_ord
       redirect_to products_path
     end
   end
-
-  def edit_order_as_admin
-    @order.status = 0
-    @order.save
-  end
-
 
   def destroy
   end

@@ -3,8 +3,8 @@
   <h1>Mon profil</h1>
 
   <p><%= current_user.first_name %> <%= current_user.last_name %> </p>
-  <p><%= current_user.email %><p>
-  <p><%= current_user.phone_number %></p>
+  <p><i class="far fa-envelope"></i> <%= current_user.email %><p>
+  <p><i class="fas fa-phone"></i> <%= current_user.phone_number %></p>
     <% if user_signed_in? %>
     <p><%= link_to "Editer mon profil", edit_profile_path %></p>
     <% end %>
