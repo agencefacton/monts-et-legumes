@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     end
     resources :users do
       resources :transactions, only: [:create, :destroy]
+      resources :orders, only: :show
     end
     resources :statistics, only: [:index, :show], param: :year do
       member { get '/:week', to: 'statistics#week', as: :week }

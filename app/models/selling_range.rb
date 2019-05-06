@@ -6,4 +6,7 @@ class SellingRange < ApplicationRecord
     orders.joins(:products).where('products.id = ? AND status = ?', product.id, 1).sum(:quantity)
   end
 
+  def sales_of(product)
+    orders.joins(:products).where('products.id = ? AND status = ?', product.id, 1).sum(:item_price)
+  end
 end

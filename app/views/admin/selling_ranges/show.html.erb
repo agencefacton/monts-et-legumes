@@ -2,11 +2,13 @@
   <h1>Plage de vente - Semaine <%= @selling_range.ends_at.strftime("%U")%></h1>
 
   <% @categories.each do |category| %>
-  <h2><%= category.name %></h2>
+  <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
   <ul>
     <% category.products.each do |product| %>
       <% if @selling_range.quantity_of(product) > 0 %>
-        <li><%= product.name %> : <%= pluralize(@selling_range.quantity_of(product), product.unit) %></li>
+        <li><%= product.name %> :
+            <%= pluralize(@selling_range.quantity_of(product), product.unit) %> -
+            <%= @selling_range.sales_of(product) %> €</li>
       <% end %>
     <% end %>
   </ul>
@@ -14,17 +16,23 @@
 
   <h1>Commandes par client</h1>
   <% @categories.each do |category| %>
-    <h2><%= category.name %></h2>
+    <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
 
     <% @orders.each do |order| %>
       <% if order.categories.include?(category) %>
         <% if order.user.mayeres == true %>
           <i class="fab fa-medium-m"></i>
         <% end %>
-        <%= order.user.first_name %> <%= order.user.last_name %> :
+        <%= link_to admin_user_path(order.user) do %>
+          <%= order.user.first_name %> <%= order.user.last_name %>
+        <% end %>
+        <%= order.user %>
         <ul>
           <% order.product_orders.with_category(category).each do |product_order| %>
-            <li><%= product_order.product.name %> - <%= pluralize(product_order.quantity, product_order.product.unit) %></li>
+            <li><%= product_order.product.name %> -
+                <%= pluralize(product_order.quantity, product_order.product.unit) %> -
+                <%= product_order.item_price %> €
+            </li>
           <% end %>
         </ul>
       <% end %>

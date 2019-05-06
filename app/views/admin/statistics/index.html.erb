@@ -7,7 +7,7 @@
   <ul>
 
     <% @categories.each do |category| %>
-      <li><%= category.name %> : <%= category.selling_range_sales_for(2019) %>€</li>
+      <li><%= category.name %> : <%= category.year_sales_for(2019) %>€</li>
     <% end %>
 
   </ul>
