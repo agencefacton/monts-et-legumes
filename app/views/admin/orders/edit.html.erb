@@ -22,13 +22,20 @@
                 <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
                   <i class="fas fa-check-circle"></i>
                 <% end %>
+                <%= link_to admin_product_order_path(product_order), method: :delete do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
               <% end %>
             <% else %>
               <%= render 'product_orders/form', order: @order, product: product %>
             <% end %>
           </div>
-
       </div>
     <% end %>
+  <% end %>
+
+  <%= simple_form_for(@order) do |f| %>
+    <%= f.hidden_field :status, value: 1 %>
+    <%= f.submit 'Valider la commande', class: "btn btn-primary btn-centered" %>
   <% end %>
 </div>

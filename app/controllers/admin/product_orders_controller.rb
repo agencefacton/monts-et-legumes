@@ -1,5 +1,8 @@
 module Admin
   class ProductOrdersController < Admin::ApplicationController
+    before_action :set_product_order, only: [:update, :destroy]
+    before_action :set_order, only: [:create, :edit, :update]
+    before_action :set_products, only: [:create, :update]
 
     def create
         @categories = Category.all
@@ -13,7 +16,7 @@ module Admin
 
       def destroy
         @product_order.destroy
-        redirect_to products_path
+        redirect_to edit_admin_order_path(@order)
       end
 
       def update
@@ -26,10 +29,26 @@ module Admin
         @product_orders = current_order.product_orders
       end
 
-      private
+        private
 
       def product_order_params
         params.require(:product_order).permit(:quantity, :product_id)
+      end
+
+      def set_products
+        @products = Product.order(active: :desc)
+      end
+
+      def set_product_order
+        @product_order = ProductOrder.find(params[:id])
+      end
+
+      def set_order
+        @order = Order.find(params[:order_id])
+      end
+
+      def save_order
+        @order.save
       end
 
 

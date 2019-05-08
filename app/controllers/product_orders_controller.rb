@@ -35,11 +35,7 @@ class ProductOrdersController < ApplicationController
   end
 
   def set_products
-    if current_user.admin?
-      @products = Product.order(active: :desc)
-    else
-      @products = Product.where(active: true)
-    end
+    @products = Product.where(active: true)
   end
 
   def set_product_order
