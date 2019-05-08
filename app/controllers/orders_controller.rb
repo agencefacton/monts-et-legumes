@@ -1,25 +1,12 @@
 class OrdersController < ApplicationController
-before_action :set_order, only: [:show, :edit, :update, :reset_status]
+  before_action :set_order, only: [:show, :edit, :update, :reset_status]
 
   def index
-    @myorders = Order.where(user: current_user, status: 1)
+    @orders = Order.where(user: current_user, status: 1)
   end
 
   def show
     @user = User.find(@order.user_id)
-    @product_orders = @order.product_orders
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-    @order.status = 0
-    @user = @order.user
-    @categories = Category.all
     @product_orders = @order.product_orders
   end
 
@@ -42,9 +29,6 @@ before_action :set_order, only: [:show, :edit, :update, :reset_status]
       @order.save
       redirect_to products_path
     end
-  end
-
-  def destroy
   end
 
   private

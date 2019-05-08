@@ -4,6 +4,11 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
 
+  def general_sales_for
+    product_orders.joins(:order)
+                  .where("orders.status = ?", 1).sum(:item_price)
+  end
+
   def year_sales_for(year)
     this_year = DateTime.new(year)
     next_year = DateTime.new(year + 1)
@@ -16,12 +21,12 @@ class Category < ApplicationRecord
                   .where("orders.selling_range_id = ? AND orders.status = ?", selling_range , 1).sum(:item_price)
   end
 
-  def selling_range_crops_for(selling_range)
-    product_orders
-      .joins(order: :selling_range)
-      .where("selling_ranges.id = ? AND orders.status = ?", selling_range.id, 1)
-      .sum(:quantity)
-  end
+  # def selling_range_crops_for(selling_range)
+  #   product_orders
+  #     .joins(order: :selling_range)
+  #     .where("selling_ranges.id = ? AND orders.status = ?", selling_range.id, 1)
+  #     .sum(:quantity)
+  # end
 
 end
 

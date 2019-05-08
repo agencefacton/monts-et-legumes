@@ -12,7 +12,7 @@
         <li>
           Semaine <%= order.selling_range.ends_at.strftime('%W') %>
           Montant <%= order.total_price %> €
-          <%= link_to "Voir le détail", admin_user_order_path(@user, order) %>
+          <%= link_to "Voir le détail", admin_order_path(order) %>
         </li>
       <% end %>
     </ul>

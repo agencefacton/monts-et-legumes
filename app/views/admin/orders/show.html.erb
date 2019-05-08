@@ -1,3 +1,10 @@
 <div class="container">
-  <h1>Commande de <%= @user.first_name %></h1>
+  <h1>
+    <%= link_to edit_admin_order_path(@order) do %>
+    <i class="far fa-edit"></i>
+    <% end %>
+    Commande de <%= @user.first_name %> <%= @user.last_name %></h1>
+  <div class="card_form" id="order-cart">
+    <%= render 'products/cart' %>
+  </div>
 </div>

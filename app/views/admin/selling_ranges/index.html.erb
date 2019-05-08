@@ -1,5 +1,9 @@
 <div class="container">
-  <h1>Plages de vente</h1>
+  <h1>
+    <p><%= link_to new_admin_selling_range_path do %></p>
+      <i class="fas fa-plus"></i>
+    <% end %>
+    Plages de vente</h1>
   <ul>
     <% @selling_ranges.each do |selling_range| %>
       <li><%= link_to admin_selling_range_path(selling_range) do %>
@@ -10,5 +14,5 @@
     <% end %>
   </ul>
 
-  <p><%= link_to "Créer une nouvelle plage de vente", new_admin_selling_range_path %></p>
+
 </div>

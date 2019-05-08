@@ -1,5 +1,5 @@
 module Admin
-  class ProductsController < ApplicationController
+  class ProductsController < Admin::ApplicationController
     before_action :set_product, only: [:show, :edit, :update, :destroy, :toggle_active]
 
     def index

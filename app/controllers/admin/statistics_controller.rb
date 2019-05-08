@@ -1,5 +1,5 @@
 module Admin
-  class StatisticsController < ApplicationController
+  class StatisticsController < Admin::ApplicationController
     # before_action :set_product_order, only: [:update, :destroy]
     # before_action :set_order, only: [:create, :destroy, :update]
     # before_action :set_products, only: [:create, :update]

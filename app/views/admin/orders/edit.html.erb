@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Editer la commande</h1>
+
+  <% @categories.each do |category| %>
+    <p><%= category.name %></p>
+
+    <% category.products.each do |product| %>
+      <div class="product_line">
+
+        <div class="product_info">
+          <span class="product-title"> <%= product.name.capitalize %></span>
+          <span class="product-price"><%= product.price %> € / <%= product.unit %></span><br>
+          <span class="text-small"><%= product.description %></span>
+        </div>
+
+          <div class="product_quantity">
+            <% if @order.contains?(product) %>
+              <% product_order = @order.product_orders.find_by(product_id: product.id) %>
+              <%= simple_form_for(product_order, remote: true) do |f| %>
+                <%= f.number_field :quantity %>
+                <%= product.unit %>(s)
+                <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
+                  <i class="fas fa-check-circle"></i>
+                <% end %>
+              <% end %>
+            <% else %>
+              <%= render 'product_orders/form', order: @order, product: product %>
+            <% end %>
+          </div>
+
+      </div>
+    <% end %>
+  <% end %>
+</div>

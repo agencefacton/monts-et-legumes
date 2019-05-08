@@ -1,17 +1,5 @@
 <div class="container">
   <h1>Statistiques - Général</h1>
-  <p><%= link_to "Retour", :back %></p>
-
-  <h2>Chiffre d'affaires</h2>
-
-  <ul>
-
-    <% @categories.each do |category| %>
-      <li><%= category.name %> : <%= category.year_sales_for(2019) %>€</li>
-    <% end %>
-
-  </ul>
-  <h2>Récolte par légumes</h2>
 
   <ul>
     <% @orders_by_year.each do |date, orders_number| %>
@@ -24,5 +12,14 @@
     <% end %>
   </ul>
 
+
+    <% @categories.each do |category| %>
+      <h2><%= category.name %> : <%= category.general_sales_for %>€</h2>
+      <ul>
+        <% category.products.each do |product| %>
+          <li><%= product.name %> : <%= pluralize(product.general_crops_for,product.unit) %> - <%= product.general_sales_for %> €</li>
+        <% end %>
+      </ul>
+    <% end %>
 
 </div>
