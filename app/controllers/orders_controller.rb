@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
   end
 
   def reset_status
-    if (@order.user == current_user && @order.week_number == current_week) || current_user.admin?
+    if (@order.user == current_user && @order.selling_range == current_selling_range)
       @order.status = 0
       @order.save
       redirect_to products_path

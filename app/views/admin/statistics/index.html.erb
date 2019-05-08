@@ -1,18 +1,11 @@
 <div class="container">
-  <h1>Statistiques - Général</h1>
 
   <ul>
     <% @orders_by_year.each do |date, orders_number| %>
-      <li>
-        <p>
-          <%= date.strftime('%Y') %> : <%= pluralize(orders_number, "commande") %> -
-          <%= link_to "Détail", admin_statistic_path(date.strftime('%Y')) %>
-        </p>
-      </li>
-    <% end %>
-  </ul>
 
-
+ <h1>Statistiques <%= date.strftime('%Y') %> : <%= pluralize(orders_number, "commande") %></h1>
+<!--           link_to "Détail", admin_statistic_path(date.strftime('%Y'))
+ -->
     <% @categories.each do |category| %>
       <h2><%= category.name %> : <%= category.general_sales_for %>€</h2>
       <ul>
@@ -21,5 +14,5 @@
         <% end %>
       </ul>
     <% end %>
-
+  <% end %>
 </div>
