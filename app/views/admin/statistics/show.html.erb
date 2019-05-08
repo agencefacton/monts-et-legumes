@@ -1,9 +1,9 @@
 <div class="container">
 
-  <h1>Statistiques - Année XX</h1>
+  <h1>Statistiques - Année <%= @year %></h1>
 
     <% @categories.each do |category| %>
-      <h2><%= category.name %> : <%= category.year_sales_for(year) %>€</h2>
+      <h2><%= category.name %> : <%= category.year_sales_for(@year) %>€</h2>
       <ul>
         <% category.products.each do |product| %>
           <li><%= product.name %> : <%= pluralize(product.general_crops_for,product.unit) %> - <%= product.general_sales_for %> €</li>
