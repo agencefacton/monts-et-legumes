@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_order
-  helper_method :current_week
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_action :authenticate_user!
@@ -15,7 +14,15 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    products_path
+    if sales_period?
+      products_path
+    else
+      wait_path
+    end
+  end
+
+  def sales_period?
+    current_selling_range
   end
 
   private
@@ -30,10 +37,6 @@ class ApplicationController < ActionController::Base
 
   def current_day
     DateTime.current.strftime("%A")
-  end
-
-  def current_week
-    DateTime.current.strftime("%U")
   end
 
 end
