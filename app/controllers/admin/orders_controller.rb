@@ -25,7 +25,7 @@ module Admin
       if order_params[:status].to_i == 1
         @order.update(order_params)
         @order.save
-        redirect_to order_path
+        redirect_to admin_order_path
       else
         @order.product_orders.destroy_all
         @order.update(order_params)

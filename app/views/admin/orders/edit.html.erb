@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Editer la commande</h1>
+  <h1>Editer la commande de <%= @order.user.first_name %> <%= @order.user.last_name %> </h1>
 
   <% @categories.each do |category| %>
     <p><%= category.name %></p>
@@ -16,7 +16,7 @@
           <div class="product_quantity">
             <% if @order.contains?(product) %>
               <% product_order = @order.product_orders.find_by(product_id: product.id) %>
-              <%= simple_form_for(product_order, remote: true) do |f| %>
+              <%= simple_form_for([:admin, product_order]) do |f| %>
                 <%= f.number_field :quantity %>
                 <%= product.unit %>(s)
                 <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
@@ -27,14 +27,14 @@
                 <% end %>
               <% end %>
             <% else %>
-              <%= render 'product_orders/form', order: @order, product: product %>
+              <%= render 'admin/product_orders/form', order: @order, product: product %>
             <% end %>
           </div>
       </div>
     <% end %>
   <% end %>
 
-  <%= simple_form_for(@order) do |f| %>
+  <%= simple_form_for([:admin, @order]) do |f| %>
     <%= f.hidden_field :status, value: 1 %>
     <%= f.submit 'Valider la commande', class: "btn btn-primary btn-centered" %>
   <% end %>

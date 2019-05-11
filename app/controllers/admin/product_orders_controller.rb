@@ -1,7 +1,7 @@
 module Admin
   class ProductOrdersController < Admin::ApplicationController
     before_action :set_product_order, only: [:update, :destroy]
-    before_action :set_order, only: [:create, :edit, :update]
+    before_action :set_order, only: [:create]
     before_action :set_products, only: [:create, :update]
 
     def create
@@ -10,12 +10,14 @@ module Admin
           @product_order = @order.product_orders.create(product_order_params)
         end
         @product_order.save
-        @product_orders = current_order.product_orders
-        @post = Post.last
+        @product_orders = @order.product_orders
+        redirect_to edit_admin_order_path(@order)
       end
 
       def destroy
+        @order = @product_order.order
         @product_order.destroy
+
         redirect_to edit_admin_order_path(@order)
       end
 
