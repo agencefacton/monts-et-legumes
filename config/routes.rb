@@ -2,15 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   resource :profile, only: [:show, :edit, :update]
-
-  resources :posts, only: [:edit, :update]
   resources :product_orders, except: [:index, :show]
   resources :product_orders, only: [:index, :show], param: :year_number, as: "date"
-  resources :customer_orders, only: [:index, :show], param: :year_number, as: "customer_orders_year"
   resources :products, only: :index
-
-  get "/product_orders/:year_number/:week_number", to: "product_orders#week", as: "week"
-  get "/customer_orders/:year_number/:week_number", to: "customer_orders#week", as: "customer_orders_week"
+  get :wait, to: "pages#wait"
 
   resources :orders do
     member do
@@ -19,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :posts, only: [:edit, :update]
     resources :selling_ranges
     resources :products, except: :show do
       member { get :toggle_active }

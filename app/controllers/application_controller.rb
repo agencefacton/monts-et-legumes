@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_order
-  helper_method :current_year
   helper_method :current_week
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -37,7 +36,4 @@ class ApplicationController < ActionController::Base
     DateTime.current.strftime("%U")
   end
 
-  def current_year
-    DateTime.current.strftime("%U")
-  end
 end
