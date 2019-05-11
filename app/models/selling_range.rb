@@ -1,5 +1,5 @@
 class SellingRange < ApplicationRecord
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :products, through: :orders
 
   def quantity_of(product)
