@@ -3,7 +3,10 @@
     <%= link_to edit_admin_order_path(@order) do %>
     <i class="far fa-edit"></i>
     <% end %>
-    Commande de <%= @user.first_name %> <%= @user.last_name %></h1>
+    Commande de <%= link_to admin_user_path(@user) do %>
+      <%= @user.first_name %> <%= @user.last_name %>
+      <% end %>
+      </h1>
   <div class="card_form" id="order-cart">
     <%= render 'products/cart' %>
   </div>

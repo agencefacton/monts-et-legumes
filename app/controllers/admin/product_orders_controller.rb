@@ -22,9 +22,11 @@ module Admin
       end
 
       def update
+        @order = @product_order.order
         @categories = Category.all
         if product_order_params[:quantity].to_i == 0
           @product_order.destroy
+          redirect_to edit_admin_order_path(@order)
         else
           @product_order.update(product_order_params)
         end
