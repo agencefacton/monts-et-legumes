@@ -9,8 +9,8 @@
       <%= link_to t(".sign_in", default: "Je commande mon panier"), new_user_session_path, data: { toggle: 'modal', target: '#logInModal'}, class: 'btn btn-primary btn-homepage' %>
     </div>
     <% end %>
-
   </div>
+
   <div id="introimg">
     <%= image_tag ( "hp-veggiebox.png") %>
   </div>
@@ -52,8 +52,10 @@
   <div id="graytitle">
     <span class="introwelcome">Bienvenue !</span>
     <span class="introwelcomesubtitle">Découvrez le GAEC Monts et Légumes</span>
-    <div class="introwelcomeborder">
-        <%= image_tag("hp-veggie.png")%>
+    <div>
+      <div class="introiconwrapper">
+        <i class="fas fa-seedling"></i>
+      </div>
     </div>
 
     <p>Nous sommes Margaux et Clément. Installés en maraîchage en agriculture biologique dans les monts du Lyonnais depuis 2017, nous vendons la totalité de nos légumes en vente directe. Nous produisons toute l'année des légumes de saison avec le souci de limiter au maximum notre impact sur notre environnement.</p>
