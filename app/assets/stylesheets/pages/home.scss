@@ -4,16 +4,15 @@
 
 .introname {
     font-family: 'Pacifico', cursive;
-    color: $green;
     font-weight: bolder;
     font-size: 2.8em;
 }
 
 .introbaseline {
   position: relative;
-  color: $green;
   font-size: 4em;
   font-weight: 600;
+  color: $graydark;
   line-height: 1.1;
 }
 .introbaseline:after {
@@ -24,6 +23,25 @@
   // width   : 20%;
   border-bottom:1px solid $white;
 }
+
+#introtxt {
+  text-align: left;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 8em;
+  width: 40%;
+}
+
+#introimg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%
+}
+
+/////////////////////////WELCOME//////////////
 
 .introwelcome {
   font-family: 'Pacifico';
@@ -42,22 +60,19 @@
   width: 60px;
 }
 
-
-#introtxt {
-  text-align: left;
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 8em;
-  width: 50%;
+.introwelcomeblock {
 }
 
-#introimg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.introwelcometext {
 }
+
+.introwelcomeimg img {
+  width: 60px;
+}
+
+
+
+///////////////////////////////INTROCARDS
 
 #introcards {
   width: 100%;
@@ -66,6 +81,8 @@
   justify-content: space-around;
   position: absolute;
   bottom: -70px;
+  background-image: url("background.svg");
+  background-size : cover;
 }
 
 .introcard {
@@ -77,6 +94,18 @@
   position: relative;
   bottom: 0;
 }
+
+  #introcard-1 {
+    border-top: 3px solid #83E0C9;
+  }
+
+  #introcard-2 {
+    border-top: 3px solid #F993A5;
+  }
+
+  #introcard-3 {
+    border-top: 3px solid #FFD796;
+  }
 
 .introcard:hover {
   position: relative;
@@ -102,6 +131,8 @@
     left: 30px;
   }
 }
+
+///////////////////////////// GRAY BACKGROUND
 
 .graybackground {
   background: $graylight;

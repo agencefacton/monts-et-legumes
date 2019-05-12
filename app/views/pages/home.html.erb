@@ -16,7 +16,7 @@
   </div>
 
   <div id="introcards">
-    <div class="whitecard introcard">
+    <div class="whitecard introcard" id="introcard-1">
       <div class="introcardtxt">
         <h3>Légumes biologiques et bocaux</h3>
         <p>Récoltés pour vous chaque semaine dans nos champs</p>
@@ -25,7 +25,7 @@
         <%= image_tag ( "hp-vegetables.png" ) %>
       </div>
     </div>
-    <div class="whitecard introcard">
+    <div class="whitecard introcard" id="introcard-2">
       <div class="introcardtxt">
         <h3>Viande bovine biologique et bocaux</h3>
         <p>Vaches Aubrac élevées avec soin par nos voisins éleveurs</p>
@@ -34,7 +34,7 @@
         <%= image_tag ( "hp-meat.png" ) %>
       </div>
     </div>
-    <div class="whitecard introcard">
+    <div class="whitecard introcard" id="introcard-3">
       <div class="introcardtxt">
         <h3>Fromages et autres produits</h3>
         <p>Fromages de vache et de chèvre en conversion AB, miel et œufs, produits par des collègues fermiers</p>
@@ -58,8 +58,17 @@
       </div>
     </div>
 
-    <p>Nous sommes Margaux et Clément. Installés en maraîchage en agriculture biologique dans les monts du Lyonnais depuis 2017, nous vendons la totalité de nos légumes en vente directe. Nous produisons toute l'année des légumes de saison avec le souci de limiter au maximum notre impact sur notre environnement.</p>
-    <p>Sur ce site, vous pouvez commander nos légumes. Nous vous proposons aussi plusieurs autres produits issus de fermes voisines. La réception des commandes se fait le vendredi soir à la ferme, sur la commune de Haute-Rivoire.</p>
+    <div class="introwelcomeblock">
+      <div class="introwelcometext">
+        <p>Nous sommes Margaux et Clément. Installés en maraîchage en agriculture biologique dans les monts du Lyonnais depuis 2017, nous vendons la totalité de nos légumes en vente directe. Nous produisons toute l'année des légumes de saison avec le souci de limiter au maximum notre impact sur notre environnement.</p>
+        <p>
+        Sur ce site, vous pouvez commander nos légumes. Nous vous proposons aussi plusieurs autres produits issus de fermes voisines. La réception des commandes se fait le vendredi soir à la ferme, sur la commune de Haute-Rivoire.</p>
+      </div>
+      <div class="introwelcomeimg">
+        <%= image_tag ("AB.svg.png") %>
+      </div>
+    </div>
+
   </div>
 
 
