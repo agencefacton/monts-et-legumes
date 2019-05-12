@@ -31,14 +31,15 @@
   flex-direction: column;
   justify-content: center;
   margin-left: 8em;
-  width: 40%;
+  width: 50%;
 }
 
 #introimg {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60%
+  width: 50%;
+  margin-right: 8em;
 }
 
 /////////////////////////WELCOME//////////////
@@ -76,13 +77,11 @@
 
 #introcards {
   width: 100%;
-  padding: 0 8%;
   display: flex;
   justify-content: space-around;
-  position: absolute;
-  bottom: -70px;
   background-image: url("background.svg");
   background-size : cover;
+  padding: 0 8%;
 }
 
 .introcard {
@@ -136,7 +135,7 @@
 
 .graybackground {
   background: $graylight;
-  padding: 170px 5% 20px 5%;
+  padding: 20px 5% 20px 5%;
 }
 
 #graytitle {

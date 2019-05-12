@@ -16,7 +16,12 @@
 .product_line {
   display: flex;
   align-items: start;
-  margin-top: 1.5em;
+  padding: 15px;
+  background: white;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  border-radius: 3px;
+  transition: 0.5s all cubic-bezier(0.21, 1.05, 0.24, 1.41);
   input[type="number" i] {
     border: none !important;
     border-bottom: 1px solid #ddd !important;
@@ -28,6 +33,13 @@
   }
 }
 
+.product_line:hover {
+  transform: scale(1.02);
+  input[type="number" i] {
+    border-bottom: 1px solid $green !important;
+  }
+}
+
 .product_info {
   width: 350px;
   line-height: 15px;
@@ -36,13 +48,11 @@
 .product-title {
   font-size: 1.4em;
   line-height: 35px;
-  color: $graydark;
 }
 
 .product-price {
   font-size: 0.8em;
   margin-left: 0.5em;
-  color: $graydark;
 }
 
 .product-unit {
