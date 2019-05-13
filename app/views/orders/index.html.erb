@@ -2,13 +2,13 @@
 
   <h1>Mes commandes</h1>
 
-  <% if @myorders.count == 0 %>
+  <% if @orders.count == 0 %>
     <p>Vous n'avez pas encore passé de commande</p>
     <%= link_to "Retour", :back %>
   <% end %>
 
-  <% @myorders.each do |order| %>
-    <li>Semaine <%= order.week_number %>
+  <% @orders.each do |order| %>
+    <li>Commande du <%= order.selling_range.created_at.strftime("%d-%m-%Y") %> -
     Montant <%= order.total_price %> €
     <%= link_to "Voir le détail", order_path(order) %>
     </li>

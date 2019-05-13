@@ -10,7 +10,9 @@
     <% if user_signed_in? %>
       <%= link_to "Mes commandes", orders_path %>
       <%= link_to "Mon profil", profile_path %>
-      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fas fa-sign-out-alt"></i>
+      <% end %>
     <% else %>
       <%= link_to t(".sign_in", default: "Connexion"), new_user_session_path, data: { toggle: 'modal', target: '#logInModal'} %>
     <% end %>

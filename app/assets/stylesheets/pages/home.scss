@@ -1,20 +1,18 @@
 #intro {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6) ), image-url("carottes.jpg");
-  background-position: 50% 50%;
+  display: flex;
 }
 
 .introname {
     font-family: 'Pacifico', cursive;
-    color: $white;
     font-weight: bolder;
     font-size: 2.8em;
 }
 
 .introbaseline {
   position: relative;
-  color: $white;
-  font-size: 5em;
+  font-size: 4em;
   font-weight: 600;
+  color: $graydark;
   line-height: 1.1;
 }
 .introbaseline:after {
@@ -26,23 +24,6 @@
   border-bottom:1px solid $white;
 }
 
-.introwelcome {
-  font-family: 'Pacifico';
-  color: #32B796;
-  font-size: 2.5em;
-  display: block;
-}
-
-.introwelcomesubtitle {
-  font-weight: 700;
-  font-size: 1.8em;
-  color: $graydark;
-}
-
-.introwelcomeborder img {
-  width: 60px;
-}
-
 #introtxt {
   text-align: left;
   min-height: 90vh;
@@ -50,15 +31,57 @@
   flex-direction: column;
   justify-content: center;
   margin-left: 8em;
+  width: 50%;
 }
+
+#introimg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin-right: 8em;
+}
+
+/////////////////////////WELCOME//////////////
+
+.introwelcome {
+  font-family: 'Pacifico';
+  color: #32B796;
+  font-size: 3em;
+  display: block;
+}
+
+.introwelcomesubtitle {
+  font-weight: 700;
+  font-size: 1.8em;
+  color: $grayheaders;
+}
+
+.introwelcomeborder img {
+  width: 60px;
+}
+
+.introwelcomeblock {
+}
+
+.introwelcometext {
+}
+
+.introwelcomeimg img {
+  width: 60px;
+}
+
+
+
+///////////////////////////////INTROCARDS
 
 #introcards {
   width: 100%;
-  padding: 0 8%;
   display: flex;
   justify-content: space-around;
-  position: absolute;
-  bottom: -70px;
+  background-image: url("background.svg");
+  background-size : cover;
+  padding: 0 8%;
 }
 
 .introcard {
@@ -70,6 +93,18 @@
   position: relative;
   bottom: 0;
 }
+
+  #introcard-1 {
+    border-top: 3px solid #83E0C9;
+  }
+
+  #introcard-2 {
+    border-top: 3px solid #F993A5;
+  }
+
+  #introcard-3 {
+    border-top: 3px solid #FFD796;
+  }
 
 .introcard:hover {
   position: relative;
@@ -96,9 +131,11 @@
   }
 }
 
+///////////////////////////// GRAY BACKGROUND
+
 .graybackground {
   background: $graylight;
-  padding: 170px 5% 20px 5%;
+  padding: 20px 5% 20px 5%;
 }
 
 #graytitle {
@@ -111,204 +148,17 @@
   }
 }
 
-#people {
-  display: flex;
-  height: 50vh;
-  padding: 0;
-  position: relative;
-  bottom: -75px;
-}
-
-#peoplebtn {
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: space-around;
-  padding: 2em;
-  width: 50%;
-}
-
-.button1, .button2, .button3, .button4, .button5 {
-  cursor: pointer;
-}
-
-.btnactive {
-  color: $green;
-  border-bottom: 1px solid;
-  font-weight: bold;
-}
-
-.slide {
-  display: none;
-}
-
-.slide.active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.peopletxt {
-  width: 50%;
-  padding: 30px;
-}
-
-.peopletxt.inactive {
-  display: none;
-}
-
-.peoplepic {
-  width: 50%;
-  max-height:50vh;
-  margin: 0;
-  overflow: hidden;
-}
-
-#where {
-  margin: 240px 5% 150px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.place-to-find {
-  padding: 30px;
-  background: $white;
-  height: 400px;
-  width: 350px;
+.introiconwrapper {
   text-align: center;
-  position: relative;
-  box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.08);
-  border-color: $grayborder $grayborder $green $grayborder;
-  border-bottom: 10px solid $green;
+  display: inline-block;
+  margin-bottom: 1em;
 }
-
-.place-to-find:hover .place-to-find-icon {
-  transition: all 0.2s ease-out;
-  background: white;
-}
-
-.place-to-find-icon {
-  width: 100px;
-  height: 100px;
-  padding: 20px;
-  border-radius: 50%;
-  position: absolute;
-  background: $white;
-  border: 2px solid $green;
-  top: -45px;
-  left: 125px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-}
-
-.place-to-find-top {
-  height: 175px;
-}
-
-.homepage-bottom {
-  padding: 30px 0 80px 0;
-  h1 {
-    margin-left: 30px;
-  }
-}
-
-.homepage-photos {
-  display: flex;
-}
-
-.hpleft, .hpright {
-  width: 50%;
-}
-
-.contoverflow {
-  overflow: hidden;
-  margin: 8px;
-  width: 100%;
-  height: 200px;
-}
-
-.contoverflow-except-left {
-  margin-left: 0;
-}
-
-.contoverflow-except-right {
-  margin-right: 0;
-}
-
-.hpoverflowtxt {
-  text-align: center;
-}
-
-.hpleftbottom, .hprighttop, .hplefttop, .hpleftbottom {
-  display: flex;
-  width: 100%;
-}
-
-.hppic {
-  height: 200px;
-  background-size: cover;
-  background-position: 50% 50%;
-}
-
-.hplefttoptop {
-  background-image: image-url('courgettes-en-goutte-a-goutte.jpg');
-  position: relative;
-  background-position: 50% 66%;
-}
-
-.hprightbottombottom {
-  background-image: image-url('syrphe-auxilliaires-de-culture.jpg');
-  margin-right: 0;
-  // background-position: 50% 75%;
-}
-
-.hpleftbottomleft {
-  background-image: image-url('recolte-des-oignons-bottes.jpg');
-}
-
-.hpleftbottomright {
-  background-image: image-url('les-pois-gourmands-sortent.jpg');
-}
-
-.hprighttopleft {
-  background-image: image-url('desherbage-des-poireaux.jpg');
-  background-position: 50% 100%;
-}
-
-.hprighttopright {
-  background-image: image-url('plantation-des-tomates.jpg');
-}
-
-.hplefttoptop:hover, .hpleftbottomleft:hover, .hpleftbottomright:hover, .hprighttopleft:hover, .hprighttopright:hover, .hprightbottombottom:hover {
-  transform: scale(1.05);
-  transition: all 0.5s ease-out;
-  background-color: rgba(52, 73, 94, 0.75);
-}
-
-.overlay {
-  content: "";
-  display: none;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(52, 73, 94, 0.75);
-  z-index: 10;
-}
-
-.overlaytxt {
-  color: $white;
-  text-align: center;
-  font-size: 1.5em;
-  border-bottom: 1px solid $white;
-}
-
-.hppic:hover .overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease-out;
+.introiconwrapper::before,
+.introiconwrapper::after {
+  content: '';
+  display: inline-block;
+  width: 7em;
+  height: 1px;
+  background: $green;
+  vertical-align: middle;
 }

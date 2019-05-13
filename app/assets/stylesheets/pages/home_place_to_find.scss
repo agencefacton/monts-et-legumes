@@ -1,0 +1,42 @@
+#where {
+  margin: 240px 5% 150px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.place-to-find {
+  padding: 30px;
+  background: $white;
+  height: 400px;
+  width: 350px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.08);
+  border-color: $grayborder $grayborder $green $grayborder;
+  border-bottom: 10px solid $green;
+}
+
+.place-to-find:hover .place-to-find-icon {
+  transition: all 0.2s ease-out;
+  background: white;
+}
+
+.place-to-find-icon {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  border-radius: 50%;
+  position: absolute;
+  background: $white;
+  border: 2px solid $green;
+  top: -45px;
+  left: 125px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.place-to-find-top {
+  height: 175px;
+}

@@ -1,5 +1,5 @@
 module Admin
-  class TransactionsController < ApplicationController
+  class TransactionsController < Admin::ApplicationController
     before_action :set_transaction, only: [:destroy]
     before_action :set_user, only: [:create, :destroy]
 

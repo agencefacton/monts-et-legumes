@@ -1,0 +1,52 @@
+#people {
+  display: flex;
+  height: 50vh;
+  padding: 0;
+  position: relative;
+  bottom: -75px;
+}
+
+#peoplebtn {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 2em;
+  width: 50%;
+}
+
+.button1, .button2, .button3, .button4, .button5 {
+  cursor: pointer;
+}
+
+.btnactive {
+  color: $green;
+  border-bottom: 1px solid;
+  font-weight: bold;
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.peopletxt {
+  width: 50%;
+  padding: 30px;
+}
+
+.peopletxt.inactive {
+  display: none;
+}
+
+.peoplepic {
+  width: 50%;
+  max-height:50vh;
+  margin: 0;
+  overflow: hidden;
+}

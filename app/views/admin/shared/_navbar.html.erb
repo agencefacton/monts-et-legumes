@@ -7,11 +7,10 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <%= link_to "Plages de vente", admin_selling_ranges_path %>
+    <%= link_to "News", edit_admin_post_path(@post) %>
     <%= link_to "Produits", admin_products_path %>
     <%= link_to "Clients", admin_users_path %>
-    <%= link_to "A récolter", admin_harvests_path %>
-    <%= link_to "Commandes", '' %>
-
+    <%= link_to "Statistiques", admin_statistics_path %>
     <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
   </div>
 </div>

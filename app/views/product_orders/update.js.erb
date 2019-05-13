@@ -1,5 +1,5 @@
 var cart = document.querySelector('#order-cart');
-cart.innerHTML = "<%= j render 'products/cart' %>";
+cart.innerHTML = "<%= j render 'products/cart_title' %><%= j render 'products/cart' %><%= j render 'products/cart_validation' %>";
 
 var productsList = document.querySelector('#products-list');
-productsList.innerHTML = "<%= j render 'products/product_list' %>";
+productsList.innerHTML = "<%= j render 'products/product_list_title' %><%= j render 'products/product_list' %>";

@@ -1,11 +1,18 @@
 <div class="container">
-  <h1>Plages de vente</h1>
+  <h1>
+    <p><%= link_to new_admin_selling_range_path do %></p>
+      <i class="fas fa-plus"></i>
+    <% end %>
+    Plages de vente</h1>
   <ul>
     <% @selling_ranges.each do |selling_range| %>
-      <li>Ouverture : <%= selling_range.starts_at %> - Fermeture : <%= selling_range.ends_at %> - <%= link_to "Editer", edit_admin_selling_range_path(selling_range) %> - <%= link_to "Supprimer", admin_selling_range_path(selling_range), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette plage de vente ?" } %></li>
+      <li><%= link_to admin_selling_range_path(selling_range) do %>
+          Semaine <%= selling_range.ends_at.strftime("%U") %>
+          <% end %>
+
+        : <%= selling_range.starts_at.strftime("%A %d/%m/%Y") %> - <%= selling_range.ends_at.strftime("%A %d/%m/%Y") %> - <%= link_to "Editer", edit_admin_selling_range_path(selling_range) %> - <%= link_to "Supprimer", admin_selling_range_path(selling_range), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette plage de vente ?" } %></li>
     <% end %>
   </ul>
 
-  <p><%= link_to "Créer une nouvelle plage de vente", new_admin_selling_range_path %></p>
-  <p><%= link_to "Retour à la liste de produits", '' %></p>
+
 </div>

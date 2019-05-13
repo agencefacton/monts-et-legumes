@@ -1,0 +1,17 @@
+<div class="container">
+
+  <h1>Récolte par légume - <%= @year %>, semaine <%= @week %></h1>
+  <p><%= link_to "Retour", product_orders_path %></p>
+
+
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= category.name %></li>
+      <ul>
+        <% category.products.each do |product| %>
+          <li><%= product.name %> : <%= pluralize(product.selling_range_crops_for(@selling_range), product.unit) %></li>
+        <% end %>
+      </ul>
+
+    <% end %>
+  </ul>

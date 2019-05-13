@@ -10,4 +10,10 @@
   padding: 2em;
   border-top: 0.6em solid $green;
   box-shadow: 0 2px 3px 0 hsla(0, 0%, 0%, 0.2);
+
+}
+
+#order-cart {
+  position: sticky;
+  top: 120px;
 }

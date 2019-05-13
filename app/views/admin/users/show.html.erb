@@ -1,6 +1,10 @@
 <div class="container">
 
-  <h1>Profil de <%= @user.first_name %> <%= @user.last_name %></h1>
+  <h1>
+    <%= link_to edit_admin_user_path(@user) do %>
+      <i class="far fa-edit"></i>
+    <% end %>
+    Profil de <%= @user.first_name %> <%= @user.last_name %></h1>
 
   <p><i class="far fa-envelope"></i> <%= @user.email %><p>
   <p><i class="fas fa-phone"></i> <%= @user.phone_number %></p>
@@ -12,7 +16,7 @@
         <li>
           Semaine <%= order.selling_range.ends_at.strftime('%W') %>
           Montant <%= order.total_price %> €
-          <%= link_to "Voir le détail", '' %>
+          <%= link_to "Voir le détail", admin_order_path(order) %>
         </li>
       <% end %>
     </ul>

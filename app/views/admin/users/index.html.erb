@@ -1,8 +1,9 @@
 <div class="container">
 
-  <h1>Clients</h1>
-
-  <p><%= link_to "Ajouter un client", new_admin_user_path %></p>
+  <h1><%= link_to new_admin_user_path do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+      Clients</h1>
 
   <table>
     <tr>
@@ -25,7 +26,13 @@
         <td><%= user.phone_number %></td>
         <td><%= user.tab %> €</td>
         <td><%= pluralize(user.orders.validated.count, "commande") %></td>
-        <td><%= link_to "Editer", edit_admin_user_path(user) %> | <%= link_to " Supprimer", admin_user_path(user), data: { method: "delete" } %> </td>
+        <td><%= link_to edit_admin_user_path(user) do %>
+                  <i class="far fa-edit"></i>
+                <% end %> |
+                <%= link_to admin_user_path(user), data: { method: "delete" } do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              </td>
       </tr>
     <% end %>
   </table>

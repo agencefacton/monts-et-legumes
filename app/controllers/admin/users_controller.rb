@@ -1,5 +1,5 @@
 module Admin
-  class UsersController < ApplicationController
+  class UsersController < Admin::ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy, :orderindex, :new_order]
 
     def index

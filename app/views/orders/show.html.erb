@@ -1,19 +1,16 @@
 <div class="container">
-  <% if @order.user == current_user && @order.status == 1  %>
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-    <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-    <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
-    </svg>
-    <p class="success">Votre panier a été validé</p>
-    <p>Il sera disponible Vendredi de 17h à 19h</p>
-    <%= link_to "Retour à la page d'accueil", root_path %>
-  <% end %>
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+  <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+  <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+  </svg>
+  <p class="success">Votre panier a été validé </br>Il sera disponible Vendredi de 17h à 19h</p>
 
   <div class="card_form">
+    <h1><i class="fas fa-shopping-basket"></i> Votre panier</h1>
     <%= render "products/cart" %>
   </div>
 
-  <% if current_order.status == 1 %>
+  <% if current_order.selling_range == current_selling_range %>
     <%= form_for(@order) do |f| %>
       <%= f.hidden_field :status, value: 0 %>
       <%= f.submit 'Annuler la commande', class: "btn btn-secondary" %>
@@ -21,4 +18,3 @@
   <% end %>
 
 </div>
-
