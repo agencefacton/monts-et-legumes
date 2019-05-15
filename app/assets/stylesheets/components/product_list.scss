@@ -34,7 +34,7 @@
 }
 
 .product_line:hover {
-  transform: scale(1.02);
+  transform: scale(1.015);
   input[type="number" i] {
     border-bottom: 1px solid $green !important;
   }
@@ -43,6 +43,12 @@
 .product_info {
   width: 350px;
   line-height: 15px;
+}
+
+.product_quantity {
+  // position: absolute;
+  // right: 40px;
+  margin-right: 1em;
 }
 
 .product-title {

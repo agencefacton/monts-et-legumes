@@ -136,6 +136,8 @@
 .graybackground {
   background: $graylight;
   padding: 20px 5% 20px 5%;
+  background-image: url("grass.svg");
+  background-position: bottom;
 }
 
 #graytitle {
