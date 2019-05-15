@@ -8,6 +8,10 @@ class Product < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  def self.active
+    where(active: true)
+  end
+
   def general_sales_for
     product_orders.joins(:order)
                   .where("orders.status = ?", 1).sum(:item_price)

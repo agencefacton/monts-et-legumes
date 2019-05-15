@@ -1,7 +1,7 @@
 <% @categories.each do |category| %>
   <h2><%= category.name %></h2>
 
-  <% category.products.each do |product| %>
+  <% category.products.active.each do |product| %>
     <div class="product_line">
       <div>
         <% if product.photo.present? %>
