@@ -26,7 +26,6 @@
         <%= link_to admin_user_path(order.user) do %>
           <%= order.user.first_name %> <%= order.user.last_name %>
         <% end %>
-        <%= order.user %>
         <ul>
           <% order.product_orders.with_category(category).each do |product_order| %>
             <li><%= product_order.product.name %> -

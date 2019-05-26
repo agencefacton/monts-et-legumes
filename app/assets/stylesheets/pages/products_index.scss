@@ -7,18 +7,23 @@
   justify-content: space-between;
 }
 
+#product_index_left {
+  width: 60%;
+  h2:first-of-type {
+    margin-top: 0;
+  }
+}
+
 .farmers_title {
-  font-family: 'Courgette';
-  color: $green;
-  font-size: 3em;
+  font-size: 2em;
+  margin-top: 1.5em;
+  display: inline-block;
 }
 
 #farmers_word {
-  background: $white;
-  box-shadow: 0 15px 35px rgba(126, 87, 88, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
-  margin-top: 50px;
-  min-height: 200px;
-  display: flex;
+  margin-top: 1em;
+  border-left: 3px solid $green;
+  margin-left: 1em;
 }
 
 #farmers_img {

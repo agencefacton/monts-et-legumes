@@ -1,19 +1,21 @@
 #intro {
   display: flex;
+  max-width: 1140px;
+  margin: 100px auto 0 auto;
 }
 
 .introname {
     font-family: 'Pacifico', cursive;
     font-weight: bolder;
-    font-size: 2.8em;
+    font-size: 2.5em;
 }
 
 .introbaseline {
   position: relative;
-  font-size: 4em;
+  font-size: 3.2em;
   font-weight: 600;
   color: $graydark;
-  line-height: 1.1;
+  line-height: 1.3;
 }
 .introbaseline:after {
   content : "";
@@ -24,13 +26,17 @@
   border-bottom:1px solid $white;
 }
 
+.intronosales {
+  color: $green;
+  font-size: 2em;
+}
+
 #introtxt {
   text-align: left;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 8em;
   width: 50%;
 }
 
@@ -39,128 +45,30 @@
   align-items: center;
   justify-content: center;
   width: 50%;
-  margin-right: 8em;
 }
 
-/////////////////////////WELCOME//////////////
+@media screen and (max-width:1000px) {
 
-.introwelcome {
-  font-family: 'Pacifico';
-  color: #32B796;
-  font-size: 3em;
-  display: block;
-}
-
-.introwelcomesubtitle {
-  font-weight: 700;
-  font-size: 1.8em;
-  color: $grayheaders;
-}
-
-.introwelcomeborder img {
-  width: 60px;
-}
-
-.introwelcomeblock {
-}
-
-.introwelcometext {
-}
-
-.introwelcomeimg img {
-  width: 60px;
-}
-
-
-
-///////////////////////////////INTROCARDS
-
-#introcards {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background-image: url("background.svg");
-  background-size : cover;
-  padding: 0 8%;
-}
-
-.introcard {
-  height: 225px;
-  width: 30%;
-  display: flex;
-  overflow: hidden;
-  border-radius: 0;
-  position: relative;
-  bottom: 0;
-}
-
-  #introcard-1 {
-    border-top: 3px solid #83E0C9;
+  #introtxt {
+    width: 100%;
+    margin: 10px;
+    min-height: 80vh;
   }
 
-  #introcard-2 {
-    border-top: 3px solid #F993A5;
+  .introname {
+    font-size: 2em;
   }
 
-  #introcard-3 {
-    border-top: 3px solid #FFD796;
+  .introbaseline {
+    font-size: 2em;
   }
 
-.introcard:hover {
-  position: relative;
-  bottom: 10px;
-  transition: all 0.1s ease-out;
-}
-
-.introcardtxt {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 60%;
-}
-
-.introcardpic {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 40%;
-  position: relative;
-  img {
-    position: absolute;
-    left: 30px;
-  }
-}
-
-///////////////////////////// GRAY BACKGROUND
-
-.graybackground {
-  background: $graylight;
-  padding: 20px 5% 20px 5%;
-  background-image: url("grass.svg");
-  background-position: bottom;
-}
-
-#graytitle {
-  text-align: center;
-  width: 75%;
-  margin: 3em auto 0 auto;
-  p {
-    text-align: left;
+  .intronosales {
     font-size: 1.5em;
   }
-}
 
-.introiconwrapper {
-  text-align: center;
-  display: inline-block;
-  margin-bottom: 1em;
-}
-.introiconwrapper::before,
-.introiconwrapper::after {
-  content: '';
-  display: inline-block;
-  width: 7em;
-  height: 1px;
-  background: $green;
-  vertical-align: middle;
+  #introimg {
+    display: none;
+  }
+
 }

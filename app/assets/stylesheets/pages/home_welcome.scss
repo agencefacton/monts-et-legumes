@@ -1,0 +1,65 @@
+.introwelcome {
+  font-family: 'Pacifico';
+  color: #32B796;
+  font-size: 3em;
+  display: block;
+}
+
+.introwelcomesubtitle {
+  font-weight: 700;
+  font-size: 1.8em;
+  color: $grayheaders;
+}
+
+.introwelcomeborder img {
+  width: 60px;
+}
+
+.introwelcomeimg img {
+  width: 60px;
+}
+
+
+.graybackground {
+  background: $graylight;
+  padding: 20px 5% 20px 5%;
+  background-image: url("grass.svg");
+  background-position: bottom;
+  background-size: cover;
+}
+
+#graytitle {
+  text-align: center;
+  width: 75%;
+  margin: 3em auto 0 auto;
+  p {
+    text-align: left;
+    font-size: 1.5em;
+  }
+}
+
+.introiconwrapper {
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+.introiconwrapper::before,
+.introiconwrapper::after {
+  content: '';
+  display: inline-block;
+  width: 7em;
+  height: 1px;
+  background: $green;
+  vertical-align: middle;
+}
+
+@media screen and (max-width:1000px) {
+
+  #graytitle {
+    width: 100%;
+    p {
+      font-size: 1.1em;
+    }
+  }
+
+}

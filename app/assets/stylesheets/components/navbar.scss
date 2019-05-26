@@ -28,3 +28,9 @@
   align-items: center;
   justify-content: space-between;
 }
+
+@media screen and (max-width:1000px) {
+  .navbar-logo img {
+    height: 40px;
+  }
+}

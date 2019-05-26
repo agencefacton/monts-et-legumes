@@ -1,0 +1,70 @@
+#introcards {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-image: url("background.svg");
+  background-size : cover;
+  padding: 0 10%;
+}
+
+.introcard {
+  height: 225px;
+  max-width: 380px;
+  display: flex;
+  overflow: hidden;
+  border-radius: 0;
+  position: relative;
+  bottom: 0;
+}
+
+  #introcard-1 {
+    border-top: 3px solid #83E0C9;
+  }
+
+  #introcard-2 {
+    border-top: 3px solid #F993A5;
+  }
+
+  #introcard-3 {
+    border-top: 3px solid #FFD796;
+  }
+
+.introcard:hover {
+  position: relative;
+  bottom: 10px;
+  transition: all 0.1s ease-out;
+}
+
+.introcardtxt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+
+.introcardpic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  position: relative;
+  align-items: center;
+  img {
+    position: absolute;
+  }
+}
+
+@media screen and (max-width:1000px) {
+
+#introcards {
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.introcard {
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+}
