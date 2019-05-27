@@ -8,9 +8,12 @@
       <div>
         <%= link_to t(".sign_in", default: "Je commande mon panier"), new_user_session_path, data: { toggle: 'modal', target: '#logInModal'}, class: 'btn btn-primary btn-homepage' %>
       </div>
+    <% elsif @next_selling_range %>
+      <span class="intronosales">Prochaine vente : </br>
+      <%= l(@next_selling_range.starts_at, format:"%d %B à %H h") %></span>
     <% else %>
       <span class="intronosales">Pas de vente actuellement</span>
-    <% end  %>
+    <% end %>
   </div>
 
   <div id="introimg">
