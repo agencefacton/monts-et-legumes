@@ -16,6 +16,7 @@
   box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.08);
   border-color: $grayborder $grayborder $green $grayborder;
   border-bottom: 10px solid $green;
+  margin: 0 5px;
 }
 
 .place-to-find:hover .place-to-find-icon {
@@ -52,7 +53,7 @@
   }
 
   .place-to-find {
-    margin-bottom: 80px;
+    margin-bottom: 0 0 80px 0;
   }
 
 }
