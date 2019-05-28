@@ -15,9 +15,10 @@
 
   <% if current_order.selling_range == current_selling_range %>
     <div class="container800">
+      <%= link_to "Modifier |", reset_status_order_path(@order) %>
       <%= form_for(@order) do |f| %>
         <%= f.hidden_field :status, value: 0 %>
-        <%= f.submit 'Annuler la commande', class: "btn btn-link" %>
+        <%= f.submit 'Annuler', class: "btn btn-link" %>
       <% end %>
     </div>
   <% end %>
