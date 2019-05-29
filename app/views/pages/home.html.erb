@@ -2,12 +2,17 @@
   <div id="introtxt">
     <span class="introname">Monts & Légumes</span>
     <span class="introbaseline">Légumes biologiques </br> locaux et de saison</span>
-    <% if user_signed_in? %>
+    <% if sales_period? && user_signed_in? %>
       <%= button_to "Je commande mon panier", products_path, :method => :get, class: 'btn btn-primary btn-homepage' %>
+    <% elsif sales_period? %>
+      <div>
+        <%= link_to t(".sign_in", default: "Je commande mon panier"), new_user_session_path, data: { toggle: 'modal', target: '#logInModal'}, class: 'btn btn-primary btn-homepage' %>
+      </div>
+    <% elsif @next_selling_range %>
+      <span class="intronosales">Prochaine vente : </br>
+      <%= l(@next_selling_range.starts_at, format:"%d %B à %H h") %></span>
     <% else %>
-    <div>
-      <%= link_to t(".sign_in", default: "Je commande mon panier"), new_user_session_path, data: { toggle: 'modal', target: '#logInModal'}, class: 'btn btn-primary btn-homepage' %>
-    </div>
+      <span class="intronosales">Pas de vente actuellement</span>
     <% end %>
   </div>
 
@@ -75,10 +80,10 @@
 
     <div id="peoplebtn">
       <span class="button1 btnactive">Notre ferme</span>
-      <span class="button2">Nos pratiques</span>
-      <span class="button3">Biodiversité</span>
-      <span class="button4">Notre environnement</span>
-      <span class="button5">Les commandes</span>
+      <span class="button2"><i class="fas fa-tractor"></i></span>
+      <span class="button3"><i class="fas fa-bug"></i></span>
+      <span class="button4"><i class="fas fa-users"></i></span>
+      <span class="button5"><i class="fas fa-shopping-basket"></i></span>
     </div>
 
     <div class="slide1 slide active">

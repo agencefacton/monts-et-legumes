@@ -40,7 +40,6 @@
 }
 
 .btn-product-list, .btn.product-list:hover {
-  margin: 0 10px;
   border-color: transparent !important;
 }
 
@@ -48,3 +47,7 @@
   color: $white;
 }
 
+.btn-link, .btn-link:hover {
+  color: $green;
+  padding: 0;
+}

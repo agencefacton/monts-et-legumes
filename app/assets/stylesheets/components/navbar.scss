@@ -17,6 +17,14 @@
   z-index: 1000;
 }
 
+.navbar-container {
+  width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Logo */
 .navbar-logo img {
   height: 70px;
@@ -27,4 +35,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.fas.fa-sign-out-alt {
+  color: $green;
+}
+
+@media screen and (max-width:1000px) {
+  .navbar-logo img {
+    height: 40px;
+  }
 }

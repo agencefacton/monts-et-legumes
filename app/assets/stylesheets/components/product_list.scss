@@ -34,21 +34,23 @@
 }
 
 .product_line:hover {
-  transform: scale(1.015);
   input[type="number" i] {
     border-bottom: 1px solid $green !important;
   }
 }
 
+.product_line_responsive {
+  display: flex;
+  flex-grow: 1;
+}
+
 .product_info {
-  width: 350px;
+  flex-grow: 1;
   line-height: 15px;
 }
 
 .product_quantity {
-  // position: absolute;
-  // right: 40px;
-  margin-right: 1em;
+  width: 260px;
 }
 
 .product-title {
@@ -72,4 +74,35 @@
 
 .activate_product a {
   color: $red;
+}
+
+@media screen and (max-width:1000px) {
+
+  .product_line_responsive {
+    flex-direction: column;
+  }
+
+  .product_quantity {
+    margin-right: 0;
+    width: 100%;
+    text-align: right;
+  }
+
+  .product_line {
+    padding: 15px 5px;
+    .fas {
+      font-size: 2em;
+    }
+    .fas.fa-plus {
+      margin: 0 20px;
+    }
+     input[type="number" i] {
+      font-size: 1.2em;
+    }
+  }
+
+  .btn-outline-primary, .btn-outline-primary:hover {
+    padding: 8px;
+  }
+
 }

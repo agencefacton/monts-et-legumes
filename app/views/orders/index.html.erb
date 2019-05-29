@@ -6,9 +6,17 @@
     <p>Vous n'avez pas encore passé de commande</p>
   <% else %>
     <% @orders.each do |order| %>
-      <li>Commande du <%= order.selling_range.created_at.strftime("%d-%m-%Y") %> -
-      <%= order.total_price %> €
-      <%= link_to "Voir le détail", order_path(order) %>
+      <li>
+        <%= link_to order_path(order) do %>
+          <%= order.selling_range.created_at.strftime("%d-%m-%Y") %> - <%= order.total_price %> €
+          <% if order.selling_range == current_selling_range %>
+            <%= link_to "Modifier", reset_status_order_path(order) %>
+            <%= form_for(order) do |f| %>
+              <%= f.hidden_field :status, value: 0 %>
+              <%= f.submit 'Annuler', class: "btn btn-link" %>
+            <% end %>
+          <% end %>
+        <% end %>
       </li>
     <% end %>
   <% end %>

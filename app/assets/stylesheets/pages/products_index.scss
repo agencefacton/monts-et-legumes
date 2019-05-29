@@ -7,27 +7,39 @@
   justify-content: space-between;
 }
 
+#product_index_left {
+  width: 60%;
+  h2:first-of-type {
+    margin-top: 0;
+  }
+}
+
+#product_index_right {
+  width: 38%;
+}
+
 .farmers_title {
-  font-family: 'Courgette';
-  color: $green;
-  font-size: 3em;
+  font-size: 2em;
+  display: inline-block;
+  margin-bottom: 15px;
+  color: $grayheaders;
 }
 
 #farmers_word {
-  background: $white;
-  box-shadow: 0 15px 35px rgba(126, 87, 88, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
-  margin-top: 50px;
-  min-height: 200px;
-  display: flex;
+  margin: 30px 0;
 }
 
-#farmers_img {
-  width: 30%;
-  background-image: image-url('farmers-word.jpg');
-  background-size: cover;
-}
 
-#farmers_txt {
-  padding: 20px;
+@media screen and (max-width:1000px) {
+  #product_index_flex {
+    flex-direction: column;
+  }
 
+  #product_index_left {
+    width: 100%;
+  }
+
+  #product_index_right {
+    width: 100%;
+  }
 }

@@ -3,7 +3,7 @@ module Admin
     before_action :set_selling_range, only: [:edit, :update, :destroy, :show]
 
     def index
-      @selling_ranges = SellingRange.all
+      @selling_ranges = SellingRange.all.order(starts_at: :desc)
     end
 
     def new

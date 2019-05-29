@@ -1,16 +1,16 @@
 <div class="navbar">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-logo" do %>
-    <%= image_tag "logo.png", height: 50 %>
-  <% end %>
+    <%= link_to root_path, class: "navbar-logo" do %>
+      <%= image_tag "logo.png", height: 50 %>
+    <% end %>
 
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <%= link_to "Plages de vente", admin_selling_ranges_path %>
-    <%= link_to "News", edit_admin_post_path(@post) %>
-    <%= link_to "Produits", admin_products_path %>
-    <%= link_to "Clients", admin_users_path %>
-    <%= link_to "Statistiques", admin_statistics_path %>
-    <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
-  </div>
+    <!-- Right Navigation -->
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <%= link_to "Plages de vente", admin_selling_ranges_path %>
+      <%= link_to "News", edit_admin_post_path(@post) %>
+      <%= link_to "Produits", admin_products_path %>
+      <%= link_to "Clients", admin_users_path %>
+      <%= link_to "Statistiques", admin_statistics_path %>
+      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
+    </div>
+
 </div>

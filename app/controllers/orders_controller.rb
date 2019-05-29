@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :reset_status]
 
   def index
-    @orders = Order.where(user: current_user, status: 1)
+    @orders = Order.where(user: current_user, status: 1).order(created_at: :desc)
   end
 
   def show
