@@ -33,7 +33,7 @@
 
 #introtxt {
   text-align: left;
-  min-height: 80vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,8 +51,8 @@
 
   #introtxt {
     width: 100%;
-    margin: 10px;
-    min-height: 80vh;
+    padding: 5%;
+    height: 70vh;
   }
 
   .introname {
@@ -60,7 +60,7 @@
   }
 
   .introbaseline {
-    font-size: 2em;
+    font-size: 2.2em;
   }
 
   .intronosales {

@@ -1,6 +1,5 @@
 /* Main navbar */
 .navbar {
-  background: white;
   height: 100px;
   margin: 0px 30px;
   display: flex;
@@ -15,6 +14,7 @@
   width: 100%;
   margin: 0;
   z-index: 1000;
+  background: white;
 }
 
 .navbar-container {
