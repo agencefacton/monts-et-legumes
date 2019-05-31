@@ -17,6 +17,7 @@
           Semaine <%= order.selling_range.ends_at.strftime('%W') %>
           Montant <%= order.total_price %> €
           <%= link_to "Voir le détail", admin_order_path(order) %>
+          <%= link_to "Supprimer", admin_order_path(order), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette commande ?" }  %>
         </li>
       <% end %>
     </ul>

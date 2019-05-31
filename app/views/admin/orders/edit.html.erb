@@ -2,11 +2,17 @@
   <h1>Editer la commande de <%= @order.user.first_name %> <%= @order.user.last_name %> </h1>
 
   <% @categories.each do |category| %>
-    <p><%= category.name %></p>
+    <h2><%= category.name %></h2>
 
     <% category.products.each do |product| %>
-      <div class="product_line">
-
+        <div class="product_line">
+          <div>
+          <% if product.photo.present? %>
+            <%= cl_image_tag product.photo, class: "avatar_bordered" %>
+          <% else %>
+            <div class="avatar_bordered"></div>
+          <% end %>
+        </div>
         <div class="product_info">
           <span class="product-title"> <%= product.name.capitalize %></span>
           <span class="product-price"><%= product.price %> € / <%= product.unit %></span><br>

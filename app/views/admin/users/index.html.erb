@@ -7,15 +7,23 @@
 
   <table>
     <tr>
+      <th></th>
       <th>Nom</th>
       <th>Email</th>
       <th>Tél</th>
       <th>Ardoise</th>
       <th>Commandes</th>
-      <th></th>
     </tr>
     <% @users.each do |user| %>
       <tr>
+        <td>
+          <%= link_to edit_admin_user_path(user) do %>
+            <i class="far fa-edit"></i>
+          <% end %> |
+          <%= link_to admin_user_path(user), data: { method: "delete" } do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </td>
         <td>
           <% if user.mayeres? %>
             <i class="fab fa-medium-m"></i>
@@ -26,13 +34,6 @@
         <td><%= user.phone_number %></td>
         <td><%= user.tab %> €</td>
         <td><%= user.orders.validated.count %> <%= "commande".pluralize(user.orders.validated.count) %></td>
-        <td><%= link_to edit_admin_user_path(user) do %>
-                  <i class="far fa-edit"></i>
-                <% end %> |
-                <%= link_to admin_user_path(user), data: { method: "delete" } do %>
-                  <i class="fas fa-trash-alt"></i>
-                <% end %>
-              </td>
       </tr>
     <% end %>
   </table>

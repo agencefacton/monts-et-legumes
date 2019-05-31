@@ -1,6 +1,6 @@
 module Admin
   class OrdersController < Admin::ApplicationController
-    before_action :set_order, only: [:show, :edit, :update]
+    before_action :set_order, only: [:show, :edit, :update, :destroy]
 
     def index
     end
@@ -35,6 +35,9 @@ module Admin
     end
 
     def destroy
+      @user = @order.user
+      @order.destroy
+      redirect_to admin_user_path(@user)
     end
 
     private

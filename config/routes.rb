@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :users do
       resources :transactions, only: [:create, :destroy]
     end
-    resources :orders, only: [:show, :edit, :update] do
+    resources :orders, only: [:show, :edit, :update, :new, :create, :destroy] do
       resources :product_orders, only: [:create]
     end
     resources :product_orders, except: [:index, :show, :create]
