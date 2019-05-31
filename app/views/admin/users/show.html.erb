@@ -14,9 +14,9 @@
     <ul>
       <% @user.orders.validated.each do |order| %>
         <li>
-          Semaine <%= order.selling_range.ends_at.strftime('%W') %>
+          Semaine <%= order.selling_range.ends_at.strftime('%W') %> -
           Montant <%= order.total_price %> €
-          <%= link_to "Voir le détail", admin_order_path(order) %>
+          <%= link_to "Détail |", admin_order_path(order) %>
           <%= link_to "Supprimer", admin_order_path(order), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette commande ?" }  %>
         </li>
       <% end %>
@@ -32,7 +32,7 @@
     <%= f.hidden_field :add, value: true %>
     <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.input :amount, label: false, placeholder: "€" %>
-    <%= f.submit "Valider", class: "btn btn-primary" %>
+    <%= f.submit "Valider", class: "btn btn-primary btn-margin-right" %>
   <% end %>
 
   <%= simple_form_for([:admin, @user, @transaction]) do |f| %>

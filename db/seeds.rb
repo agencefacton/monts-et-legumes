@@ -22,7 +22,7 @@ tiph = User.create!(
   admin: true
 )
 
-client = User.create!(
+clement = User.create!(
   email: 'clement.roux21@gmail.com',
   first_name: 'Clément',
   last_name: 'Roux',
@@ -31,7 +31,7 @@ client = User.create!(
   admin: true
 )
 
-client = User.create!(
+margaux = User.create!(
   email: 'margo.got@hotmail.fr',
   first_name: 'Margaux',
   last_name: 'Ollagnier',
@@ -45,8 +45,8 @@ kevin = User.create!(
   first_name: 'Kévin',
   last_name: 'Chavanne',
   phone_number: '0000000000',
-  password: 'azertyuiop',
-  admin: false
+  password: 'azerty',
+  admin: true
 )
 
 vegetables = Category.create!(name: 'Légumes frais')
@@ -71,10 +71,10 @@ aubergine = Product.create!(
 )
 
 choux = Product.create!(
-  name: "Choux",
+  name: "Soupe de choux",
   price: 2.5,
   unit: "pièce",
-  category: vegetables
+  category: cooked
 )
 
 boeuf = Product.create!(
@@ -82,6 +82,14 @@ boeuf = Product.create!(
   price: 3.5,
   unit: "pièce",
   category: meat
+)
+
+oeuf = Product.create!(
+  name: "Oeufs bio",
+  description: "De la ferme à côté",
+  price: 4,
+  unit: "sixaine",
+  category: eggs
 )
 
 order = Order.create!(

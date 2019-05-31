@@ -36,7 +36,7 @@
         <td><%= user.tab %> €</td>
         <td><%= user.orders.validated.count %> <%= "commande".pluralize(user.orders.validated.count) %></td>
         <td><%= simple_form_for([:admin, user, Order.new]) do |f| %>
-                <%= f.submit("Créer") %>
+                <%= f.submit("Créer", class: "btn btn-link") %>
               <% end %>
       </tr>
     <% end %>
