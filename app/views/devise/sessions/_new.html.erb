@@ -16,7 +16,7 @@
         <%= f.input :password, label: "Mot de passe" %>
 
           <% if devise_mapping.rememberable? -%>
-              <%= f.check_box :remember_me, as: :radio_buttons, label: "Se souvenir de moi" %>
+              <%= f.input :remember_me, as: :boolean %>
           <% end -%>
 
             <%= f.button :submit, value: "Connexion", class: "btn btn-primary" %>

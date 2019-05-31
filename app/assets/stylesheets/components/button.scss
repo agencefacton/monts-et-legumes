@@ -42,10 +42,10 @@
 .btn-home {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin: 20px 0 40px 0;
 }
 
-.btn-centered, .btn-outline-primary:hover {
+.btn-centered {
   background-color: transparent;
   border-color: $green;
   border-radius: 50px;
@@ -55,6 +55,7 @@
 
 .btn-product-list, .btn.product-list:hover {
   border-color: transparent !important;
+  padding: 8px 20px;
 }
 
 .btn a, .btn a:hover {
@@ -64,6 +65,7 @@
 .btn-link, .btn-link:hover {
   color: $green;
   padding: 0;
+  text-decoration: none !important;
 }
 
 @media screen and (max-width:1000px) {

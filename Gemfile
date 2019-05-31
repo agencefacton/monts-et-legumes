@@ -12,6 +12,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'flutie'
 gem 'coffee-script'
 gem 'figaro'
 gem 'simple_form'

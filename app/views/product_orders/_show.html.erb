@@ -1,5 +1,5 @@
 <td><%= product_order.product.name %></td>
-<td><%= pluralize(product_order.quantity, product_order.product.unit) %></td>
+<td><%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %></td>
 <td><%= product_order.item_price %> € </td>
 <% if order.status == 0 %>
   <td><%= link_to product_order_path(product_order), method: :delete do %>
