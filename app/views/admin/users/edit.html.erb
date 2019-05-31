@@ -1,5 +1,5 @@
 <div class="container">
   <h2>Modifier le profil de <%= @user.first_name %> <%= @user.last_name %></h2>
 
-  <%= render 'form' %>
+  <%= render 'form', with_password: false %>
 </div>
