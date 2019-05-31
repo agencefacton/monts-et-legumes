@@ -10,10 +10,10 @@ module Admin
       @user = @order.user
     end
 
-    def new
-    end
-
     def create
+      @user = User.find(params[:user_id])
+      @order = Order.find_or_create_by(user: @user, selling_range: current_selling_range)
+      redirect_to edit_admin_order_path(@order)
     end
 
     def edit

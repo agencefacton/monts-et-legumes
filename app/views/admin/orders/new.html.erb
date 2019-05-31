@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>Créer une commande pour <%= @user.first_name %> <%= @user.last_name %> </h1>
+
+  <% @categories.each do |category| %>
+    <h2><%= category.name %></h2>
+
+    <% category.products.each do |product| %>
+        <div class="product_line">
+          <div>
+          <% if product.photo.present? %>
+            <%= cl_image_tag product.photo, class: "avatar_bordered" %>
+          <% else %>
+            <div class="avatar_bordered"></div>
+          <% end %>
+        </div>
+        <div class="product_info">
+          <span class="product-title"> <%= product.name.capitalize %></span>
+          <span class="product-price"><%= product.price %> € / <%= product.unit %></span><br>
+          <span class="text-small"><%= product.description %></span>
+        </div>
+
+          <div class="product_quantity">
+            <% if @order.contains?(product) %>
+              <% product_order = @order.product_orders.find_by(product_id: product.id) %>
+              <%= simple_form_for([:admin, product_order]) do |f| %>
+                <%= f.number_field :quantity %>
+                <%= product.unit %>(s)
+                <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
+                  <i class="fas fa-check-circle"></i>
+                <% end %>
+                <%= link_to admin_product_order_path(product_order), method: :delete do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            <% else %>
+              <%= render 'admin/product_orders/form_new', order: @order, product: product %>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= simple_form_for([:admin, @order]) do |f| %>
+    <%= f.hidden_field :status, value: 1 %>
+    <%= f.submit 'Valider la commande', class: "btn btn-primary btn-centered" %>
+  <% end %>
+</div>
