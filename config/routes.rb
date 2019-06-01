@@ -21,8 +21,9 @@ Rails.application.routes.draw do
     end
     resources :users do
       resources :transactions, only: [:create, :destroy]
+      resources :orders, only: [:create]
     end
-    resources :orders, only: [:show, :edit, :update] do
+    resources :orders, only: [:show, :edit, :update, :destroy] do
       resources :product_orders, only: [:create]
     end
     resources :product_orders, except: [:index, :show, :create]

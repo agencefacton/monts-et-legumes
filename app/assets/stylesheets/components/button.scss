@@ -20,7 +20,7 @@
   padding: 18px 32px;
   font-size: 1.3em;
   font-weight: 600;
-  margin-top: 2em;
+  margin: 2em 0;
 }
 
 .button-prev, .button-next {
@@ -39,8 +39,24 @@
   padding: 8px 20px;
 }
 
+.btn-home {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 40px 0;
+}
+
+.btn-centered {
+  background-color: transparent;
+  border-color: $green;
+  border-radius: 50px;
+  color: $green;
+  padding: 10px 25px;
+  margin-top: 20px;
+}
+
 .btn-product-list, .btn.product-list:hover {
   border-color: transparent !important;
+  padding: 8px 20px;
 }
 
 .btn a, .btn a:hover {
@@ -50,4 +66,19 @@
 .btn-link, .btn-link:hover {
   color: $green;
   padding: 0;
+  text-decoration: none !important;
+}
+
+.btn-margin-right {
+  margin-right: 30px;
+}
+
+@media screen and (max-width:1000px) {
+  .btn-primary.btn-homepage {
+     margin: 2em auto 0 auto;
+   }
+  .btn-outline-primary, .btn-outline-primary:hover {
+    padding: 8px;
+  }
+
 }

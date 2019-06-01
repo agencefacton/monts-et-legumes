@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Editer la commande de <%= @order.user.first_name %> <%= @order.user.last_name %> </h1>
+  <h1>Créer une commande pour <%= @user.first_name %> <%= @user.last_name %> </h1>
 
   <% @categories.each do |category| %>
     <h2><%= category.name %></h2>
@@ -33,7 +33,7 @@
                 <% end %>
               <% end %>
             <% else %>
-              <%= render 'admin/product_orders/form', order: @order, product: product %>
+              <%= render 'admin/product_orders/form_new', order: @order, product: product %>
             <% end %>
           </div>
       </div>

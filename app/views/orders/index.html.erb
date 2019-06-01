@@ -5,24 +5,23 @@
   <% if @orders.count == 0 %>
     <p>Vous n'avez pas encore passé de commande</p>
   <% else %>
-    <% @orders.each do |order| %>
-      <li>
-        <%= link_to order_path(order) do %>
-          <%= order.selling_range.created_at.strftime("%d-%m-%Y") %> - <%= order.total_price %> €
-          <% if order.selling_range == current_selling_range %>
-            <%= link_to "Modifier", reset_status_order_path(order) %>
-            <%= form_for(order) do |f| %>
-              <%= f.hidden_field :status, value: 0 %>
-              <%= f.submit 'Annuler', class: "btn btn-link" %>
-            <% end %>
-          <% end %>
-        <% end %>
-      </li>
-    <% end %>
-  <% end %>
 
-  <% if current_order == true %>
-    <%= link_to "Retour à ma commande", order_path(current_order) %>
+      <% @orders.each do |order| %>
+
+          <div class="display_inline">
+            <%= link_to order_path(order) do %>
+              <%= order.selling_range.created_at.strftime("%d-%m-%Y") %>
+            <% end %>
+            <span class="padding-borders"><%= order.total_price %> €</span>
+            <% if order.selling_range == current_selling_range %>
+              <%= link_to "Modifier", reset_status_order_path(order) %>
+              <%= form_for(order) do |f| %>
+                <%= f.hidden_field :status, value: 0 %>
+                <%= f.submit 'Annuler', class: "btn btn-link" %>
+              <% end %>
+            <% end %>
+          </div>
+      <% end %>
   <% end %>
 
 </div>

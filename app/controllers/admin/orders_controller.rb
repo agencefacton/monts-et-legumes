@@ -1,6 +1,6 @@
 module Admin
   class OrdersController < Admin::ApplicationController
-    before_action :set_order, only: [:show, :edit, :update]
+    before_action :set_order, only: [:show, :edit, :update, :destroy]
 
     def index
     end
@@ -10,10 +10,10 @@ module Admin
       @user = @order.user
     end
 
-    def new
-    end
-
     def create
+      @user = User.find(params[:user_id])
+      @order = Order.find_or_create_by(user: @user, selling_range: current_selling_range)
+      redirect_to edit_admin_order_path(@order)
     end
 
     def edit
@@ -35,6 +35,9 @@ module Admin
     end
 
     def destroy
+      @user = @order.user
+      @order.destroy
+      redirect_to admin_user_path(@user)
     end
 
     private

@@ -7,6 +7,7 @@
 
   <table>
     <tr>
+      <th></th>
       <th>Nom</th>
       <th>Email</th>
       <th>Tél</th>
@@ -17,6 +18,14 @@
     <% @users.each do |user| %>
       <tr>
         <td>
+          <%= link_to edit_admin_user_path(user) do %>
+            <i class="far fa-edit"></i>
+          <% end %> |
+          <%= link_to admin_user_path(user), data: { method: "delete" } do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </td>
+        <td>
           <% if user.mayeres? %>
             <i class="fab fa-medium-m"></i>
           <% end %>
@@ -25,14 +34,10 @@
         <td><%= user.email %></td>
         <td><%= user.phone_number %></td>
         <td><%= user.tab %> €</td>
-        <td><%= pluralize(user.orders.validated.count, "commande") %></td>
-        <td><%= link_to edit_admin_user_path(user) do %>
-                  <i class="far fa-edit"></i>
-                <% end %> |
-                <%= link_to admin_user_path(user), data: { method: "delete" } do %>
-                  <i class="fas fa-trash-alt"></i>
-                <% end %>
-              </td>
+        <td><%= user.orders.validated.count %> <%= "commande".pluralize(user.orders.validated.count) %></td>
+        <td><%= simple_form_for([:admin, user, Order.new]) do |f| %>
+                <%= f.submit("Créer", class: "btn btn-link") %>
+              <% end %>
       </tr>
     <% end %>
   </table>

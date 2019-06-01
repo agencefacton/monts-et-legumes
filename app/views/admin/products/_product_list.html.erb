@@ -16,14 +16,14 @@
         <span class="product-price"><%= product.price %> € / <%= product.unit %></span><br>
         <span class="text-small"><%= product.description %></span>
       </div>
+        <%= link_to "Editer | ", edit_admin_product_path(product) %>
+        <%= link_to "Supprimer | ", admin_product_path(product), method: :delete, data: { confirm: "Attention, vous allez perdre toutes les commandes associées ! Voulez-vous vraiment supprimer ce produit ?" } %>
+        <% if product.active? %>
+          <%= link_to "Désactiver", toggle_active_admin_product_path(product) %>
+        <% else %>
+          <span class="activate_product"> <%= link_to "Activer", toggle_active_admin_product_path(product) %></span>
+        <% end %>
     </div>
 
-    <%= link_to "Editer", edit_admin_product_path(product) %>
-    <%= link_to "Supprimer", admin_product_path(product), method: :delete, data: { confirm: "Attention, vous allez perdre toutes les commandes associées ! Voulez-vous vraiment supprimer ce produit ?" } %>
-    <% if product.active? %>
-      <%= link_to "Desactiver", toggle_active_admin_product_path(product) %>
-    <% else %>
-      <span class="activate_product"> <%= link_to "Activer", toggle_active_admin_product_path(product) %></span>
-    <% end %>
   <% end %>
 <% end %>

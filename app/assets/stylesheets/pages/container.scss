@@ -5,5 +5,18 @@
 .container800 {
   max-width: 800px;
   margin: 0 auto 40px auto;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  form {
+    margin-left: 10px;
+  }
+}
+
+.container-vertical {
+  height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -17,3 +17,9 @@
   position: sticky;
   top: 120px;
 }
+
+@media screen and (max-width:1000px) {
+  .card_form {
+    padding: 1em;
+  }
+}

@@ -17,13 +17,19 @@
 
 .button1, .button2, .button3, .button4, .button5 {
   cursor: pointer;
-  text-align: center
+  text-align: center;
+  .fas, .fab {
+  color: $grayborder;
+  font-size: 2em;
+  }
 }
 
 .btnactive {
-  color: $green;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid $green;
   font-weight: bold;
+  .fas, .fab {
+    color: $green !important;
+  }
 }
 
 .slide {

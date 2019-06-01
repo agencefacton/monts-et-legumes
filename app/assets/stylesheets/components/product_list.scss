@@ -65,7 +65,7 @@
 
 .product-unit {
   width: 50px;
-  display: inline-block
+  display: inline-block;
 }
 
 #product_action_admin {
@@ -75,6 +75,7 @@
 .activate_product a {
   color: $red;
 }
+
 
 @media screen and (max-width:1000px) {
 
@@ -99,10 +100,6 @@
      input[type="number" i] {
       font-size: 1.2em;
     }
-  }
-
-  .btn-outline-primary, .btn-outline-primary:hover {
-    padding: 8px;
   }
 
 }

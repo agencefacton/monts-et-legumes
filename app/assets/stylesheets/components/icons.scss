@@ -16,3 +16,13 @@
   font-size: 2em;
   color: $green;
 }
+
+.far.fa-envelope, .fas.fa-phone {
+  font-size: 1.5em;
+  color: $grayborder;
+  margin-right: 10px;
+}
+
+table .far.fa-edit {
+  color: $grayborder;
+}
