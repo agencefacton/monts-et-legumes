@@ -1,9 +1,12 @@
 <div class="container">
-  <h1>Tic tac...</h1>
-  <h3>La vente n'est pas encore ouverte</h3>
-  <p>Margaux, Clément et leurs partenaires sont actuellement en train de préparer la liste des produits qu'ils vont vous proposer.</br>
-     La prochaine vente aura lieu le <%= l(@next_selling_range.starts_at, format:"%d %B à %H h") %>
-
-  </p>
-
+  <div class="container-vertical">
+    <p class="success">La vente n'est pas encore ouverte</p>
+    <p class="success2">Margaux, Clément et leurs partenaires sont en train de préparer la liste des produits qu'ils vont vous proposer.</br></p>
+    <% if @next_selling_range %>
+      <p> La prochaine vente aura lieu le <%= l(@next_selling_range.starts_at, format:"%d %B à %H h") %></p>
+    <% end %>
+    <div class="btn-home">
+      <%= button_to "Retour à l'accueil", root_path, method: :get, class: "btn btn-centered" %>
+    </div>
+  </div>
 </div>

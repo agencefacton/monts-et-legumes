@@ -19,17 +19,17 @@
   cursor: pointer;
   text-align: center;
   .fas, .fab {
-  color: $graybodylight;
+  color: $grayborder;
   font-size: 2em;
   }
 }
 
 .btnactive {
+  border-bottom: 1px solid $green;
+  font-weight: bold;
   .fas, .fab {
     color: $green !important;
   }
-  border-bottom: 1px solid $green;
-  font-weight: bold;
 }
 
 .slide {
