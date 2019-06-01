@@ -3,6 +3,9 @@
   <%= f.input :last_name, label: 'Nom de famille' %>
   <%= f.input :phone_number, placeholder: '0123456789' %>
   <%= f.input :email, placeholder: 'utilisateur@nomdedomaine.com' %>
+  <% if with_password %>
+    <%= f.input :password %>
+  <% end %>
   <%= f.input :mayeres %>
   <%= f.input :tab %>
   <%= f.input :admin %>
