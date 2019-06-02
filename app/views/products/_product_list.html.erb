@@ -30,9 +30,9 @@
                 <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
                   <i class="fas fa-check-circle"></i>
                 <% end %>
-                <%= button_to product_order_path(product_order), class: "btn btn-outline-primary btn-product-list", method: :delete do %>
-                  <i class="fas fa-trash-alt"></i>
-                <% end %>
+              <% end %>
+              <%= button_to product_order_path(product_order), class: "btn btn-outline-primary btn-product-list", method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
               <% end %>
             <% else %>
               <%= render 'product_orders/form', order: @order, product: product %>
