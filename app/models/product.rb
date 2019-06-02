@@ -12,6 +12,10 @@ class Product < ApplicationRecord
     where(active: true)
   end
 
+  def self.ordered
+    order(name: :asc)
+  end
+
   def general_sales_for
     product_orders.joins(:order)
                   .where("orders.status = ?", 1).sum(:item_price)

@@ -3,7 +3,6 @@ module Admin
     before_action :set_product, only: [:show, :edit, :update, :destroy, :toggle_active]
 
     def index
-      @products = Product.order(active: :desc)
       @categories = Category.all
     end
 
