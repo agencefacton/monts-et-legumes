@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :products, except: :show do
       member { get :toggle_active }
     end
-    resources :users, only: [:index, :new, :create, :edit, :update] do
+    resources :users, only: [:index, :new, :create, :edit, :update, :show] do
       resources :transactions, only: [:create, :destroy]
       resources :orders, only: [:create]
     end
