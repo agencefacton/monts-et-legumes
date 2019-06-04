@@ -7,7 +7,9 @@
 
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
-        <%= mail_to "monts-et-legumes@gmail.com", "Contact" %>
+      <% if (user_signed_in? && !user.admin) || !user_signed_in? %>
+        <%= mail_to "monts.et.legumes@gmail.com", "Contact" %>
+      <% end %>
       <% if user_signed_in? %>
         <% if current_user.admin? %>
           <%= link_to "Admin", admin_selling_ranges_path %>
