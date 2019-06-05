@@ -11,7 +11,9 @@
       <%= link_to "Produits", admin_products_path %>
       <%= link_to "Clients", admin_users_path %>
       <%= link_to "Statistiques", admin_statistics_path %>
-      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fas fa-sign-out-alt"></i>
+      <% end %>
     </div>
 
   </div>
