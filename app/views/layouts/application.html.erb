@@ -9,6 +9,7 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
   </head>
 
   <body class="<%= body_class %>">
