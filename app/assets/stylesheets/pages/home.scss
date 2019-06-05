@@ -45,6 +45,9 @@
   align-items: center;
   justify-content: center;
   width: 50%;
+  img {
+    border-radius: 6px;
+  }
 }
 
 @media screen and (max-width:1000px) {

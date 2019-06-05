@@ -13,7 +13,9 @@
       <th>Tél</th>
       <th>Ardoise</th>
       <th>Commandes</th>
-      <th></th>
+      <% if current_selling_range %>
+        <th></th>
+      <% end %>
     </tr>
     <% @users.each do |user| %>
       <tr>
@@ -32,9 +34,12 @@
         <td><%= user.phone_number %></td>
         <td><%= user.tab %> €</td>
         <td><%= user.orders.validated.count %> <%= "commande".pluralize(user.orders.validated.count) %></td>
-        <td><%= simple_form_for([:admin, user, Order.new]) do |f| %>
+        <% if current_selling_range %>
+          <td><%= simple_form_for([:admin, user, Order.new]) do |f| %>
                 <%= f.submit("Créer", class: "btn btn-link") %>
               <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </table>
