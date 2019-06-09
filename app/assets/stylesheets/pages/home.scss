@@ -4,13 +4,14 @@
   margin: 100px auto 0 auto;
 }
 
-.introname {
-    font-family: 'Pacifico', cursive;
-    font-weight: bolder;
-    font-size: 2.5em;
+.intro-name {
+  font-family: 'Pacifico', cursive;
+  font-weight: bolder;
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
-.introbaseline {
+.intro-baseline {
   position: relative;
   font-size: 3.2em;
   font-weight: 600;
@@ -26,12 +27,13 @@
   border-bottom:1px solid $white;
 }
 
-.intronosales {
+.intro-nosales {
   color: $green;
   font-size: 2em;
+  margin-top: 20px;
 }
 
-#introtxt {
+#intro-txt {
   text-align: left;
   height: 80vh;
   display: flex;
@@ -40,7 +42,7 @@
   width: 50%;
 }
 
-#introimg {
+#intro-img {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,25 +54,25 @@
 
 @media screen and (max-width:1000px) {
 
-  #introtxt {
+  #intro-txt {
     width: 100%;
     padding: 5%;
     height: 70vh;
   }
 
-  .introname {
+  .intro-name {
     font-size: 2em;
   }
 
-  .introbaseline {
+  .intro-baseline {
     font-size: 2.2em;
   }
 
-  .intronosales {
+  .intro-nosales {
     font-size: 1.5em;
   }
 
-  #introimg {
+  #intro-img {
     display: none;
   }
 

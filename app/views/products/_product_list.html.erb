@@ -3,7 +3,7 @@
 
   <% category.products.ordered.active.each do |product| %>
     <div class="product_line">
-      <div>
+      <div class="product-icon">
         <% if product.photo.present? %>
           <%= cl_image_tag product.photo, class: "avatar_bordered" %>
         <% else %>

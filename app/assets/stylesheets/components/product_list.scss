@@ -1,7 +1,7 @@
 .avatar_bordered {
   width: 2.5em;
   height: 2.5em;
-  margin: 0 1em;
+  margin: 0 1em 0 0;
 }
 
 .product_avatar {
@@ -11,6 +11,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.product-icon {
+  flex-shrink: 0;
 }
 
 .product_line {
@@ -26,7 +30,7 @@
     border: none !important;
     border-bottom: 1px solid #ddd !important;
     width: 3em !important;
-    height: 100% !important;
+    // height: 100% !important;
     text-align: end;
     background-color: $whitecard;
     color: #777;
@@ -51,7 +55,8 @@
 
 .product_quantity {
   display: flex;
-  width: 260px;
+  width: 240px;
+  flex-shrink: 0;
 }
 
 .product-title {
