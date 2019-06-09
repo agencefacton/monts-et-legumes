@@ -1,14 +1,29 @@
-.introwelcome {
+.intro-welcome {
   font-family: 'Pacifico';
   color: #32B796;
   font-size: 3em;
   display: block;
 }
 
-.introwelcomesubtitle {
+.intro-welcome-subtitle {
   font-weight: 700;
   font-size: 1.8em;
   color: $grayheaders;
+}
+
+.introiconwrapper {
+  text-align: center;
+  display: inline-block;
+  margin: 1em 0 1.3em 0;
+}
+.introiconwrapper::before,
+.introiconwrapper::after {
+  content: '';
+  display: inline-block;
+  width: 7em;
+  height: 1px;
+  background: $green;
+  vertical-align: middle;
 }
 
 .introwelcomeborder img {
@@ -35,23 +50,11 @@
   p {
     text-align: left;
     font-size: 1.5em;
+    color: $grayheaders;
   }
 }
 
-.introiconwrapper {
-  text-align: center;
-  display: inline-block;
-  margin-bottom: 1em;
-}
-.introiconwrapper::before,
-.introiconwrapper::after {
-  content: '';
-  display: inline-block;
-  width: 7em;
-  height: 1px;
-  background: $green;
-  vertical-align: middle;
-}
+
 
 @media screen and (max-width:1000px) {
 

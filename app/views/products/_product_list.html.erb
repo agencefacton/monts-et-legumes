@@ -2,12 +2,12 @@
   <h2><%= category.name %></h2>
 
   <% category.products.ordered.active.each do |product| %>
-    <div class="product_line">
-      <div>
+    <div class="product-line">
+      <div class="product-icon">
         <% if product.photo.present? %>
-          <%= cl_image_tag product.photo, class: "avatar_bordered" %>
+          <%= cl_image_tag product.photo, class: "avatar-bordered" %>
         <% else %>
-          <div class="avatar_bordered"></div>
+          <div class="avatar-bordered"></div>
         <% end %>
       </div>
 
