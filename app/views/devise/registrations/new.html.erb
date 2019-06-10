@@ -1,22 +1,26 @@
 <div class="container">
-  <h1>Créez un compte pour passer votre commande</h1>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="card_form">
 
-    <%= f.input :first_name, autofocus: true, label: "Prénom" %>
-    <%= f.input :last_name , autofocus: true, label: "Nom" %>
-    <%= f.input :phone_number, autofocus: true, label: "Numéro de téléphone" %>
-    <%= f.input :email, autofocus: true, label: "Email" %>
-    <%= f.input :password, label: "Mot de passe", required: true, error: "Choisissez un mot de passe" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> caractères minimum)</em>
+    <h1>Créez un compte pour passer votre commande</h1>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <%= f.input :first_name, autofocus: true, label: "Prénom" %>
+      <%= f.input :last_name , autofocus: true, label: "Nom" %>
+      <%= f.input :phone_number, autofocus: true, label: "Numéro de téléphone" %>
+      <%= f.input :email, autofocus: true, label: "Email" %>
+      <%= f.input :password, label: "Mot de passe", required: true, error: "Choisissez un mot de passe" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> caractères minimum)</em>
+      <% end %>
+      <%= f.input :password_confirmation, label: "Confirmez le mot de passe", autocomplete: "off" %>
+      <%= f.button :submit, "Créer mon compte", class: "btn btn-primary" %>
     <% end %>
-    <%= f.input :password_confirmation, label: "Confirmez le mot de passe", autocomplete: "off" %>
-    <%= f.button :submit, "Créer mon compte", class: "btn btn-primary" %>
-<% end %>
 
-<%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
 
 
