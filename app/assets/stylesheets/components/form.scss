@@ -27,3 +27,7 @@ textarea.form-control {
 .form-group.decimal.optional.transaction_amount {
   margin: 0 15px;
 }
+
+.was-validated.form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: $green;
+}

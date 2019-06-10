@@ -6,7 +6,7 @@ module Admin
                              .where(status: 1)
                              .group("DATE_TRUNC('year', selling_ranges.ends_at)")
                              .count
-      @categories = Category.all
+      @categories = Category.order(id: :asc)
     end
 
     def show
@@ -15,7 +15,7 @@ module Admin
                              .where('status = ? AND extract(year from selling_ranges.ends_at) = ?', 1, @year)
                              .group("DATE_TRUNC('week', selling_ranges.ends_at)")
                              .count
-      @categories = Category.all
+      @categories = Category.order(id: :asc)
     end
 
     private

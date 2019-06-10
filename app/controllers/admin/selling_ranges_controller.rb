@@ -29,7 +29,7 @@ module Admin
     end
 
     def show
-      @categories = Category.all
+      @categories = Category.order(id: :asc)
       @orders = Order.where(selling_range: @selling_range, status: 1)
     end
 

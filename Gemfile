@@ -20,7 +20,6 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'font-awesome-sass'
 gem 'rails-i18n'
-gem 'devise-i18n'
 
 group :development, :test do
   gem 'pry-rails'
