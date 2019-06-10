@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     @products = Product.where(active: true)
     @product_orders = current_order.product_orders
     @order = current_order
-    @categories = Category.all
+    @categories = Category.order(id: :asc)
     @post = Post.last
   end
 

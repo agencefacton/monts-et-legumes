@@ -3,7 +3,7 @@ module Admin
     before_action :set_product, only: [:show, :edit, :update, :destroy, :toggle_active]
 
     def index
-      @categories = Category.all
+      @categories = Category.order(id: :asc)
     end
 
     def new
