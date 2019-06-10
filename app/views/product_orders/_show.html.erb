@@ -1,6 +1,6 @@
 <td><%= product_order.product.name %></td>
-<td><%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %></td>
-<td><%= product_order.item_price %> € </td>
+<td class="min-105px"><%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %></td>
+<td class="min-65px"><%= product_order.item_price %> € </td>
 <% if order.status == 0 %>
   <td><%= link_to product_order_path(product_order), method: :delete do %>
       <i class="fas fa-trash-alt"></i>
