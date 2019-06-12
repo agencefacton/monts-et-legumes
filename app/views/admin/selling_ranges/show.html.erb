@@ -1,10 +1,12 @@
 <div class="container">
   <h1>Plage de vente - Semaine <%= @selling_range.ends_at.strftime("%U")%></h1>
 
+  <h2>Récoltes</h2>
+
   <% @categories.each do |category| %>
   <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
   <ul>
-    <% category.products.each do |product| %>
+    <% category.products.ordered.each do |product| %>
       <% if @selling_range.quantity_of(product) > 0 %>
         <li><%= product.name %> :
             <%= @selling_range.quantity_of(product) %> <%= product.unit.pluralize(@selling_range.quantity_of(product)) %> -
@@ -14,7 +16,7 @@
   </ul>
   <% end %>
 
-  <h1>Commandes par client</h1>
+  <h2>Commandes par client</h2>
   <% @categories.each do |category| %>
     <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
 
