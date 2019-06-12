@@ -2,7 +2,7 @@
   <div class="card_form">
     <h1>Modifier mon profil</h1>
 
-    <%= simple_form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
+    <%= simple_form_for(resource, url: user_registration_path, html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
         <%= f.input :first_name, autofocus: true, autocomplete: "Prénom", label: "Prénom" %>

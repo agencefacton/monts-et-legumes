@@ -3,13 +3,13 @@
   <ul>
     <% @orders_by_year.each do |date, orders_number| %>
 
- <h1>Statistiques <%= date.strftime('%Y') %> : <%= orders_number %> <%= "commande".pluralize(orders_number) %></h1>
+ <h1>Statistiques <%= date.strftime('%Y') %> : <%= orders_number %> <%= "commande".pluralize(orders_number) %> </h1>
 <!--           link_to "Détail", admin_statistic_path(date.strftime('%Y'))
  -->
     <% @categories.each do |category| %>
       <h2><%= category.name %> : <%= category.general_sales_for %>€</h2>
       <ul>
-        <% category.products.each do |product| %>
+        <% category.products.ordered.each do |product| %>
           <li><%= product.name %> : <%= product.general_crops_for %> <%= product.unit.pluralize(product.general_crops_for) %> - <%= product.general_sales_for %> €</li>
         <% end %>
       </ul>
