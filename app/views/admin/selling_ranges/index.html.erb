@@ -12,8 +12,10 @@
 
         : <%= l(selling_range.starts_at, format:"%A %d/%m/%Y") %> au <%= l(selling_range.ends_at, format:"%A %d/%m/%Y") %> -
           <%= selling_range.orders.validated.count %> commandes
-          <%= link_to "Editer", edit_admin_selling_range_path(selling_range) %> -
-          <%= link_to "Supprimer", admin_selling_range_path(selling_range), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette plage de vente ?" } %></li>
+          <%= link_to "Editer", edit_admin_selling_range_path(selling_range) %>
+          <% if selling_range.orders.count == 0 %>
+            <%= link_to "Supprimer", admin_selling_range_path(selling_range), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette plage de vente ?" } %></li>
+          <% end %>
     <% end %>
   </ul>
 
