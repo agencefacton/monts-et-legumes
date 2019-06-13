@@ -2,7 +2,7 @@
   <h2><%= category.name %></h2>
 
   <% category.products.ordered.active.each do |product| %>
-    <div class="product-line">
+    <div class="product-line" data-product-name="<%= product.name.downcase %>">
       <div class="product-icon">
         <% if product.photo.present? %>
           <%= cl_image_tag product.photo, class: "avatar-bordered" %>
