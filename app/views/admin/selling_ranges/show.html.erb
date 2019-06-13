@@ -1,42 +1,51 @@
 <div class="container">
   <h1>Plage de vente - Semaine <%= @selling_range.ends_at.strftime("%U")%></h1>
 
-  <h2>Récoltes</h2>
-
-  <% @categories.each do |category| %>
-  <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
-  <ul>
-    <% category.products.ordered.each do |product| %>
-      <% if @selling_range.quantity_of(product) > 0 %>
-        <li><%= product.name %> :
-            <%= @selling_range.quantity_of(product) %> <%= product.unit.pluralize(@selling_range.quantity_of(product)) %> -
-            <%= @selling_range.sales_of(product) %> €</li>
-      <% end %>
-    <% end %>
-  </ul>
-  <% end %>
-
-  <h2>Commandes par client</h2>
-  <% @categories.each do |category| %>
-    <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
-
-    <% @orders.each do |order| %>
-      <% if order.categories.include?(category) %>
-        <% if order.user.mayeres == true %>
-          <i class="fab fa-medium-m"></i>
-        <% end %>
-        <%= link_to admin_user_path(order.user) do %>
-          <%= order.user.first_name %> <%= order.user.last_name %>
-        <% end %>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Récoltes</a>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Commandes par client</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <% @categories.each do |category| %>
+        <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
         <ul>
-          <% order.product_orders.with_category(category).each do |product_order| %>
-            <li><%= product_order.product.name %> -
-                <%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %> -
-                <%= product_order.item_price %> €
-            </li>
+          <% category.products.ordered.each do |product| %>
+            <% if @selling_range.quantity_of(product) > 0 %>
+              <li><%= product.name %> :
+                  <%= @selling_range.quantity_of(product) %> <%= product.unit.pluralize(@selling_range.quantity_of(product)) %> -
+                  <%= @selling_range.sales_of(product) %> €</li>
+            <% end %>
           <% end %>
         </ul>
       <% end %>
-    <% end %>
-  <% end %>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <% @categories.each do |category| %>
+        <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
+
+        <% @orders.each do |order| %>
+          <% if order.categories.include?(category) %>
+            <% if order.user.mayeres == true %>
+              <i class="fab fa-medium-m"></i>
+            <% end %>
+            <%= link_to admin_user_path(order.user) do %>
+              <%= order.user.first_name %> <%= order.user.last_name %>
+            <% end %>
+            <ul>
+              <% order.product_orders.with_category(category).each do |product_order| %>
+                <li><%= product_order.product.name %> -
+                    <%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %> -
+                    <%= product_order.item_price %> €
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
