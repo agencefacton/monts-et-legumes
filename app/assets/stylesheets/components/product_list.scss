@@ -26,6 +26,10 @@
     background-color: $whitecard;
     color: #777;
   }
+
+  &.hide {
+    display: none;
+  }
 }
 
 .product-line:hover {
