@@ -7,7 +7,7 @@
   <ul>
     <% @selling_ranges.each do |selling_range| %>
       <li><%= link_to admin_selling_range_path(selling_range) do %>
-          Semaine <%= selling_range.ends_at.strftime("%U") %>
+          <%= selling_range.ends_at.strftime("%Y") %> S<%= selling_range.ends_at.strftime("%U") %>
           <% end %>
 
         : <%= l(selling_range.starts_at, format:"%A %d/%m/%Y") %> au <%= l(selling_range.ends_at, format:"%A %d/%m/%Y") %> -
