@@ -25,7 +25,7 @@
             <% if @order.contains?(product) %>
               <% product_order = @order.product_orders.find_by(product_id: product.id) %>
               <%= simple_form_for(product_order, remote: true) do |f| %>
-                <%= f.number_field :quantity, placeholder: "Ex : 0.2, 1, 1.5 etc." %>
+                <%= f.number_field :quantity %>
                 <div class="product-unit text-small"><%= product.unit %>(s)</div>
                 <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
                   <i class="fas fa-check-circle"></i>
