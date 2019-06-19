@@ -1,6 +1,13 @@
-#cart h4 {
-  text-align: right;
+#cart {
+  overflow: scroll;
+  overflow: auto;
+  max-height: 550px;
+  h4 {
+    text-align: right;
+  }
 }
+
+
 
 #product_index_flex {
   display: flex;
