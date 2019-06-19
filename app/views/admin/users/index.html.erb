@@ -1,13 +1,11 @@
 <div class="container">
 
-  <h1><%= link_to new_admin_user_path do %>
-        <i class="fas fa-plus"></i>
-      <% end %>
-      Clients</h1>
+    <h1> <span class="flex-title"><i class="fas fa-users fa-gray"></i>Clients </span>
+         <span class="flex-add"><%= link_to "Ajouter un client", new_admin_user_path %></span>
+    </h1>
 
   <table>
     <tr>
-      <th></th>
       <th>Nom</th>
       <th>Email</th>
       <th>Tél</th>
@@ -16,14 +14,10 @@
       <% if current_selling_range %>
         <th></th>
       <% end %>
+      <th></th>
     </tr>
     <% @users.each do |user| %>
       <tr>
-        <td>
-          <%= link_to edit_admin_user_path(user) do %>
-            <i class="far fa-edit"></i>
-          <% end %>
-        </td>
         <td>
           <% if user.mayeres? %>
             <i class="fab fa-medium-m"></i>
@@ -40,6 +34,11 @@
               <% end %>
           </td>
         <% end %>
+        <td>
+          <%= link_to edit_admin_user_path(user) do %>
+            <i class="far fa-edit fa-green"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
