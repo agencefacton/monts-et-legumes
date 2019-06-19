@@ -8,7 +8,11 @@
   <div id="product_index_flex">
     <div id="product_index_left">
       <div id="products-list">
-        <input type="text" id="search" style="width: 100%">
+        <div id="products-search">
+          <i class="fa fa-search"></i>
+          <input type="text" id="search" style="width: 100%" placeholder="Chercher parmi les produits...">
+
+        </div>
         <%= render 'product_list' %>
       </div>
     </div>
