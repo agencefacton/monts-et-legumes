@@ -1,11 +1,9 @@
 <div class="container">
   <div id="products-list">
-    <h1>
-      <%= link_to new_admin_product_path do %>
-        <i class="fas fa-plus"></i>
-      <% end %>
-      Liste des produits
+    <h1><span class="flex-title"><i class="fas fa-leaf fa-gray"></i>Liste des produits</span>
+        <span class="flex-add"><%= link_to "Ajouter un produit", new_admin_product_path %></span>
     </h1>
     <%= render 'product_list' %>
   </div>
 </div>
+
