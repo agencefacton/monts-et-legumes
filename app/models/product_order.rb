@@ -9,6 +9,10 @@ class ProductOrder < ApplicationRecord
     joins(:product).where(products: { category: category })
   end
 
+  def self.ordered
+    joins(:product).order("products.name")
+  end
+
   def update_price
     self.item_price = self.product.price.to_f * self.quantity.to_f
   end

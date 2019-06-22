@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1><span class="flex-title"><i class="fas fa-users fa-gray"></i>Plages de vente</span>
+  <h1><span class="flex-title"><i class="fas fa-hourglass-half fa-gray"></i>Plages de vente</span>
       <span class="flex-add"><%= link_to "Ajouter une plage de vente", new_admin_selling_range_path %></span>
   </h1>
 
@@ -14,7 +14,7 @@
       <th>Actions</th>
     </tr>
     <% @selling_ranges.each do |selling_range| %>
-      <tr>
+      <tr data-link="<%= admin_selling_range_path(selling_range) %>">
         <td>
           <%= link_to admin_selling_range_path(selling_range) do %>
             <%= selling_range.ends_at.strftime("%Y") %> S<%= selling_range.ends_at.strftime("%U") %>

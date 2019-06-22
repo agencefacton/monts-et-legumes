@@ -1,13 +1,18 @@
 <div class="container">
+
   <h1>Plage de vente - Semaine <%= @selling_range.ends_at.strftime("%U")%></h1>
 
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Récoltes</a>
       <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Commandes par client</a>
+      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Commandes par produit</a>
+
     </div>
   </nav>
+
   <div class="tab-content" id="nav-tabContent">
+
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
       <% @categories.each do |category| %>
         <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
@@ -22,6 +27,7 @@
         </ul>
       <% end %>
     </div>
+
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
       <% @categories.each do |category| %>
         <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
@@ -35,7 +41,7 @@
               <%= order.user.first_name %> <%= order.user.last_name %>
             <% end %>
             <ul>
-              <% order.product_orders.with_category(category).each do |product_order| %>
+              <% order.product_orders.ordered.with_category(category).each do |product_order| %>
                 <li><%= product_order.product.name %> -
                     <%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %> -
                     <%= product_order.item_price %> €
@@ -46,6 +52,26 @@
         <% end %>
       <% end %>
     </div>
+
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <% @categories.each do |category| %>
+        <h2><%= category.name %></h2>
+        <% category.products.with_order_for(@selling_range).each do |product| %>
+          <%= product.name %>
+          <ul>
+            <% product.product_orders_for(@selling_range).each do |product_order| %>
+              <li>
+                <%= link_to admin_user_path(product_order.order.user) do %>
+                  <%= product_order.order.user.first_name %> <%= product_order.order.user.last_name %>
+                  <% end %> :
+                <%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% end %>
+    </div>
+
   </div>
 
 </div>

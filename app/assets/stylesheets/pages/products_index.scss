@@ -1,7 +1,10 @@
-#cart {
+.products-index #cart {
   overflow: scroll;
   overflow: auto;
-  max-height: 550px;
+  max-height: calc(100vh - 400px);
+}
+
+#cart {
   h4 {
     text-align: right;
   }
@@ -50,7 +53,8 @@
     width: 100%;
   }
 
-  #cart {
+  .products-index #cart {
     overflow: visible;
+    max-height: initial;
   }
 }
