@@ -1,6 +1,16 @@
-#cart h4 {
-  text-align: right;
+.products-index #cart {
+  overflow: scroll;
+  overflow: auto;
+  max-height: calc(100vh - 400px);
 }
+
+#cart {
+  h4 {
+    text-align: right;
+  }
+}
+
+
 
 #product_index_flex {
   display: flex;
@@ -41,5 +51,10 @@
 
   #product_index_right {
     width: 100%;
+  }
+
+  .products-index #cart {
+    overflow: visible;
+    max-height: initial;
   }
 }

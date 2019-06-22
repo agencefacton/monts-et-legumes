@@ -1,5 +1,6 @@
 .container {
   margin-bottom: 40px;
+  padding-top: 30px;
 }
 
 .container800 {
@@ -14,7 +15,7 @@
 }
 
 .container-vertical {
-  height: calc(100vh - 140px);
+  height: calc(100vh - 170px);
   display: flex;
   flex-direction: column;
   justify-content: center;

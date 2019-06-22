@@ -3,7 +3,7 @@ module Admin
     before_action :set_user, only: [:show, :edit, :update, :destroy, :orderindex, :new_order]
 
     def index
-      @users = User.all.order(:created_at)
+      @users = User.all.order(:last_name)
     end
 
     def show

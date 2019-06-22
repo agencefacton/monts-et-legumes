@@ -11,8 +11,19 @@ tr {
   border-bottom: 1px solid $grayborder;
 }
 
-th {
-  padding: 0.5em;
+.admin-table {
+  box-shadow: 0 0 1px rgba(34, 25, 25, 0.4);
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+  tr, td {
+    padding: 1em;
+    border-bottom: none;
+  }
+  th {
+    padding: 1em;
+    border-bottom: 1px solid $grayborder;
+  }
 }
 
 .min-65px {

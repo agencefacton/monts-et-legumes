@@ -1,22 +1,36 @@
 <div class="container">
-  <h1>
-    <p><%= link_to new_admin_selling_range_path do %></p>
-      <i class="fas fa-plus"></i>
-    <% end %>
-    Plages de vente</h1>
-  <ul>
-    <% @selling_ranges.each do |selling_range| %>
-      <li><%= link_to admin_selling_range_path(selling_range) do %>
-          Semaine <%= selling_range.ends_at.strftime("%U") %>
-          <% end %>
 
-        : <%= l(selling_range.starts_at, format:"%A %d/%m/%Y") %> au <%= l(selling_range.ends_at, format:"%A %d/%m/%Y") %> -
-          <%= selling_range.orders.validated.count %> commandes
+  <h1><span class="flex-title"><i class="fas fa-hourglass-half fa-gray"></i>Plages de vente</span>
+      <span class="flex-add"><%= link_to "Ajouter une plage de vente", new_admin_selling_range_path %></span>
+  </h1>
+
+  <table class="admin-table">
+    <tr>
+      <th>Plage de vente</th>
+      <th>Début</th>
+      <th>Fin</th>
+      <th>Commandes</th>
+      <th>CA total</th>
+      <th>Actions</th>
+    </tr>
+    <% @selling_ranges.each do |selling_range| %>
+      <tr data-link="<%= admin_selling_range_path(selling_range) %>">
+        <td>
+          <%= link_to admin_selling_range_path(selling_range) do %>
+            <%= selling_range.ends_at.strftime("%Y") %> S<%= selling_range.ends_at.strftime("%U") %>
+          <% end %>
+        </td>
+        <td><%= l(selling_range.starts_at, format:"%A %d/%m/%Y") %></td>
+        <td><%= l(selling_range.ends_at, format:"%A %d/%m/%Y") %></td>
+        <td><%= selling_range.orders.validated.count %></td>
+        <td>XXX</td>
+        <td>
           <%= link_to "Editer", edit_admin_selling_range_path(selling_range) %>
           <% if selling_range.orders.count == 0 %>
-            <%= link_to "Supprimer", admin_selling_range_path(selling_range), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette plage de vente ?" } %></li>
+            <%= link_to "| Supprimer", admin_selling_range_path(selling_range), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette plage de vente ?" } %></li>
           <% end %>
+        </td>
+      </tr>
     <% end %>
-  </ul>
-
+  </table>
 </div>

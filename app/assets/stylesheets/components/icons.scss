@@ -8,7 +8,13 @@
   color: $grayborder;
 }
 
+.fa-gray {
+  color: $grayicon;
+}
 
+.fa-green {
+  color: $green;
+}
 
 .fas.fa-check-circle, .fa-power-off {
   color: $green;
@@ -23,8 +29,4 @@
   font-size: 1.5em;
   color: $grayborder;
   margin-right: 10px;
-}
-
-table .far.fa-edit {
-  color: $grayborder;
 }
