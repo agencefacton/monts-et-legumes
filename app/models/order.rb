@@ -13,8 +13,12 @@ class Order < ApplicationRecord
     where(status: 1)
   end
 
+  def calculate_by(category)
+    product_orders.joins(:product).where("products.category_id = ?", category.id).sum(:item_price).to_f
+  end
+
   def calculate_total
-    self.product_orders.sum(:item_price).to_f
+    product_orders.sum(:item_price).to_f
   end
 
   def update_status
