@@ -1,9 +1,9 @@
 <%= simple_form_for(ProductOrder.new, remote: true) do |f| %>
   <%= f.hidden_field :product_id, value: product.id %>
   <% if product.unit == "kilo" %>
-    <%= f.number_field :quantity, placeholder: "Ex : 0.4" %>
+    <%= f.number_field :quantity, class: "product-order-quantity", id: false, placeholder: "Ex : 0.4" %>
     <% else %>
-    <%= f.number_field :quantity, placeholder: "Ex : 2" %>
+    <%= f.number_field :quantity, class: "product-order-quantity", id: false, placeholder: "Ex : 2" %>
   <% end %>
   <div class="product-unit text-small"><%= product.unit %>(s)</div>
   <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>

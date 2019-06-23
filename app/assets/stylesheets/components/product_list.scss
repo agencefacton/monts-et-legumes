@@ -41,6 +41,21 @@
   }
 }
 
+.product_quantity {
+  .dirty-icon {
+    display: none;
+  }
+
+  &.dirty {
+    .dirty-icon {
+      display: block;
+    }
+    .clean-icon {
+      display: none;
+    }
+  }
+}
+
 .product_line_responsive {
   display: flex;
   flex-grow: 1;

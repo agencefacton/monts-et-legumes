@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     if (@order.user == current_user && @order.selling_range == current_selling_range)
       @order.status = 0
       @order.save
-      flash[:notice] = "Votre commande devra être validée à nouveau"
+      flash[:notice] = "Attention, pensez à revalider votre commande après avoir fait vos modifications"
       redirect_to products_path
     end
   end

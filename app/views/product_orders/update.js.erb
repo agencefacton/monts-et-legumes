@@ -3,3 +3,6 @@ cart.innerHTML = "<%= j render 'products/cart_title' %><%= j render 'products/ca
 
 var productsList = document.querySelector('#products-list');
 productsList.innerHTML = "<%= j render 'products/product_list' %>";
+
+var event = new Event('attachEvents');
+document.dispatchEvent(event);
