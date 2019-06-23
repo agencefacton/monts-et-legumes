@@ -40,6 +40,7 @@
             <%= link_to admin_user_path(order.user) do %>
               <%= order.user.first_name %> <%= order.user.last_name %>
             <% end %>
+            : <%= order.calculate_by(category) %> €
             <ul>
               <% order.product_orders.ordered.with_category(category).each do |product_order| %>
                 <li><%= product_order.product.name %> -

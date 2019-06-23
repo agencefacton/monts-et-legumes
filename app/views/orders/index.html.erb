@@ -10,7 +10,7 @@
 
           <div class="display_inline">
             <%= link_to order_path(order) do %>
-              <%= order.selling_range.created_at.strftime("%d-%m-%Y") %>
+              <%= order.created_at.strftime("%d-%m-%Y") %>
             <% end %>
             <span class="padding-borders"><%= order.total_price %> €</span>
             <% if order.selling_range == current_selling_range %>
