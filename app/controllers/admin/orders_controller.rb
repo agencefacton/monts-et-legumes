@@ -19,7 +19,7 @@ module Admin
     end
 
     def edit
-      @categories = Category.all
+      @categories = Category.order(id: :asc)
       @product_orders = @order.product_orders
     end
 
