@@ -23,7 +23,7 @@
         <td><%= l(selling_range.starts_at, format:"%A %d/%m/%Y") %></td>
         <td><%= l(selling_range.ends_at, format:"%A %d/%m/%Y") %></td>
         <td><%= selling_range.orders.validated.count %></td>
-        <td>XXX</td>
+        <td><%= selling_range.total_sales %> €</td>
         <td>
           <%= link_to "Editer", edit_admin_selling_range_path(selling_range) %>
           <% if selling_range.orders.count == 0 %>

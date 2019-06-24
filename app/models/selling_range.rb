@@ -10,6 +10,10 @@ class SellingRange < ApplicationRecord
     orders.joins(:products).where('products.id = ? AND status = ?', product.id, 1).sum(:item_price)
   end
 
+  def total_sales
+    orders.where("status = ?", 1).sum(:total_price)
+  end
+
   def self.next
     where('starts_at > ?', DateTime.current).order(starts_at: :asc).first
   end

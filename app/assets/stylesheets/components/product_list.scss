@@ -1,7 +1,7 @@
 .avatar-bordered {
   width: 2.5em;
   height: 2.5em;
-  margin: 0 10px 0 0;
+  margin: 0 15px 0 0;
 }
 
 .product-icon {
@@ -70,15 +70,16 @@
   display: flex;
   width: 260px;
   flex-shrink: 0;
+  align-items: center;
 }
 
 .product-title {
-  font-size: 1.4em;
-  line-height: 35px;
+  font-size: 1.3em;
+  line-height: 30px;
 }
 
 .product-price {
-  font-size: 0.8em;
+  font-size: 0.9em;
   margin-left: 0.5em;
 }
 

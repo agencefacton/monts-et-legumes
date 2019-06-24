@@ -1,22 +1,21 @@
 <div class="container">
 
-  <h1>
-    <%= link_to edit_admin_user_path(@user) do %>
-      <i class="far fa-edit"></i>
-    <% end %>
-    Profil de <%= @user.first_name %> <%= @user.last_name %></h1>
+  <h1> <span class="flex-title"><i class="fas fa-users fa-gray"></i>Profil de <%= @user.first_name %> <%= @user.last_name %></span>
+       <span class="flex-add"><%= link_to "Editer le profil", edit_admin_user_path(@user) %></span>
+  </h1>
 
-  <p><i class="far fa-envelope"></i> <%= @user.email %><p>
-  <p><i class="fas fa-phone"></i> <%= @user.phone_number %></p>
+  <p><i class="far fa-envelope fa-gray"></i> <%= @user.email %><p>
+  <p><i class="fas fa-phone fa-gray"></i> <%= @user.phone_number %></p>
 
   <h2>Commandes effectuées</h2>
   <% if @user.orders.validated.present? %>
     <ul>
       <% @user.orders.validated.each do |order| %>
         <li>
-          Semaine <%= order.selling_range.ends_at.strftime('%W') %> -
+          <%= link_to admin_order_path(order) do %>
+            Semaine <%= order.selling_range.ends_at.strftime('%W') %>
+          <% end %> -
           Montant <%= order.total_price %> €
-          <%= link_to "Détail |", admin_order_path(order) %>
           <%= link_to "Supprimer", admin_order_path(order), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette commande ?" }  %>
         </li>
       <% end %>

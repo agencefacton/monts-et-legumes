@@ -1,12 +1,11 @@
 <div class="container">
-  <h1>
-    <%= link_to edit_admin_order_path(@order) do %>
-    <i class="far fa-edit"></i>
-    <% end %>
-    Commande de <%= link_to admin_user_path(@user) do %>
-      <%= @user.first_name %> <%= @user.last_name %>
-      <% end %>
-      </h1>
+  <h1><span class="flex-title">
+      <i class="fas fa-shopping-basket fa-gray"></i>
+      Commande de <%= link_to admin_user_path(@user) do %>
+        <%= @user.first_name %> <%= @user.last_name %>
+      <% end %></span>
+    <span class="flex-add"><%= link_to "Editer la commande", edit_admin_order_path(@order) %></span>
+  </h1>
   <div class="card_form" id="order-cart">
     <%= render 'products/cart' %>
   </div>
