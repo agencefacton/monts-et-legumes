@@ -1,27 +1,34 @@
 <div class="container">
 
-  <h1>Mes commandes</h1>
+
+  <h1><% if @orders.count > 0 %>
+        Vous avez passé <%= @orders.count %> <%= "commande".pluralize(@orders.count) %>
+      <% else %>
+        Mes commandes
+      <% end %>
+  </h1>
 
   <% if @orders.count == 0 %>
     <p>Vous n'avez pas encore passé de commande</p>
   <% else %>
 
+    <ul>
       <% @orders.each do |order| %>
-
-          <div class="display_inline">
-            <%= link_to order_path(order) do %>
-              <%= order.created_at.strftime("%d-%m-%Y") %>
-            <% end %>
-            <span class="padding-borders"><%= order.total_price %> €</span>
-            <% if order.selling_range == current_selling_range %>
-              <%= link_to "Modifier", reset_status_order_path(order) %>
-              <%= form_for(order) do |f| %>
-                <%= f.hidden_field :status, value: 0 %>
-                <%= f.submit 'Annuler', class: "btn btn-link" %>
-              <% end %>
-            <% end %>
-          </div>
-      <% end %>
+      <li>
+        <%= link_to order_path(order) do %>
+          <%= order.created_at.strftime("%d-%m-%Y") %>
+        <% end %>
+        <%= order.total_price %> €
+        <% if order.selling_range == current_selling_range %>
+          <%= link_to "Modifier", reset_status_order_path(order) %>
+          <%= form_for(order) do |f| %>
+            <%= f.hidden_field :status, value: 0 %>
+            <%= f.submit 'Annuler', class: "btn btn-link" %>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+    </ul>
   <% end %>
 
 </div>
