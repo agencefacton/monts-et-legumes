@@ -22,7 +22,7 @@
           <% if user.mayeres? %>
             <i class="fab fa-medium-m"></i>
           <% end %>
-          <%= link_to "#{user.first_name} #{user.last_name}", admin_user_path(user) %>
+          <%= link_to "#{user.first_name.capitalize} #{user.last_name.capitalize}", admin_user_path(user) %>
         </td>
         <td><%= user.email %></td>
         <td><%= user.phone_number %></td>
