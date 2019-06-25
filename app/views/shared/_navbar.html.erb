@@ -16,8 +16,14 @@
         <% end %>
         <%= link_to "Commandes", orders_path %>
         <%= link_to "Profil", profile_path %>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fas fa-power-off"></i>
+        <% if current_order.product_orders.count > 0 && current_order.status == 0 %>
+          <%= link_to destroy_user_session_path, method: :delete, data: {confirm: "Attention, votre commande n'est pas validée ! Voulez-vous vraiment vous déconnecter ?"} do %>
+            <i class="fas fa-power-off"></i>
+          <% end %>
+        <% else %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fas fa-power-off"></i>
+          <% end %>
         <% end %>
       <% else %>
         <%= link_to t(".sign_in", default: "Connexion"), new_user_session_path, data: { toggle: 'modal', target: '#logInModal'} %>
