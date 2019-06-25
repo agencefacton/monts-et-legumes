@@ -3,9 +3,11 @@
   <h1>Plage de vente - Semaine <%= @selling_range.ends_at.strftime("%U")%></h1>
 
   <p>Les clients suivants n'ont pas finalisé leur commande :</p>
+  <ul>
     <% @pending_orders.each do |pending_order| %>
-      <p><%= pending_order.user.first_name %> <%= pending_order.user.last_name %></p>
+      <li><%= pending_order.user.first_name %> <%= pending_order.user.last_name %></li>
     <% end %>
+  </ul>
 
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
