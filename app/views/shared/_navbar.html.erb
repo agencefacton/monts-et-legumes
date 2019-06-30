@@ -8,7 +8,7 @@
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
       <% if (user_signed_in? && !current_user.admin) || !user_signed_in? %>
-        <%= mail_to "monts.et.legumes@gmail.com", "Contact" %>
+        <%= link_to t(".sign_in", default: "Contact"), '', data: { toggle: 'modal', target: '#contactModal'} %>
       <% end %>
       <% if user_signed_in? %>
         <% if current_user.admin? %>
