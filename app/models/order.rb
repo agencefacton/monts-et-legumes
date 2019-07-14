@@ -13,6 +13,10 @@ class Order < ApplicationRecord
     where(status: 1)
   end
 
+  def self.ordered
+    joins(:user).order("users.last_name")
+  end
+
   def calculate_by(category)
     product_orders.joins(:product).where("products.category_id = ?", category.id).sum(:item_price).to_f
   end
