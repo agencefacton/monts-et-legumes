@@ -14,7 +14,7 @@ class ProductOrder < ApplicationRecord
   end
 
   def update_price
-    self.item_price = self.product.price.to_f * self.quantity.to_f
+    self.item_price = (self.product.price.to_f * self.quantity.to_f).round(2)
   end
 
   def integer_unit
