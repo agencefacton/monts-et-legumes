@@ -1,18 +1,17 @@
 <div class="container">
 
-  <ul>
-    <% @orders_by_year.each do |date, orders_number| %>
+  <% @orders_by_year.each do |date, orders_number| %>
 
- <h1>Statistiques <%= date.strftime('%Y') %> : <%= orders_number %> <%= "commande".pluralize(orders_number) %> </h1>
-<!--           link_to "Détail", admin_statistic_path(date.strftime('%Y'))
- -->
+  <h1>Statistiques <%= date.strftime('%Y') %> : <%= orders_number %> <%= "commande".pluralize(orders_number) %> </h1>
+
     <% @categories.each do |category| %>
-      <h2><%= category.name %> : <%= category.general_sales_for %>€</h2>
+      <h2><%= category.name %> : <%= category.year_sales_for(date.strftime('%Y').to_i) %>€</h2>
       <ul>
         <% category.products.ordered.each do |product| %>
-          <li><%= product.name %> : <%= product.general_crops_for %> <%= product.unit.pluralize(product.general_crops_for) %> - <%= product.general_sales_for %> €</li>
+          <li><%= product.name %> : <%= product.year_crops_for(date.strftime('%Y').to_i) %> <%= product.unit.pluralize(product.year_crops_for(date.strftime('%Y').to_i)) %> - <%= product.year_sales_for(date.strftime('%Y').to_i) %> €</li>
         <% end %>
       </ul>
     <% end %>
   <% end %>
+
 </div>
