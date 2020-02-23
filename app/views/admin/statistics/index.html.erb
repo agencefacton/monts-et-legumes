@@ -1,8 +1,10 @@
 <div class="container">
 
+
   <% @orders_by_year.each do |date, orders_number| %>
 
-  <h1>Statistiques <%= date.strftime('%Y') %> : <%= orders_number %> <%= "commande".pluralize(orders_number) %> </h1>
+
+    <h1>Statistiques <%= date.strftime('%Y') %> : <%= orders_number %> <%= "commande".pluralize(orders_number) %> </h1>
 
     <% @categories.each do |category| %>
       <h2><%= category.name %> : <%= category.year_sales_for(date.strftime('%Y').to_i) %>€</h2>
@@ -12,6 +14,7 @@
         <% end %>
       </ul>
     <% end %>
+
   <% end %>
 
 </div>
