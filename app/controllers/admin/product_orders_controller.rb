@@ -5,8 +5,8 @@ module Admin
     before_action :set_products, only: [:create, :update]
 
     def create
-        @categories = Category.all
-        if product_order_params[:quantity].to_i > 0
+        @categories = Category.order(id: :asc)
+        if product_order_params[:quantity].to_f > 0
           @product_order = @order.product_orders.create(product_order_params)
         end
         @product_order.save
