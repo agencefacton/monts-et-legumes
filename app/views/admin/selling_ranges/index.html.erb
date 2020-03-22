@@ -26,7 +26,7 @@
         <td><%= selling_range.total_sales %> €</td>
         <td>
           <%= link_to "Editer", edit_admin_selling_range_path(selling_range) %>
-          <% if selling_range.orders.count == 0 %>
+          <% if selling_range.orders.validated.count == 0 %>
             <%= link_to "| Supprimer", admin_selling_range_path(selling_range), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette plage de vente ?" } %></li>
           <% end %>
         </td>
