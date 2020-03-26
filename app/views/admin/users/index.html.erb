@@ -9,7 +9,6 @@
       <th>Nom</th>
       <th>Email</th>
       <th>Tél</th>
-      <th>Ardoise</th>
       <th>Commandes</th>
       <% if current_selling_range %>
         <th></th>
@@ -26,14 +25,14 @@
         </td>
         <td><%= user.email %></td>
         <td><%= user.phone_number %></td>
-        <td><%= user.tab %> €</td>
-        <td><%= user.orders.validated.count %> <%= "commande".pluralize(user.orders.validated.count) %></td>
+        <td class="inline-flex"><%= user.orders.validated.count %>
         <% if current_selling_range %>
-          <td><%= simple_form_for([:admin, user, Order.new]) do |f| %>
+          -  <%= simple_form_for([:admin, user, Order.new]) do |f| %>
                 <%= f.submit("Créer", class: "btn btn-link") %>
               <% end %>
-          </td>
         <% end %>
+        </td>
+
         <td>
           <%= link_to edit_admin_user_path(user) do %>
             <i class="far fa-edit fa-green"></i>
