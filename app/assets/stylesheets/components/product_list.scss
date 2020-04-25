@@ -1,7 +1,7 @@
 .avatar-bordered {
-  width: 2.5em;
-  height: 2.5em;
-  margin: 0 15px 0 0;
+  width: 60px;
+  height: 60px;
+  margin: 0 20px 0 0;
 }
 
 .product-icon {
@@ -14,7 +14,7 @@
   padding: 15px;
   background: white;
   box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-radius: 3px;
   transition: 0.5s all cubic-bezier(0.21, 1.05, 0.24, 1.41);
   input[type="number" i] {
@@ -59,11 +59,13 @@
 .product_line_responsive {
   display: flex;
   flex-grow: 1;
+  align-self: center;
 }
 
 .product_info {
   flex-grow: 1;
-  line-height: 15px;
+  align-self: center;
+  line-height: 20px;
 }
 
 .product_quantity {
