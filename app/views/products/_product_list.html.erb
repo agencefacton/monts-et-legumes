@@ -1,48 +1,50 @@
 <% @categories.each do |category| %>
-  <h2><%= category.name %></h2>
+  <% if category.products.active.present? %>
+    <h2><%= category.name %></h2>
 
-  <% category.products.ordered.active.each do |product| %>
-    <div class="product-line" data-product-name="<%= product.name.downcase %>">
-      <div class="product-icon">
-        <% if product.photo.present? %>
-          <%= cl_image_tag product.photo, class: "avatar-bordered" %>
-        <% else %>
-          <div class="avatar-bordered"></div>
-        <% end %>
-      </div>
-
-      <div class="product_line_responsive">
-
-        <div class="product_info">
-          <span class="product-title"> <%= product.name.capitalize %></span>
-          <span class="product-price"><%= product.price %> € / <%= product.unit %></span><br>
-          <span class="text-small"><%= product.description %></span>
+    <% category.products.ordered.active.each do |product| %>
+      <div class="product-line" data-product-name="<%= product.name.downcase %>">
+        <div class="product-icon">
+          <% if product.photo.present? %>
+            <%= cl_image_tag product.photo, class: "avatar-bordered" %>
+          <% else %>
+            <div class="avatar-bordered"></div>
+          <% end %>
         </div>
 
-        <% if @order.status == 0 %>
+        <div class="product_line_responsive">
 
-          <div class="product_quantity">
-            <% if @order.contains?(product) %>
-              <% product_order = @order.product_orders.find_by(product_id: product.id) %>
-              <%= simple_form_for(product_order, remote: true) do |f| %>
-                <%= f.number_field :quantity, class: "product-order-quantity", id: false %>
-                <div class="product-unit text-small"><%= product.unit %>(s)</div>
-                <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
-                  <i class="fas fa-check-circle clean-icon"></i>
-                  <i class="fas fa-plus dirty-icon"></i>
-                <% end %>
-              <% end %>
-              <%= button_to product_order_path(product_order), class: "btn btn-outline-primary btn-product-list", method: :delete do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-            <% else %>
-              <%= render 'product_orders/form', order: @order, product: product %>
-            <% end %>
+          <div class="product_info">
+            <span class="product-title"> <%= product.name.capitalize %></span>
+            <span class="product-price"><%= product.price %> € / <%= product.unit %></span><br>
+            <span class="text-small"><%= product.description %></span>
           </div>
 
-        <% end %>
-      </div>
+          <% if @order.status == 0 %>
 
-    </div>
+            <div class="product_quantity">
+              <% if @order.contains?(product) %>
+                <% product_order = @order.product_orders.find_by(product_id: product.id) %>
+                <%= simple_form_for(product_order, remote: true) do |f| %>
+                  <%= f.number_field :quantity, class: "product-order-quantity", id: false %>
+                  <div class="product-unit text-small"><%= product.unit %>(s)</div>
+                  <%= button_tag(class: "btn btn-outline-primary btn-product-list") do %>
+                    <i class="fas fa-check-circle clean-icon"></i>
+                    <i class="fas fa-plus dirty-icon"></i>
+                  <% end %>
+                <% end %>
+                <%= button_to product_order_path(product_order), class: "btn btn-outline-primary btn-product-list", method: :delete do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              <% else %>
+                <%= render 'product_orders/form', order: @order, product: product %>
+              <% end %>
+            </div>
+
+          <% end %>
+        </div>
+
+      </div>
+    <% end %>
   <% end %>
 <% end %>
