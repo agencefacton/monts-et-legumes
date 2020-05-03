@@ -3,6 +3,11 @@ class Subcategory < ApplicationRecord
   has_many :products
   has_many :product_orders, through: :products
 
-  validates :name, presence: true
+  validates :name, :order, presence: true
+  validates :order, presence: true
+
+  def self.ordered
+    order(order: :asc)
+  end
 
 end

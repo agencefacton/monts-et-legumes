@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :posts, only: [:edit, :update]
+    resources :subcategories, only: [:index, :edit, :update, :destroy, :create]
     resources :selling_ranges
     resources :products, except: :show do
       member { get :toggle_active }

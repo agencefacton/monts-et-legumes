@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Catégories</h1>
+
+    <% @categories.each do |category| %>
+      <h2><%= category.name %></h2>
+
+      <p>Ajouter une sous-catégorie</p>
+        <%= render 'form', subcategory: @subcategory, category: category %>
+
+        <ul>
+          <% category.subcategories.ordered.each do |subcategory| %>
+            <li><%= subcategory.name %> -
+                Classement : <%= subcategory.order %> -
+                <%= link_to "Editer", edit_admin_subcategory_path(subcategory) %> -
+                <%= link_to " - Supprimer", admin_subcategory_path(subcategory), method: :delete  %>
+            </li>
+          <% end %>
+        </ul>
+  <% end %>
+</div>
