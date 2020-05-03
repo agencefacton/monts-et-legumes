@@ -22,30 +22,5 @@ module Admin
       @categories = Category.order(id: :asc)
     end
 
-    private
-
-    def product_order_params
-      params.require(:product_order).permit(:quantity, :product_id)
-    end
-
-    def set_products
-      if current_user.admin?
-        @products = Product.order(active: :desc)
-      else
-        @products = Product.where(active: true)
-      end
-    end
-
-    def set_product_order
-      @product_order = ProductOrder.find(params[:id])
-    end
-
-    def set_order
-      @order = current_order
-    end
-
-    def save_order
-      @order.save
-    end
   end
 end

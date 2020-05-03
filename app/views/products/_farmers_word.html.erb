@@ -1,7 +1,7 @@
 <% if @post.content? %>
   <span class="farmers_title">Actualités</span>
   <div id="farmers_txt">
-    <span class="farmers_content"><%= @post.content %></span>
+    <span class="farmers_content"><%= @post.content.html_safe %></span>
   </div>
 <% end %>
 

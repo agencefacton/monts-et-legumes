@@ -20,6 +20,10 @@ class Product < ApplicationRecord
     joins(:orders).where(orders: { status: 1, selling_range_id: selling_range.id }).distinct
   end
 
+  def has_orders?
+    orders.present?
+  end
+
   def product_orders_for(selling_range)
     product_orders.joins(:order)
                   .where("orders.selling_range_id = ? AND orders.status = ?", selling_range.id, 1)
