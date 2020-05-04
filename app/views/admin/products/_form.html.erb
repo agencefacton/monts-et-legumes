@@ -1,7 +1,7 @@
 <%= simple_form_for([:admin, @product]) do |f| %>
   <%= f.input :name, label: "Nom du produit", placeholder: "Ex: Aubergines" %>
   <%= f.input :description, label: "Description" %>
-  <%= f.association :category, label: "Catégorie" %>
+  <%= f.hidden_field :category, value: :category %>
   <%= f.association :subcategory, label: "Sous-catégorie" %>
   <%= f.input :price, label: "Prix de vente", placeholder: "3.30 - Prix au KILO ou à l'UNITE (pas aux 100G)" %>
   <%= f.input :unit, label: "Unité de vente", collection: ['100g', 'pièce', 'kilo', 'litre', 'sixaine'] %>
