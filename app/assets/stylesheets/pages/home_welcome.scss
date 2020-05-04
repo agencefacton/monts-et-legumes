@@ -1,3 +1,19 @@
+.welcome {
+  display: flex;
+}
+
+.welcomeleft {
+  width: 45%;
+  img {
+    border-radius: 6px;
+  }
+}
+
+.welcomeright {
+  width: 55%;
+  padding: 0 0 0 50px;
+}
+
 .intro-welcome {
   font-family: 'Pacifico';
   color: #32B796;
@@ -37,23 +53,11 @@
 
 .graybackground {
   background: $graylight;
-  padding: 20px 5% 20px 5%;
+  padding: 140px 5% 20px 5%;
   background-image: image-url("grass.svg");
   background-position: bottom;
   background-repeat: no-repeat;
 }
-
-#graytitle {
-  text-align: center;
-  width: 75%;
-  margin: 3em auto 0 auto;
-  p {
-    text-align: left;
-    font-size: 1.5em;
-    color: $grayheaders;
-  }
-}
-
 
 
 @media screen and (max-width:1000px) {
