@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :orders, through: :product_orders
   has_many :sales
   belongs_to :category
+  belongs_to :subcategory
 
   validates :name, :price, :unit, presence: true
 
