@@ -6,7 +6,7 @@
   color: $grayheaders;
 }
 
-.welcomeleft {
+.welcome-left {
   width: 600px;
   padding: 0 50px 0 0;
   img {
@@ -14,11 +14,11 @@
   }
 }
 
-.welcomeright {
+.welcome-right {
   width: 650px;
 }
 
-.intro-welcome {
+#welcometitle {
   font-family: 'Pacifico';
   color: #32B796;
   font-size: 30px;
@@ -58,7 +58,7 @@
   width: 60px;
 }
 
-.introwelcomebio {
+#welcomebio {
   margin: 100px 0 50px 0;
   place-content: center;
   display: flex;
@@ -68,7 +68,8 @@
     margin: 0 15px 0 0;
   }
   p {
-    font-size: 22px;
+    font-size: 20px;
+    font-weight: 800;
     margin: 0;
   }
 }

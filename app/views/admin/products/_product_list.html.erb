@@ -1,35 +1,76 @@
 <% @categories.each do |category| %>
-  <h2><%= category.name %>- <%= link_to "Ajouter un produit", new_admin_product_path(category: category) %></h2>
+  <h2><%= category.name %></h2>
 
-  <% category.products.ordered.each do |product| %>
-    <div class="product-line">
-      <div class="product-icon">
-        <% if product.photo.present? %>
-          <%= cl_image_tag product.photo, class: "avatar-bordered" %>
-        <% else %>
-          <div class="avatar-bordered"></div>
-        <% end %>
-      </div>
+    <% category.subcategories.ordered.each do |subcategory| %>
+      <h3><%= subcategory.name %></h3>
+      <% subcategory.products.ordered.each do |product| %>
+        <div class="product-line">
+          <div class="product-icon">
+            <% if product.photo.present? %>
+              <%= cl_image_tag product.photo, class: "avatar-bordered" %>
+            <% else %>
+              <div class="avatar-bordered"></div>
+            <% end %>
+          </div>
 
-      <div class="product_line_responsive">
+          <div class="product_line_responsive">
 
-        <div class="product_info">
-          <span class="product-title"> <%= product.name.capitalize %></span>
-          <span class="product-price"><%= product.price %> € / <%= product.unit %></span><br>
-          <span class="text-small"><%= product.description %></span>
+            <div class="product_info">
+              <span class="product-title"> <%= product.name.capitalize %></span>
+              <span class="product-price"><%= product.price %> € / <%= product.unit %></span><br>
+              <span class="text-small"><%= product.description %></span>
+            </div>
+
+            <%= link_to "Editer", edit_admin_product_path(product) %>
+            <% if product.active? %>
+              <%= link_to "Désactiver", toggle_active_admin_product_path(product) %>
+            <% else %>
+              <span class="activate_product"> <%= link_to "Activer", toggle_active_admin_product_path(product) %></span>
+            <% end %>
+            <% if !product.has_orders? %>
+              <%= link_to " Supprimer", admin_product_path(product), method: :delete  %>
+            <% end %>
+          </div>
         </div>
 
-          <%= link_to "Editer | ", edit_admin_product_path(product) %>
-          <% if product.active? %>
-            <%= link_to " Désactiver", toggle_active_admin_product_path(product) %>
-          <% else %>
-            <span class="activate_product"> <%= link_to " Activer", toggle_active_admin_product_path(product) %></span>
-          <% end %>
-          <% if !product.has_orders? %>
-            <%= link_to " | Supprimer", admin_product_path(product), method: :delete  %>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
+    <% end %>
 
-  <% end %>
+    <% if category.products.without_subcategory.present? %>
+    <h3>Sans sous-catégorie</h3>
+    <% end %>
+
+    <% category.products.without_subcategory.ordered.each do |product| %>
+
+        <div class="product-line">
+          <div class="product-icon">
+            <% if product.photo.present? %>
+              <%= cl_image_tag product.photo, class: "avatar-bordered" %>
+            <% else %>
+              <div class="avatar-bordered"></div>
+            <% end %>
+          </div>
+
+          <div class="product_line_responsive">
+
+            <div class="product_info">
+              <span class="product-title"> <%= product.name.capitalize %></span>
+              <span class="product-price"><%= product.price %> € / <%= product.unit %></span><br>
+              <span class="text-small"><%= product.description %></span>
+            </div>
+
+            <%= link_to "Editer", edit_admin_product_path(product) %>
+            <% if product.active? %>
+              <%= link_to "Désactiver", toggle_active_admin_product_path(product) %>
+            <% else %>
+              <span class="activate_product"> <%= link_to "Activer", toggle_active_admin_product_path(product) %></span>
+            <% end %>
+            <% if !product.has_orders? %>
+              <%= link_to " Supprimer", admin_product_path(product), method: :delete  %>
+            <% end %>
+          </div>
+        </div>
+
+
+    <% end %>
 <% end %>

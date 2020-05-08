@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   has_many :orders, through: :product_orders
   has_many :sales
   belongs_to :category
-  belongs_to :subcategory
+  belongs_to :subcategory, optional: true
 
   validates :name, :price, :unit, presence: true
 
@@ -15,6 +15,10 @@ class Product < ApplicationRecord
 
   def self.ordered
     order(name: :asc)
+  end
+
+  def self.without_subcategory
+    where(subcategory: nil)
   end
 
   def self.with_order_for(selling_range)
