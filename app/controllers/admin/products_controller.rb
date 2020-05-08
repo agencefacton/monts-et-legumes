@@ -13,16 +13,18 @@ module Admin
     def create
       @product = Product.new(product_params)
 
-    if @product.subcategory.category == @product.category
-      if @product.save
+    if @product.save
+      if @product.subcategory.present?
+        if @product.subcategory.category == @product.category
+          redirect_to admin_products_path
+        end
+      else
         redirect_to admin_products_path
+      end
       else
         render :new
       end
-    else
-      render :new
     end
-  end
 
     def edit
     end

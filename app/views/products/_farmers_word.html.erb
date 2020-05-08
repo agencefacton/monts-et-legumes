@@ -1,7 +1,6 @@
 <% if @post.content? %>
-  <span class="farmers_title">Actualités</span>
-  <div id="farmers_txt">
-    <span class="farmers_content"><%= @post.content.html_safe %></span>
+  <h2>Actualités</h2>
+  <div id="farmers-txt">
+    <%= @post.content.html_safe %>
   </div>
 <% end %>
-
