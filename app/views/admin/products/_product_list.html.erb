@@ -1,8 +1,14 @@
 <% @categories.each do |category| %>
+
   <h2><%= category.name %></h2>
 
     <% category.subcategories.ordered.each do |subcategory| %>
       <h3><%= subcategory.name %></h3>
+
+      <% if !subcategory.products.present? %>
+        <p>Pas de produit dans cette sous-catégorie</p>
+      <% end %>
+
       <% subcategory.products.ordered.each do |product| %>
         <div class="product-line">
           <div class="product-icon">
