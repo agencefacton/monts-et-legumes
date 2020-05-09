@@ -13,14 +13,10 @@ module Admin
     def create
       @product = Product.new(product_params)
 
-    if @product.save
-      if @product.subcategory.present?
-        if @product.subcategory.category == @product.category
+      if @product.subcategory.present? && @product.subcategory.category != @product.category
+        render :new
+      elsif @product.save
           redirect_to admin_products_path
-        end
-      else
-        redirect_to admin_products_path
-      end
       else
         render :new
       end
@@ -30,8 +26,11 @@ module Admin
     end
 
     def update
-      if @product.update(product_params)
-        redirect_to admin_products_path
+      @product.assign_attributes(product_params)
+      if @product.subcategory.present? && @product.subcategory.category != @product.category
+        render :edit
+      elsif @product.update(product_params)
+          redirect_to admin_products_path
       else
         render :edit
       end
@@ -41,6 +40,15 @@ module Admin
       @product.active = !@product.active
       @product.save
       redirect_to admin_products_path
+    end
+
+    def active_category
+      @category = Category.find(params[:category_id])
+      @products = @category.products
+      @products.each do |product|
+        product.active = true
+        product.save
+      end
     end
 
     def destroy

@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :product_orders, except: [:index, :show, :create]
     resources :statistics, only: [:index, :show], param: :year
 
+
     root to: 'selling_ranges#index'
   end
 
