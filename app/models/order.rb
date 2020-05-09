@@ -23,10 +23,6 @@ class Order < ApplicationRecord
     product_orders.sum(:item_price).to_f
   end
 
-  def update_status
-    self.status = 1
-  end
-
   def contains?(product)
     products.include?(product)
   end
