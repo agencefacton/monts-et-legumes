@@ -1,6 +1,6 @@
 <% @categories.each do |category| %>
 
-  <h2><%= category.name %></h2>
+  <h2><%= category.name %></h2> <%= link_to "Tout activer", activate_products_admin_category_path(category), method: :post %>
 
     <% category.subcategories.ordered.each do |subcategory| %>
       <h3><%= subcategory.name %></h3>

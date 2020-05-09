@@ -25,6 +25,12 @@ class Product < ApplicationRecord
     joins(:orders).where(orders: { status: 1, selling_range_id: selling_range.id }).distinct
   end
 
+  def self.activate_for(category)
+    where(category: category).each do |product|
+      product.update(active: true)
+    end
+  end
+
   def has_orders?
     orders.present?
   end

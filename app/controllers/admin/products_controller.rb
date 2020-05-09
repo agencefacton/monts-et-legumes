@@ -1,6 +1,7 @@
 module Admin
   class ProductsController < Admin::ApplicationController
     before_action :set_product, only: [:show, :edit, :update, :destroy, :toggle_active]
+    skip_before_action :verify_authenticity_token, only: :activate_for
 
     def index
       @categories = Category.order(id: :asc)
@@ -42,13 +43,10 @@ module Admin
       redirect_to admin_products_path
     end
 
-    def active_category
-      @category = Category.find(params[:category_id])
-      @products = @category.products
-      @products.each do |product|
-        product.active = true
-        product.save
-      end
+    def activate_for
+      @category = Category.find(params[:id])
+      Product.activate_for(@category)
+      redirect_to admin_products_path
     end
 
     def destroy

@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     resources :products, except: :show do
       member { get :toggle_active }
     end
+    resources :categories, only: [] do
+      member do
+        post '/activate_products', to: 'products#activate_for'
+      end
+    end
+
     resources :users, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
       resources :transactions, only: [:create, :destroy]
       resources :orders, only: [:create]
