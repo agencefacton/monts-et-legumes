@@ -7,11 +7,9 @@ class Order < ApplicationRecord
 
   validates :selling_range, uniqueness: { scope: :user }
 
-  after_touch :update_total
+  enum status: { pending: 0, validated: 1 }
 
-  def self.validated
-    where(status: 1)
-  end
+  after_touch :update_total
 
   def self.ordered
     joins(:user).order("users.last_name")
@@ -27,10 +25,6 @@ class Order < ApplicationRecord
 
   def update_status
     self.status = 1
-  end
-
-  def pending?
-    status != 1
   end
 
   def contains?(product)
