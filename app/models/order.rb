@@ -9,6 +9,10 @@ class Order < ApplicationRecord
 
   enum status: { pending: 0, validated: 1 }
 
+  scope :not_empty, -> {
+    joins(:product_orders).group("orders.id").having('count(product_orders.id) > 0')
+  }
+
   after_touch :update_total
 
   def self.ordered
