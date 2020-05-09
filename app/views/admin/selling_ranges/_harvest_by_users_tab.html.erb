@@ -1,4 +1,4 @@
-<% @categories.each do |category| %>
+<% @selling_range.categories.each do |category| %>
   <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
 
   <% @orders.ordered.each do |order| %>
