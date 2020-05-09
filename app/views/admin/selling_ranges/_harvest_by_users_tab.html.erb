@@ -1,0 +1,23 @@
+<% @categories.each do |category| %>
+  <h2><%= category.name %> - <%= category.selling_range_sales_for(@selling_range) %> €</h2>
+
+  <% @orders.ordered.each do |order| %>
+    <% if order.categories.include?(category) %>
+      <% if order.user.mayeres == true %>
+        <i class="fab fa-medium-m"></i>
+      <% end %>
+      <%= link_to admin_user_path(order.user) do %>
+        <%= order.user.first_name %> <%= order.user.last_name %>
+      <% end %>
+      : <%= order.calculate_by(category) %> €
+      <ul>
+        <% order.product_orders.ordered.with_category(category).each do |product_order| %>
+          <li><%= product_order.product.name %> -
+              <%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %> -
+              <%= product_order.item_price %> €
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
