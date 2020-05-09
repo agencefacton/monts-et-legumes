@@ -18,6 +18,6 @@ class ProductOrder < ApplicationRecord
   end
 
   def integer_unit
-    ["pièce", "sixaine", "litre"].include?(product.unit)
+    ["pièce", "sixaine", "litre", "pot"].include?(product.unit)
   end
 end

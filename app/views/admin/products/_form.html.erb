@@ -2,8 +2,9 @@
   <%= f.input :name, label: "Nom du produit", placeholder: "Ex: Aubergines" %>
   <%= f.input :description, label: "Description" %>
   <%= f.association :category, label: "Catégorie" %>
+  <%= f.association :subcategory, label: "Sous-catégorie - Doit appartenir à la catégorie" %>
   <%= f.input :price, label: "Prix de vente", placeholder: "3.30 - Prix au KILO ou à l'UNITE (pas aux 100G)" %>
-  <%= f.input :unit, label: "Unité de vente", collection: ['100g', 'pièce', 'kilo', 'litre', 'sixaine'] %>
+  <%= f.input :unit, label: "Unité de vente", collection: ['100g', 'pièce', 'kilo', 'litre', 'sixaine', 'pot'] %>
   <%= f.input :active, as: :boolean, label: "Disponible cette semaine", checked_value: true, unchecked_value: false %>
   <%= f.input :photo, label: "Photo", hidden_field: :photo_cache %>
   <%= f.button :submit, "Valider", class: "btn btn-primary" %>

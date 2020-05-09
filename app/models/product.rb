@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :orders, through: :product_orders
   has_many :sales
   belongs_to :category
+  belongs_to :subcategory, optional: true
 
   validates :name, :price, :unit, presence: true
 
@@ -16,8 +17,18 @@ class Product < ApplicationRecord
     order(name: :asc)
   end
 
+  def self.without_subcategory
+    where(subcategory: nil)
+  end
+
   def self.with_order_for(selling_range)
     joins(:orders).where(orders: { status: 1, selling_range_id: selling_range.id }).distinct
+  end
+
+  def self.activate_for(category)
+    where(category: category).each do |product|
+      product.update(active: true)
+    end
   end
 
   def has_orders?

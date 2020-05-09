@@ -15,10 +15,17 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :posts, only: [:edit, :update]
+    resources :subcategories, only: [:index, :edit, :update, :destroy, :create]
     resources :selling_ranges
     resources :products, except: :show do
       member { get :toggle_active }
     end
+    resources :categories, only: [] do
+      member do
+        post '/activate_products', to: 'products#activate_for'
+      end
+    end
+
     resources :users, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
       resources :transactions, only: [:create, :destroy]
       resources :orders, only: [:create]
@@ -28,6 +35,7 @@ Rails.application.routes.draw do
     end
     resources :product_orders, except: [:index, :show, :create]
     resources :statistics, only: [:index, :show], param: :year
+
 
     root to: 'selling_ranges#index'
   end
