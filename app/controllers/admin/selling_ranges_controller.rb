@@ -29,9 +29,8 @@ module Admin
     end
 
     def show
-      @categories = Category.order(id: :asc)
       @orders = Order.where(selling_range: @selling_range, status: 1)
-      @pending_orders = Order.joins(:product_orders).where("selling_range_id = ? AND status = ?", @selling_range.id, 0).group("orders.id").having("count(product_orders.id)>0")
+      @pending_orders = @selling_range.orders.includes(:user).pending.not_empty
     end
 
     def update

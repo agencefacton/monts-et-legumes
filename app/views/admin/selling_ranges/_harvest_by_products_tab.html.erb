@@ -1,0 +1,16 @@
+<% @selling_range.categories.each do |category| %>
+  <h2><%= category.name %></h2>
+  <% category.products.ordered.with_order_for(@selling_range).each do |product| %>
+    <%= product.name %>
+    <ul>
+      <% product.product_orders_for(@selling_range).each do |product_order| %>
+        <li>
+          <%= link_to admin_user_path(product_order.order.user) do %>
+            <%= product_order.order.user.first_name %> <%= product_order.order.user.last_name %>
+            <% end %> :
+          <%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>

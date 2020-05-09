@@ -1,6 +1,7 @@
 class SellingRange < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :products, through: :orders
+  has_many :categories, -> { distinct }, through: :products
 
   def quantity_of(product)
     orders.joins(:products).where('products.id = ? AND status = ?', product.id, 1).sum(:quantity)

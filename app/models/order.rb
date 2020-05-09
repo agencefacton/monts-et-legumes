@@ -7,11 +7,13 @@ class Order < ApplicationRecord
 
   validates :selling_range, uniqueness: { scope: :user }
 
-  after_touch :update_total
+  enum status: { pending: 0, validated: 1 }
 
-  def self.validated
-    where(status: 1)
-  end
+  scope :not_empty, -> {
+    joins(:product_orders).group("orders.id").having('count(product_orders.id) > 0')
+  }
+
+  after_touch :update_total
 
   def self.ordered
     joins(:user).order("users.last_name")
@@ -23,14 +25,6 @@ class Order < ApplicationRecord
 
   def calculate_total
     product_orders.sum(:item_price).to_f
-  end
-
-  def update_status
-    self.status = 1
-  end
-
-  def pending?
-    status != 1
   end
 
   def contains?(product)

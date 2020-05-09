@@ -1,0 +1,14 @@
+<% @selling_range.categories.each do |category| %>
+  <h2><%= category.name %> - <%= number_to_currency(category.selling_range_sales_for(@selling_range)) %></h2>
+  <ul>
+    <% category.products.ordered.each do |product| %>
+      <% if @selling_range.quantity_of(product) > 0 %>
+        <li>
+          <%= product.name %> :
+          <%= @selling_range.quantity_of(product) %> <%= product.unit.pluralize(@selling_range.quantity_of(product)) %> -
+          <%= number_to_currency(@selling_range.sales_of(product)) %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
