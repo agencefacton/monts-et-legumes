@@ -31,6 +31,12 @@ class Product < ApplicationRecord
     end
   end
 
+  def self.deactivate_for(category)
+    where(category: category).each do |product|
+      product.update(active: false)
+    end
+  end
+
   def has_orders?
     orders.present?
   end

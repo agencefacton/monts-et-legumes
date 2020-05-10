@@ -1,6 +1,9 @@
 <% @categories.each do |category| %>
 
-  <h2><%= category.name %></h2> <%= link_to "Tout activer", activate_products_admin_category_path(category), method: :post %>
+  <h2><%= category.name %>
+  <span class="flex-add"><%= link_to "Tout activer", activate_products_admin_category_path(category), method: :post %>
+  <%= link_to "Tout désactiver", deactivate_products_admin_category_path(category), method: :post %><span>
+  </h2>
 
     <% category.subcategories.ordered.each do |subcategory| %>
       <h3><%= subcategory.name %></h3>

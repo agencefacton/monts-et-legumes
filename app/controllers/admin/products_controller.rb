@@ -43,6 +43,12 @@ module Admin
       redirect_to admin_products_path
     end
 
+    def deactivate_for
+      @category = Category.find(params[:id])
+      Product.deactivate_for(@category)
+      redirect_to admin_products_path
+    end
+
     def activate_for
       @category = Category.find(params[:id])
       Product.activate_for(@category)

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :categories, only: [] do
       member do
         post '/activate_products', to: 'products#activate_for'
+        post '/deactivate_products', to: 'products#deactivate_for'
       end
     end
 
