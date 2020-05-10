@@ -15,6 +15,7 @@ module Admin
       @product = Product.new(product_params)
 
       if @product.subcategory.present? && @product.subcategory.category != @product.category
+        flash[:alert] = "Attention, la catégorie et sous-catégorie doivent correspondre"
         render :new
       elsif @product.save
           redirect_to admin_products_path

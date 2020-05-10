@@ -3,7 +3,7 @@
   <div id="products-list">
     <div class="admin-title">
       <span class="flex-title"><h1>Liste des produits</h1></span>
-      <span class="flex-add"><%= button_to "Ajouter un produit", new_admin_product_path, class: 'btn btn-primary' %></span>
+      <span class="flex-add"><%= button_to "Ajouter un produit", new_admin_product_path, method: :get, class: 'btn btn-primary' %></span>
     </div>
     <%= render 'product_list' %>
   </div>
