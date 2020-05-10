@@ -1,8 +1,10 @@
 <% @categories.each do |category| %>
 
   <h2><%= category.name %>
-  <span class="flex-add"><%= link_to "Tout activer", activate_products_admin_category_path(category), method: :post %>
-  <%= link_to "Tout désactiver", deactivate_products_admin_category_path(category), method: :post %><span>
+    <span class="flex-add">
+      <%= link_to "Tout activer", activate_products_admin_category_path(category), method: :post %>
+      <%= link_to "Tout désactiver", deactivate_products_admin_category_path(category), method: :post %>
+    <span>
   </h2>
 
     <% category.subcategories.ordered.each do |subcategory| %>
@@ -13,7 +15,7 @@
       <% end %>
 
       <% subcategory.products.ordered.each do |product| %>
-        <div class="product-line">
+        <div class="<%= product.active ? 'product-line green-border' : 'product-line' %>">
           <div class="product-icon">
             <% if product.photo.present? %>
               <%= cl_image_tag product.photo, class: "avatar-bordered" %>
