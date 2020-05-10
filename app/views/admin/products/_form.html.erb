@@ -1,8 +1,8 @@
 <%= simple_form_for([:admin, @product]) do |f| %>
   <%= f.input :name, label: "Nom du produit", placeholder: "Ex: Aubergines" %>
   <%= f.input :description, label: "Description" %>
-  <%= f.association :category, label: "Catégorie" %>
-  <%= f.association :subcategory, label: "Sous-catégorie - Doit appartenir à la catégorie" %>
+  <%= f.association :category, label: "Catégorie", collection: Category.order(id: :asc) %>
+  <%= f.association :subcategory, label: "Sous-catégorie - Doit appartenir à la catégorie", collection: Category.order(id: :asc), as: :grouped_select, group_method: :subcategories %>
   <%= f.input :price, label: "Prix de vente", placeholder: "3.30 - Prix au KILO ou à l'UNITE (pas aux 100G)" %>
   <%= f.input :unit, label: "Unité de vente", collection: ['100g', 'pièce', 'kilo', 'litre', 'sixaine', 'pot'] %>
   <%= f.input :active, as: :boolean, label: "Disponible cette semaine", checked_value: true, unchecked_value: false %>

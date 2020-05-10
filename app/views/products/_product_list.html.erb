@@ -25,7 +25,7 @@
                 <span class="text-small"><%= product.description %></span>
               </div>
 
-              <% if @order.status == 0 %>
+              <% if @order.status == "pending" %>
 
                 <div class="product_quantity">
                   <% if @order.contains?(product) %>
@@ -73,7 +73,7 @@
             <span class="text-small"><%= product.description %></span>
           </div>
 
-          <% if @order.status == 0 %>
+          <% if @order.status == "pending" %>
 
             <div class="product_quantity">
               <% if @order.contains?(product) %>
