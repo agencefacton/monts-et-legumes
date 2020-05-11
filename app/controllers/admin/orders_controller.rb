@@ -24,7 +24,7 @@ module Admin
     end
 
     def update
-      if order_params[:status].to_i == 1
+      if order_params[:status].to_i == "validated"
         @order.update(order_params)
         @order.save
         redirect_to admin_order_path

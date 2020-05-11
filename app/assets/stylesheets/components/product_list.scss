@@ -1,7 +1,7 @@
 .avatar-bordered {
-  width: 60px;
-  height: 60px;
-  margin: 0 20px 0 0;
+  width: 45px;
+  height: 45px;
+  margin: 0 15px 0 0;
 }
 
 .product-icon {
@@ -68,7 +68,6 @@
 
 .product_info {
   flex-grow: 1;
-  align-self: center;
   line-height: 20px;
 }
 
@@ -118,7 +117,7 @@
   .product-line {
     padding: 15px 5px;
     .fas {
-      font-size: 2em;
+      font-size: 1.8em;
     }
     .fas.fa-plus {
       margin: 0 20px;

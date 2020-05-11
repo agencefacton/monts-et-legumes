@@ -1,5 +1,8 @@
-<td><%= product_order.product.name %></td>
-<td class="min-105px"><%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %></td>
+<td><% if product_order.product.photo.present? %><%= cl_image_tag product_order.product.photo, class: "small-cart-avatar" %></td><% end %>
+<td><%= product_order.product.name %>
+    <%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %>
+</td>
+<td ></td>
 <td class="min-65px"><%= product_order.item_price %> € </td>
 <% if order.status == 0 %>
   <td><%= link_to product_order_path(product_order), method: :delete do %>

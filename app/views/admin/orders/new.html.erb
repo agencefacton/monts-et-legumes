@@ -41,7 +41,7 @@
   <% end %>
 
   <%= simple_form_for([:admin, @order]) do |f| %>
-    <%= f.hidden_field :status, value: 1 %>
+    <%= f.hidden_field :status, value: "validated" %>
     <%= f.submit 'Valider la commande', class: "btn btn-primary btn-centered" %>
   <% end %>
 </div>

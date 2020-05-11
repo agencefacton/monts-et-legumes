@@ -1,0 +1,35 @@
+.small-cart {
+  background: white;
+}
+
+#small-cart-title {
+  padding: 20px;
+  border-bottom: 15px solid $graylight;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+#small-cart-content {
+  padding: 20px;
+  overflow: scroll;
+  overflow: auto;
+  max-height: calc(100vh - 400px);
+  tr {
+    display: flex;
+  }
+}
+
+.small-cart-avatar {
+  width: 45px;
+  height: 45px;
+  margin: 0 10px 0 0;
+}
+
+#small-cart-validation {
+}
+
+#cart {
+  h4 {
+    text-align: right;
+  }
+}

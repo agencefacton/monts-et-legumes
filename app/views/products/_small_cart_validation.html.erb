@@ -1,0 +1,15 @@
+<% if @order.product_orders.present? %>
+  <div id="small-cart-validation">
+    <% if @order.pending? %>
+      <div class="flex">
+        <%= simple_form_for(@order) do |f| %>
+          <%= f.hidden_field :status, value: 'validated' %>
+          <%= f.submit 'Valider la commande', class: "btn btn-primary btn-small-cart" %>
+        <% end %>
+      </div>
+    <% else %>
+      <p>Cette commande a déjà été validée</p>
+      <%= link_to "Modifier la commande", reset_status_order_path(@order) %>
+    <% end  %>
+  </div>
+<% end %>

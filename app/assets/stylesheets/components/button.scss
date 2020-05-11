@@ -1,7 +1,6 @@
 .btn-primary {
   background-color: $green;
   border-color: $green;
-  border-radius: 10px;
   color: $white;
   padding: 8px 20px;
   margin: 15px 0;
@@ -10,9 +9,6 @@
 .btn-primary:hover {
   border-color: $green;
   background-color: $green;
-  transition: 0.3s ease;
-  position: relative;
-  bottom: 1px;
   box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
 }
 
@@ -21,6 +17,10 @@
   font-size: 1.3em;
   font-weight: 600;
   margin: 2em 0;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  position: relative;
+  bottom: 1px;
 }
 
 .button-prev, .button-next {
@@ -70,6 +70,11 @@
 
 .btn-margin-right {
   margin-right: 30px;
+}
+
+.btn-small-cart {
+  font-weight: 800;
+  width: 400px;
 }
 
 @media screen and (max-width:1000px) {

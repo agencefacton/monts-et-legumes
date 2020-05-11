@@ -1,18 +1,9 @@
-.products-index #cart {
-  overflow: scroll;
-  overflow: auto;
-  max-height: calc(100vh - 400px);
-}
-
-#cart {
-  h4 {
-    text-align: right;
-  }
-}
-
 #product_index_flex {
   display: flex;
   justify-content: space-between;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
 }
 
 #product_index_left {
@@ -26,20 +17,7 @@
   width: 38%;
 }
 
-#farmers_word {
-  background: white;
-  border-radius: 15px;
-  padding: 30px;
-  margin-bottom: 50px;
-  h2 {
-    margin-top: 10px;
-  }
-}
 
-#farmers-txt {
-  padding-left: 15px;
-  border-left: 2px solid $green;
-}
 
 @media screen and (max-width:1000px) {
   #product_index_flex {
@@ -54,7 +32,7 @@
     width: 100%;
   }
 
-  .products-index #cart {
+  .products-index #small-cart {
     overflow: visible;
     max-height: initial;
   }
