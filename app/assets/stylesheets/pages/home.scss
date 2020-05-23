@@ -1,8 +1,16 @@
+.pages-home {
+  background: $white;
+  .navbar {
+    background: $white;
+  }
+}
+
 #intro {
   display: flex;
   max-width: 1140px;
   margin: 100px auto 0 auto;
   padding: 0 20px;
+  background: $white;
 }
 
 .intro-name {
@@ -74,6 +82,10 @@
   }
 
   #intro-img {
+    display: none;
+  }
+
+  .welcome-left {
     display: none;
   }
 

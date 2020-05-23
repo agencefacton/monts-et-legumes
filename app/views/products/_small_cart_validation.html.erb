@@ -1,5 +1,6 @@
 <% if @order.product_orders.present? %>
   <div id="small-cart-validation">
+    <h4>Prix total du panier : <%= @order.reload.total_price %> €</h4>
     <% if @order.pending? %>
       <div class="flex">
         <%= simple_form_for(@order) do |f| %>

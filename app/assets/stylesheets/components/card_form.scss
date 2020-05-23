@@ -1,11 +1,11 @@
 .whitecard {
-  background: $white;
-  box-shadow: 0 15px 35px rgba(126,87,88,.1), 0 5px 15px rgba(0,0,0,.07);
+  background: white;
+  box-shadow: 0 15px 35px rgba(87,126,88,.1), 0 5px 15px rgba(0,0,0,.07);
 }
 
 .card_form {
   max-width: 800px;
-  background: $whitecard;
+  background: $white;
   margin: 1em auto 2em auto;
   padding: 2em;
   border-top: 0.6em solid $green;

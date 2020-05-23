@@ -4,7 +4,7 @@
   justify-content: space-around;
   background-image: image-url("background.svg");
   background-size : cover;
-  padding: 0 10%;
+  margin: auto;
 }
 
 .introcard {
@@ -37,6 +37,9 @@
 
 .introcardtitle {
   height: 40px;
+  h3 {
+    margin-top: 10px;
+  }
 }
 
 .introcardcontent {

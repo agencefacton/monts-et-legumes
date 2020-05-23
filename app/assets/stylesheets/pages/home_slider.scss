@@ -4,6 +4,8 @@
   padding: 0;
   position: relative;
   bottom: -75px;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 #peoplebtn {
@@ -25,11 +27,8 @@
 }
 
 .btnactive {
-  border-bottom: 1px solid $green;
   font-weight: bold;
-  .fas, .fab {
-    color: $green !important;
-  }
+  color: $grayheaders;
 }
 
 .slide {

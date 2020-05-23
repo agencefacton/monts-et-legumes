@@ -68,9 +68,10 @@
     margin: 0 15px 0 0;
   }
   p {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
     margin: 0;
+    color: $grayheaders;
   }
 }
 
@@ -78,11 +79,11 @@
 
 
 .graybackground {
-  background: $graylight;
+  background: $background;
   padding: 140px 5% 20px 5%;
   background-image: image-url("grass.svg");
   background-position: bottom;
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
 }
 
 

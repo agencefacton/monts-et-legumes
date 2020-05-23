@@ -1,12 +1,35 @@
-<td><% if product_order.product.photo.present? %><%= cl_image_tag product_order.product.photo, class: "small-cart-avatar" %></td><% end %>
-<td><%= product_order.product.name %>
-    <%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %>
-</td>
-<td ></td>
-<td class="min-65px"><%= product_order.item_price %> € </td>
-<% if order.status == 0 %>
-  <td><%= link_to product_order_path(product_order), method: :delete do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
+<td>
+  <div class="small-cart-content-line">
+    <div class="small-cart-content-avatar">
+      <% if product_order.product.photo.present? %>
+        <%= cl_image_tag product_order.product.photo %>
+      <% end %>
+    </div>
+    <div class="small-cart-content-info">
+      <div class="small-cart-content-title">
+        <div>
+          <%= product_order.product.name %>
+        </div>
+        <div>
+          <% if order.status == "pending" %>
+            <%= link_to product_order_path(product_order), method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="small-cart-content-details">
+        <div><%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %></div>
+        <div class="small-cart-content-price"><%= product_order.item_price %> €</div>
+      </div>
+
+    </div>
+
+  </div>
+
+
   </td>
-<% end %>
+
+
+
+
