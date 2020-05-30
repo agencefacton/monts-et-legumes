@@ -6,7 +6,6 @@
 
 #small-cart-title {
   padding: 20px;
-  border-bottom: 10px solid $graylight;
   font-size: 20px;
   font-weight: 800;
 }
@@ -51,6 +50,7 @@
 
 .small-cart-content-price {
   font-weight: 800;
+  font-size: 16px;
 }
 
 .small-cart-content-info {
@@ -64,4 +64,9 @@
     margin: 0;
     font-weight: 800;
   }
+}
+
+.small-cart-delete {
+  color: $graylight;
+  font-size: 14px;
 }

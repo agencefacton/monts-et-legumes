@@ -10,17 +10,15 @@
         <div>
           <%= product_order.product.name %>
         </div>
-        <div>
-          <% if order.status == "pending" %>
-            <%= link_to product_order_path(product_order), method: :delete do %>
-              <i class="fas fa-trash-alt"></i>
-            <% end %>
-          <% end %>
-        </div>
+        <div class="small-cart-content-price"><%= product_order.item_price %> €</div>
       </div>
       <div class="small-cart-content-details">
         <div><%= product_order.quantity %> <%= product_order.product.unit.pluralize(product_order.quantity) %></div>
-        <div class="small-cart-content-price"><%= product_order.item_price %> €</div>
+      </div>
+      <div>
+        <% if order.status == "pending" %>
+          <%= link_to "Supprimer", product_order_path(product_order), method: :delete, class: "small-cart-delete" %>
+        <% end %>
       </div>
 
     </div>
