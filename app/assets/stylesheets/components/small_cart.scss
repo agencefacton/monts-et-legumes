@@ -1,13 +1,15 @@
 .small-cart {
   background: white;
   border-radius: 3px;
-  box-shadow: 0 15px 35px rgba(126,87,88,.1), 0 5px 15px rgba(0,0,0,.07)
+  box-shadow: 0 15px 35px rgba(126,87,88,.1), 0 5px 15px rgba(0,0,0,.07);
+  border-top: 3px solid $green;
 }
 
 #small-cart-title {
   padding: 20px;
   font-size: 20px;
   font-weight: 800;
+  color: $grayheaders;
 }
 
 #small-cart-content {
@@ -66,7 +68,7 @@
   }
 }
 
-.small-cart-delete {
-  color: $graylight;
+.small-cart-delete, .small-cart-delete:hover {
+  color: $grayicon;
   font-size: 14px;
 }

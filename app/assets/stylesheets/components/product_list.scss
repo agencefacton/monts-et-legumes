@@ -13,7 +13,7 @@
   align-items: start;
   padding: 15px;
   background: white;
-  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  border-bottom: 1px solid $grayborder;
   margin-bottom: 15px;
   border-radius: 3px;
   transition: 0.5s all cubic-bezier(0.21, 1.05, 0.24, 1.41);
@@ -26,7 +26,7 @@
     text-align: end;
   }
   input::placeholder {
-    color: $grayicon;
+    color: $graybodylight;
     text-align: left;
     font-size: 0.8em;
   }
