@@ -8,6 +8,13 @@
   flex-shrink: 0;
 }
 
+#products-list {
+  h3 {
+    font-weight: 400;
+    margin-top: 50px;
+  }
+}
+
 .product-line {
   display: flex;
   align-items: start;
