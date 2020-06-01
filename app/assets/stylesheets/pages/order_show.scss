@@ -2,11 +2,21 @@
   background: white;
   border-radius: 15px;
   max-width: 800px;
-  margin: 0px auto 50px auto;
+  margin: 50px auto;
+  padding: 20px;
   display: flex;
+  h4 {
+    font-weight: 800;
+    font-size: 20px;
+    margin: 20px 0;
+  }
+}
+
+#order-validation-text {
+  width: 100%;
 }
 
 #order-validation-animation {
-  margin: auto 40px;
+  margin: auto 35px;
 }
 

@@ -9,12 +9,12 @@
 .btn-primary:hover {
   border-color: $green;
   background-color: $green;
-  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+  box-shadow: 0 15px 35px rgba(87,126,88,.05), 0 2px 4px rgba(0,0,0,.03);
 }
 
 .btn-primary.btn-homepage {
   padding: 18px 32px;
-  font-size: 1.3em;
+  font-size: 20px;
   font-weight: 600;
   margin: 2em 0;
   border-radius: 10px;
@@ -72,9 +72,15 @@
   width: 400px;
 }
 
+.btn-order-show {
+  margin: 10px 0;
+  float: right;
+}
+
 @media screen and (max-width:1000px) {
   .btn-primary.btn-homepage {
      margin: 2em auto 0 auto;
+     font-size: 18px;
    }
   .btn-outline-primary, .btn-outline-primary:hover {
     padding: 8px;

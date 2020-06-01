@@ -8,15 +8,15 @@
         </svg>
       </div>
       <div id="order-validation-text">
-        <h1>Votre panier a été validé !</h1>
-        <h3>Il sera disponible Vendredi de 17h à 19h à la ferme des Mayères</h3>
-        <%= button_to "Retour à l'accueil", root_path, method: :get, class: "btn btn-primary btn-centered" %>
+        <h4> <span class="emoji"> &#x1F389 </span>Votre panier a été validé !</h4>
+        <p>Il sera disponible Vendredi de 17h à 19h à la ferme des Mayères.</p>
+        <%= button_to "Retour à l'accueil", root_path, method: :get, class: "btn btn-primary btn-outline-primary btn-order-show" %>
       </div>
     </div>
   <% end %>
 
-  <div class="card_form">
-    <h1><i class="fas fa-shopping-basket fa-gray"></i> Votre panier</h1>
+  <div class="card_form cart-title">
+    <h2>Votre panier</h2>
     <%= render "cart" %>
   </div>
 
