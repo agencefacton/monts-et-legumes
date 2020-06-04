@@ -53,7 +53,7 @@
 
     <% category.products.without_subcategory.ordered.each do |product| %>
 
-        <div class="product-line">
+        <div class="<%= product.active ? 'product-line green-border' : 'product-line' %>">
           <div class="product-icon">
             <% if product.photo.present? %>
               <%= cl_image_tag product.photo, class: "avatar-bordered" %>
