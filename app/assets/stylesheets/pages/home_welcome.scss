@@ -23,12 +23,14 @@
   color: #32B796;
   font-size: 30px;
   display: block;
+  text-align: center;
 }
 
-.intro-welcome-subtitle {
+#welcomesubtitle {
   font-weight: 700;
   font-size: 30px;
   color: $grayheaders;
+  text-align: center;
 }
 
 .introwelcomeblock {
