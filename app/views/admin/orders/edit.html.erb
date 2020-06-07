@@ -4,7 +4,7 @@
   <% @categories.each do |category| %>
     <h2><%= category.name %></h2>
 
-    <% category.products.each do |product| %>
+    <% category.products.ordered.each do |product| %>
         <div class="product-line">
           <div>
           <% if product.photo.present? %>

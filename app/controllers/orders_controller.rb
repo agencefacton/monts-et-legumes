@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 
   def show
     @user = User.find(@order.user_id)
-    @product_orders = @order.product_orders
+    @product_orders = @order.product_orders.ordered
   end
 
   def update

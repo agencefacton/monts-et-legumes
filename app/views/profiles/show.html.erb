@@ -1,10 +1,10 @@
 <div class="container">
 
-  <h1><span class="flex-title"><i class="fas fa-users fa-gray"></i>Mon profil</span>
+  <h1><span class="flex-title">Mon profil</span>
       <span class="flex-add"><%= link_to "Editer mon profil", edit_profile_path %></span>
   </h1>
 
   <h2><%= current_user.first_name %> <%= current_user.last_name %> </h2>
-  <p><i class="far fa-envelope fa-gray"></i> <%= current_user.email %><p>
-  <p><i class="fas fa-phone fa-gray"></i> <%= current_user.phone_number %></p>
+  <p><b>Email : </b><%= current_user.email %><p>
+  <p><b>Téléphone : </b><%= current_user.phone_number %></p>
 </div>

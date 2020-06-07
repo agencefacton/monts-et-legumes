@@ -1,5 +1,6 @@
 class ProductOrder < ApplicationRecord
   belongs_to :product
+  belongs_to :category
   belongs_to :order, touch: true
   validates :quantity, numericality: { greater_than_or_equal_to: 0 }
   validates :quantity, numericality: { only_integer: true }, if: :integer_unit

@@ -1,8 +1,18 @@
-.welcome {
+#welcome {
+  background: $background;
+  background-image: image-url("grass.svg");
+  background-position: bottom;
+  background-repeat: repeat-x;
+  text-align: center;
+  padding-top: 100px;
+}
+
+
+#welcome-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 40px auto;
   color: $grayheaders;
 }
 
@@ -16,29 +26,24 @@
 
 .welcome-right {
   width: 650px;
+  text-align: left;
+  p {
+    font-size: 22px;
+    line-height: 40px;
+  }
 }
 
 #welcometitle {
   font-family: 'Pacifico';
-  color: #32B796;
-  font-size: 30px;
+  color: $green;
+  font-size: 45px;
   display: block;
-  text-align: center;
 }
 
 #welcomesubtitle {
   font-weight: 700;
   font-size: 30px;
   color: $grayheaders;
-  text-align: center;
-}
-
-.introwelcomeblock {
-  margin: 20px 0 0 0;
-  p {
-    font-size: 20px;
-    line-height: 34px;
-  }
 }
 
 .introiconwrapper {
@@ -79,14 +84,6 @@
 
 
 
-
-.graybackground {
-  background: $background;
-  padding: 140px 5% 20px 5%;
-  background-image: image-url("grass.svg");
-  background-position: bottom;
-  background-repeat: repeat-x;
-}
 
 
 @media screen and (max-width:1000px) {

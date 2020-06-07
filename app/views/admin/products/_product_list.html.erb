@@ -1,11 +1,9 @@
 <% @categories.each do |category| %>
 
-  <h2><%= category.name %>
-    <span class="flex-add">
-      <%= link_to "Tout activer", activate_products_admin_category_path(category), method: :post %>
-      <%= link_to "Tout désactiver", deactivate_products_admin_category_path(category), method: :post %>
-    <span>
-  </h2>
+  <h2><%= category.name %> </h2>
+      <%= link_to "Activer toute la catégorie", activate_products_admin_category_path(category), method: :post %> <br>
+      <%= link_to "Désactiver toute la catégorie", deactivate_products_admin_category_path(category), method: :post %>
+
 
     <% category.subcategories.ordered.each do |subcategory| %>
       <h3><%= subcategory.name %></h3>
@@ -34,7 +32,7 @@
 
             <%= link_to "Editer", edit_admin_product_path(product) %>
             <% if product.active? %>
-              <%= link_to "Désactiver", toggle_active_admin_product_path(product) %>
+              <%= link_to "Désactiver", toggle_active_admin_product_path(product), remote: :true %>
             <% else %>
               <span class="activate_product"> <%= link_to "Activer", toggle_active_admin_product_path(product) %></span>
             <% end %>
