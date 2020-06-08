@@ -1,0 +1,5 @@
+var productsList = document.querySelector('#products-list');
+productsList.innerHTML = "<%= j render 'product_list' %>";
+
+var event = new Event('attachEvents');
+document.dispatchEvent(event);

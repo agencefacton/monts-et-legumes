@@ -6,11 +6,16 @@
       <h2><%= category.name %></h2>
 
         <ul>
+          <% if category.subcategories.empty? %>
+            <p>Pas de sous-catégorie</p>
+          <% end %>
           <% category.subcategories.ordered.each do |subcategory| %>
             <li><%= subcategory.name %> -
                 Classement : <%= subcategory.order %>
                 <%= link_to "- Editer ", edit_admin_subcategory_path(subcategory) %>
-                <%= link_to " - Supprimer", admin_subcategory_path(subcategory), method: :delete  %>
+                <% if subcategory.products.empty? %>
+                  <%= link_to " - Supprimer", admin_subcategory_path(subcategory), method: :delete  %>
+                <% end %>
             </li>
           <% end %>
         </ul>

@@ -1,0 +1,15 @@
+<div id="cart">
+  <% if @product_orders.blank? %>
+      <p>Le panier est vide</p>
+  <% else %>
+    <table>
+      <% @product_orders.each do |product_order| %>
+        <tr>
+          <%= render 'product_orders/show', product_order: product_order, order: @order %>
+        </tr>
+      <% end %>
+    </table>
+
+    <h4>Prix total du panier : <%= @order.reload.total_price %> €</h4>
+  <% end %>
+</div>

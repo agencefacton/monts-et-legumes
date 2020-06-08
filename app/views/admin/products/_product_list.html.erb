@@ -1,6 +1,9 @@
 <% @categories.each do |category| %>
 
-  <h2><%= category.name %></h2> <%= link_to "Tout activer", activate_products_admin_category_path(category), method: :post %>
+  <h2><%= category.name %> </h2>
+      <%= link_to "Activer toute la catégorie", activate_products_admin_category_path(category), method: :post %> <br>
+      <%= link_to "Désactiver toute la catégorie", deactivate_products_admin_category_path(category), method: :post %>
+
 
     <% category.subcategories.ordered.each do |subcategory| %>
       <h3><%= subcategory.name %></h3>
@@ -10,7 +13,7 @@
       <% end %>
 
       <% subcategory.products.ordered.each do |product| %>
-        <div class="product-line">
+        <div class="<%= product.active ? 'product-line green-border' : 'product-line' %>">
           <div class="product-icon">
             <% if product.photo.present? %>
               <%= cl_image_tag product.photo, class: "avatar-bordered" %>
@@ -29,7 +32,7 @@
 
             <%= link_to "Editer", edit_admin_product_path(product) %>
             <% if product.active? %>
-              <%= link_to "Désactiver", toggle_active_admin_product_path(product) %>
+              <%= link_to "Désactiver", toggle_active_admin_product_path(product), remote: :true %>
             <% else %>
               <span class="activate_product"> <%= link_to "Activer", toggle_active_admin_product_path(product) %></span>
             <% end %>
@@ -48,7 +51,7 @@
 
     <% category.products.without_subcategory.ordered.each do |product| %>
 
-        <div class="product-line">
+        <div class="<%= product.active ? 'product-line green-border' : 'product-line' %>">
           <div class="product-icon">
             <% if product.photo.present? %>
               <%= cl_image_tag product.photo, class: "avatar-bordered" %>

@@ -14,8 +14,8 @@
         <% if current_user.admin? %>
           <%= link_to "Admin", admin_selling_ranges_path %>
         <% end %>
-        <%= link_to "Commandes", orders_path %>
-        <%= link_to "Profil", profile_path %>
+        <%= link_to "Mes commandes", orders_path %>
+        <%= link_to "Mon profil", profile_path %>
         <% if current_order.product_orders.count > 0 && current_order.status == 0 %>
           <%= link_to destroy_user_session_path, method: :delete, data: {confirm: "Attention, votre commande n'est pas validée ! Voulez-vous vraiment vous déconnecter ?"} do %>
             <i class="fas fa-power-off"></i>

@@ -1,8 +1,6 @@
-<div id="cart">
+<div id="small-cart-content">
   <% if @product_orders.blank? %>
-    <div id="no_item_expl">
       <p>Le panier est vide</p>
-    </div>
   <% else %>
     <table>
       <% @product_orders.each do |product_order| %>
@@ -12,6 +10,5 @@
       <% end %>
     </table>
 
-    <h4>Prix total du panier : <%= @order.reload.total_price %> €</h4>
   <% end %>
 </div>

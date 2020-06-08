@@ -7,11 +7,11 @@ class OrdersController < ApplicationController
 
   def show
     @user = User.find(@order.user_id)
-    @product_orders = @order.product_orders
+    @product_orders = @order.product_orders.ordered
   end
 
   def update
-    if order_params[:status].to_i == 1
+    if order_params[:status] == 'validated'
       @order.update(order_params)
       @order.save
       redirect_to order_path
@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 
   def reset_status
     if (@order.user == current_user && @order.selling_range == current_selling_range)
-      @order.status = 0
+      @order.status = "pending"
       @order.save
       flash[:notice] = "Attention, votre commande doit être validée à nouveau pour être prise en compte"
       redirect_to products_path

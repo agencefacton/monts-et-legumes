@@ -1,6 +1,6 @@
 #where {
-  margin: 240px auto 150px auto;
-  padding: 0 10%;
+  max-width: 1500px;
+  margin: 280px auto 150px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,13 +8,12 @@
 
 .place-to-find {
   padding: 30px;
-  background: $white;
+  background: white;
   height: 400px;
   max-width: 380px;
   text-align: center;
   position: relative;
-  box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.08);
-  border-color: $grayborder $grayborder $green $grayborder;
+  box-shadow: 0 5px 50px 0 rgba(87,126,88,0.08);
   border-bottom: 10px solid $green;
   margin: 0 5px;
 }
@@ -30,7 +29,7 @@
   padding: 20px;
   border-radius: 50%;
   position: absolute;
-  background: $white;
+  background: white;
   border: 2px solid $green;
   top: -50px;
   left: calc(50% - 50px);

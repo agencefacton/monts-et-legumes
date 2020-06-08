@@ -1,8 +1,9 @@
 <div class="container">
 
-  <h1><span class="flex-title"><i class="fas fa-hourglass-half fa-gray"></i>Plages de vente</span>
-      <span class="flex-add"><%= link_to "Ajouter une plage de vente", new_admin_selling_range_path %></span>
-  </h1>
+  <div class="admin-title">
+    <span class="flex-title"><h1>Plages de vente</h1></span>
+    <span class="flex-add"><%= button_to "Ajouter une plage de vente", new_admin_selling_range_path, method: :get, class: "btn btn-primary" %></span>
+  </div>
 
   <table class="admin-table">
     <tr>

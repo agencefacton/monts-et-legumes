@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   has_many :product_orders, dependent: :destroy
   has_many :orders, through: :product_orders
   has_many :sales
+  has_many :users, through: :orders
   belongs_to :category
   belongs_to :subcategory, optional: true
 
@@ -31,13 +32,20 @@ class Product < ApplicationRecord
     end
   end
 
+  def self.deactivate_for(category)
+    where(category: category).each do |product|
+      product.update(active: false)
+    end
+  end
+
   def has_orders?
     orders.present?
   end
 
   def product_orders_for(selling_range)
-    product_orders.joins(:order)
+    product_orders.joins(order: :user)
                   .where("orders.selling_range_id = ? AND orders.status = ?", selling_range.id, 1)
+                  .order("users.last_name")
   end
 
   def general_sales_for

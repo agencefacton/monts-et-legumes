@@ -63,22 +63,20 @@
   </div>
 </div>
 
-<div class="graybackground">
+<div id="welcome">
+  <span id="welcometitle">Bienvenue !</span>
+  <span id="welcomesubtitle">Découvrez le GAEC Monts et Légumes</span>
 
-  <div class="welcome">
+  <div id="welcome-content">
     <div class="welcome-left">
         <%= image_tag ( "les-stars.jpg") %>
     </div>
 
     <div class="welcome-right">
-      <span id="welcometitle">Bienvenue !</span>
-      <span class="intro-welcome-subtitle">Découvrez le GAEC Monts et Légumes</span>
 
-      <div class="introwelcomeblock">
-        <p>Nous sommes Margaux et Clément. Installés en maraîchage en agriculture biologique dans les monts du Lyonnais depuis 2017, nous vendons la totalité de nos légumes en vente directe.</br> Nous produisons toute l'année des légumes de saison avec le souci de limiter au maximum notre impact sur notre environnement.</p>
-        <p>
-        Sur ce site, vous pouvez commander nos légumes. Nous vous proposons aussi plusieurs autres produits issus de fermes voisines. </br> La réception des commandes se fait le vendredi soir à la ferme, sur la commune de Haute-Rivoire.</p>
-      </div>
+      <p>Nous sommes Margaux et Clément. Installés en maraîchage en agriculture biologique dans les monts du Lyonnais depuis 2017, nous vendons la totalité de nos légumes en vente directe. Nous produisons toute l'année des légumes de saison avec le souci de limiter au maximum notre impact sur notre environnement.</p>
+      <p>
+      Sur ce site, vous pouvez commander nos légumes. Nous vous proposons aussi plusieurs autres produits issus de fermes voisines. La réception des commandes se fait le vendredi soir à la ferme, sur la commune de Haute-Rivoire.</p>
     </div>
   </div>
 
@@ -87,77 +85,76 @@
     <p>Tous nos légumes sont certifiés Agriculture Biologique</p>
   </div>
 
+</div>
 
+<div class="whitecard" id="people">
 
-  <div class="whitecard" id="people">
-
-    <div id="peoplebtn">
-      <span class="button1 btnactive"><i class="fab fa-pagelines"></i></span>
-      <span class="button2"><i class="fas fa-tractor"></i></span>
-      <span class="button3"><i class="fas fa-bug"></i></span>
-      <span class="button4"><i class="fas fa-users"></i></span>
-      <span class="button5"><i class="fas fa-shopping-basket"></i></span>
-    </div>
-
-    <div class="slide1 slide active">
-      <div class="peopletxt">
-        <h1>Notre ferme</h1>
-        <p>Sur un peu plus de 2 hectares de terres, qui nous ont été cédées par un couple d'éleveurs, nous cultivons des légumes diversifiés en Agriculture Biologique. Nous produisons toute l'année des légumes qui suivent les saisons, notamment grâce à nos serres non chauffées qui nous permettent de cultiver en hiver et au début du printemps. </p>
-      </div>
-
-      <div class="peoplepic">
-        <%= image_tag("hp-slide1.jpg")%>
-      </div>
-    </div>
-
-    <div class="slide2 slide">
-      <div class="peopletxt">
-        <h1>Nos pratiques</h1>
-        <p>Dans un souci agronomique et pour le respect de la vie du sol, nous travaillons en non-labour (planches permanentes). Nous avons équipé notre tracteur avec des outils auto-construits ou adaptés à nos besoins. Hormis le travail du sol, la plupart des tâches que nous effectuons se font à la main. </p>
-      </div>
-
-      <div class="peoplepic">
-        <%= image_tag("hp-slide2.jpg")%>
-      </div>
-    </div>
-
-    <div class="slide3 slide">
-      <div class="peopletxt">
-        <h1>Nos pratiques</h1>
-        <p>La biodiversité est une alliée essentielle dans notre travail. Nous préservons des zones où les auxiliaires peuvent se développer : larve de coccinelle contre puceron / punaise macrolophus contre l'aleurode, etc. Lorsque cela ne suffit pas, nous mettons en place des méthodes de lutte sans traitements de synthèse (filets, bactéries, etc.)</p>
-      </div>
-
-      <div class="peoplepic">
-        <%= image_tag("hp-slide3.jpg")%>
-      </div>
-    </div>
-
-    <div class="slide4 slide">
-      <div class="peopletxt">
-        <h1>Notre environnement social</h1>
-        <p>Notre vécu nous pousse à entretenir des liens sociaux forts : entraide avec les éleveurs situés sur le même lieu que nous, proximité avec les consommateurs via la vente directe et implication dans les associations de développement locales.</p>
-      </div>
-
-      <div class="peoplepic">
-        <%= image_tag("hp-slide4.jpg")%>
-      </div>
-    </div>
-
-    <div class="slide5 slide">
-      <div class="peopletxt">
-        <h1>Comment marchent les commandes ?</h1>
-        <p>Les commandes ont lieu chaque semaine. Vous avez jusqu'au mercredi minuit pour enregistrer votre commande sur le site. Nous récoltons et préparons vos légumes le jeudi. Les autres producteurs nous amènent leurs produits avant le vendredi soir et vous passez récupérer votre commande à la ferme, au lieu dit Les Mayères à Haute-Rivoire. La distribution se fait de 17h à 19h.</p>
-        <p>Pour passer votre commande, vous devez d'abord vous identifier. Pour cela, créez un compte à l'aide de votre email et d'un mot de passe.</p>
-      </div>
-
-      <div class="peoplepic">
-        <%= image_tag("hp-slide5.jpg")%>
-      </div>
-    </div>
-
+  <div id="peoplebtn">
+    <span class="button1 btnactive">Notre ferme</span>
+    <span class="button2">Nos pratiques</span>
+    <span class="button3">Biodiversité</span>
+    <span class="button4">Notre environnement</span>
+    <span class="button5">Commandes</span>
   </div>
 
+  <div class="slide1 slide active">
+    <div class="peopletxt">
+      <h1>Notre ferme</h1>
+      <p>Sur un peu plus de 2 hectares de terres, qui nous ont été cédées par un couple d'éleveurs, nous cultivons des légumes diversifiés en Agriculture Biologique. Nous produisons toute l'année des légumes qui suivent les saisons, notamment grâce à nos serres non chauffées qui nous permettent de cultiver en hiver et au début du printemps. </p>
+    </div>
+
+    <div class="peoplepic">
+      <%= image_tag("hp-slide1.jpg")%>
+    </div>
+  </div>
+
+  <div class="slide2 slide">
+    <div class="peopletxt">
+      <h1>Nos pratiques</h1>
+      <p>Dans un souci agronomique et pour le respect de la vie du sol, nous travaillons en non-labour (planches permanentes). Nous avons équipé notre tracteur avec des outils auto-construits ou adaptés à nos besoins. Hormis le travail du sol, la plupart des tâches que nous effectuons se font à la main. </p>
+    </div>
+
+    <div class="peoplepic">
+      <%= image_tag("hp-slide2.jpg")%>
+    </div>
+  </div>
+
+  <div class="slide3 slide">
+    <div class="peopletxt">
+      <h1>Biodiversité</h1>
+      <p>La biodiversité est une alliée essentielle dans notre travail. Nous préservons des zones où les auxiliaires peuvent se développer : larve de coccinelle contre puceron / punaise macrolophus contre l'aleurode, etc. Lorsque cela ne suffit pas, nous mettons en place des méthodes de lutte sans traitements de synthèse (filets, bactéries, etc.)</p>
+    </div>
+
+    <div class="peoplepic">
+      <%= image_tag("hp-slide3.jpg")%>
+    </div>
+  </div>
+
+  <div class="slide4 slide">
+    <div class="peopletxt">
+      <h1>Notre environnement social</h1>
+      <p>Notre vécu nous pousse à entretenir des liens sociaux forts : entraide avec les éleveurs situés sur le même lieu que nous, proximité avec les consommateurs via la vente directe et implication dans les associations de développement locales.</p>
+    </div>
+
+    <div class="peoplepic">
+      <%= image_tag("hp-slide4.jpg")%>
+    </div>
+  </div>
+
+  <div class="slide5 slide">
+    <div class="peopletxt">
+      <h1>Comment marchent les commandes ?</h1>
+      <p>Les commandes ont lieu chaque semaine. Vous avez jusqu'au mercredi minuit pour enregistrer votre commande sur le site. Nous récoltons et préparons vos légumes le jeudi. Les autres producteurs nous amènent leurs produits avant le vendredi soir et vous passez récupérer votre commande à la ferme, au lieu dit Les Mayères à Haute-Rivoire. La distribution se fait de 17h à 19h.<br> Pour passer votre commande, vous devez d'abord vous identifier. Pour cela, créez un compte à l'aide de votre email et d'un mot de passe.</p>
+    </div>
+
+    <div class="peoplepic">
+      <%= image_tag("hp-slide5.jpg")%>
+    </div>
+  </div>
+
+
 </div>
+
 
 <div id="where">
   <div class="place-to-find">
@@ -194,7 +191,7 @@
   </div>
 </div>
 
-<div class="homepage-bottom">
+<div id="homepage-bottom">
 
   <h1>En direct des Mayères</h1>
 

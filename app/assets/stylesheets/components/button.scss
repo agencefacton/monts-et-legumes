@@ -1,7 +1,6 @@
 .btn-primary {
   background-color: $green;
   border-color: $green;
-  border-radius: 10px;
   color: $white;
   padding: 8px 20px;
   margin: 15px 0;
@@ -10,17 +9,18 @@
 .btn-primary:hover {
   border-color: $green;
   background-color: $green;
-  transition: 0.3s ease;
-  position: relative;
-  bottom: 1px;
-  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+  box-shadow: 0 15px 35px rgba(87,126,88,.05), 0 2px 4px rgba(0,0,0,.03);
 }
 
 .btn-primary.btn-homepage {
   padding: 18px 32px;
-  font-size: 1.3em;
+  font-size: 20px;
   font-weight: 600;
   margin: 2em 0;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  position: relative;
+  bottom: 1px;
 }
 
 .button-prev, .button-next {
@@ -38,11 +38,6 @@
   padding: 8px 20px;
 }
 
-.btn-home {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0 40px 0;
-}
 
 .btn-centered {
   background-color: transparent;
@@ -72,9 +67,20 @@
   margin-right: 30px;
 }
 
+.btn-small-cart {
+  font-weight: 800;
+  width: 400px;
+}
+
+.btn-order-show {
+  margin: 10px 0;
+  float: right;
+}
+
 @media screen and (max-width:1000px) {
   .btn-primary.btn-homepage {
      margin: 2em auto 0 auto;
+     font-size: 18px;
    }
   .btn-outline-primary, .btn-outline-primary:hover {
     padding: 8px;
