@@ -39,9 +39,9 @@ module Admin
     end
 
     def toggle_active
+      @categories = Category.order(id: :asc)
       @product.active = !@product.active
       @product.save
-      redirect_to admin_products_path
     end
 
     def deactivate_for
