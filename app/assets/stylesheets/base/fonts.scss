@@ -28,7 +28,6 @@ h1 {
   font-size: 22px;
   padding: 25px 0 10px 0;
   font-weight: 800;
-  border-bottom: 1px solid $grayborder;
 }
 
 h2 {
@@ -45,6 +44,7 @@ h3 {
 a, a:hover {
   color: $green;
   text-decoration: none;
+  margin: 0 3px;
 }
 
 img {
