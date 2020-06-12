@@ -7,7 +7,8 @@
   width: 60%;
   background: white;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 3px;
+  margin-bottom: 30px;
   h2:first-of-type {
     margin-top: 0;
   }
@@ -26,10 +27,12 @@
 
   #product_index_left {
     width: 100%;
+    margin: 5px 5px 30px 5px;
   }
 
   #product_index_right {
     width: 100%;
+    margin: 5px;
   }
 
   .products-index #small-cart {
