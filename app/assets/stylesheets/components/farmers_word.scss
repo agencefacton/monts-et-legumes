@@ -1,6 +1,6 @@
 #farmers_word {
   background: white;
-  border-radius: 15px;
+  border-radius: 3px;
   padding: 30px;
   margin-bottom: 30px;
   h2 {
@@ -11,4 +11,10 @@
 #farmers-txt {
   padding-left: 15px;
   border-left: 2px solid $grayborder;
+}
+
+@media screen and (max-width:1000px) {
+  #farmers_word {
+    margin: 0 5px 30px 5px;
+}
 }
