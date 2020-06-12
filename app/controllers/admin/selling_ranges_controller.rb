@@ -29,7 +29,7 @@ module Admin
     end
 
     def show
-      @orders = Order.where(selling_range: @selling_range, status: 1)
+      @orders = Order.where(selling_range: @selling_range).validated
       @pending_orders = @selling_range.orders.includes(:user).pending.not_empty
     end
 
