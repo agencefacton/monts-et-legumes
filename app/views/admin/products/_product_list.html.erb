@@ -13,7 +13,8 @@
       <% end %>
 
       <% subcategory.products.ordered.each do |product| %>
-        <div class="<%= product.active ? 'product-line green-border' : 'product-line' %>">
+        <div class="<%= product.active ? 'product-line green-border' : 'product-line' %>" style= 'position:relative'>
+          <%= link_to "", toggle_active_admin_product_path(product), remote: true, style: 'position:absolute; left:0; right:0; top:0; bottom:0'%>
           <div class="product-icon">
             <% if product.photo.present? %>
               <%= cl_image_tag product.photo, class: "avatar-bordered" %>
@@ -30,14 +31,14 @@
               <span class="text-small"><%= product.description %></span>
             </div>
 
-            <%= link_to "Editer", edit_admin_product_path(product) %>
+            <%= link_to "Editer", edit_admin_product_path(product), style: 'z-index:1000' %>
             <% if product.active? %>
-              <%= link_to "Désactiver", toggle_active_admin_product_path(product), remote: :true %>
+              <%= link_to "Désactiver", toggle_active_admin_product_path(product), remote: true %>
             <% else %>
-              <span class="activate_product"> <%= link_to "Activer", toggle_active_admin_product_path(product) %></span>
+              <span class="activate_product"> <%= link_to "Activer", toggle_active_admin_product_path(product), remote: true %></span>
             <% end %>
             <% if !product.has_orders? %>
-              <%= link_to " Supprimer", admin_product_path(product), method: :delete  %>
+              <%= link_to "Supprimer", admin_product_path(product), method: :delete, style: 'z-index:1000' %>
             <% end %>
           </div>
         </div>
@@ -51,7 +52,8 @@
 
     <% category.products.without_subcategory.ordered.each do |product| %>
 
-        <div class="<%= product.active ? 'product-line green-border' : 'product-line' %>">
+        <div class="<%= product.active ? 'product-line green-border' : 'product-line' %>" style= 'position:relative'>
+          <%= link_to "", toggle_active_admin_product_path(product), remote: true, style: 'position:absolute; left:0; right:0; top:0; bottom:0'%>
           <div class="product-icon">
             <% if product.photo.present? %>
               <%= cl_image_tag product.photo, class: "avatar-bordered" %>
@@ -68,14 +70,14 @@
               <span class="text-small"><%= product.description %></span>
             </div>
 
-            <%= link_to "Editer", edit_admin_product_path(product) %>
+            <%= link_to "Editer", edit_admin_product_path(product), style: 'z-index:1000' %>
             <% if product.active? %>
-              <%= link_to "Désactiver", toggle_active_admin_product_path(product) %>
+              <%= link_to "Désactiver", toggle_active_admin_product_path(product), remote: true %>
             <% else %>
-              <span class="activate_product"> <%= link_to "Activer", toggle_active_admin_product_path(product) %></span>
+              <span class="activate_product"> <%= link_to "Activer", toggle_active_admin_product_path(product), remote: true %></span>
             <% end %>
             <% if !product.has_orders? %>
-              <%= link_to " Supprimer", admin_product_path(product), method: :delete  %>
+              <%= link_to "Supprimer", admin_product_path(product), method: :delete, style: 'z-index:1000'  %>
             <% end %>
           </div>
         </div>

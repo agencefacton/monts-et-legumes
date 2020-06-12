@@ -1,6 +1,6 @@
 <% if @post.content? %>
   <h2>Actualités</h2>
   <div id="farmers-txt">
-    <%= @post.content.html_safe %>
+    <%= simple_format(@post.content) %>
   </div>
 <% end %>
