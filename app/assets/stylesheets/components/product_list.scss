@@ -23,6 +23,7 @@
   border-bottom: 1px solid $grayborder;
   margin-bottom: 15px;
   border-radius: 3px;
+  z-index: -1;
   transition: 0.5s all cubic-bezier(0.21, 1.05, 0.24, 1.41);
   input[type="number" i] {
     border: none !important;
