@@ -13,6 +13,8 @@
         <%= button_to "Retour à l'accueil", root_path, method: :get, class: "btn btn-primary btn-outline-primary btn-order-show" %>
       </div>
     </div>
+  <% else %>
+    <h1>Commande du <%= current_order.created_at.strftime("%d-%m-%Y") %></h1>
   <% end %>
 
   <div class="card_form cart-title">

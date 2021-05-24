@@ -6,7 +6,7 @@
   <p>Les clients suivants n'ont pas finalisé leur commande :</p>
   <ul>
     <% @pending_orders.each do |pending_order| %>
-        <li><%= pending_order.user.first_name %> <%= pending_order.user.last_name %></li>
+        <li><%= pending_order.user.first_name %> <%= pending_order.user.last_name %> : <%= pending_order.user.phone_number %> / <%= pending_order.user.email %></li>
       <% end %>
     <% end %>
   </ul>

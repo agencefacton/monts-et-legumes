@@ -24,7 +24,7 @@ module Admin
     end
 
     def update
-      if order_params[:status].to_i == "validated"
+      if order_params[:status] == "validated"
         @order.update(order_params)
         @order.save
         redirect_to admin_order_path
@@ -32,7 +32,7 @@ module Admin
         @order.product_orders.destroy_all
         @order.update(order_params)
         @order.save
-        redirect_to products_path
+        redirect_to admin_users_path
       end
     end
 
