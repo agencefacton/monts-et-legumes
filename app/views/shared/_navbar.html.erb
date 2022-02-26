@@ -14,6 +14,7 @@
         <% if current_user.admin? %>
           <%= link_to "Admin", admin_selling_ranges_path %>
         <% end %>
+        <%= link_to t(".sign_in", default: "Contact"), '', data: { toggle: 'modal', target: '#contactModal'} %>
         <%= link_to "Mes commandes", orders_path %>
         <%= link_to "Mon profil", profile_path %>
         <% if current_order.product_orders.count > 0 && current_order.status == 0 %>
