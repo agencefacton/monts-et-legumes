@@ -1,6 +1,6 @@
 if Rails.env.production?
   ActionMailer::Base.smtp_settings = {
-    username: "apikey",
+    user_name: "apikey",
     password: ENV['SENDGRID_API_KEY'],
     domain: 'http://monts-et-legumes.fr',
     address: 'smtp.sendgrid.net',
