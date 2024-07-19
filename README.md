@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Cette application est conçue pour le GAEC Monts & Légumes.
+Elle est développée en Ruby On Rails.
 
-Things you may want to cover:
+## Contact
 
-* Ruby version
+Pour toute question ou aide supplémentaire, veuillez contacter :
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **Nom** : Agence Facton
+- **Email** : fabien@agence-facton.fr
+- **GitHub** : https://github.com/agencefacton/
